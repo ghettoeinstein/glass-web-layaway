@@ -1,10 +1,13 @@
 package main
 
 import (
+	"./controllers"
+	"./data"
+	"./models"
 	"./random"
 	"encoding/json"
 	"github.com/gorilla/mux"
-
+	"gopkg.in/mgo.v2/bson"
 	"html/template"
 	"log"
 	"net/http"
@@ -50,9 +53,12 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 		Expired:     false,
 	}
 
-	err = saveOrder(order)
+	orderSavedToDatabase := make(chan struct{})
+	err = saveOrder(order, orderSavedToDatabase)
 	if err != nil {
-		renderTemplate(w, "glass", "base", nil)
+
+		log.Println(err)
+		renderTemplate(w, "glass", "base", err.Error())
 		return
 	}
 
@@ -70,7 +76,19 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func saveOrder(order *Order) error {
+func saveOrder(order *Order, done chan struct{}) (err error) {
+	context := controllers.NewContext()
+	defer context.Close()
+
+	c := context.DbCollection("web_orders")
+	repo := &data.OrderRepository{c}
+	sampleOrder := &models.Order{Id: bson.NewObjectId()}
+
+	log.Println("About to save to database")
+	if err = repo.NewOrder(sampleOrder); err != nil {
+		log.Fatalf(err.Error())
+	}
+
 	return nil
 }
 

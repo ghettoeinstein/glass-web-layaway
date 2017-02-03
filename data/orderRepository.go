@@ -48,7 +48,9 @@ func (r *OrderRepository) CreateOrderForUser(user *models.User) (order *models.O
 }
 
 func (r *OrderRepository) NewOrder(order *models.Order) (err error) {
+	now := time.Now()
 	order.CreatedAt = time.Now()
+	order.UpdatedAt = tiem.Now()
 	err = r.C.Insert(&order)
 	return
 }
@@ -67,14 +69,15 @@ func (r *OrderRepository) Update(order *models.Order) (err error) {
 
 	err = r.C.Update(bson.M{"_id": order.Id},
 		bson.M{"$set": bson.M{
-			"items":            order.Items,
-			"shipped":          order.Shipped,
-			"shipping_address": order.ShippingAddress,
-			"trackingNumber":   order.TrackingNumber,
-			"total":            order.Total,
-			"tax_rate":         order.TaxRate,
-			"email":            order.Email,
-
+			"expired":             order.Expired,
+			"items":               order.Items,
+			"shipped":             order.Shipped,
+			"shipping_address":    order.ShippingAddress,
+			"trackingNumber":      order.TrackingNumber,
+			"total":               order.Total,
+			"tax_rate":            order.TaxRate,
+			"email":               order.Email,
+			"uuid":                order.UUID,
 			"first_payment_due":   order.FirstPaymentDue,
 			"first_payment_paid":  order.FirstPaymentPaid,
 			"second_payment_due":  order.SecondPaymentDue,
@@ -85,7 +88,7 @@ func (r *OrderRepository) Update(order *models.Order) (err error) {
 			"balance":             order.Balance,
 			"total_fmt":           order.TotalFmt,
 			"monthly_payment_fmt": order.MonthlyPaymentFmt,
-
+			"url":        order.URL,
 			"updated_at": time.Now(),
 		}})
 

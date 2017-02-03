@@ -169,3 +169,69 @@
 "}
 2017/02/03 02:05:49 API is Listening on:  0.0.0.0:9090
 2017/02/03 02:06:26 API is Listening on:  0.0.0.0:9090
+2017/02/03 02:25:49 API is Listening on:  0.0.0.0:9090
+2017/02/03 02:26:52 API is Listening on:  0.0.0.0:9090
+2017/02/03 02:27:26 API is Listening on:  0.0.0.0:9090
+2017/02/03 02:29:10 API is Listening on:  0.0.0.0:9090
+2017/02/03 02:29:29 starting post
+2017/02/03 02:29:29 no errors
+2017/02/03 02:29:29 New web application submission by  http://localhost:9090/admin/orders/CB725230-0B06-4E72-9A9B-5CCFC4CD4772
+
+2017/02/03 02:29:29 {"text":"New web application submission by  http://localhost:9090/admin/orders/CB725230-0B06-4E72-9A9B-5CCFC4CD4772
+"}
+2017/02/03 02:40:52 starting post
+2017/02/03 02:40:52 no errors
+2017/02/03 02:40:52 New web application submission by  http://localhost:9090/admin/orders/7E219813-128A-47A3-9B6C-8EC888D66696
+
+2017/02/03 02:40:52 {"text":"New web application submission by  http://localhost:9090/admin/orders/7E219813-128A-47A3-9B6C-8EC888D66696
+"}
+2017/02/03 02:45:22 API is Listening on:  0.0.0.0:9090
+2017/02/03 02:48:50 API is Listening on:  0.0.0.0:9090
+2017/02/03 02:59:44 API is Listening on:  0.0.0.0:9090
+2017/02/03 02:59:44 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/03 02:59:50 API is Listening on:  0.0.0.0:9090
+2017/02/03 03:00:01 starting post
+2017/02/03 03:00:01 no errors
+2017/02/03 03:00:53 API is Listening on:  0.0.0.0:9090
+2017/02/03 03:00:59 starting post
+2017/02/03 03:00:59 no errors
+2017/02/03 03:02:07 API is Listening on:  0.0.0.0:9090
+2017/02/03 03:02:14 starting post
+2017/02/03 03:02:14 no errors
+2017/02/03 03:03:06 API is Listening on:  0.0.0.0:9090
+2017/02/03 03:03:11 starting post
+2017/02/03 03:03:11 no errors
+2017/02/03 03:04:01 API is Listening on:  0.0.0.0:9090
+2017/02/03 03:04:09 starting post
+2017/02/03 03:04:09 no errors
+2017/02/03 03:04:09 About to save to database
+2017/02/03 03:05:46 API is Listening on:  0.0.0.0:9090
+2017/02/03 03:05:52 starting post
+2017/02/03 03:05:52 no errors
+2017/02/03 03:05:52 About to save to database
+2017/02/03 03:06:36 API is Listening on:  0.0.0.0:9090
+2017/02/03 03:06:40 starting post
+2017/02/03 03:06:40 no errors
+2017/02/03 03:06:40 About to save to database
+2017/02/03 03:06:40 New web application submission by  http://localhost:9090/admin/orders/80666F5C-D8D4-4655-A5D3-69A55AF39CF4
+
+2017/02/03 03:06:40 {"text":"New web application submission by  http://localhost:9090/admin/orders/80666F5C-D8D4-4655-A5D3-69A55AF39CF4
+"}
+2017/02/03 03:12:56 API is Listening on:  0.0.0.0:9090
+2017/02/03 03:26:47 API is Listening on:  0.0.0.0:9090
+2017/02/03 03:26:53 starting post
+2017/02/03 03:26:53 no errors
+2017/02/03 03:26:53 About to save to database
+2017/02/03 03:26:53 New web application submission by  http://localhost:9090/admin/orders/4C9DF3B5-8D2E-4602-8D10-F9EAFC9EC30B
+
+2017/02/03 03:26:53 {"text":"New web application submission by  http://localhost:9090/admin/orders/4C9DF3B5-8D2E-4602-8D10-F9EAFC9EC30B
+"}
+2017/02/03 03:36:19 starting post
+2017/02/03 03:36:19 no errors
+2017/02/03 03:36:19 About to save to database
+2017/02/03 03:36:19 New web application submission by  http://localhost:9090/admin/orders/6548A0BB-CC91-4D3E-A651-CBCBDAAAD794
+
+2017/02/03 03:36:19 {"text":"New web application submission by  http://localhost:9090/admin/orders/6548A0BB-CC91-4D3E-A651-CBCBDAAAD794
+"}
+2017/02/03 03:36:57 Starting login
+2017/02/03 03:36:57 ijjjjj
