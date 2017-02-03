@@ -3,9 +3,9 @@ package main
 import (
 	"./common"
 	"./controllers"
-
+	"os"
 	//	"flag"
-	"fmt"
+
 	"github.com/gorilla/mux"
 
 	"github.com/urfave/negroni"
@@ -17,34 +17,18 @@ import (
 	"time"
 )
 
-func (o Order) String() string {
-	return fmt.Sprintf(o.UUID)
-}
-
-var templates map[string]*template.Template
-
 func init() {
-
 	rand.Seed(time.Now().UTC().UnixNano())
-
 	if templates == nil {
 		templates = make(map[string]*template.Template)
 	}
+
 	go setupTemplates()
+	go func() {
+		globalRoom = newRoom()
+		globalRoom.run()
+	}()
 
-}
-
-func renderTemplate(w http.ResponseWriter, name string, template string, viewModel interface{}) {
-	//Ensure the template exists in the `templates` map
-	tmpl, ok := templates[name]
-	if !ok {
-		http.Error(w, "The template does not exist.", http.StatusInternalServerError)
-	}
-	err := tmpl.ExecuteTemplate(w, template, viewModel)
-	if err != nil {
-		log.Fatal(err.Error())
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
 }
 
 func main() {
@@ -54,43 +38,51 @@ func main() {
 		}
 	}()
 
-	go setupLogging()
+	f, err := os.OpenFile("logs/glassLogs.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	if err != nil {
+		log.Fatalf("error  opening up logfile %v", err)
+	}
+	defer f.Close()
 
+	log.SetOutput(f)
 	//http.HandleFunc("/", rootHandler)
 
 	router := mux.NewRouter()
 	router.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
-	router.HandleFunc("/", rootHandler)
 
 	router.HandleFunc("/admin-token", genAdminHandler).Methods("GET")
-
+	//router.HandleFunc("/register", controllers.Register).Methods("POST")
 	//router.ServeFiles("/assets/*filepath", http.Dir("assets"))
 	//
 	//router.GET("/about-us", aboutUsHandler)
-	//router.GET("/sorry", sorryHandler)
+	router.HandleFunc("/about-us", aboutUsHandler).Methods("GET")
+	router.HandleFunc("/sorry", sorryHandler).Methods("GET")
 	//router.GET("/privacy-policy", privacyPolicyHandler)
 	router.HandleFunc("/glass", glassHandler).Methods("GET")
 	//router.GET("/terms", termsHandler)
 	router.HandleFunc("/glass", postGlassHandler).Methods("POST")
 	router.HandleFunc("/getglass", glassHandler).Methods("GET")
-	router.HandleFunc("/home", homeHandler).Methods("GET")
+	router.HandleFunc("/user/home", homeHandler).Methods("GET")
 	router.HandleFunc("/congratulations", congratulationsHandler).Methods("GET")
-	router.HandleFunc("/history", historyHandler).Methods("GET")
-	router.HandleFunc("/profile", profileHandler).Methods("GET")
+	router.HandleFunc("/user/history", historyHandler).Methods("GET")
+	router.HandleFunc("/user/profile", profileHandler).Methods("GET")
 	router.HandleFunc("/terms", termsHandler).Methods("GET")
 	router.HandleFunc("/", rootHandler)
+	router.HandleFunc("/logout", logout).Methods("GET")
 	//router.POST("/orders", controllers.CreateOrder).Methids("POST")
-	//router.GET("/offer/:uuid", offerHandler)
+	router.HandleFunc("/decision/{id}", decisionHandler).Methods("GET")
 
 	//
 	router.HandleFunc("/login", controllers.GetLogin).Methods("GET")
+	router.HandleFunc("/login", controllers.AdminLogin).Methods("POST")
 	go controllers.InitTemplates()
 	adminRouter := mux.NewRouter()
-
+	adminRouter.HandleFunc("/admin/chat", chatHandler).Methods("GET")
 	adminRouter.HandleFunc("/admin/orders/{id}", controllers.AdminDisplayOrder).Methods("GET")
 	adminRouter.HandleFunc("/admin", adminHandler)
 	adminRouter.HandleFunc("/admin/orders", ordersHandler)
 	adminRouter.HandleFunc("/admin/register", adminHandler)
+	adminRouter.Handle("/admin/room", globalRoom)
 
 	router.PathPrefix("/admin").Handler(negroni.New(
 		negroni.HandlerFunc(common.Authorize),
@@ -105,8 +97,6 @@ func main() {
 		Addr:    common.AppConfig.Server,
 		Handler: n,
 	}
-
-	//go globalRoom.run()
 
 	log.Println("API is Listening on: ", common.AppConfig.Server)
 	log.Fatal(server.ListenAndServe())

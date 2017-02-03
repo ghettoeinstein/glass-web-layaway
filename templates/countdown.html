@@ -1,5 +1,6 @@
 {{define "head"}}
 <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+<meta http-equiv="refresh" content="10;url={{.Redirect}}" />
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Nunito:100,200,300,400,500,600" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
@@ -167,9 +168,6 @@
     setInterval(timer, 1000);
 }
 
-function offer() {
- return "/offer/{{.Order}}";
-}
 
 window.onload = function () {
 

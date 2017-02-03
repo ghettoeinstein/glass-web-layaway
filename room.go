@@ -7,6 +7,8 @@ import (
 	"net/http"
 )
 
+var globalRoom *room
+
 type room struct {
 	// forward is a channel that holds incoming messages
 	// that should be forwarded to the other clients.
@@ -84,7 +86,7 @@ const (
 var upgrader = &websocket.Upgrader{ReadBufferSize: socketBufferSize,
 	WriteBufferSize: socketBufferSize}
 
-func (r *room) ServeHTTP(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {
+func (r *room) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	socket, err := upgrader.Upgrade(w, req, nil)
 	if err != nil {
 		log.Fatal("ServeHTTP:", err)

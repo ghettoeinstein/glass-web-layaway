@@ -17,11 +17,11 @@ const (
 
 var admins = []string{"+13234236654"}
 
-var url = "https://getglass.co/admin/orders/"
+var url = ".https://getglass.co/admin/orders/"
 
 func textOrderToAdmins(o *Order) {
 	for _, admin := range admins {
-		sendMessage(admin, url+o.UUID)
+		sendMessage(admin, url+o.UUID+".")
 	}
 }
 

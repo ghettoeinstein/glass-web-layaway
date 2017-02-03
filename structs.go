@@ -23,4 +23,5 @@ type Order struct {
 	DateCreated time.Time `json:"date_created"`
 	ExpireTime  time.Time `json:"expire_time" bson:"expire_time"`
 	Expired     bool      `json:"expired" bson:"expired"`
+	Redirect    string
 }

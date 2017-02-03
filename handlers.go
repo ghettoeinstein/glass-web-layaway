@@ -4,7 +4,8 @@ import (
 	"./common"
 	"./random"
 	"encoding/json"
-	"fmt"
+	"github.com/gorilla/mux"
+
 	"html/template"
 	"log"
 	"net/http"
@@ -21,18 +22,14 @@ func glassHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func postGlassHandler(w http.ResponseWriter, r *http.Request) {
+	log.Println("starting post")
 	r.ParseMultipartForm(20 << 32)
 	err := r.ParseForm()
 	if err != nil {
 		log.Fatal("Error parsing form")
 	}
 	log.Println("no errors")
-	for key, values := range r.Form { // range over map
-		for _, value := range values { // range over []string
-			fmt.Println(key, value)
-		}
-	}
-	_ = r.Form.Get("offerId")
+
 	fullname := r.Form.Get("fullname")
 	email := r.Form.Get("email")
 	phoneNumber := r.Form.Get("phoneNumber")
@@ -47,21 +44,22 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	order := &Order{
-		User: user,
-		UUID: uuid,
-
+		User:        user,
+		UUID:        uuid,
 		DateCreated: dateCreated,
 		ExpireTime:  dateCreated.Add(time.Duration(2 * time.Minute)),
 		Expired:     false,
 	}
 
-	postOrderToSlack(order)
-	textOrderToAdmins(order)
+	go postOrderToSlack(order)
+	go textOrderToAdmins(order)
 
 	payload := struct {
-		Order *Order
+		Order    *Order
+		Redirect string
 	}{
 		order,
+		"/decision/" + uuid,
 	}
 	renderTemplate(w, "countdown", "base", payload)
 
@@ -168,4 +166,30 @@ func uuidHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(UUIDPayload)
 	return
+}
+func logout(w http.ResponseWriter, r *http.Request) {
+	http.SetCookie(w, &http.Cookie{
+		Name:   "Auth",
+		Value:  "",
+		Path:   "/",
+		MaxAge: -1,
+	})
+
+	w.Header()["Location"] = []string{"/login"}
+	w.WriteHeader(http.StatusTemporaryRedirect)
+
+}
+
+func decisionHandler(w http.ResponseWriter, r *http.Request) {
+	uuid := mux.Vars(r)
+	s, ok := uuid.(string)
+	log.Println("a string")
+	renderTemplate(w, "congratulations", "base", uuid)
+}
+
+func IdFromRequest(r *http.Request) string {
+	vars := mux.Vars(r)
+	id := vars["id"]
+
+	return id
 }

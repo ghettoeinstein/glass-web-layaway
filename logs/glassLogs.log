@@ -1,1 +1,98 @@
 
+2017/02/02 22:44:22 API is Listening on:  0.0.0.0:9090
+2017/02/02 22:44:37 starting post
+2017/02/02 22:44:37 no errors
+2017/02/02 22:44:37 New web application submission by  http://localhost:9090/admin/orders/355C7F36-B34A-46DA-A7B6-3FC64C5F9405
+
+2017/02/02 22:44:37 {"text":"New web application submission by  http://localhost:9090/admin/orders/355C7F36-B34A-46DA-A7B6-3FC64C5F9405
+"}
+2017/02/02 22:44:39 template: countdown.html:3:46: executing "head" at <.Redirect>: can't evaluate field Redirect in type struct { Order *main.Order }
+2017/02/02 22:46:27 API is Listening on:  0.0.0.0:9090
+2017/02/02 22:46:39 starting post
+2017/02/02 22:46:39 no errors
+2017/02/02 22:46:39 New web application submission by  http://localhost:9090/admin/orders/69983B63-A0A5-4167-8DAD-AA34BAB96805
+
+2017/02/02 22:46:39 {"text":"New web application submission by  http://localhost:9090/admin/orders/69983B63-A0A5-4167-8DAD-AA34BAB96805
+"}
+2017/02/02 22:46:40 template: countdown.html:3:46: executing "head" at <.Redirect>: can't evaluate field Redirect in type struct { Order *main.Order }
+2017/02/02 22:47:45 API is Listening on:  0.0.0.0:9090
+2017/02/02 22:47:52 starting post
+2017/02/02 22:47:52 no errors
+2017/02/02 22:47:52 New web application submission by  http://localhost:9090/admin/orders/FF1D262C-F9D5-4B7D-A709-DAF1256F53DD
+
+2017/02/02 22:47:52 {"text":"New web application submission by  http://localhost:9090/admin/orders/FF1D262C-F9D5-4B7D-A709-DAF1256F53DD
+"}
+2017/02/02 22:47:53 template: countdown.html:3:46: executing "head" at <.Redirect>: can't evaluate field Redirect in type struct { Order *main.Order }
+2017/02/02 22:49:31 API is Listening on:  0.0.0.0:9090
+2017/02/02 22:49:35 starting post
+2017/02/02 22:49:35 no errors
+2017/02/02 22:49:35 New web application submission by  http://localhost:9090/admin/orders/9529F2F5-580E-40CF-9FCC-8FBD0C8EDAB5
+
+2017/02/02 22:49:35 {"text":"New web application submission by  http://localhost:9090/admin/orders/9529F2F5-580E-40CF-9FCC-8FBD0C8EDAB5
+"}
+2017/02/02 22:50:50 API is Listening on:  0.0.0.0:9090
+2017/02/02 22:50:54 API is Listening on:  0.0.0.0:9090
+2017/02/02 22:51:04 starting post
+2017/02/02 22:51:04 no errors
+2017/02/02 22:51:04 New web application submission by  http://localhost:9090/admin/orders/B5EB0013-09E0-4C95-AE6B-62973CD68A09
+
+2017/02/02 22:51:04 {"text":"New web application submission by  http://localhost:9090/admin/orders/B5EB0013-09E0-4C95-AE6B-62973CD68A09
+"}
+2017/02/02 22:52:43 Starting login
+2017/02/02 22:52:43 ijjjjj
+2017/02/02 22:57:12 API is Listening on:  0.0.0.0:9090
+2017/02/02 22:57:22 starting post
+2017/02/02 22:57:22 no errors
+2017/02/02 22:57:22 New web application submission by  http://localhost:9090/admin/orders/3797E04B-8D47-4FE1-9AEB-AD72A962CC7A
+
+2017/02/02 22:57:22 {"text":"New web application submission by  http://localhost:9090/admin/orders/3797E04B-8D47-4FE1-9AEB-AD72A962CC7A
+"}
+2017/02/02 22:58:16 starting post
+2017/02/02 22:58:16 no errors
+2017/02/02 22:58:16 New web application submission by  http://localhost:9090/admin/orders/284DADFA-46C4-4702-A073-8F378703416E
+
+2017/02/02 22:58:16 {"text":"New web application submission by  http://localhost:9090/admin/orders/284DADFA-46C4-4702-A073-8F378703416E
+"}
+2017/02/02 22:58:56 API is Listening on:  0.0.0.0:9090
+2017/02/02 22:59:52 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:00:03 starting post
+2017/02/02 23:00:03 no errors
+2017/02/02 23:00:03 New web application submission by  http://localhost:9090/admin/orders/EFCB6D3E-C89B-4B05-BDA7-60530698F047
+
+2017/02/02 23:00:03 {"text":"New web application submission by  http://localhost:9090/admin/orders/EFCB6D3E-C89B-4B05-BDA7-60530698F047
+"}
+2017/02/02 23:01:44 starting post
+2017/02/02 23:01:44 no errors
+2017/02/02 23:01:44 New web application submission by  http://localhost:9090/admin/orders/2B9B5880-EA66-473B-B3A7-96CA8B576638
+
+2017/02/02 23:01:44 {"text":"New web application submission by  http://localhost:9090/admin/orders/2B9B5880-EA66-473B-B3A7-96CA8B576638
+"}
+2017/02/02 23:02:47 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:02:59 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:03:27 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:04:09 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:07:07 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:07:23 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:08:03 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:08:25 starting post
+2017/02/02 23:08:25 no errors
+2017/02/02 23:08:25 New web application submission by  http://localhost:9090/admin/orders/78179BB4-859C-43EB-B211-6CD49F91C52E
+
+2017/02/02 23:08:25 {"text":"New web application submission by  http://localhost:9090/admin/orders/78179BB4-859C-43EB-B211-6CD49F91C52E
+"}
+2017/02/02 23:09:29 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:09:39 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:10:17 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:10:28 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:10:49 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:12:11 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:12:25 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:14:23 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:14:31 starting post
+2017/02/02 23:14:31 no errors
+2017/02/02 23:14:31 New web application submission by  http://localhost:9090/admin/orders/9BFDC3CA-C90A-4E53-AEEA-A20C14042693
+
+2017/02/02 23:14:31 {"text":"New web application submission by  http://localhost:9090/admin/orders/9BFDC3CA-C90A-4E53-AEEA-A20C14042693
+"}
+2017/02/02 23:14:41 map[id:9BFDC3CA-C90A-4E53-AEEA-A20C14042693]
+2017/02/02 23:18:32 API is Listening on:  0.0.0.0:9090
