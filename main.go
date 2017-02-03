@@ -50,7 +50,6 @@ func main() {
 	router := mux.NewRouter()
 	router.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 
-	router.HandleFunc("/admin-token", genAdminHandler).Methods("GET")
 	//router.HandleFunc("/register", controllers.Register).Methods("POST")
 	//router.ServeFiles("/assets/*filepath", http.Dir("assets"))
 	//
@@ -66,7 +65,7 @@ func main() {
 	router.HandleFunc("/congratulations", congratulationsHandler).Methods("GET")
 	router.HandleFunc("/user/history", historyHandler).Methods("GET")
 	router.HandleFunc("/user/profile", profileHandler).Methods("GET")
-	router.HandleFunc("/terms", termsHandler).Methods("GET")
+	router.HandleFunc("/terms/{id}", termsHandler).Methods("GET")
 	router.HandleFunc("/", rootHandler)
 	router.HandleFunc("/logout", logout).Methods("GET")
 	//router.POST("/orders", controllers.CreateOrder).Methids("POST")
@@ -78,6 +77,7 @@ func main() {
 	go controllers.InitTemplates()
 	adminRouter := mux.NewRouter()
 	adminRouter.HandleFunc("/admin/chat", chatHandler).Methods("GET")
+	adminRouter.HandleFunc("/admin/orders/{id}", controllers.AdminDisplayOrder).Methods("GET")
 	adminRouter.HandleFunc("/admin/orders/{id}", controllers.AdminDisplayOrder).Methods("GET")
 	adminRouter.HandleFunc("/admin", adminHandler)
 	adminRouter.HandleFunc("/admin/orders", ordersHandler)

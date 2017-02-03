@@ -7,15 +7,17 @@
 	Stripe.setPublishableKey('pk_test_aymMpCxS1fZclIV0UEE49an8');
 </script>
 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-<script src="assets/js/card.js"></script>
-<script src="assets/js/jquery.card.js"></script>
+<script src="../assets/js/card.js"></script>
+<script src="../assets/js/jquery.card.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <style>
 	body {
-		background-attachment: fixed;
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: cover;
+
+  background-repeat: no-repeat !important;
+  background-position: 50% 50% !important;
+  background-attachment: fixed !important;
+  background-color: transparent !important;
+  background-size: cover !important;
 
 		font-family: "Nunito";
 		font-weight:300;
@@ -157,7 +159,7 @@
 
 	body {
 		background-size:  cover;
-		background: url('assets/terms-bg.svg');
+		background: url('../assets/terms-bg.svg');
 	}
 
 	
@@ -260,6 +262,11 @@
 
 		#purchase-amount {
 			font-size:2.44vh;
+		}
+		.card-wrapper {
+		transform: scale(0.8);
+		width: 50%;
+
 		}
 
 
@@ -377,16 +384,16 @@
 
 		
 		<p id="paymentMethod"> Payment Method</p>
-		<div class='card-wrapper' width="50%"></div>
+		<div class='card-wrapper' style="transform: scale(0.5)"></div>
 
 		<!-- CSS is included via this JavaScript file -->
-		<script src="assets/card.js"></script>
+
 
 
 
 		<div class="row">
 			<div class="col-md-12 text-center">
-				<form class="form-horizontal" id="payment-form" style="margin-top:30;" action="/getglass" method="POST" enctype="multipart/form-data">
+				<form class="form-horizontal" id="payment-form" style="margin-top:30;" action="/offer/{{.}}/charge" method="POST" enctype="multipart/form-data">
 					<span class="payment-errors"></span>
 
 					<fieldset>
@@ -438,10 +445,10 @@
 				var card = new Card({
 					form: 'form',
 					container: '.card-wrapper',
-					width:width * 0.59675,
+					width:width * 0.3675,
 					placeholders: {
 						number: '**** **** **** ****',
-						name: 'Arya Stark',
+						name: 'Your Name',
 						expiry: '**/****',
 						cvc: '***'
 					},

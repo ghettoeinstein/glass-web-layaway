@@ -1,7 +1,6 @@
 package main
 
 import (
-	"./common"
 	"./random"
 	"encoding/json"
 	"github.com/gorilla/mux"
@@ -51,6 +50,12 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 		Expired:     false,
 	}
 
+	err = saveOrder(order)
+	if err != nil {
+		renderTemplate(w, "glass", "base", nil)
+		return
+	}
+
 	go postOrderToSlack(order)
 	go textOrderToAdmins(order)
 
@@ -63,6 +68,10 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	renderTemplate(w, "countdown", "base", payload)
 
+}
+
+func saveOrder(order *Order) error {
+	return nil
 }
 
 func profileHandler(w http.ResponseWriter, r *http.Request) {
@@ -102,24 +111,10 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func termsHandler(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "terms", "base", "")
-}
 
-func viewOrderHandler(w http.ResponseWriter, r *http.Request) {
+	uuid := mux.Vars(r)
 
-	uuid, err := random.GenerateUUID()
-	if err != nil {
-		return
-	}
-
-	order := &NewUser{
-		UUID:        uuid,
-		URL:         "http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&icid2=just%20arrived:p414001",
-		FullName:    "Juan Carlos",
-		PhoneNumber: "3234236651",
-		Email:       "juancarlos@yahoo.com",
-	}
-	renderTemplate(w, "order", "base", order)
+	renderTemplate(w, "terms", "base", uuid["id"])
 }
 
 func aboutUsHandler(w http.ResponseWriter, r *http.Request) {
@@ -127,6 +122,10 @@ func aboutUsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func adminHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Cache-Control", "no-cache,no-store, must-revalidate")
+
+	w.Header().Set("Pragma", "no-cache")
+	w.Header().Set("Expires", " Sat, 26 Jul 1997 05:00:00 GMT")
 	renderTemplate(w, "orders", "base", nil)
 }
 
@@ -137,18 +136,6 @@ func loggingHandler(w http.ResponseWriter, r *http.Request, next http.Handler) h
 		next.ServeHTTP(w, r)
 		log.Printf("Completed %s in %v", r.URL.Path, time.Since(start))
 	})
-}
-
-func genAdminHandler(w http.ResponseWriter, r *http.Request) {
-	token, err := common.GenerateAdminJWT("caleb@getglass.co", "admin")
-	if err != nil {
-		common.DisplayAppError(w, err, "Error making admin token", 500)
-	}
-
-	cookie := http.Cookie{Name: "Auth", Value: token, Expires: time.Now().Add(time.Hour * 24 * 30), HttpOnly: true}
-	http.SetCookie(w, &cookie)
-	http.Redirect(w, r, "/admin/orders", 302)
-
 }
 
 func uuidHandler(w http.ResponseWriter, r *http.Request) {
@@ -182,9 +169,8 @@ func logout(w http.ResponseWriter, r *http.Request) {
 
 func decisionHandler(w http.ResponseWriter, r *http.Request) {
 	uuid := mux.Vars(r)
-	s, ok := uuid.(string)
-	log.Println("a string")
-	renderTemplate(w, "congratulations", "base", uuid)
+
+	renderTemplate(w, "sorry", "base", uuid["id"])
 }
 
 func IdFromRequest(r *http.Request) string {

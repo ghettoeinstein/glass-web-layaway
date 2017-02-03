@@ -96,3 +96,76 @@
 "}
 2017/02/02 23:14:41 map[id:9BFDC3CA-C90A-4E53-AEEA-A20C14042693]
 2017/02/02 23:18:32 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:29:09 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:29:16 starting post
+2017/02/02 23:29:16 no errors
+2017/02/02 23:29:16 New web application submission by  http://localhost:9090/admin/orders/1A31A440-EB84-4D47-8E22-74A827D8F203
+
+2017/02/02 23:29:16 {"text":"New web application submission by  http://localhost:9090/admin/orders/1A31A440-EB84-4D47-8E22-74A827D8F203
+"}
+2017/02/02 23:29:26 map[id:1A31A440-EB84-4D47-8E22-74A827D8F203]
+2017/02/02 23:30:09 map[id:1A31A440-EB84-4D47-8E22-74A827D8F203]
+2017/02/02 23:32:59 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:33:08 starting post
+2017/02/02 23:33:08 no errors
+2017/02/02 23:33:08 New web application submission by  http://localhost:9090/admin/orders/50278731-D0F6-4A5A-AB3E-B474205793FD
+
+2017/02/02 23:33:08 {"text":"New web application submission by  http://localhost:9090/admin/orders/50278731-D0F6-4A5A-AB3E-B474205793FD
+"}
+2017/02/02 23:33:18 50278731-D0F6-4A5A-AB3E-B474205793FD
+2017/02/02 23:34:46 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:34:58 50278731-D0F6-4A5A-AB3E-B474205793FD
+2017/02/02 23:36:48 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:38:01 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:38:50 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:40:17 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:40:59 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:41:08 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:41:24 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:43:40 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:44:34 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:46:08 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:47:06 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:47:44 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:49:03 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:50:32 starting post
+2017/02/02 23:50:32 no errors
+2017/02/02 23:50:32 New web application submission by  http://localhost:9090/admin/orders/A04E64E6-FAE8-4629-BAEA-79893FEF8D60
+
+2017/02/02 23:50:32 {"text":"New web application submission by  http://localhost:9090/admin/orders/A04E64E6-FAE8-4629-BAEA-79893FEF8D60
+"}
+2017/02/02 23:51:04 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:51:40 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:52:48 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:52:58 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:53:20 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:53:40 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:55:10 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:55:28 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:55:32 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:55:51 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:56:12 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:56:26 API is Listening on:  0.0.0.0:9090
+2017/02/02 23:58:17 API is Listening on:  0.0.0.0:9090
+2017/02/03 00:00:22 API is Listening on:  0.0.0.0:9090
+2017/02/03 00:00:28 template: terms.html:396:92: executing "body" at <.UUID>: can't evaluate field UUID in type string
+2017/02/03 00:01:17 API is Listening on:  0.0.0.0:9090
+2017/02/03 00:04:23 API is Listening on:  0.0.0.0:9090
+2017/02/03 00:16:57 API is Listening on:  0.0.0.0:9090
+2017/02/03 00:18:25 API is Listening on:  0.0.0.0:9090
+2017/02/03 00:18:47 Starting login
+2017/02/03 00:18:47 ijjjjj
+2017/02/03 00:40:55 starting post
+2017/02/03 00:40:55 no errors
+2017/02/03 00:40:55 New web application submission by  http://localhost:9090/admin/orders/A657D0E1-B073-4AFA-A221-23AF50F355B3
+
+2017/02/03 00:40:55 {"text":"New web application submission by  http://localhost:9090/admin/orders/A657D0E1-B073-4AFA-A221-23AF50F355B3
+"}
+2017/02/03 01:03:56 starting post
+2017/02/03 01:03:56 no errors
+2017/02/03 01:03:56 New web application submission by  http://localhost:9090/admin/orders/A1A312A6-44EB-43F7-AD04-694901842D4D
+
+2017/02/03 01:03:56 {"text":"New web application submission by  http://localhost:9090/admin/orders/A1A312A6-44EB-43F7-AD04-694901842D4D
+"}
+2017/02/03 02:05:49 API is Listening on:  0.0.0.0:9090
+2017/02/03 02:06:26 API is Listening on:  0.0.0.0:9090
