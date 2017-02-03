@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="473px" height="473px" viewBox="0 0 473 473" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(15.000000, 15.000000)">
+            <circle id="Oval" stroke="#2c3e50" stroke-width="29" cx="221.5" cy="221.5" r="221.5"></circle>
+            <path d="M335.5,37.5 L109.5,415.5" id="Line" stroke="#2c3e50" stroke-width="22" stroke-linecap="square"></path>
+            <polygon id="Triangle" stroke="#2c3e50" stroke-width="21" points="221.5 71 362 332 81 332"></polygon>
+            <path d="M233.74,261.712 L209.26,261.712 L209.26,162.568 L233.74,162.568 L233.74,261.712 Z M205.18,292.72 C205.18,288.367978 206.777984,284.628016 209.974,281.5 C213.170016,278.371984 217.011978,276.808 221.5,276.808 C225.852022,276.808 229.659984,278.303985 232.924,281.296 C236.188016,284.288015 237.82,287.959978 237.82,292.312 C237.82,296.664022 236.222016,300.403984 233.026,303.532 C229.829984,306.660016 225.988022,308.224 221.5,308.224 C219.323989,308.224 217.25001,307.816004 215.278,307 C213.30599,306.183996 211.572007,305.096007 210.076,303.736 C208.579993,302.375993 207.390004,300.74401 206.506,298.84 C205.621996,296.93599 205.18,294.896011 205.18,292.72 Z" id="!" fill="#2c3e50"></path>
+        </g>
+    </g>
+</svg>

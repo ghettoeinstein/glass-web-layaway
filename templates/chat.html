@@ -1,0 +1,69 @@
+{{define "head"}}
+
+<!--<meta http-equiv="Content-Security-Policy" content="default-src * 'self' data: blob: 'unsafe-inline' 'unsafe-eval' ws://*:9090/* "> -->
+
+<title>Chat</title> 
+<style> 
+  input { display: block; } 
+  ul    { list-style: none; } 
+</style> 
+
+{{end}} 
+{{define "body"}} 
+<ul id="messages"></ul> 
+<form id="chatbox"> 
+  <textarea></textarea> 
+  <input type="submit" value="Send" /> 
+</form>  
+
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"> </script> 
+<script> 
+  function setupSocket(){ 
+    var socket = null; 
+    var msgBox = $("#chatbox textarea"); 
+    var messages = $("#messages"); 
+    $("#chatbox").submit(function(){ 
+      if (!msgBox.val()) return false; 
+      if (!socket) { 
+        alert("Error: There is no socket connection."); 
+        return false; 
+      } 
+      socket.send(msgBox.val()); 
+      msgBox.val(""); 
+      return false; 
+    }); 
+    if (!window["WebSocket"]) { 
+      alert("Error: Your browser does not support web  sockets.") 
+    } else { 
+      var socket = new WebSocket("ws://localhost:9090/room"); 
+
+
+
+      socket.onopen = function() {      messages.append($("<li>").text("Welcome to the ChatRoom")); };
+      socket.onclose = function() { 
+        alert("Connection has been closed."); 
+       /* setupSocket(); */
+      } 
+
+      socket.onerror = function(e) {
+        console.log("WebSocket failure, error", e);
+        alert(e);
+      };
+      socket.onmessage = function(e) { 
+        var url  = "http://localhost/orders/";
+
+        var a = document.createElement("a");
+        var ulist = document.getElementById("messages");
+        var newItem = document.createElement("li");
+
+        newItem.textContent = e.data;
+
+  
+         ulist.appendChild(newItem); 
+         ulist.appendChild(newItem); 
+      }
+    }
+  }
+  setupSocket();
+</script> 
+{{end}}

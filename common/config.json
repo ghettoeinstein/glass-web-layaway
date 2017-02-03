@@ -1,0 +1,8 @@
+{
+  "Server"      : "0.0.0.0:9090",
+  "MongoDBHost" : "127.0.0.1",
+  "MongoDBUser"	: "",
+  "MongoDBPwd"	: "",
+  "Database"    : "glassdb",
+  "LogLevel"    : 4
+}

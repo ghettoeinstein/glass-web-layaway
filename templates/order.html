@@ -1,0 +1,207 @@
+{{define "head"}}
+<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style>
+	.form-horizontal {	
+		margin:30px ;
+	}
+	input {
+		background-color:red;
+		padding:50px auto;
+	}
+	.inputForm{
+		-moz-border-radius:5px;
+		-webkit-border-radius:5px;
+		line-height:1.4em;
+		font-size:20px;
+		min-width:80%;
+		display:block;
+		margin:20px auto;
+	}
+	#submitButton{
+		background-color:300px;
+	}
+	h3,small {
+		font-family: "Open Sans", san-serif;
+		color: #2C01D5;
+	}
+	button {
+		background-color: #2BB673;
+		color: white;	
+		font-family: "Open Sans", san-serif;
+		font-weight: 300;
+
+	}
+	#logo {
+		display:block;
+		margin-left:auto;
+		margin-right:auto;
+		top:0;
+		z-index: 100;
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.logo-circle {
+	}
+	input {
+		margin-bottom:15px;
+	}
+	fieldset {
+
+		padding:0;
+		min-width:100%;
+	}
+	#form_div {
+		padding-bottom: 10px;
+		min-height: 10em;
+		position:relative;
+		max-width:50%;
+		max-height:500px;
+		margin-top:6em;
+		margin-bottom:130px;
+		border-radius:8px; 
+		border:solid #E3E3E3 2.5px;
+		margin-left:auto;
+		margin-right:auto;
+		left:0;
+		right:0
+	}
+	span.seperator {
+		color:black;
+	}
+	a:hover {
+		color:black;
+	}
+	a {
+		color:#2C01D5;
+	}
+	.navbar-fixed-bottom {
+		border:0;
+		background-color: white;
+		position:relative;
+	}
+
+	@media only screen and (max-width: 500px){
+		#form_div {
+			max-width: 90%;
+		}
+
+		iframe {
+			display: block;	
+			margin-right: auto;
+			margin-left:auto;
+			min-height:100%;
+			width:100%;
+		}
+	}
+</style>
+{{end}}
+{{define "body"}}
+<div class="container-fluid">
+	<div id="" >
+		<div class="logo-circle">
+			<img src="assets/glogo-circle.svg"  id="logo" width="100px">
+		</div>
+		<!-- Header Row -->
+
+
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1 text-center" >
+				<h3 class=""> Glass - Order Admin</h3>
+
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3 text-center">
+				<p class="lead"> Order: {{.UUID}}</p>
+				</div>
+				<div class="col-md-12 col-md-offset-1">
+
+					<form class="form-horizontal" action="/order/{{.UUID}}/decision" method="POST" enctype="multipart/form-data">
+						<fieldset>
+
+							<!-- Form Name -->
+							
+
+							<!-- Text input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="url">URL</label>  
+								<div class="col-md-4">
+									<input id="url" name="url" type="text" value="{{.URL}}" class="form-control input-md" required="">
+									<span class="help-block"><a href="{{.URL}}">Product Link</a></span><a href="{{.URL}}">  
+								</a></div>
+							</div>
+						
+						<!-- FullName input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="full-name">FullName</label>  
+							<div class="col-md-4">
+								<input id="full-name" name="full-name" type="text" value="{{.FullName}}" class="form-control input-md" required="">
+								<span class="help-block">The submitted full name</span>  
+							</div>
+						</div>
+
+						<!-- Emaul input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="textinput">Email</label>  
+							<div class="col-md-4">
+								<input id="textinput" name="textinput" type="text" value="{{.Email}}" class="form-control input-md" required="">
+								<span class="help-block">The user-supplied email for the order.</span>  
+							</div>
+						</div>
+
+						<!-- Phone input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="phone">Phone</label>  
+							<div class="col-md-4">
+								<input id="phone" name="phone" type="text" value="{{.PhoneNumber}}" class="form-control input-md" required="">
+								<span class="help-block">The submitted phone number.</span>  
+							</div>
+						</div>
+
+						<!-- Price input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="phone">Price</label>  
+							<div class="col-md-4">
+								<input id="phone" name="price"  step="0.01" min="75.00" type="text" placeholder="75.00"  class="form-control input-md" required="">
+								<input type="number" step="any" min="0" max="100" value="22.33">
+								<span class="help-block">Please enter correct price from the PRODUCT URL, in whole cents eg: $100 = 10000</span>  
+							</div>
+						</div>
+						<hr>
+
+
+						<div class="form-group">
+			
+							<div class="col-md-4">
+								<input id="phone" name="phone" type="hidden" value="{{.UUID}}" class="form-control input-md" required="">
+
+							</div>
+						</div>
+
+						<!-- Button (Double) -->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="button1id">Decision</label>
+							<div class="col-md-8">
+								<button id="button1id" name="button1id" class="btn btn-success">Send Approval</button>
+								<button id="button2id" name="button2id" class="btn btn-danger">Send Denial</button>
+							</div>
+						</div>
+
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<nav class="navbar navbar-default  navbar-fixed-bottom" role="navigation">
+	<div class="container text-center">
+		<p class="navbar-text col-md-12 col-sm-12 col-xs-12" style="color:#2C01D5; margin-top:0px;"> <a href="/terms">Terms of Service </a><span class="seperator">|</span>  <a href="/terms">Privacy Policy </a> <span class="seperator">|</span> <a class="" href="mailto:support@getglass.co"> Customer Service </a></p>
+		<p class="navbar-text col-md-12 col-sm-12 col-xs-12" style="color:#9800B7">&copy; Glass Financial, Inc. 2017 </p>
+
+	</div>
+</nav>
+</div>
+{{end}}

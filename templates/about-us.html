@@ -1,0 +1,136 @@
+{{define "head"}}
+
+<meta charset="utf-8">
+    <title>About Glass </title>
+    <meta content="Glass Description" name="description">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/ionicons.min.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+    <link rel="icon"
+      type="image/png"
+      href="assets/favicon.png">
+      <style>
+      	#subscribe-section {
+      		background-image: url("assets/about-section.png");
+      	}
+      </style>
+{{end}}
+{{define "body"}}
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button class="navbar-toggle collapsed" style="background-color:white; " data-target="#bs-navbar"
+			data-toggle="collapse" type="button"><span class="sr-only">Toggle
+			navigation</span> <span class="icon-bar"></span> <span class=
+			"icon-bar"></span> <span class="icon-bar"></span></button> <a class=
+			"navbar-brand page-scroll grow-plain" href="/" style="font-size:2.4em;font-weight:100"> Glass</a>
+		</div>
+		<div class="navbar-collapse collapse" id="bs-navbar">
+			<ul class="nav navbar-nav navbar-right  ">
+				<li>
+					<a class="page-scroll grow" href="#">About Us</a>
+				</li>
+
+				<li>
+					<a class="page-scroll grow" href="/#subscribe-section">GET UPDATES</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<header id="first" class="parallax" style="background-image: url('/assets/aboutus-header.png')">
+	<div class="header-content">
+		<div class="inner">
+			<h1 id="transforming"> Transforming the future of finance</h1>
+
+
+
+		</div>
+	</div>
+</header>
+<section class="bg-primary" >
+	<div class="container" style="max-width: 950px;">
+		<div class="row">
+			<div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+				<h2 class="margin-top-0 space-upper icon-color" style="margin-right:-6px;letter-spacing: 6px; font-size:32px;line-height: 40px">The Opportunity</h2><br>
+				<p class="lead" style="text-align:left">
+					More than half of the world's population is barred from traditional financial services, and consequently, cannot access credit to invest in their future earnings. While there has been rapid progress over the past century in: transportation, communication, energy, manufacturing, or any other industry that has made significant strides, our existing financial system has not kept up since its infancy over 700 years ago. The existing system, with its predatory practices and high fees, does not work for the 2.5 billion people worldwide struggling everyday to improve their financial lives.</p>
+
+					<p class="lead" style="text-align:left">We're going beyond the traditional models for credit and payments, taking into account both cultural and societal shifts, by connecting the consumer cash flow directly to their desired consumption pattern. Our first product, Glass Checkout, is only the first step in our mission to help people benefit from services that will help them better manage their money, reduce risks, and build a financial identity.</p>
+
+					<p class="lead" style="text-align:left">At Glass, we're focused on building world-class products for those in dire need of accessible and affordable financial services, enabling access to credit and the future they deserve. </p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="bg-primary parallax-about" id="subscribe-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 text-center">
+					<h2 class="margin-top-0" id="subscribe-header">Subscribe to Glass updates</h2>
+					<hr class="primary">
+					<p id="subscribe-paragraph">Stay in the loop on upcoming product announcements and updates.</p>
+				</div>
+				<div class="col-lg-10 col-lg-offset-1 text-center">
+					<form class="contact-form row">
+						<div class="col-md-6 col-md-offset-3">
+							<label></label> <input class="form-control" placeholder="Email"
+							type="text">
+						</div>
+						<div class="col-md-6 col-md-offset-3">
+							<label></label> <button class="btn btn-primary btn-block btn-lg " id="send-btn"
+							data-target="#alertModal" data-toggle="modal" type="button">Send
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<footer id="footer">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="text-center" id="logo-footer">Glass</h2>
+			</div>
+		</div>
+		<div class="row">
+                        <div class="col-md-6 col-md-offset-3 text-center">
+                            <p style="font-weight:300;font-size:13px">650-382-4073</p>
+                                <a href="https://twitter.com/glassfinancial"><img src="assets/twitter.svg" width="35"></a>
+                        </div>
+                </div>
+
+		<div class="row">
+			<div class="col-sm-4 green">
+				<span class=" small"> ©2017 Glass Financial, Inc</span>
+			</div>
+
+			<div class="col-sm-4 blue">
+				<a class="small" href="/terms"> Terms of Service </a>
+				&bull;
+				<a class="small" href="/privacy-policy"> Privacy Policy </a>
+				&bull;
+				<a class="small" href="mailto:support@getglass.co"> Customer Service </a>
+			</div>
+			<div class="col-sm-4 red">
+				info@getglass.co
+			</div>
+
+
+		</div>
+	</div>
+</div>
+</div>
+</footer>
+{{end}}
+pepe@southcentral:/var/www/getglass.co/marketing/glass-landing-master/templates$

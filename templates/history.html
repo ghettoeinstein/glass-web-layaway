@@ -1,0 +1,504 @@
+{{define "head"}}
+<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nunito:100,200,300,400" rel="stylesheet">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style>
+	.form-horizontal {	
+		margin:30px ;
+	}
+	input {
+		background-color:red;
+		padding:50px auto;
+	}
+	.inputForm{
+		-moz-border-radius:5px;
+		-webkit-border-radius:5px;
+		line-height:1.4em;
+		font-size:20px;
+		min-width:80%;
+		display:block;
+		margin:20px auto;
+	}
+	#submitButton{
+		background-color:300px;
+	}
+	h3,small {
+		font-family: "Open Sans", san-serif;
+		color: #2C01D5;
+	}
+	button {
+		background-color: #2BB673;
+		color: white;	
+		font-family: "Open Sans", san-serif;
+		font-weight: 300;
+
+	}
+	#logo {
+		display:block;
+		margin-left:auto;
+		margin-right:auto;
+		top:0;
+		z-index: 100;
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.logo-circle {
+	}
+	input {
+		margin-bottom:15px;
+	}
+	fieldset {
+
+		padding:0;
+		min-width:100%;
+	}
+	#info_box,#card_box {
+		
+		padding-bottom: 10px;
+		min-height: 10em;
+		position:relative;
+		max-width:50%;
+		max-height:300px;
+		margin-top:3em;
+		margin-left:auto;
+		margin-right:auto;
+		left:0;
+		right:0;
+
+
+		/* Rectangle 13: */
+		border-radius: 17px;
+	}
+
+	#card_box {
+
+	}
+	span.seperator {
+		color:black;
+	}
+	a:hover {
+		color:black;
+	}
+	a {
+		color:#2C01D5;
+	}
+	.navbar-fixed-bottom {
+		border:0;
+		background-color: white;
+		position:relative;
+	}
+
+	@media only screen and (max-width: 500px){
+		#form_div {
+			max-width: 90%;
+		}
+	}
+
+
+	#profile-header {
+		color:gray;
+		font-family: "Nunito"
+	}
+
+	.navbar-brand {
+		transform: translateX(-50%);
+		left: 50%;
+		position: absolute;
+	}
+
+	.navbar {
+		background-color: white;
+		min-height: 100px;
+		border-bottom: 1px lightgray solid;
+	}
+
+	.navbar-brand {
+		transform: translateX(-50%);
+		left: 50%;
+		position: absolute;
+	}
+
+	.navbar-collapse {
+		margin-top: 50px;
+	}
+
+	.container-fluid {
+		padding-left:0;
+		padding-right:0;
+	}
+
+	#submit {
+		background-color:#50E3C2;
+		border-radius: 0;
+		width:70%;
+	}
+
+	input {
+		min-height:60px;
+		color:lightgray;
+		font-weight: 400;
+		font-size:20vh;
+		font-family: "Nunito";
+	}
+
+	h3 {
+		font-weight: 300;
+	}
+
+	nav a {
+
+		color:white;
+	}
+	nav div p {
+		padding-top:0px;
+
+		font-family:Nunito;
+		font-weight:300; 
+		margin-top:0px;
+	}
+
+	.sidebar {
+		position: relative;
+
+		background-color:#fff;
+		background-repeat: repeat;
+		height:100%;
+	}
+
+	.sidebar-left{
+		border-right:1px lightgray solid;
+	}
+
+	.sidebar-right{
+		border-left:1px lightgray solid;
+	}
+
+	.sidebar {
+
+
+	}
+
+
+	#user-info {
+		padding: 35px;
+	}
+	.navbar {
+		margin-bottom: 0px;
+	}
+
+	#copyright {
+		position: relative;
+		top:20;
+		color:white;
+	}
+
+	@media only  screen and (max-width:375px){
+		sidebar-right {
+			display: none;
+		}
+	}
+
+	input::-webkit-input-placeholder {
+		color:rgba(155,155,155,0.51);
+	}
+
+	.form-control::-webkit-input-placeholder {
+		color:rgba(155,155,155,0.51);
+
+	}
+	.form-control:-moz-placeholder { /* Firefox 18- */
+		color:rgba(155,155,155,0.51);
+	}
+
+	.form-control::-moz-placeholder { /* Firefox 19+ */
+		color:rgba(155,155,155,0.51);
+	}
+
+	.form-control:-ms-input-placeholder {
+		color:rgba(155,155,155,0.51);
+	}
+
+	#phone-number {
+		/* 323-364-2020: */
+		font-family: Nunito;
+		font-size: 24px;
+		color: #4A4A4A;
+		letter-spacing: -0.43px;
+	}
+
+	#general-info {
+		padding-left: 10px;
+		/* General Info: */
+		font-family: Nunito;
+		font-size: 22px;
+		color: #50E3C2;
+		letter-spacing: -0.43px;
+		font-weight: 300;
+	}
+
+	#payment-methods {
+		padding-left: 10px;
+		/* General Info: */
+		font-family: Nunito;
+		font-size: 22px;
+		color: #50E3C2;
+		letter-spacing: -0.43px;
+		font-weight: 300;
+	}
+	#name {
+
+
+		padding-left:10px;
+		font-family: Nunito;
+		font-size: 30px;
+		color: #4A4A4A;
+		letter-spacing: -0.43px;
+	}
+
+	#card {
+		padding-left: 10px;
+		height:30px;
+	}
+
+	#phone-number {
+		/* Calebsaunders@gmail.: */
+		padding-left:10px;
+		font-family: Nunito;
+		font-weight: 100;
+		font-size: 24px;
+		color: #4A4A4A;
+		letter-spacing: -0.43px;
+
+	}
+
+	#email {
+		padding-left:10px;
+		font-family: Nunito;
+		font-weight: 100;
+		font-size: 24px;
+		color: #4A4A4A;
+		display: inline-block;
+		letter-spacing: -0.43px;
+
+	}
+
+	#edit {
+		padding-left:10px;
+		font-family: Nunito;
+		font-size: 24px;
+		color: #9012FE;
+		letter-spacing: -0.43px;
+		display: inline-block;
+		font-weight: 300;
+	}
+
+
+	#pencil {
+		display: inline-block;
+		padding-right: 20px;
+		padding-top: 10px;
+		float:right;
+
+	}
+	#primarylast4,#secondarylast4 {
+		/* 8995: */
+		padding-left:10px;
+		font-weight:500;
+		font-family: Nunito;
+		font-size: 24px;
+		color: #000000;
+		letter-spacing: -0.43px;
+	}
+
+	.svg-container {
+
+		max-width: 85%;
+
+	}
+
+	svg {
+		margin:auto;
+		max-width: 75%;
+		max-height:80%;
+		display: block;
+	}
+	
+
+	.navbar-fixed-left {
+		width: 140px;
+		position: fixed;
+		border-radius: 0;
+		height: 100%;
+	}
+
+	.navbar-fixed-left .navbar-nav > li {
+		float: none;  /* Cancel default li float: left */
+		width: 139px;
+	}
+
+	.navbar-fixed-left + .container {
+		padding-left: 160px;
+	}
+
+	/* On using dropdown menu (To right shift popuped) */
+	.navbar-fixed-left .navbar-nav > li > .dropdown-menu {
+		margin-top: -50px;
+		margin-left: 140px;
+	}
+
+	.sidebar {
+		padding:0;
+	}
+	.nav > li {
+		max-height:70px;
+		border-bottom: 1px lightgray solid;
+		font-family: Nunito;
+		font-weight: 100;
+		font-size:18px;
+		color:#9B9B9B;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 60px; 
+
+
+
+		/* Home: */
+
+	}
+	li a{
+		color: #9B9B9B;
+
+	}
+
+	@media only  screen and (max-width:400px){
+		.sidebar {
+			
+			height:auto%;
+		}
+		.nav > li {
+			max-height: 40px;
+			font-size:20px;
+			line-height:30px;
+		}
+
+		#info_box, #card_box {
+			max-width: 80%;
+			height:30%;
+		}
+
+		.main {
+			height:50%;
+		}
+	}
+
+	@media only  screen and (max-width:1024px){
+		.sidebar {
+			
+			height:auto;
+		}
+		.nav > li {
+			max-height: 40px;
+			font-size:20px;
+			line-height:30px;
+		}
+	}
+</style>
+{{end}}
+{{define "body"}}
+
+<nav class="navbar ">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar">Hello</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/glass"><img src="assets/glogo.svg" width="50px" alt="Glass">
+			</a>
+		</div>
+
+
+
+		<!--/.nav-collapse -->
+	</div>
+	<!--/.container-fluid -->
+</nav>
+<div class="container-fluid">
+	<div class="row" style="">
+		<div class="col-lg-2 col-md-2 sidebar sidebar-left" style=" 
+		/* Or whatever */">
+
+
+			<ul class="nav nav-sidebar">
+				<li><a href="/home">Home</a></li>
+				<li><a href="/profile">Profile</a></li>
+				<li><a href="/history">History</a></li>
+				<li><a href="/logout">Logout</a></li>
+
+			</ul>
+
+		
+	</div>
+
+	<div class="col-lg-8 col-md-10 col-sm-12 main " style="display: flex">
+
+
+		<div class="container-fluid svg-container" style="margin:auto;">
+
+			<svg width="450px" height="auto" viewBox="495 234 450 554" style="max-height:80%;%;"version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				<!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+				<desc>Created with Sketch.</desc>
+				<defs>
+					<rect id="path-1" x="0" y="3" width="450" height="551" rx="30"></rect>
+					<mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="450" height="551" fill="white">
+						<use xlink:href="#path-1"></use>
+					</mask>
+					<rect id="path-3" x="0" y="0" width="450" height="554" rx="100"></rect>
+					<mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="450" height="554" fill="white">
+						<use xlink:href="#path-3"></use>
+					</mask>
+				</defs>
+				<g id="active-plans" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(495.000000, 234.000000)">
+					<g id="background-aqua" stroke="#979797" stroke-width="2">
+						<use id="Rectangle-21" mask="url(#mask-2)" fill="#50E3C2" xlink:href="#path-1"></use>
+						<use id="Rectangle-25" mask="url(#mask-4)" fill="#FFFFFF" xlink:href="#path-3"></use>
+					</g>
+					<text id="Active-Plans" font-family="Nunito" font-size="44" font-weight="normal" letter-spacing="-0.428571463" fill="#9B9B9B">
+						<tspan x="107" y="70">Active Plans</tspan>
+					</text>
+					<text id="2" font-family="AvenirNext-Bold, Avenir Next" font-size="120" font-weight="bold" letter-spacing="-0.428571463" fill="#9012FE">
+						<tspan x="196" y="301">{.A}</tspan>
+					</text>
+				</g>
+			</svg>
+
+		</div>
+
+	</div>
+
+
+
+
+</div>
+</div>
+</div>
+
+<nav class="navbar navbar-default  navbar-fixed-bottom" role="navigation" style="background-color:#3B0FA6;border:none; color:white">
+	<div class="container text-center">
+		<p class="navbar-text col-md-12 col-sm-12 col-xs-12"  id="copyright">&copy; Glass Financial, Inc. 2017 </p>
+		<p class=" col-md-12 col-sm-12 col-xs-12" style="font-family:Nunito;font-weight:300; margin-top:0px;" id="bottom-links"> <a href="/terms">Terms of Service </a><span class="seperator">|</span>  <a href="/terms">Privacy Policy </a> <span class="seperator">|</span> <a class="" href="mailto:support@getglass.co"> Customer Service </a></p>
+
+
+	</div>
+
+	<br/>
+
+	<br/>
+</nav>
+</div>
+{{end}}

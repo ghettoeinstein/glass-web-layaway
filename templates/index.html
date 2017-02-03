@@ -1,0 +1,297 @@
+{{define "head"}}
+
+<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+		<link href="assets/css/styles.css" rel='stylesheet' type="text/css"> 
+		<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		<style>
+
+		#home-subheading { max-width:700px; margin: 20px auto; line-height:1.4; letter-spacing: 1px;}
+		</style>
+{{end}}
+{{define "body"}}
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button class="navbar-toggle collapsed" style="background-color:white; " data-target="#bs-navbar"
+			data-toggle="collapse" type="button"><span class="sr-only">Toggle
+			navigation</span> <span class="icon-bar"></span> <span class=
+			"icon-bar"></span> <span class="icon-bar"></span></button> <a class=
+			"navbar-brand page-scroll grow-plain" href="/" style="font-size:2.4em;font-weight:100"> Glass</a>
+		</div>
+		<div class="navbar-collapse collapse" id="bs-navbar">
+			<ul class="nav navbar-nav navbar-right  ">
+				<li>
+					<a class="page-scroll grow" href="/about-us">About Us</a> 
+				</li>
+
+				<li>
+					<a class="page-scroll grow" href="/#subscribe-section">GET UPDATES</a>
+				</li>
+			</ul>
+		</div> 
+	</div>
+</nav>
+<div id="background-image-holder">
+	<header id="first" class="parallax">
+		<div class="header-content">
+			<div class="inner">
+				<h1 style="font-weight:600;">Pay Over Time</h1>
+				<h3 id ="home-subheading">Glass makes it easy to pay for almost anything over time. 
+ </h3>
+				<hr>
+				<a href="/glass"> <button  id="home-btn" class="btn btn-primary btn-xl" >Get Started</button></a>
+			</div>
+		</div>
+	</header></div>
+	<section class="bg-primary">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+					<h2 class="margin-top-0 space-upper icon-color" style="margin-right:-6px;letter-spacing: 6px; font-size:32px;line-height: 40px">Clear and Simple<br/>Payment Plans</h2><br>
+					<p class="text-faded">You deserve better. Glass is your clear and simple alternative to short-term loans and secured credit cards. With Glass, you get to lock in prices while paying off your purchase in 4 simple installments.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="two">
+		
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-6  ">
+					<div class="feature">
+						<div class="left">
+							<img src="assets/piggy-bank.svg" width="45"/>
+
+						</div>
+						<div class="right">
+							<h3>RIGHT TIME. RIGHT PRICE.</h3>
+							<p class="text-faded">Buy now to lock in earlybird and sale pricing to get the items you want while maximizing your savings.
+</p>
+						</div>
+
+					</div>
+				</div>
+				<div class="col-md-6 ">
+					<div class="feature">
+						<div class="left">
+							<img src="assets/alarm-clock.svg" width="45"/>
+
+						</div>
+						<div class="right">
+							<h3>SHOP NOW</h3>
+							<p class="text-faded">
+						Shop now for back-to-school items, birthdays, holidays and more and they’ll be at your doorstep in no time.
+
+</ul>
+</p>
+						</div>
+
+					</div>
+				</div>      
+			</div>
+			<div class="row">
+				<div class="col-md-6  col-sm-8">
+					<div class="feature">
+						<div class="left">
+							<img src="assets/worldwide.svg" width="45"/>   		    
+						</div>
+						<div class="right">
+							<h3>SHOP ANYWHERE</h3>
+							<p class="text-faded">Our payment plans aren’t limited to just the big brands. Shop anywhere online and get a decision in 2 minutes or less.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6  col-sm-8 ">
+					<div class="feature">
+						<div class="left">
+							<img src="assets/no-fees.svg" width="45"/>
+						</div>
+						<div class="right">
+							<h3>NO HIDDEN TERMS OR FEES
+</h3>
+							<p class="text-faded ">We like surprises but when it comes to your money, not so much. With Glass there are no hidden penalties or fees.</p>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="bg-primary parallax" id="subscribe-section" style="color:white;">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 text-center">
+				<h2 class="margin-top-0" id="subscribe-header">Subscribe to Glass updates</h2>
+				<hr class="primary">
+				<p id="subscribe-paragraph">Stay in the loop on upcoming product announcements and updates.</p>
+			</div>
+			<div class="col-lg-10 col-lg-offset-1 text-center">
+				<form class="contact-form row">
+					<div class="col-md-6 col-md-offset-3">
+						<label></label> <input class="form-control" placeholder="Email"
+						type="text">
+					</div>
+					<div class="col-md-6 col-md-offset-3">
+						<label></label> <button class="btn btn-primary btn-block btn-lg " id="send-btn"
+						data-target="#alertModal" data-toggle="modal" type="button">Send
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</section>
+
+<footer id="footer">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="text-center" id="logo-footer">Glass</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 text-center">
+			    <p style="font-weight:300;font-size:13px">650-382-4073</p>
+				<a href="https://twitter.com/glassfinancial"><img src="assets/twitter.svg" width="35"></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4 green">
+				<span class=" small"> ©2017 Glass Financial, Inc</span>
+			</div>
+
+			<div class="col-sm-4 blue">
+				<a class="small" href="/"> Terms of Service </a>
+				&bull;
+				<a class="small" href="/"> Privacy Policy </a>
+				&bull;
+				<a class="small" href="mailto:support@getglass.co"> Customer Service </a>
+			</div>
+			<div class="col-sm-4 red">
+				<a  href="mailto:info@getglass.co"> info@getglass.co </a>
+			</div>
+
+			
+		</div>
+	</div>
+</div>
+</div>
+</footer>
+
+<div aria-hidden="true" class="modal fade" id="contactModal" role="dialog"
+tabindex="-1">
+<div class="modal-dialog  modal-lg">
+	<div class="modal-content">
+		<div class="modal-body">
+			<h2 class="text-center" id="getglass">Interested In Getting<br> Glass For Your Business?</h2>
+			<span class="contact-help text-center" style="margin-left: auto;
+			margin-right: auto;padding-bottom:20px;padding-top:20px;display: block;" >Please share a couple of details below and we’ll be in touch shortly. We’re excited to help!</span>
+			<form action="/getglass" method="post" role="form" data-toggle="validator">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+
+							<input type="text" class="form-control" name="first-name" id="inputFirstName" aria-describedby="firstNameHelp" placeholder="First Name*">
+							
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+
+							<input type="text" class="form-control" name="last-name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Last Name*">
+					
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<input type="email" class="form-control" id="inputEmail" placeholder="Email*">
+						</div>
+					</div>
+
+
+					<div class="col-md-6">
+						<div class="form-group">
+							<input type="tel" class="form-control" id="input" placeholder="Phone*">
+						</div>
+					</div>
+
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<input type="url" class="form-control" id="websiteURL" placeholder="Website URL*">
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							
+							<select class="form-control" id="tas" style="color:black;">
+
+								<option disabled="" selected="">Total Annual Sales:</option>
+								<option>$0-$1M</option>
+								<option>$1M-$5M</option>
+								<option>$5M-$10M</option>
+								<option>$10-$20M</option>
+								<option>$20-$35M</option>
+
+								<option>$35M+</option>
+
+
+							</select>
+						</div>
+					</div>
+					<div class="col-md-6">
+
+						<div class="form-group" id="avg-ord-dropdown">
+							
+							<select class="form-control" id="avg-ord" style="color:black;">
+
+								<option disabled="" selected="">Average Order Value:</option>
+								<option>$0-$100</option>
+								<option>$100-$500</option>
+								<option>$500-$1000</option>
+								<option>$1000+</option>
+
+							</select>
+						</div>
+
+					</div>
+				</div>
+
+				
+
+				<div class="row">
+					<div class="col-md-12">
+						<button type="submit" class="btn btn-primary" id="modal-button" style="
+						width: 50%;
+						display: block;
+						margin-left: auto;
+						margin-right: auto;
+
+						padding:10px;
+						font-family: 'Open Sans' sans-serif;
+						font-weight:400;
+						font-size: 15px;
+						background: #2980b9;
+						">Submit</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+</div>
+{{end}}

@@ -1,0 +1,371 @@
+{{define "head"}}
+<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nunito:300,400" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style>
+	.form-horizontal {	
+		margin:30px ;
+	}
+	input {
+		background-color:red;
+		padding:50px auto;
+	}
+	.inputForm{
+		-moz-border-radius:5px;
+		-webkit-border-radius:5px;
+		line-height:1.4em;
+		font-size:20px;
+		min-width:80%;
+		display:block;
+		margin:20px auto;
+	}
+	#submitButton{
+		background-color:300px;
+	}
+	h3,small {
+		font-family: "Open Sans", san-serif;
+		color: #2C01D5;
+	}
+	button {
+		background-color: #2BB673;
+		color: white;	
+		font-family: "Open Sans", san-serif;
+		font-weight: 300;
+
+	}
+	#logo {
+		display:block;
+		margin-left:auto;
+		margin-right:auto;
+		top:0;
+		z-index: 100;
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.logo-circle {
+	}
+	input {
+		margin-bottom:15px;
+	}
+	fieldset {
+
+		padding:0;
+		min-width:100%;
+	}
+	#form_div {
+		background-color:none;
+		padding-bottom: 10px;
+		min-height: 10em;
+		position:relative;
+		max-width:70%;
+		max-height:500px;
+		margin-top:3em;
+
+		border-radius:25px; 
+
+		margin-left:auto;
+		margin-right:auto;
+		left:0;
+		right:0
+	}
+	span.seperator {
+		color:black;
+	}
+	a:hover {
+		color:black;
+	}
+	a {
+		color:#2C01D5;
+	}
+	.navbar-fixed-bottom {
+		border:0;
+		background-color: white;
+		position:relative;
+	}
+
+	@media only screen and (max-width: 500px){
+		#form_div {
+			max-width: 90%;
+		}
+	}
+
+
+	#profile-header {
+		color:gray;
+		font-family: "Nunito"
+	}
+
+	.navbar-brand {
+		transform: translateX(-50%);
+		left: 50%;
+		position: absolute;
+	}
+
+	.navbar {
+		background-color: white;
+		min-height: 100px;
+		border-bottom: 1px lightgray solid;
+	}
+
+	.navbar-brand {
+		transform: translateX(-50%);
+		left: 50%;
+		position: absolute;
+	}
+
+	.navbar-collapse {
+		margin-top: 50px;
+	}
+
+	.container-fluid {
+		padding-left:0;
+		padding-right:0;
+	}
+
+	#submit {
+		background-color:#50E3C2;
+		border-radius: 0;
+		width:70%;
+	}
+
+	input {
+		min-height:60px;
+		color:lightgray;
+		font-weight: 400;
+		font-size:20vh;
+		font-family: "Nunito";
+	}
+
+	h3 {
+		font-weight: 300;
+	}
+
+	nav a {
+
+		color:white;
+	}
+	nav div p {
+		padding-top:0px;
+
+		font-family:Nunito;
+		font-weight:300; 
+		margin-top:0px;
+	}
+
+	.sidebar {
+		position: relative;
+
+		background-color:#fff;
+		background-repeat: repeat;
+		height:100%;
+	}
+
+	.sidebar-left{
+		border-right:1px lightgray solid;
+	}
+
+	.sidebar-right{
+		border-left:1px lightgray solid;
+	}
+
+	.sidebar {
+
+
+	}
+	.navbar {
+		margin-bottom: 0px;
+	}
+
+	#copyright {
+		position: relative;
+		top:20;
+		color:white;
+	}
+
+	@media only  screen and (max-width:375px){
+		sidebar-right {
+			display: none;
+		}
+	}
+
+	input::-webkit-input-placeholder {
+		color:rgba(155,155,155,0.51);
+	}
+
+	.form-control::-webkit-input-placeholder {
+		color:rgba(155,155,155,0.51);
+
+	}
+	.form-control:-moz-placeholder { /* Firefox 18- */
+		color:rgba(155,155,155,0.51);
+	}
+
+	.form-control::-moz-placeholder { /* Firefox 19+ */
+		color:rgba(155,155,155,0.51);
+	}
+
+	.form-control:-ms-input-placeholder {
+		color:rgba(155,155,155,0.51);
+	}
+
+
+	.divider-10 {
+		width:100%;
+		margin-top:30px;
+		margin-bottom:30px;
+		display:inline-block;
+		position: relative;
+		min-height: 1px;
+	}
+
+
+	.sidebar {
+		padding:0;
+	}
+	.nav > li {
+		max-height:70px;
+		border-bottom: 1px lightgray solid;
+		font-family: Nunito;
+		font-weight: 100;
+		font-size:18px;
+		color:#9B9B9B;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 60px; 
+
+
+
+		/* Home: */
+
+	}
+	li a{
+		color: #9B9B9B;
+
+	}
+
+
+	@media only  screen and (max-width:400px){
+		.sidebar {
+			
+			height:auto%;
+		}
+		.nav > li {
+			max-height: 40px;
+			font-size:20px;
+			line-height:30px;
+		}
+	}
+
+	@media only  screen and (max-width:1024px){
+		.sidebar {
+			
+			height:auto;
+		}
+		.nav > li {
+			max-height: 40px;
+			font-size:20px;
+			line-height:30px;
+		}
+	}
+
+	a {
+		font-family: Nunito;
+		font-weight: 100;
+	}
+</style>
+{{end}}
+{{define "body"}}
+<div class="container-fluid">
+
+	<nav class="navbar ">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/glass"><img src="assets/glogo.svg" width="50px" alt="Glass">
+				</a>
+			</div>
+
+
+
+			<!--/.nav-collapse -->
+		</div>
+		<!--/.container-fluid -->
+	</nav>
+	<div class="row" style="font-weight: 100">
+		<div class="col-lg-2 col-md-2 sidebar sidebar-left">
+			
+			<ul class="nav nav-sidebar">
+				<li><a href="/home">Home</a></li>
+				<li><a href="/profile">Profile</a></li>
+				<li><a href="/history">History</a></li>
+				<li><a href="/logout">Logout</a></li>
+
+			</ul>
+
+		</div>
+		<div class="col-lg-8 col-md-10 col-sm-12">
+			<div class="row text-center">
+				
+				<h3 id="profile-header"> </h3>
+
+			</div>
+			<div class="row">
+				<div id="form_div" style="">
+					<div class="logo-circle" style="position:relative;top:-50;">
+
+					</div>
+					<!-- Header Row -->
+
+					<div class="row">
+						<div class="col-md-10 col-md-offset-1">
+							<form class="form-horizontal" action="/getglass" method="POST" enctype="multipart/form-data">
+								<fieldset>
+									<div class="divider-10"></div>
+									<!-- Full Name input-->
+									<div class="form-group">
+										<div class="col-md-12 ">
+											<input id="url" name="url" type="text" placeholder="insert product URL or wishlist" class="form-control input-md" required="">
+										</div>
+									</div>
+									<div class="divider-10"></div>
+									<!-- Submit Button -->
+									<div class="form-group">
+										<div class="col-md-8 col-md-offset-2 text-center ">
+											<button id="submit" name="submit" class="btn  btn-lg
+											" style="text-transform: none; border-radius: 10px; min-height: 40px;">Submit Request</button>
+										</div>
+									</div>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="col-lg-2  col-md-1 sidebar sidebar-right visible-md visible-lg" style="">
+		</div>
+	</div>
+
+	<nav class="navbar navbar-default  navbar-fixed-bottom" role="navigation" style="background-color:#3B0FA6;border:none; color:white">
+		<div class="container text-center">
+			<p class="navbar-text col-md-12 col-sm-12 col-xs-12"  id="copyright">&copy; Glass Financial, Inc. 2017 </p>
+			<p class=" col-md-12 col-sm-12 col-xs-12" style="font-family:Nunito;font-weight:300; margin-top:0px;" id="bottom-links"> <a href="/terms">Terms of Service </a><span class="seperator">|</span>  <a href="/terms">Privacy Policy </a> <span class="seperator">|</span> <a class="" href="mailto:support@getglass.co"> Customer Service </a></p>
+
+
+		</div>
+
+		<br/>
+
+		<br/>
+	</nav>
+
+	{{end}}
