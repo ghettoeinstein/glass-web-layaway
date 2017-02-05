@@ -78,7 +78,7 @@ func main() {
 	adminRouter := mux.NewRouter()
 	adminRouter.HandleFunc("/admin/chat", chatHandler).Methods("GET")
 	adminRouter.HandleFunc("/admin/orders/{id}", controllers.AdminDisplayOrder).Methods("GET")
-	adminRouter.HandleFunc("/admin/orders/{id}", controllers.AdminDisplayOrder).Methods("GET")
+	adminRouter.HandleFunc("/admin/orders/{id}/edit", controllers.AdminDisplayEditOrder).Methods("GET")
 	adminRouter.HandleFunc("/admin", adminHandler)
 	adminRouter.HandleFunc("/admin/orders", ordersHandler)
 	adminRouter.HandleFunc("/admin/register", adminHandler)

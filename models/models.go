@@ -1,7 +1,6 @@
 package models
 
 import (
-	"../common"
 	"fmt"
 	"time"
 	//	"github.com/stripe/stripe-go/plan"
@@ -10,27 +9,30 @@ import (
 
 type (
 	WebOrder struct {
-		FullName       string    `json:"full_name" bson:"full_name`
-		Email          string    `json:"email" bson:"email"`
-		PhoneNumber    string    `json:"phone_number" bson:"phone_number`
-		URL            string    `json:"url" bson:"url"`
-		Address        string    `json:"address" bson:"address"`
-		UUID           string    `json:"uuid" bson:"uuid"`
-		DateCreated    time.Time `json:"date_created" bson:"date_created"`
-		Approved       bool      `json:"approved" bson:"approved"`
-		TimerExpiresAt time.Time `json:"timer_expires_at" bson:"timer_expires_at"`
+		Id             *bson.ObjectId `bson:"_id",omitempty" json:"id`
+		FullName       string         `json:"full_name" bson:"full_name`
+		Email          string         `json:"email" bson:"email"`
+		PhoneNumber    string         `json:"phone_number" bson:"phone_number`
+		URL            string         `json:"url" bson:"url"`
+		Address        string         `json:"address" bson:"address"`
+		UUID           string         `json:"uuid" bson:"uuid"`
+		DateCreated    time.Time      `json:"date_created" bson:"date_created"`
+		Approved       bool           `json:"approved" bson:"approved"`
+		TimerExpiresAt time.Time      `json:"timer_expires_at" bson:"timer_expires_at"`
+		CreatedAt      time.Time      `json:"created_at" bson:"created_at"`
+		UpdatedAt      time.Time      `json:"updated_at" bson:"updated_at"`
 		State          bool
 	}
 	User struct {
-		Id          bson.ObjectId `bson:"_id,omitempty" json:"id"`
-		FirstName   string        `json:"first_name" bson:"first_name"`
-		LastName    string        `json:"last_name"  bson:"last_name"`
-		Email       string        `json:"email"      bson:"email"`
-		PhoneNumber string        `json:"phone_number" bson:"phone_number"`
-		Password    string        `json:"password,omitempty"`
-		Address1    string        `json:"address_1" bson:"address_1"`
-		Address2    string        `json:"address_2" bson:"address_2"`
-		City        string        `json:"city" bson:"city"`
+		Id          *bson.ObjectId `bson:"_id,omitempty" json:"id"`
+		FirstName   string         `json:"first_name" bson:"first_name"`
+		LastName    string         `json:"last_name"  bson:"last_name"`
+		Email       string         `json:"email"      bson:"email"`
+		PhoneNumber string         `json:"phone_number" bson:"phone_number"`
+		Password    string         `json:"password,omitempty"`
+		Address1    string         `json:"address_1" bson:"address_1"`
+		Address2    string         `json:"address_2" bson:"address_2"`
+		City        string         `json:"city" bson:"city"`
 
 		State        string `json:"state" bson:"state"`
 		ZipCode      string `json:"zip_code" bson:"zip_code"`
@@ -43,38 +45,11 @@ type (
 	Admin struct {
 		User
 	}
-	Product struct {
-		Id           bson.ObjectId      `json:"id" bson:"_id,omitempty"`
-		Name         string             `json:"name" bson:"name"`
-		Price        string             `json:"price" bson:"price"`
-		Description  string             `json:"description" bson:"description"`
-		ProductSpecs string             `json:"product_specs" bson:"product_specs"`
-		PhotoURL     string             `json:"product_photo" bson:"photo_url"`
-		Category     string             `json:"category"`
-		MerchantName string             `json:"merchant_name" bson:"merchant_name"`
-		MerchantID   string             `json:"merchant_id"   bson:"merchant_id"`
-		CreatedAt    time.Time          `json:"created_at"`
-		UpdatedAt    time.Time          `json:"updated_at"`
-		Desc_1       string             `json:"desc_1" bson:"desc_1"`
-		Desc_2       string             `json:"desc_2" bson:"desc_2"`
-		Desc_3       string             `json:"desc_3" bson:"desc_3"`
-		Desc_4       string             `json:"desc_4" bson:"desc_4"`
-		Variations   []ProductVariation `json:"variations" bson:"variations"`
-	}
 
 	Category struct {
 		Name string
 	}
 
-	//Each `Style` is a map to a image url
-	ProductVariation struct {
-		Id        bson.ObjectId     `json:"variation_id" bson:"_id,omitempty"`
-		Variant   map[string]string `json:"styles" bson:"styles"`
-		Active    bool              `json:"active" bson:"active"`
-		ProductId string            `json:"product_id" bson:"product_id"`
-		CreatedAt time.Time
-		UpdatedAt time.Time
-	}
 	Merchant struct {
 		Id        bson.ObjectId `json:"merchant_id" bson:"_id,omitempty"`
 		Website   string        `json:"website" bson:"website"`
@@ -96,7 +71,7 @@ type (
 	Order struct {
 		Id                bson.ObjectId  `json:"order_id" bson:"_id,omitempty"`
 		Balance           int            `json:"balance" bson:"balance"`
-		User              User           `json:"user" bson:"user"`
+		User              *User          `json:"user" bson:"user"`
 		Shipped           bool           `json:"shipped" bson:"shipped"`
 		ShippingAddress   string         `json:"shipping_address" bson:"shipping_address"`
 		TrackingNumber    string         `json:"tracking_number" bson:"tracking_number"`
@@ -122,6 +97,8 @@ type (
 		MonthlyPaymentFmt string         `json:"monthly_payment_fmt" bson:"monthly_payment_fmt"`
 		Payments          []Payment      `json:"payments" bson:"payments"`
 		Customer          StripeCustomer `json:"customer" bson:"customer"`
+		MissedDeadline    bool           `json:"missed_deadline" bson:"missed_deadline"`
+		URL               string         `json:"url" bson:"url"`
 	}
 
 	Payment struct {
@@ -136,19 +113,6 @@ type (
 	}
 )
 
-func NewProductVariation() *ProductVariation {
-	now := time.Now()
-	variantMap := make(map[string]string)
-	return &ProductVariation{Id: common.GenerateObjectId(), CreatedAt: now, UpdatedAt: now, Active: true, Variant: variantMap}
-
-}
-func (m Merchant) String() string {
-	return fmt.Sprintf("%s %s %s %s", m.BrandName, m.Category, m.Website, m.Active)
-}
-
-func NewMerchant() *Merchant {
-	return &Merchant{Id: common.GenerateObjectId(), CreatedAt: time.Now(), UpdatedAt: time.Now()}
-}
 func (u User) isAdmin() bool  { return false }
 func (a Admin) isAdmin() bool { return true }
 

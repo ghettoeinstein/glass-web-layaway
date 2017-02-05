@@ -1,6 +1,7 @@
 package main
 
 import (
+	"./models"
 	"bytes"
 	"fmt"
 	"log"
@@ -23,9 +24,9 @@ func (p *Payload) Print() string {
 		p.Msg)
 }
 
-func postSlack(u *NewUser) {
+func postSlack(o *models.WebOrder) {
 
-	msg := fmt.Sprintf("New web application submission http://localhost:9090/admin/orders/" + u.UUID)
+	msg := fmt.Sprintf("New web application submission http://localhost:9090/admin/orders/" + o.UUID)
 	log.Println(msg)
 	p := &Payload{msg}
 	jsonStr := p.Print()
@@ -45,7 +46,7 @@ func postSlack(u *NewUser) {
 
 }
 
-func postOrderToSlack(o *Order) {
+func postOrderToSlack(o *models.WebOrder) {
 
 	msg := fmt.Sprintf("New web application submission by  http://localhost:9090/admin/orders/" + o.UUID)
 	log.Println(msg)

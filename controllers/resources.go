@@ -51,13 +51,7 @@ type (
 	}
 	// For Post/Put - /tasks
 	// For Get - /tasks/id
-	ProductResource struct {
-		Data models.Product `json:"data"`
-	}
-	// For Get - /tasks
-	ProductsResource struct {
-		Data []models.Product `json:"data"`
-	}
+
 	MerchantResource struct {
 		Data models.Merchant `json:"data"`
 	}

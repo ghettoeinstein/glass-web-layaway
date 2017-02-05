@@ -1,6 +1,7 @@
 package main
 
 import (
+	"./models"
 	"github.com/subosito/twilio"
 	"log"
 )
@@ -19,7 +20,7 @@ var admins = []string{"+13234236654"}
 
 var url = ".https://getglass.co/admin/orders/"
 
-func textOrderToAdmins(o *Order) {
+func textOrderToAdmins(o *models.WebOrder) {
 	for _, admin := range admins {
 		sendMessage(admin, url+o.UUID+".")
 	}

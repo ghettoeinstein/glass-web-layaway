@@ -17,6 +17,8 @@ func InitTemplates() {
 
 	templates["login"] = template.Must(template.ParseFiles("templates/login.html", "templates/base.html"))
 
+	templates["order"] = template.Must(template.ParseFiles("templates/order.html", "templates/base.html"))
+
 }
 
 func renderTemplate(w http.ResponseWriter, name string, template string, viewModel interface{}) {

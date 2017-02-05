@@ -235,3 +235,171 @@
 "}
 2017/02/03 03:36:57 Starting login
 2017/02/03 03:36:57 ijjjjj
+2017/02/03 04:02:49 API is Listening on:  0.0.0.0:9090
+2017/02/03 04:03:36 API is Listening on:  0.0.0.0:9090
+2017/02/03 04:04:15 API is Listening on:  0.0.0.0:9090
+2017/02/03 04:05:03 API is Listening on:  0.0.0.0:9090
+2017/02/03 05:04:36 API is Listening on:  0.0.0.0:9090
+2017/02/03 05:11:06 API is Listening on:  0.0.0.0:9090
+2017/02/03 05:11:30 API is Listening on:  0.0.0.0:9090
+2017/02/03 05:11:35 API is Listening on:  0.0.0.0:9090
+2017/02/03 05:11:39 API is Listening on:  0.0.0.0:9090
+2017/02/03 05:12:10 API is Listening on:  0.0.0.0:9090
+2017/02/03 05:13:11 API is Listening on:  0.0.0.0:9090
+2017/02/03 05:14:10 API is Listening on:  0.0.0.0:9090
+2017/02/03 05:14:32 API is Listening on:  0.0.0.0:9090
+2017/02/03 05:15:18 API is Listening on:  0.0.0.0:9090
+2017/02/03 05:15:34 API is Listening on:  0.0.0.0:9090
+2017/02/03 05:15:58 API is Listening on:  0.0.0.0:9090
+2017/02/03 05:16:31 API is Listening on:  0.0.0.0:9090
+2017/02/03 05:17:34 API is Listening on:  0.0.0.0:9090
+2017/02/03 05:18:15 starting post
+2017/02/03 05:18:15 no errors
+2017/02/03 05:18:15 About to save to database
+2017/02/03 05:18:15 New web application submission by  http://localhost:9090/admin/orders/3179E954-EE55-42CA-9D5F-B0107FA42B88
+
+2017/02/03 05:18:15 {"text":"New web application submission by  http://localhost:9090/admin/orders/3179E954-EE55-42CA-9D5F-B0107FA42B88
+"}
+2017/02/03 07:44:06 Starting login
+2017/02/03 07:44:06 ijjjjj
+2017/02/03 20:36:55 Starting login
+2017/02/03 20:36:55 ijjjjj
+2017/02/03 20:40:55 starting post
+2017/02/03 20:40:55 no errors
+2017/02/03 20:40:55 About to save to database
+2017/02/03 20:40:55 New web application submission by  http://localhost:9090/admin/orders/D7FD44C8-D228-4438-BD0F-D3753C5BC842
+
+2017/02/03 20:40:55 {"text":"New web application submission by  http://localhost:9090/admin/orders/D7FD44C8-D228-4438-BD0F-D3753C5BC842
+"}
+2017/02/03 20:42:49 Starting login
+2017/02/03 20:42:49 AppError]: crypto/bcrypt: hashedPassword is not the hash of the given password
+2017/02/03 20:42:57 Starting login
+2017/02/03 20:42:57 AppError]: crypto/bcrypt: hashedPassword is not the hash of the given password
+2017/02/03 20:43:03 Starting login
+2017/02/03 20:43:03 ijjjjj
+2017/02/03 20:47:24 API is Listening on:  0.0.0.0:9090
+2017/02/03 20:47:56 API is Listening on:  0.0.0.0:9090
+2017/02/03 21:15:08 API is Listening on:  0.0.0.0:9090
+2017/02/03 21:15:11 template: orders.html:103:58: executing "body" at <.FullName>: can't evaluate field FullName in type models.Order
+2017/02/03 21:17:49 API is Listening on:  0.0.0.0:9090
+2017/02/03 21:17:51 template: orders.html:103:63: executing "body" at <.User.FullName>: can't evaluate field FullName in type *models.User
+2017/02/03 21:18:13 API is Listening on:  0.0.0.0:9090
+2017/02/03 21:18:22 starting post
+2017/02/03 21:18:22 no errors
+2017/02/03 21:18:22 About to save to database
+2017/02/03 21:18:22 New web application submission by  http://localhost:9090/admin/orders/C776E922-11BA-459F-9BF7-00593CBCF68A
+
+2017/02/03 21:18:22 {"text":"New web application submission by  http://localhost:9090/admin/orders/C776E922-11BA-459F-9BF7-00593CBCF68A
+"}
+2017/02/03 21:18:35 template: orders.html:103:63: executing "body" at <.User.FullName>: can't evaluate field FullName in type *models.User
+2017/02/03 21:20:28 API is Listening on:  0.0.0.0:9090
+2017/02/03 21:21:56 API is Listening on:  0.0.0.0:9090
+2017/02/03 21:22:41 starting post
+2017/02/03 21:22:41 no errors
+2017/02/03 21:22:41 About to save to database
+2017/02/03 21:22:41 New web application submission by  http://localhost:9090/admin/orders/E08A732D-C8EC-4FFE-98E4-BB60577020FC
+
+2017/02/03 21:22:41 {"text":"New web application submission by  http://localhost:9090/admin/orders/E08A732D-C8EC-4FFE-98E4-BB60577020FC
+"}
+2017/02/03 21:24:55 starting post
+2017/02/03 21:24:55 no errors
+2017/02/03 21:24:55 About to save to database
+2017/02/03 21:24:55 New web application submission by  http://localhost:9090/admin/orders/E5639516-4BDC-48CD-A0D9-37102D21C4B8
+
+2017/02/03 21:24:55 {"text":"New web application submission by  http://localhost:9090/admin/orders/E5639516-4BDC-48CD-A0D9-37102D21C4B8
+"}
+2017/02/03 21:27:56 template: orders.html:103:63: executing "body" at <.User.FullName>: can't evaluate field User in type models.WebOrder
+2017/02/03 21:28:50 API is Listening on:  0.0.0.0:9090
+2017/02/03 21:57:54 API is Listening on:  0.0.0.0:9090
+2017/02/03 21:57:54 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/03 21:59:45 API is Listening on:  0.0.0.0:9090
+2017/02/03 21:59:45 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/03 22:00:09 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:07:10 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:07:10 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/03 22:08:02 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:08:02 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/03 22:24:39 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:24:52 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:24:52 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/03 22:26:09 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:27:10 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:27:24 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:27:48 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:28:01 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:29:30 AppError]: not found
+2017/02/03 22:30:35 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:30:40 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:30:42 3179E954-EE55-42CA-9D5F-B0107FA42B88
+
+2017/02/03 22:30:42 AppError]: not found
+2017/02/03 22:30:43 3179E954-EE55-42CA-9D5F-B0107FA42B88
+
+2017/02/03 22:30:43 AppError]: not found
+2017/02/03 22:30:44 3179E954-EE55-42CA-9D5F-B0107FA42B88
+
+2017/02/03 22:30:44 AppError]: not found
+2017/02/03 22:30:45 3179E954-EE55-42CA-9D5F-B0107FA42B88
+
+2017/02/03 22:30:45 AppError]: not found
+2017/02/03 22:30:58 3179E954-EE55-42CA-9D5F-B0107FA42B88
+
+2017/02/03 22:30:58 AppError]: not found
+2017/02/03 22:30:59 3179E954-EE55-42CA-9D5F-B0107FA42B88
+
+2017/02/03 22:30:59 AppError]: not found
+2017/02/03 22:34:28 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:34:29 3179E954-EE55-42CA-9D5F-B0107FA42B88
+
+2017/02/03 22:34:29 AppError]: not found
+2017/02/03 22:34:30 3179E954-EE55-42CA-9D5F-B0107FA42B88
+
+2017/02/03 22:34:30 AppError]: not found
+2017/02/03 22:45:23 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:45:23 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/03 22:45:35 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:45:37 http: multiple response.WriteHeader calls
+2017/02/03 22:46:05 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:46:05 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/03 22:46:06 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:46:06 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/03 22:46:08 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:46:08 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/03 22:46:09 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:46:09 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/03 22:46:12 AppError]: E11000 duplicate key error index: glassdb.web_orders.$_id_ dup key: { : null }
+2017/02/03 22:46:18 AppError]: E11000 duplicate key error index: glassdb.web_orders.$_id_ dup key: { : null }
+2017/02/03 22:46:19 AppError]: E11000 duplicate key error index: glassdb.web_orders.$_id_ dup key: { : null }
+2017/02/03 22:46:19 AppError]: E11000 duplicate key error index: glassdb.web_orders.$_id_ dup key: { : null }
+2017/02/03 22:46:20 AppError]: E11000 duplicate key error index: glassdb.web_orders.$_id_ dup key: { : null }
+2017/02/03 22:51:54 starting post
+2017/02/03 22:51:54 no errors
+2017/02/03 22:51:54 About to save to database
+2017/02/03 22:51:54 E11000 duplicate key error index: glassdb.web_orders.$_id_ dup key: { : null }
+2017/02/03 22:53:06 API is Listening on:  0.0.0.0:9090
+2017/02/03 22:53:14 starting post
+2017/02/03 22:53:14 no errors
+2017/02/03 22:53:14 About to save to database
+2017/02/03 22:53:14 E11000 duplicate key error index: glassdb.web_orders.$_id_ dup key: { : null }
+2017/02/03 22:54:27 API is Listening on:  0.0.0.0:9090
+2017/02/04 08:26:36 API is Listening on:  0.0.0.0:9090
+2017/02/04 08:26:49 Starting login
+2017/02/04 08:26:49 AppError]: crypto/bcrypt: hashedPassword is not the hash of the given password
+2017/02/04 08:26:54 Starting login
+2017/02/04 08:26:55 ijjjjj
+2017/02/04 08:28:08 API is Listening on:  0.0.0.0:9090
+2017/02/04 08:29:14 API is Listening on:  0.0.0.0:9090
+2017/02/04 08:29:55 API is Listening on:  0.0.0.0:9090
+2017/02/04 08:31:19 API is Listening on:  0.0.0.0:9090
+2017/02/04 15:26:01 Starting login
+2017/02/04 15:26:01 AppError]: crypto/bcrypt: hashedPassword is not the hash of the given password
+2017/02/04 15:26:09 Starting login
+2017/02/04 15:26:09 AppError]: crypto/bcrypt: hashedPassword is not the hash of the given password
+2017/02/04 15:26:14 Starting login
+2017/02/04 15:26:14 ijjjjj
+2017/02/04 15:26:23 AppError]: not found
+2017/02/04 15:26:28 AppError]: not found
+2017/02/04 15:26:31 AppError]: not found
+2017/02/04 15:35:35 AppError]: not found
+2017/02/04 16:46:48 AppError]: not found
+2017/02/05 10:00:44 API is Listening on:  0.0.0.0:9090

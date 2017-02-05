@@ -7,7 +7,7 @@ import (
 	"./random"
 	"encoding/json"
 	"github.com/gorilla/mux"
-	"gopkg.in/mgo.v2/bson"
+
 	"html/template"
 	"log"
 	"net/http"
@@ -38,25 +38,24 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 	dateCreated := time.Now()
 	url := r.Form.Get("url")
 	url = template.HTMLEscapeString(url)
-	user := &NewUser{FullName: fullname, Email: email, PhoneNumber: phoneNumber, DateCreated: dateCreated, URL: url}
+	_ = &NewUser{FullName: fullname, Email: email, PhoneNumber: phoneNumber, DateCreated: dateCreated, URL: url}
 
 	uuid, err := random.GenerateUUID()
 	if err != nil {
 		return
 	}
 
-	order := &Order{
-		User:        user,
+	order := &models.WebOrder{
+		FullName:    fullname,
 		UUID:        uuid,
-		DateCreated: dateCreated,
-		ExpireTime:  dateCreated.Add(time.Duration(2 * time.Minute)),
-		Expired:     false,
+		Email:       email,
+		PhoneNumber: phoneNumber,
+		URL:         url,
+		Approved:    false,
 	}
 
-	orderSavedToDatabase := make(chan struct{})
-	err = saveOrder(order, orderSavedToDatabase)
+	err = saveOrder(order)
 	if err != nil {
-
 		log.Println(err)
 		renderTemplate(w, "glass", "base", err.Error())
 		return
@@ -66,7 +65,7 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 	go textOrderToAdmins(order)
 
 	payload := struct {
-		Order    *Order
+		Order    *models.WebOrder
 		Redirect string
 	}{
 		order,
@@ -76,16 +75,15 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func saveOrder(order *Order, done chan struct{}) (err error) {
+func saveOrder(order *models.WebOrder) (err error) {
 	context := controllers.NewContext()
 	defer context.Close()
 
 	c := context.DbCollection("web_orders")
-	repo := &data.OrderRepository{c}
-	sampleOrder := &models.Order{Id: bson.NewObjectId()}
+	repo := &data.WebOrderRepository{c}
 
 	log.Println("About to save to database")
-	if err = repo.NewOrder(sampleOrder); err != nil {
+	if err = repo.NewWebOrder(order); err != nil {
 		log.Fatalf(err.Error())
 	}
 
@@ -121,7 +119,10 @@ func historyHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ordersHandler(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "orders", "base", "")
+	ctx := controllers.NewContext()
+	defer ctx.Close()
+
+	renderTemplate(w, "orders", "base", nil)
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
@@ -140,11 +141,40 @@ func aboutUsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func adminHandler(w http.ResponseWriter, r *http.Request) {
+	// Handler for HTTP Get - "/admin/merchants/{id}/products"
+	// Returns all Tasks created by a User
+
+	context := controllers.NewContext()
+	defer context.Close()
+	c := context.DbCollection("web_orders")
+	repo := &data.WebOrderRepository{c}
+	web_orders, err := repo.GetNewOrders()
+
+	if err != nil {
+		log.Println("DB Error looking up web orders :", err)
+		renderTemplate(w, "orders", "base", nil)
+		return
+	}
+
+	//j, err := json.Marshal(ProductsResource{Data: products})
+	//if err != nil {
+	//	common.DisplayAppError(
+	//		w,
+	//		err,
+	//		"An unexpected error has occurred",
+	//		500,
+	//	)
+	//	return
+	//}
+	//w.WriteHeader(http.StatusOK)
+	//w.Header().Set("Content-Type", "application/json")
+	//w.Write(j)
+
 	w.Header().Set("Cache-Control", "no-cache,no-store, must-revalidate")
 
 	w.Header().Set("Pragma", "no-cache")
 	w.Header().Set("Expires", " Sat, 26 Jul 1997 05:00:00 GMT")
-	renderTemplate(w, "orders", "base", nil)
+	renderTemplate(w, "orders", "base", web_orders)
 }
 
 func loggingHandler(w http.ResponseWriter, r *http.Request, next http.Handler) http.Handler {

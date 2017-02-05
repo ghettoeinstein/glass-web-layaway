@@ -10,8 +10,21 @@ import (
 	//  "log"
 )
 
+//  Putting this here for now. Break this out later.
+type WebOrderRepository struct {
+	C *mgo.Collection
+}
+
 type OrderRepository struct {
 	C *mgo.Collection
+}
+
+func (r *WebOrderRepository) NewWebOrder(order *models.WebOrder) (err error) {
+	now := time.Now()
+	order.CreatedAt = now
+	order.UpdatedAt = now
+	err = r.C.Insert(&order)
+	return
 }
 
 func (r *OrderRepository) CreateOrderForUser(user *models.User) (order *models.Order, err error) {
@@ -22,13 +35,14 @@ func (r *OrderRepository) CreateOrderForUser(user *models.User) (order *models.O
 
 	err = r.C.Update(bson.M{"_id": order.Id},
 		bson.M{"$set": bson.M{
-			"items":            order.Items,
-			"shipped":          order.Shipped,
-			"shipping_address": order.ShippingAddress,
-			"trackingNumber":   order.TrackingNumber,
-			"total":            order.Total,
-			"tax_rate":         order.TaxRate,
-
+			"items":               order.Items,
+			"shipped":             order.Shipped,
+			"shipping_address":    order.ShippingAddress,
+			"trackingNumber":      order.TrackingNumber,
+			"total":               order.Total,
+			"tax_rate":            order.TaxRate,
+			"url":                 order.URL,
+			"missed_deadline":     order.MissedDeadline,
 			"email":               order.Email,
 			"first_payment_due":   order.FirstPaymentDue,
 			"first_payment_paid":  order.FirstPaymentPaid,
@@ -49,8 +63,8 @@ func (r *OrderRepository) CreateOrderForUser(user *models.User) (order *models.O
 
 func (r *OrderRepository) NewOrder(order *models.Order) (err error) {
 	now := time.Now()
-	order.CreatedAt = time.Now()
-	order.UpdatedAt = tiem.Now()
+	order.CreatedAt = now
+	order.UpdatedAt = now
 	err = r.C.Insert(&order)
 	return
 }
@@ -69,7 +83,7 @@ func (r *OrderRepository) Update(order *models.Order) (err error) {
 
 	err = r.C.Update(bson.M{"_id": order.Id},
 		bson.M{"$set": bson.M{
-			"expired":             order.Expired,
+			"missed_deadline":     order.MissedDeadline,
 			"items":               order.Items,
 			"shipped":             order.Shipped,
 			"shipping_address":    order.ShippingAddress,
@@ -95,6 +109,26 @@ func (r *OrderRepository) Update(order *models.Order) (err error) {
 	return err
 }
 
+func (r *OrderRepository) GetNewOrders() ([]models.Order, error) {
+	var orders []models.Order
+	iter := r.C.Find(bson.M{}).Iter()
+	result := models.Order{}
+	for iter.Next(&result) {
+		orders = append(orders, result)
+	}
+	return orders, nil
+}
+func (r *WebOrderRepository) GetNewOrders() ([]models.WebOrder, error) {
+	var webOrders []models.WebOrder
+	iter := r.C.Find(bson.M{}).Iter()
+
+	result := models.WebOrder{}
+	for iter.Next(&result) {
+		webOrders = append(webOrders, result)
+	}
+	return webOrders, nil
+}
+
 func (r *OrderRepository) GetForUser(user *models.User) []models.Order {
 	var orders []models.Order
 	iter := r.C.Find(bson.M{"email": user.Email}).Iter()
@@ -103,6 +137,12 @@ func (r *OrderRepository) GetForUser(user *models.User) []models.Order {
 		orders = append(orders, result)
 	}
 	return orders
+}
+
+func (r *WebOrderRepository) GetByUUID(uuid string) (webOrder *models.WebOrder, err error) {
+	err = r.C.Find(bson.M{"UUID": uuid}).One(&webOrder)
+	return
+
 }
 
 func (r *OrderRepository) GetById(id string) (order *models.Order, err error) {
