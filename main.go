@@ -70,7 +70,7 @@ func main() {
 	router.HandleFunc("/logout", logout).Methods("GET")
 	//router.POST("/orders", controllers.CreateOrder).Methids("POST")
 	router.HandleFunc("/decision/{id}", decisionHandler).Methods("GET")
-
+	router.HandleFunc("/about", aboutUsHandler)
 	//
 	router.HandleFunc("/login", controllers.GetLogin).Methods("GET")
 	router.HandleFunc("/login", controllers.AdminLogin).Methods("POST")
@@ -78,9 +78,12 @@ func main() {
 	adminRouter := mux.NewRouter()
 	adminRouter.HandleFunc("/admin/chat", chatHandler).Methods("GET")
 	adminRouter.HandleFunc("/admin/orders/{id}", controllers.AdminDisplayOrder).Methods("GET")
-	adminRouter.HandleFunc("/admin/orders/{id}/edit", controllers.AdminDisplayEditOrder).Methods("GET")
+	adminRouter.HandleFunc("/admin/orders/{id}/process", controllers.AdminProcessOrder).Methods("POST")
+	adminRouter.HandleFunc("/admin/orders/approved", controllers.AdminGetApprovedOrders).Methods("GET")
+	adminRouter.HandleFunc("/admin/orders/denied", controllers.AdminGetDeniedOrders).Methods("GET")
+	adminRouter.HandleFunc("/admin/orders/{id}/edit", controllers.AdminGetEditOrder).Methods("GET")
 	adminRouter.HandleFunc("/admin", adminHandler)
-	adminRouter.HandleFunc("/admin/orders", ordersHandler)
+	adminRouter.HandleFunc("/admin/orders/new", adminHandler).Methods("GET")
 	adminRouter.HandleFunc("/admin/register", adminHandler)
 	adminRouter.Handle("/admin/room", globalRoom)
 

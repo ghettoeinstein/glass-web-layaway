@@ -5,7 +5,7 @@ import (
 	"./data"
 	"./models"
 	"./random"
-	"encoding/json"
+
 	"github.com/gorilla/mux"
 
 	"html/template"
@@ -40,18 +40,16 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 	url = template.HTMLEscapeString(url)
 	_ = &NewUser{FullName: fullname, Email: email, PhoneNumber: phoneNumber, DateCreated: dateCreated, URL: url}
 
-	uuid, err := random.GenerateUUID()
-	if err != nil {
-		return
-	}
+	uuid := random.GenerateUUID()
 
 	order := &models.WebOrder{
-		FullName:    fullname,
-		UUID:        uuid,
-		Email:       email,
-		PhoneNumber: phoneNumber,
-		URL:         url,
-		Approved:    false,
+		FullName:     fullname,
+		UUID:         uuid,
+		Email:        email,
+		PhoneNumber:  phoneNumber,
+		URL:          url,
+		Approved:     false,
+		Acknowledged: false,
 	}
 
 	err = saveOrder(order)
@@ -186,22 +184,6 @@ func loggingHandler(w http.ResponseWriter, r *http.Request, next http.Handler) h
 	})
 }
 
-func uuidHandler(w http.ResponseWriter, r *http.Request) {
-	uuid, err := random.GenerateUUID()
-	if err != nil {
-		return
-	}
-
-	UUIDPayload := struct {
-		UUID string `json:"uuid"`
-	}{
-		uuid,
-	}
-
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(UUIDPayload)
-	return
-}
 func logout(w http.ResponseWriter, r *http.Request) {
 	http.SetCookie(w, &http.Cookie{
 		Name:   "Auth",

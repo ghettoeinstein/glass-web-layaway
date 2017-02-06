@@ -10,21 +10,8 @@ import (
 	//  "log"
 )
 
-//  Putting this here for now. Break this out later.
-type WebOrderRepository struct {
-	C *mgo.Collection
-}
-
 type OrderRepository struct {
 	C *mgo.Collection
-}
-
-func (r *WebOrderRepository) NewWebOrder(order *models.WebOrder) (err error) {
-	now := time.Now()
-	order.CreatedAt = now
-	order.UpdatedAt = now
-	err = r.C.Insert(&order)
-	return
 }
 
 func (r *OrderRepository) CreateOrderForUser(user *models.User) (order *models.Order, err error) {
@@ -57,7 +44,6 @@ func (r *OrderRepository) CreateOrderForUser(user *models.User) (order *models.O
 			"order_date":          order.OrderDate,
 			"updated_at":          time.Now(),
 		}})
-
 	return
 }
 
@@ -118,16 +104,6 @@ func (r *OrderRepository) GetNewOrders() ([]models.Order, error) {
 	}
 	return orders, nil
 }
-func (r *WebOrderRepository) GetNewOrders() ([]models.WebOrder, error) {
-	var webOrders []models.WebOrder
-	iter := r.C.Find(bson.M{}).Iter()
-
-	result := models.WebOrder{}
-	for iter.Next(&result) {
-		webOrders = append(webOrders, result)
-	}
-	return webOrders, nil
-}
 
 func (r *OrderRepository) GetForUser(user *models.User) []models.Order {
 	var orders []models.Order
@@ -137,12 +113,6 @@ func (r *OrderRepository) GetForUser(user *models.User) []models.Order {
 		orders = append(orders, result)
 	}
 	return orders
-}
-
-func (r *WebOrderRepository) GetByUUID(uuid string) (webOrder *models.WebOrder, err error) {
-	err = r.C.Find(bson.M{"UUID": uuid}).One(&webOrder)
-	return
-
 }
 
 func (r *OrderRepository) GetById(id string) (order *models.Order, err error) {

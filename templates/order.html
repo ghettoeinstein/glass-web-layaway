@@ -103,7 +103,7 @@
 <div class="container-fluid">
 	<div id="" >
 		<div class="logo-circle">
-			<img src="assets/glogo-circle.svg"  id="logo" width="100px">
+			<img src="/assets/glogo-circle.svg"  id="logo" width="100px">
 		</div>
 		<!-- Header Row -->
 
@@ -119,7 +119,7 @@
 				</div>
 				<div class="col-md-12 col-md-offset-1">
 
-					<form class="form-horizontal" action="admin/orders/{{.UUID}}/decision" method="POST" enctype="multipart/form-data">
+					<form class="form-horizontal" action="/admin/orders/{{.UUID}}/process" method="POST" enctype="multipart/form-data">
 						<fieldset>
 
 							<!-- Form Name -->
@@ -165,8 +165,8 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label" for="phone">Price</label>  
 							<div class="col-md-4">
-								<input id="phone" name="price"  step="0.01" min="75.00" type="text" placeholder="75.00"  class="form-control input-md" required="">
-								<input type="number" step="any" min="0" max="100" value="22.33">
+								
+								<input type="number" step="any" min="0" max="100" value="22.33"  class="form-control input-md" required="">
 								<span class="help-block">Please enter correct price from the PRODUCT URL, in whole cents eg: $100 = 10000</span>  
 							</div>
 						</div>
@@ -185,8 +185,8 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label" for="button1id">Decision</label>
 							<div class="col-md-8">
-								<button id="button1id" name="button1id" class="btn btn-success">Send Approval</button>
-								<button id="button2id" name="button2id" class="btn btn-danger">Send Denial</button>
+								<button id="approve" name="decision" class="btn btn-success" value="approve">Send Approval</button>
+								<button id="deny" name="decision" class="btn btn-danger" value="deny">Send Denial</button>
 							</div>
 						</div>
 
@@ -204,4 +204,12 @@
 	</div>
 </nav>
 </div>
+
+
+<script src="">
+	$(
+		console.log("Hello")
+		);
+
+</script>
 {{end}}

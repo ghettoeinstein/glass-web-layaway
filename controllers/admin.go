@@ -36,6 +36,81 @@ func AdminGetNewOrders(w http.ResponseWriter, r *http.Request) {
 
 }
 
+func AdminProcessOrder(w http.ResponseWriter, r *http.Request) {
+
+	id := IdFromRequest(r)
+
+	context := NewContext()
+	defer context.Close()
+
+	c := context.DbCollection("web_orders")
+	repo := &data.WebOrderRepository{c}
+
+	webOrder, err := repo.GetByUUID(id)
+	if err != nil {
+		common.DisplayAppError(w, err, err.Error(), 500)
+		return
+	}
+
+	decision := r.PostFormValue("decision")
+	switch decision {
+	case "approve":
+		webOrder.Decision = "approved"
+
+	case "deny":
+		webOrder.Decision = "denied"
+	default:
+		webOrder.Decision = "denied"
+	}
+	webOrder.Acknowledged = true
+	err = repo.UpdateOrder(webOrder)
+	if err != nil {
+		common.DisplayAppError(w, err, err.Error(), 500)
+		return
+	}
+
+	renderTemplate(w, "admin", "base", "")
+}
+
+func AdminGetDeniedOrders(w http.ResponseWriter, r *http.Request) {
+
+	context := NewContext()
+	defer context.Close()
+
+	c := context.DbCollection("web_orders")
+	repo := &data.WebOrderRepository{c}
+
+	var orders []models.WebOrder
+
+	orders, err := repo.GetNewOrders()
+	if err != nil {
+		common.DisplayAppError(w, err, "Could not retrieve orders. Contact IT", 500)
+		return
+	}
+	renderTemplate(w, "orders", "base", orders)
+
+}
+
+func AdminGetApprovedOrders(w http.ResponseWriter, r *http.Request) {
+
+	context := NewContext()
+	defer context.Close()
+
+	c := context.DbCollection("web_orders")
+	repo := &data.WebOrderRepository{c}
+
+	var orders []models.WebOrder
+
+	orders, err := repo.GetNewOrders()
+	if err != nil {
+		log.Println("Error:", err)
+		common.DisplayAppError(w, err, "Could not retrieve approved orders. Contact IT", 500)
+		return
+	}
+	renderTemplate(w, "orders", "base", orders)
+
+}
+
 func AdminDisplayOrder(w http.ResponseWriter, r *http.Request) {
 	//_, err := customerFromRequest(r)
 	//if err != nil {
@@ -53,7 +128,6 @@ func AdminDisplayOrder(w http.ResponseWriter, r *http.Request) {
 
 	web_order, err := repo.GetByUUID(id)
 	if err != nil {
-
 		common.DisplayAppError(w, err, "Error fetching  web order.", 500)
 		return
 	}
@@ -62,7 +136,7 @@ func AdminDisplayOrder(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func AdminDisplayEditOrder(w http.ResponseWriter, r *http.Request) {
+func AdminGetEditOrder(w http.ResponseWriter, r *http.Request) {
 	//_, err := customerFromRequest(r)
 	//if err != nil {
 	//	log.Println("Error fetching customer for request:", err.Error)

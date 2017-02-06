@@ -14,7 +14,7 @@ type UserRepository struct {
 
 func (r *UserRepository) CreateUser(user *models.User) error {
 	obj_id := bson.NewObjectId()
-	user.Id = &obj_id
+	user.Id = obj_id
 
 	hpass, err := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
 	if err != nil {

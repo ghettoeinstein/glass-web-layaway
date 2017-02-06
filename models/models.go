@@ -9,30 +9,31 @@ import (
 
 type (
 	WebOrder struct {
-		Id             *bson.ObjectId `bson:"_id",omitempty" json:"id`
-		FullName       string         `json:"full_name" bson:"full_name`
-		Email          string         `json:"email" bson:"email"`
-		PhoneNumber    string         `json:"phone_number" bson:"phone_number`
-		URL            string         `json:"url" bson:"url"`
-		Address        string         `json:"address" bson:"address"`
-		UUID           string         `json:"uuid" bson:"uuid"`
-		DateCreated    time.Time      `json:"date_created" bson:"date_created"`
-		Approved       bool           `json:"approved" bson:"approved"`
-		TimerExpiresAt time.Time      `json:"timer_expires_at" bson:"timer_expires_at"`
-		CreatedAt      time.Time      `json:"created_at" bson:"created_at"`
-		UpdatedAt      time.Time      `json:"updated_at" bson:"updated_at"`
-		State          bool
+		Id             bson.ObjectId `bson:"_id",omitempty" json:"id`
+		FullName       string        `json:"full_name" bson:"full_name`
+		Email          string        `json:"email" bson:"email"`
+		PhoneNumber    string        `json:"phone_number" bson:"phone_number`
+		URL            string        `json:"url" bson:"url"`
+		Address        string        `json:"address" bson:"address"`
+		UUID           string        `json:"uuid" bson:"uuid"`
+		DateCreated    time.Time     `json:"date_created" bson:"date_created"`
+		Decision       string        `json:"decision" bson:"decision"`
+		TimerExpiresAt time.Time     `json:"timer_expires_at" bson:"timer_expires_at"`
+		CreatedAt      time.Time     `json:"created_at" bson:"created_at"`
+		UpdatedAt      time.Time     `json:"updated_at" bson:"updated_at"`
+		Acknowledged   bool          `json:"acknowledged" bson:"acknowledged"`
+		Price          int           `json:"price" bson:"price"`
 	}
 	User struct {
-		Id          *bson.ObjectId `bson:"_id,omitempty" json:"id"`
-		FirstName   string         `json:"first_name" bson:"first_name"`
-		LastName    string         `json:"last_name"  bson:"last_name"`
-		Email       string         `json:"email"      bson:"email"`
-		PhoneNumber string         `json:"phone_number" bson:"phone_number"`
-		Password    string         `json:"password,omitempty"`
-		Address1    string         `json:"address_1" bson:"address_1"`
-		Address2    string         `json:"address_2" bson:"address_2"`
-		City        string         `json:"city" bson:"city"`
+		Id          bson.ObjectId `bson:"_id,omitempty" json:"id"`
+		FirstName   string        `json:"first_name" bson:"first_name"`
+		LastName    string        `json:"last_name"  bson:"last_name"`
+		Email       string        `json:"email"      bson:"email"`
+		PhoneNumber string        `json:"phone_number" bson:"phone_number"`
+		Password    string        `json:"password,omitempty"`
+		Address1    string        `json:"address_1" bson:"address_1"`
+		Address2    string        `json:"address_2" bson:"address_2"`
+		City        string        `json:"city" bson:"city"`
 
 		State        string `json:"state" bson:"state"`
 		ZipCode      string `json:"zip_code" bson:"zip_code"`

@@ -403,3 +403,204 @@
 2017/02/04 15:35:35 AppError]: not found
 2017/02/04 16:46:48 AppError]: not found
 2017/02/05 10:00:44 API is Listening on:  0.0.0.0:9090
+2017/02/05 10:01:59 starting post
+2017/02/05 10:01:59 no errors
+2017/02/05 10:01:59 About to save to database
+2017/02/05 10:01:59 New web application submission by  http://localhost:9090/admin/orders/CC1CD96A-7784-4281-ADA6-BF0340EC396E
+
+2017/02/05 10:01:59 {"text":"New web application submission by  http://localhost:9090/admin/orders/CC1CD96A-7784-4281-ADA6-BF0340EC396E
+"}
+2017/02/05 10:02:18 Starting login
+2017/02/05 10:02:18 ijjjjj
+2017/02/05 10:02:25 AppError]: not found
+2017/02/05 10:02:57 AppError]: not found
+2017/02/05 10:03:01 AppError]: not found
+2017/02/05 10:03:04 AppError]: not found
+2017/02/05 10:14:55 AppError]: not found
+2017/02/05 10:20:12 API is Listening on:  0.0.0.0:9090
+2017/02/05 10:20:12 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/05 10:20:20 API is Listening on:  0.0.0.0:9090
+2017/02/05 10:20:26 AppError]: not found
+2017/02/05 10:22:46 AppError]: not found
+2017/02/05 10:23:04 API is Listening on:  0.0.0.0:9090
+2017/02/05 10:23:06 AppError]: not found
+2017/02/05 10:23:11 AppError]: not found
+2017/02/05 10:23:23 API is Listening on:  0.0.0.0:9090
+2017/02/05 10:24:00 API is Listening on:  0.0.0.0:9090
+2017/02/05 10:24:07 API is Listening on:  0.0.0.0:9090
+2017/02/05 10:24:42 API is Listening on:  0.0.0.0:9090
+2017/02/05 10:26:10 starting post
+2017/02/05 10:26:10 no errors
+2017/02/05 10:26:10 About to save to database
+2017/02/05 10:26:10 E11000 duplicate key error index: glassdb.web_orders.$_id_ dup key: { : null }
+2017/02/05 10:26:14 API is Listening on:  0.0.0.0:9090
+2017/02/05 10:27:01 starting post
+2017/02/05 10:27:01 no errors
+2017/02/05 10:27:01 About to save to database
+2017/02/05 10:27:01 E11000 duplicate key error index: glassdb.web_orders.$_id_ dup key: { : null }
+2017/02/05 10:28:10 API is Listening on:  0.0.0.0:9090
+2017/02/05 10:28:17 starting post
+2017/02/05 10:28:17 no errors
+2017/02/05 10:28:17 About to save to database
+2017/02/05 10:28:17 &{<nil> Aikea Jones hollowbutterfly@gmail.com 3236172090 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  598F6771-E31A-4637-979F-B45744657CAA
+ 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC 2017-02-05 10:28:17.345590168 -0800 PST 2017-02-05 10:28:17.345590168 -0800 PST false}
+2017/02/05 10:28:17 E11000 duplicate key error index: glassdb.web_orders.$_id_ dup key: { : null }
+2017/02/05 10:30:35 API is Listening on:  0.0.0.0:9090
+2017/02/05 10:30:44 API is Listening on:  0.0.0.0:9090
+2017/02/05 10:30:50 starting post
+2017/02/05 10:30:50 no errors
+2017/02/05 10:30:50 About to save to database
+2017/02/05 10:30:50 &{ObjectIdHex("58976f5aa54d754a7bfce58d") Caleb P saunders calebsaunders@gmail.com 3234236654 http://google.com  0E14CF9A-4BF5-443E-9943-AE64883288FC
+ 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC 2017-02-05 10:30:50.30702784 -0800 PST 2017-02-05 10:30:50.30702784 -0800 PST false}
+2017/02/05 10:30:50 New web application submission by  http://localhost:9090/admin/orders/0E14CF9A-4BF5-443E-9943-AE64883288FC
+
+2017/02/05 10:30:50 {"text":"New web application submission by  http://localhost:9090/admin/orders/0E14CF9A-4BF5-443E-9943-AE64883288FC
+"}
+2017/02/05 10:30:55 AppError]: not found
+2017/02/05 10:41:11 API is Listening on:  0.0.0.0:9090
+2017/02/05 10:41:36 starting post
+2017/02/05 10:41:36 no errors
+2017/02/05 10:41:36 About to save to database
+2017/02/05 10:41:36 &{ObjectIdHex("589771e0a54d754d24f5cb55") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  611cce88-ccc4-4474-bc6a-48ba42817e8f 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC 2017-02-05 10:41:36.082512843 -0800 PST 2017-02-05 10:41:36.082512843 -0800 PST false}
+2017/02/05 10:41:36 New web application submission by  http://localhost:9090/admin/orders/611cce88-ccc4-4474-bc6a-48ba42817e8f
+2017/02/05 10:41:36 {"text":"New web application submission by  http://localhost:9090/admin/orders/611cce88-ccc4-4474-bc6a-48ba42817e8f"}
+2017/02/05 11:36:57 starting post
+2017/02/05 11:36:57 no errors
+2017/02/05 11:36:57 About to save to database
+2017/02/05 11:36:57 &{ObjectIdHex("58977ed9a54d754d24f5cb56") caleb saunders csaunders1@toromail.csudh.edu 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  22989cf1-24aa-4fd1-b71e-5adfd7a2719a 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC 2017-02-05 11:36:57.665686321 -0800 PST 2017-02-05 11:36:57.665686321 -0800 PST false}
+2017/02/05 11:36:57 New web application submission by  http://localhost:9090/admin/orders/22989cf1-24aa-4fd1-b71e-5adfd7a2719a
+2017/02/05 11:36:57 {"text":"New web application submission by  http://localhost:9090/admin/orders/22989cf1-24aa-4fd1-b71e-5adfd7a2719a"}
+2017/02/05 11:38:53 API is Listening on:  0.0.0.0:9090
+2017/02/05 19:37:57 starting post
+2017/02/05 19:37:57 no errors
+2017/02/05 19:37:57 About to save to database
+2017/02/05 19:37:57 &{ObjectIdHex("5897ef95a54d755b36113820") Caleb P saunders calebsaunders@gmail.com 3234236654 http://loletteshair.com  d59cc79c-efc3-4a22-b89a-0a4fd2d68aea 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC 2017-02-05 19:37:57.20369156 -0800 PST 2017-02-05 19:37:57.20369156 -0800 PST false}
+2017/02/05 19:37:57 New web application submission by  http://localhost:9090/admin/orders/d59cc79c-efc3-4a22-b89a-0a4fd2d68aea
+2017/02/05 19:37:57 {"text":"New web application submission by  http://localhost:9090/admin/orders/d59cc79c-efc3-4a22-b89a-0a4fd2d68aea"}
+2017/02/05 20:28:59 starting post
+2017/02/05 20:28:59 no errors
+2017/02/05 20:28:59 About to save to database
+2017/02/05 20:28:59 &{ObjectIdHex("5897fb8ba54d755b36113821") Caleb P saunders calebsaunders@gmail.com 3234236654 http://google.com  5a14b63e-ecbc-4501-a2b0-86c83b015931 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC 2017-02-05 20:28:59.840917903 -0800 PST 2017-02-05 20:28:59.840917903 -0800 PST false}
+2017/02/05 20:28:59 New web application submission by  http://localhost:9090/admin/orders/5a14b63e-ecbc-4501-a2b0-86c83b015931
+2017/02/05 20:28:59 {"text":"New web application submission by  http://localhost:9090/admin/orders/5a14b63e-ecbc-4501-a2b0-86c83b015931"}
+2017/02/05 20:29:03 starting post
+2017/02/05 20:29:03 no errors
+2017/02/05 20:29:03 About to save to database
+2017/02/05 20:29:03 &{ObjectIdHex("5897fb8fa54d755b36113822") Caleb P saunders calebsaunders@gmail.com 3234236654 http://google.com  cbfd3b35-543f-4530-892f-3f8672f690ab 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC 2017-02-05 20:29:03.959774131 -0800 PST 2017-02-05 20:29:03.959774131 -0800 PST false}
+2017/02/05 20:29:03 New web application submission by  http://localhost:9090/admin/orders/cbfd3b35-543f-4530-892f-3f8672f690ab
+2017/02/05 20:29:03 {"text":"New web application submission by  http://localhost:9090/admin/orders/cbfd3b35-543f-4530-892f-3f8672f690ab"}
+2017/02/05 20:29:06 starting post
+2017/02/05 20:29:06 no errors
+2017/02/05 20:29:06 About to save to database
+2017/02/05 20:29:06 &{ObjectIdHex("5897fb92a54d755b36113823") Caleb P saunders calebsaunders@gmail.com 3234236654 http://google.com  6479a9cd-6e17-493e-9259-5205aea2299c 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC 2017-02-05 20:29:06.697002895 -0800 PST 2017-02-05 20:29:06.697002895 -0800 PST false}
+2017/02/05 20:29:06 New web application submission by  http://localhost:9090/admin/orders/6479a9cd-6e17-493e-9259-5205aea2299c
+2017/02/05 20:29:06 {"text":"New web application submission by  http://localhost:9090/admin/orders/6479a9cd-6e17-493e-9259-5205aea2299c"}
+2017/02/05 20:29:10 starting post
+2017/02/05 20:29:10 no errors
+2017/02/05 20:29:10 About to save to database
+2017/02/05 20:29:10 &{ObjectIdHex("5897fb96a54d755b36113824") Caleb P saunders calebsaunders@gmail.com 3234236654 http://google.com  eb06dc8f-7d57-4980-b50d-8b7f6f231f67 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC 2017-02-05 20:29:10.247141591 -0800 PST 2017-02-05 20:29:10.247141591 -0800 PST false}
+2017/02/05 20:29:10 New web application submission by  http://localhost:9090/admin/orders/eb06dc8f-7d57-4980-b50d-8b7f6f231f67
+2017/02/05 20:29:10 {"text":"New web application submission by  http://localhost:9090/admin/orders/eb06dc8f-7d57-4980-b50d-8b7f6f231f67"}
+2017/02/05 20:29:58 Starting login
+2017/02/05 20:29:58 AppError]: crypto/bcrypt: hashedPassword is not the hash of the given password
+2017/02/05 20:30:03 Starting login
+2017/02/05 20:30:03 AppError]: crypto/bcrypt: hashedPassword is not the hash of the given password
+2017/02/05 20:30:11 Starting login
+2017/02/05 20:30:11 ijjjjj
+2017/02/05 20:42:50 API is Listening on:  0.0.0.0:9090
+2017/02/05 20:42:57 starting post
+2017/02/05 20:42:57 no errors
+2017/02/05 20:42:57 About to save to database
+2017/02/05 20:42:57 &{ObjectIdHex("5897fed1a54d7566182c09b0") Jean-Lee publicprivacybusiness@gmail.com 3236172090 http://loletteshair.com  8477c500-373b-4c15-b0d0-a73224322334 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC 2017-02-05 20:42:57.456056533 -0800 PST 2017-02-05 20:42:57.456056533 -0800 PST false}
+2017/02/05 20:42:57 New web application submission by  http://localhost:9090/admin/orders/8477c500-373b-4c15-b0d0-a73224322334
+2017/02/05 20:42:57 {"text":"New web application submission by  http://localhost:9090/admin/orders/8477c500-373b-4c15-b0d0-a73224322334"}
+2017/02/05 20:58:16 starting post
+2017/02/05 20:58:16 no errors
+2017/02/05 20:58:16 About to save to database
+2017/02/05 20:58:16 &{ObjectIdHex("58980268a54d7566182c09b1") Jean-Lee publicprivacybusiness@gmail.com 3236172090 http://loletteshair.com  4bab439c-b3b8-4c45-9a32-30c6bd9b9dfd 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC 2017-02-05 20:58:16.685303406 -0800 PST 2017-02-05 20:58:16.685303406 -0800 PST false}
+2017/02/05 20:58:16 New web application submission by  http://localhost:9090/admin/orders/4bab439c-b3b8-4c45-9a32-30c6bd9b9dfd
+2017/02/05 20:58:16 {"text":"New web application submission by  http://localhost:9090/admin/orders/4bab439c-b3b8-4c45-9a32-30c6bd9b9dfd"}
+2017/02/05 20:58:54 Starting login
+2017/02/05 20:58:54 AppError]: crypto/bcrypt: hashedPassword is not the hash of the given password
+2017/02/05 20:59:02 Starting login
+2017/02/05 20:59:02 ijjjjj
+2017/02/05 21:01:56 Starting login
+2017/02/05 21:01:56 ijjjjj
+2017/02/05 21:02:35 API is Listening on:  0.0.0.0:9090
+2017/02/05 21:09:41 API is Listening on:  0.0.0.0:9090
+2017/02/05 21:09:52 AppError]: not found
+2017/02/05 21:11:38 API is Listening on:  0.0.0.0:9090
+2017/02/05 21:11:59 API is Listening on:  0.0.0.0:9090
+2017/02/05 21:12:13 AppError]: not found
+2017/02/05 21:12:47 API is Listening on:  0.0.0.0:9090
+2017/02/05 21:12:49 AppError]: not found
+2017/02/05 21:12:50 AppError]: not found
+2017/02/05 21:12:54 AppError]: not found
+2017/02/05 21:13:26 API is Listening on:  0.0.0.0:9090
+2017/02/05 21:13:27 AppError]: not found
+2017/02/05 21:13:30 AppError]: not found
+2017/02/05 21:13:35 AppError]: not found
+2017/02/05 21:17:43 starting post
+2017/02/05 21:17:43 no errors
+2017/02/05 21:17:43 About to save to database
+2017/02/05 21:17:43 &{ObjectIdHex("589806f7a54d7569a062a011") Fff Calensa Rer Dd  c1bdb912-6ac1-437e-a9ae-c6840f03f256 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC 2017-02-05 21:17:43.478005204 -0800 PST 2017-02-05 21:17:43.478005204 -0800 PST}
+2017/02/05 21:17:43 New web application submission by  http://localhost:9090/admin/orders/c1bdb912-6ac1-437e-a9ae-c6840f03f256
+2017/02/05 21:17:43 {"text":"New web application submission by  http://localhost:9090/admin/orders/c1bdb912-6ac1-437e-a9ae-c6840f03f256"}
+2017/02/05 22:28:21 API is Listening on:  0.0.0.0:9090
+2017/02/05 22:34:23 API is Listening on:  0.0.0.0:9090
+2017/02/05 22:40:19 API is Listening on:  0.0.0.0:9090
+2017/02/05 22:41:32 API is Listening on:  0.0.0.0:9090
+2017/02/05 22:42:20 API is Listening on:  0.0.0.0:9090
+2017/02/05 22:42:28 ID is : 611cce88-ccc4-4474-bc6a-48ba42817e8f
+2017/02/05 22:43:32 API is Listening on:  0.0.0.0:9090
+2017/02/05 22:43:36 ID is : 611cce88-ccc4-4474-bc6a-48ba42817e8f
+2017/02/05 22:44:06 API is Listening on:  0.0.0.0:9090
+2017/02/05 22:44:09 ID is : 611cce88-ccc4-4474-bc6a-48ba42817e8f
+2017/02/05 22:44:09 Deicison is : 
+2017/02/05 22:44:12 ID is : 611cce88-ccc4-4474-bc6a-48ba42817e8f
+2017/02/05 22:44:12 Deicison is : 
+2017/02/05 22:45:22 API is Listening on:  0.0.0.0:9090
+2017/02/05 22:45:24 ID is : 611cce88-ccc4-4474-bc6a-48ba42817e8f
+2017/02/05 22:45:24 Decision is : approve
+2017/02/05 22:45:30 ID is : 611cce88-ccc4-4474-bc6a-48ba42817e8f
+2017/02/05 22:45:30 Decision is : 
+2017/02/05 22:45:34 ID is : 611cce88-ccc4-4474-bc6a-48ba42817e8f
+2017/02/05 22:45:34 Decision is : 
+2017/02/05 22:45:36 ID is : 611cce88-ccc4-4474-bc6a-48ba42817e8f
+2017/02/05 22:45:36 Decision is : approve
+2017/02/05 22:46:10 API is Listening on:  0.0.0.0:9090
+2017/02/05 22:46:15 ID is : 611cce88-ccc4-4474-bc6a-48ba42817e8f
+2017/02/05 22:46:15 Decision is : 
+2017/02/05 22:46:22 ID is : 611cce88-ccc4-4474-bc6a-48ba42817e8f
+2017/02/05 22:46:22 Decision is : deny
+2017/02/05 23:09:40 API is Listening on:  0.0.0.0:9090
+2017/02/05 23:10:27 starting post
+2017/02/05 23:10:27 no errors
+2017/02/05 23:10:27 About to save to database
+2017/02/05 23:10:27 &{ObjectIdHex("58982163a54d7576c4712d29") Aikea Jones hollowbutterfly@gmail.com 3236172090 http://loletteshair.com  c5c25d99-04b5-4f04-9f84-c4bd0a2b4fae 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC 2017-02-05 23:10:27.113631283 -0800 PST 2017-02-05 23:10:27.113631283 -0800 PST}
+2017/02/05 23:10:27 New web application submission by  http://localhost:9090/admin/orders/c5c25d99-04b5-4f04-9f84-c4bd0a2b4fae
+2017/02/05 23:10:27 {"text":"New web application submission by  http://localhost:9090/admin/orders/c5c25d99-04b5-4f04-9f84-c4bd0a2b4fae"}
+2017/02/05 23:10:39 ID is : c5c25d99-04b5-4f04-9f84-c4bd0a2b4fae
+2017/02/05 23:10:39 Decision is : approve
+2017/02/05 23:10:47 ID is : c5c25d99-04b5-4f04-9f84-c4bd0a2b4fae
+2017/02/05 23:10:47 Decision is : deny
+2017/02/05 23:10:50 ID is : c5c25d99-04b5-4f04-9f84-c4bd0a2b4fae
+2017/02/05 23:10:50 Decision is : approve
+2017/02/05 23:41:16 starting post
+2017/02/05 23:41:16 no errors
+2017/02/05 23:41:16 About to save to database
+2017/02/05 23:41:16 &{ObjectIdHex("5898289ca54d7576c4712d2a") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  84b9fc41-d6ab-4be1-9a02-08b95861ebe8 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC 2017-02-05 23:41:16.064935178 -0800 PST 2017-02-05 23:41:16.064935178 -0800 PST}
+2017/02/05 23:41:16 New web application submission by  http://localhost:9090/admin/orders/84b9fc41-d6ab-4be1-9a02-08b95861ebe8
+2017/02/05 23:41:16 {"text":"New web application submission by  http://localhost:9090/admin/orders/84b9fc41-d6ab-4be1-9a02-08b95861ebe8"}
+2017/02/06 06:50:07 starting post
+2017/02/06 06:50:07 no errors
+2017/02/06 06:50:07 About to save to database
+2017/02/06 06:50:08 &{ObjectIdHex("58988d1fa54d7576c4712d2b") Aikea Jones hollowbutterfly@gmail.com 3236172090 http://google.com  1e3ca922-9b5a-42a7-a84e-22c1c28db88c 0001-01-01 00:00:00 +0000 UTC false 0001-01-01 00:00:00 +0000 UTC 2017-02-06 06:50:07.974489397 -0800 PST 2017-02-06 06:50:07.974489397 -0800 PST}
+2017/02/06 06:50:08 New web application submission by  http://localhost:9090/admin/orders/1e3ca922-9b5a-42a7-a84e-22c1c28db88c
+2017/02/06 06:50:08 {"text":"New web application submission by  http://localhost:9090/admin/orders/1e3ca922-9b5a-42a7-a84e-22c1c28db88c"}
+2017/02/06 10:21:46 Starting login
+2017/02/06 10:21:46 ijjjjj
+2017/02/06 10:21:53 ID is : c5c25d99-04b5-4f04-9f84-c4bd0a2b4fae
+2017/02/06 10:21:53 Decision is : approve
+2017/02/06 10:21:57 ID is : c5c25d99-04b5-4f04-9f84-c4bd0a2b4fae
+2017/02/06 10:21:57 Decision is : deny
