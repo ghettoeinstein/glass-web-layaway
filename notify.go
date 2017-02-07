@@ -34,14 +34,14 @@ func postSlack(o *models.WebOrder) {
 
 	req, err := http.NewRequest("POST", TestWebHookURL, bytes.NewBuffer([]byte(jsonStr)))
 	if err != nil {
-		panic(err)
+		log.Println(err)
 	}
 	req.Header.Set("Content-Type", "application/json")
 
 	client := &http.Client{}
 	_, err = client.Do(req)
 	if err != nil {
-		panic(err)
+		log.Println(err)
 	}
 
 }
@@ -56,14 +56,14 @@ func postOrderToSlack(o *models.WebOrder) {
 
 	req, err := http.NewRequest("POST", TestWebHookURL, bytes.NewBuffer([]byte(jsonStr)))
 	if err != nil {
-		panic(err)
+		log.Println(err)
 	}
 	req.Header.Set("Content-Type", "application/json")
 
 	client := &http.Client{}
 	_, err = client.Do(req)
 	if err != nil {
-		panic(err)
+		log.Println(err)
 	}
 
 }

@@ -103,8 +103,8 @@ type (
 	}
 
 	Payment struct {
-		ChargeID    string
-		DateCharged time.Time
+		ChargeID    string    `json:"-"`
+		DateCharged time.Time `json:"date_charged"`
 	}
 
 	StripeCustomer struct {

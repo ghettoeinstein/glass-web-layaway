@@ -61,16 +61,20 @@ func main() {
 	//router.GET("/terms", termsHandler)
 	router.HandleFunc("/glass", postGlassHandler).Methods("POST")
 	router.HandleFunc("/getglass", glassHandler).Methods("GET")
-	router.HandleFunc("/user/home", homeHandler).Methods("GET")
+
 	router.HandleFunc("/congratulations", congratulationsHandler).Methods("GET")
+	router.HandleFunc("/user/home", homeHandler).Methods("GET")
 	router.HandleFunc("/user/history", historyHandler).Methods("GET")
 	router.HandleFunc("/user/profile", profileHandler).Methods("GET")
 	router.HandleFunc("/terms/{id}", termsHandler).Methods("GET")
+	router.HandleFunc("/decision/{id}", decisionHandler).Methods("GET")
+
 	router.HandleFunc("/", rootHandler)
 	router.HandleFunc("/logout", logout).Methods("GET")
 	//router.POST("/orders", controllers.CreateOrder).Methids("POST")
-	router.HandleFunc("/decision/{id}", decisionHandler).Methods("GET")
+
 	router.HandleFunc("/about", aboutUsHandler)
+
 	//
 	router.HandleFunc("/login", controllers.GetLogin).Methods("GET")
 	router.HandleFunc("/login", controllers.AdminLogin).Methods("POST")
@@ -79,8 +83,8 @@ func main() {
 	adminRouter.HandleFunc("/admin/chat", chatHandler).Methods("GET")
 	adminRouter.HandleFunc("/admin/orders/{id}", controllers.AdminDisplayOrder).Methods("GET")
 	adminRouter.HandleFunc("/admin/orders/{id}/process", controllers.AdminProcessOrder).Methods("POST")
-	adminRouter.HandleFunc("/admin/orders/approved", controllers.AdminGetApprovedOrders).Methods("GET")
-	adminRouter.HandleFunc("/admin/orders/denied", controllers.AdminGetDeniedOrders).Methods("GET")
+	adminRouter.HandleFunc("/admin/orders/decision/approved", controllers.AdminGetApprovedOrders).Methods("GET")
+	adminRouter.HandleFunc("/admin/orders/decision/denied", controllers.AdminGetDeniedOrders).Methods("GET")
 	adminRouter.HandleFunc("/admin/orders/{id}/edit", controllers.AdminGetEditOrder).Methods("GET")
 	adminRouter.HandleFunc("/admin", adminHandler)
 	adminRouter.HandleFunc("/admin/orders/new", adminHandler).Methods("GET")
@@ -92,6 +96,7 @@ func main() {
 		negroni.Wrap(adminRouter),
 	))
 
+	router.StrictSlash(true)
 	//router.GET("/chat", chatHandler)
 	n := negroni.Classic()
 	n.UseHandler(router)

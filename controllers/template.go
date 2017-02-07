@@ -19,6 +19,10 @@ func InitTemplates() {
 
 	templates["order"] = template.Must(template.ParseFiles("templates/order.html", "templates/base.html"))
 
+	templates["approved"] = template.Must(template.ParseFiles("templates/approved.html", "templates/base.html"))
+
+	templates["denied"] = template.Must(template.ParseFiles("templates/denied.html", "templates/base.html"))
+
 }
 
 func renderTemplate(w http.ResponseWriter, name string, template string, viewModel interface{}) {

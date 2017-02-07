@@ -14,14 +14,22 @@ type OrderRepository struct {
 	C *mgo.Collection
 }
 
+func (r *OrderRepository) CreateOrderFromWebOrder(webOrder *models.WebOrder) (order *models.Order, err error) {
+
+	return
+}
+
 func (r *OrderRepository) CreateOrderForUser(user *models.User) (order *models.Order, err error) {
 	order = &models.Order{}
 	err = r.NewOrder(order)
-
+	if err != nil {
+		return nil, err
+	}
 	order.User = user
 
 	err = r.C.Update(bson.M{"_id": order.Id},
 		bson.M{"$set": bson.M{
+			"uuid":                order.UUID,
 			"items":               order.Items,
 			"shipped":             order.Shipped,
 			"shipping_address":    order.ShippingAddress,
@@ -113,6 +121,12 @@ func (r *OrderRepository) GetForUser(user *models.User) []models.Order {
 		orders = append(orders, result)
 	}
 	return orders
+}
+
+func (r *OrderRepository) GetByUUID(uuid string) (order *models.Order, err error) {
+	err = r.C.Find(bson.M{"uuid": uuid}).One(&order)
+	return
+
 }
 
 func (r *OrderRepository) GetById(id string) (order *models.Order, err error) {

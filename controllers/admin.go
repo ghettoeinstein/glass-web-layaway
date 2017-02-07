@@ -4,8 +4,8 @@ import (
 	"../common"
 	"../data"
 	"../models"
-
 	"log"
+	"strconv"
 	"time"
 	//"github.com/gorilla/mux"
 	//	"gopkg.in/mgo.v2/bson"
@@ -32,6 +32,8 @@ func AdminGetNewOrders(w http.ResponseWriter, r *http.Request) {
 		common.DisplayAppError(w, err, "Could not retrieve orders. Contact IT", 500)
 		return
 	}
+
+	log.Println(len(orders))
 	renderTemplate(w, "orders", "base", orders)
 
 }
@@ -53,6 +55,9 @@ func AdminProcessOrder(w http.ResponseWriter, r *http.Request) {
 	}
 
 	decision := r.PostFormValue("decision")
+	price := r.PostFormValue("price")
+
+	log.Println("price is:", price)
 	switch decision {
 	case "approve":
 		webOrder.Decision = "approved"
@@ -63,13 +68,30 @@ func AdminProcessOrder(w http.ResponseWriter, r *http.Request) {
 		webOrder.Decision = "denied"
 	}
 	webOrder.Acknowledged = true
+	var newPrice int
+
+	newPrice, err = strconv.Atoi(price)
+	webOrder.Price = newPrice
 	err = repo.UpdateOrder(webOrder)
 	if err != nil {
 		common.DisplayAppError(w, err, err.Error(), 500)
 		return
 	}
 
-	renderTemplate(w, "admin", "base", "")
+	var webOrders []models.WebOrder
+
+	webOrders, err = repo.GetNewOrders()
+	if err != nil {
+		common.DisplayAppError(w, err, "Could not retrieve orders. Contact IT", 500)
+		return
+	}
+
+	log.Println("Length of web orders is :", len(webOrders))
+	//renderTemplate(w, "admin", "base", webOrders)
+
+	w.Header()["Location"] = []string{"/admin"}
+	w.WriteHeader(http.StatusTemporaryRedirect)
+
 }
 
 func AdminGetDeniedOrders(w http.ResponseWriter, r *http.Request) {
@@ -82,12 +104,12 @@ func AdminGetDeniedOrders(w http.ResponseWriter, r *http.Request) {
 
 	var orders []models.WebOrder
 
-	orders, err := repo.GetNewOrders()
+	orders, err := repo.GetDeniedOrders()
 	if err != nil {
 		common.DisplayAppError(w, err, "Could not retrieve orders. Contact IT", 500)
 		return
 	}
-	renderTemplate(w, "orders", "base", orders)
+	renderTemplate(w, "denied", "base", orders)
 
 }
 
@@ -101,13 +123,13 @@ func AdminGetApprovedOrders(w http.ResponseWriter, r *http.Request) {
 
 	var orders []models.WebOrder
 
-	orders, err := repo.GetNewOrders()
+	orders, err := repo.GetApprovedOrders()
 	if err != nil {
 		log.Println("Error:", err)
 		common.DisplayAppError(w, err, "Could not retrieve approved orders. Contact IT", 500)
 		return
 	}
-	renderTemplate(w, "orders", "base", orders)
+	renderTemplate(w, "approved", "base", orders)
 
 }
 

@@ -1,11 +1,11 @@
 package main
 
 import (
+	"./common"
 	"./controllers"
 	"./data"
 	"./models"
 	"./random"
-
 	"github.com/gorilla/mux"
 
 	"html/template"
@@ -43,13 +43,12 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 	uuid := random.GenerateUUID()
 
 	order := &models.WebOrder{
-		FullName:     fullname,
-		UUID:         uuid,
-		Email:        email,
-		PhoneNumber:  phoneNumber,
-		URL:          url,
-		Approved:     false,
-		Acknowledged: false,
+		FullName:    fullname,
+		UUID:        uuid,
+		Email:       email,
+		PhoneNumber: phoneNumber,
+		URL:         url,
+		Decision:    "undecided",
 	}
 
 	err = saveOrder(order)
@@ -59,8 +58,8 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	go postOrderToSlack(order)
-	go textOrderToAdmins(order)
+	//go postOrderToSlack(order)
+	//go textOrderToAdmins(order)
 
 	payload := struct {
 		Order    *models.WebOrder
@@ -130,7 +129,21 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 func termsHandler(w http.ResponseWriter, r *http.Request) {
 
 	uuid := mux.Vars(r)
+	if uuid["id"] == "" {
+		return
+	}
 
+	context := controllers.NewContext()
+	defer context.Close()
+	c := context.DbCollection("web_orders")
+	repo := &data.WebOrderRepository{c}
+
+	_, err := repo.GetByUUID(uuid["id"])
+	if err != nil {
+		log.Println("Error fetching order for UUID:", err)
+		common.DisplayAppError(w, err, "Error fetching order for UUID", 500)
+		return
+	}
 	renderTemplate(w, "terms", "base", uuid["id"])
 }
 
@@ -200,7 +213,28 @@ func logout(w http.ResponseWriter, r *http.Request) {
 func decisionHandler(w http.ResponseWriter, r *http.Request) {
 	uuid := mux.Vars(r)
 
-	renderTemplate(w, "sorry", "base", uuid["id"])
+	ctx := controllers.NewContext()
+	defer ctx.Close()
+	c := ctx.DbCollection("web_orders")
+	repo := &data.WebOrderRepository{c}
+
+	webOrder, err := repo.GetByUUID(uuid["id"])
+	if err != nil {
+		log.Println(err)
+		common.DisplayAppError(w, err, "Error getting result", 500)
+		return
+	}
+
+	switch webOrder.Decision {
+	case "approved":
+		renderTemplate(w, "congratulations", "base", uuid["id"])
+
+	case "denied":
+		renderTemplate(w, "sorry", "base", uuid["id"])
+	default:
+		renderTemplate(w, "sorry", "base", uuid["id"])
+	}
+	return
 }
 
 func IdFromRequest(r *http.Request) string {
