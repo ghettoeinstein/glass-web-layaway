@@ -138,13 +138,13 @@ func termsHandler(w http.ResponseWriter, r *http.Request) {
 	c := context.DbCollection("web_orders")
 	repo := &data.WebOrderRepository{c}
 
-	_, err := repo.GetByUUID(uuid["id"])
+	webOrder, err := repo.GetByUUID(uuid["id"])
 	if err != nil {
 		log.Println("Error fetching order for UUID:", err)
 		common.DisplayAppError(w, err, "Error fetching order for UUID", 500)
 		return
 	}
-	renderTemplate(w, "terms", "base", uuid["id"])
+	renderTemplate(w, "terms", "base", webOrder)
 }
 
 func aboutUsHandler(w http.ResponseWriter, r *http.Request) {

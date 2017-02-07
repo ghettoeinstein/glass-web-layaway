@@ -68,7 +68,7 @@ func main() {
 	router.HandleFunc("/user/profile", profileHandler).Methods("GET")
 	router.HandleFunc("/terms/{id}", termsHandler).Methods("GET")
 	router.HandleFunc("/decision/{id}", decisionHandler).Methods("GET")
-
+	router.HandleFunc("/offer/{id}/charge", controllers.ChargeForOffer).Methods("POST")
 	router.HandleFunc("/", rootHandler)
 	router.HandleFunc("/logout", logout).Methods("GET")
 	//router.POST("/orders", controllers.CreateOrder).Methids("POST")

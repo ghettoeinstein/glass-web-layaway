@@ -928,3 +928,95 @@
 2017/02/07 05:16:24 Error fetching order for UUID: not found
 2017/02/07 05:16:24 AppError]: not found
 2017/02/07 05:16:47 API is Listening on:  0.0.0.0:9090
+2017/02/07 05:42:53 API is Listening on:  0.0.0.0:9090
+2017/02/07 05:43:06 starting post
+2017/02/07 05:43:06 no errors
+2017/02/07 05:43:06 About to save to database
+2017/02/07 05:43:06 &{ObjectIdHex("5899ceeaa54d75f1ccd250ed") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  f498cd6c-bff7-42b1-b48f-48fee62e3eb4 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 05:43:06.064525378 -0800 PST 2017-02-07 05:43:06.064525378 -0800 PST false 0}
+2017/02/07 05:43:25 price is: 
+2017/02/07 05:43:25 Length of web orders is : 0
+2017/02/07 05:44:10 price is: 
+2017/02/07 05:44:10 Length of web orders is : 0
+2017/02/07 06:15:54 starting post
+2017/02/07 06:15:54 no errors
+2017/02/07 06:15:54 About to save to database
+2017/02/07 06:15:54 &{ObjectIdHex("5899d69aa54d75f1ccd250ee") Jean-Lee publicprivacybusiness@gmail.com 3236172090 http://google.com  a12fcef5-20c5-4d4b-bcbc-2a7b5293b0dd 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 06:15:54.170053449 -0800 PST 2017-02-07 06:15:54.170053449 -0800 PST false 0}
+2017/02/07 06:19:15 API is Listening on:  0.0.0.0:9090
+2017/02/07 06:19:22 starting post
+2017/02/07 06:19:22 no errors
+2017/02/07 06:19:22 About to save to database
+2017/02/07 06:19:22 &{ObjectIdHex("5899d76aa54d75f45423a843") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  0a99ac32-f89b-4a67-9611-c7bfd16d2810 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 06:19:22.577789057 -0800 PST 2017-02-07 06:19:22.577789057 -0800 PST false 0}
+2017/02/07 06:19:29 starting post
+2017/02/07 06:19:29 no errors
+2017/02/07 06:19:29 About to save to database
+2017/02/07 06:19:29 &{ObjectIdHex("5899d771a54d75f45423a844") Aikea Jones hollowbutterfly@gmail.com 3236172090 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  c47f2f05-4c0b-4c5e-945c-76278222a05b 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 06:19:29.45276206 -0800 PST 2017-02-07 06:19:29.45276206 -0800 PST false 0}
+2017/02/07 06:19:54 API is Listening on:  0.0.0.0:9090
+2017/02/07 06:20:01 starting post
+2017/02/07 06:20:01 no errors
+2017/02/07 06:20:01 About to save to database
+2017/02/07 06:20:01 &{ObjectIdHex("5899d791a54d75f46e384e8c") Aikea Jones hollowbutterfly@gmail.com 3236172090 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  d7b7d2a2-b865-48a0-ac11-a0dbac9dca83 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 06:20:01.065052024 -0800 PST 2017-02-07 06:20:01.065052024 -0800 PST false 0}
+2017/02/07 06:20:08 price is: 
+2017/02/07 06:20:08 Length of web orders is : 3
+2017/02/07 06:20:11 price is: 
+2017/02/07 06:20:11 Length of web orders is : 2
+2017/02/07 06:20:13 price is: 
+2017/02/07 06:20:13 Length of web orders is : 1
+2017/02/07 06:20:16 price is: 
+2017/02/07 06:20:16 Length of web orders is : 0
+2017/02/07 06:30:24 starting post
+2017/02/07 06:30:24 no errors
+2017/02/07 06:30:24 About to save to database
+2017/02/07 06:30:24 &{ObjectIdHex("5899da00a54d75f46e384e8d")      47142706-1fda-49fb-a3cc-ff11c82f35df 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 06:30:24.569927829 -0800 PST 2017-02-07 06:30:24.569927829 -0800 PST false 0}
+2017/02/07 06:32:22 API is Listening on:  0.0.0.0:9090
+2017/02/07 06:32:39 starting post
+2017/02/07 06:32:39 no errors
+2017/02/07 06:32:39 About to save to database
+2017/02/07 06:32:39 &{ObjectIdHex("5899da87a54d75f633e09977") X'zavierr garland Test@getglass.co 3233655083 https  d05a631d-f08b-4712-bf19-40f9bad4d529 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 06:32:39.699162203 -0800 PST 2017-02-07 06:32:39.699162203 -0800 PST false 0}
+2017/02/07 06:33:29 starting post
+2017/02/07 06:33:29 no errors
+2017/02/07 06:33:29 About to save to database
+2017/02/07 06:33:29 &{ObjectIdHex("5899dab9a54d75f633e09978") X'zavierr garland Test@getglass.co 3233655083 https  7dfd284c-5006-4f04-9a30-b50dad9cfdbe 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 06:33:29.742153957 -0800 PST 2017-02-07 06:33:29.742153957 -0800 PST false 0}
+2017/02/07 06:34:06 API is Listening on:  0.0.0.0:9090
+2017/02/07 06:34:26 starting post
+2017/02/07 06:34:26 no errors
+2017/02/07 06:34:26 About to save to database
+2017/02/07 06:34:26 &{ObjectIdHex("5899daf2a54d75f66524018b") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  8d66bdaa-7087-4028-895a-036d92b01e5f 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 06:34:26.182171055 -0800 PST 2017-02-07 06:34:26.182171055 -0800 PST false 0}
+2017/02/07 06:34:35 price is: 
+2017/02/07 06:34:35 Length of web orders is : 3
+2017/02/07 06:35:19 starting post
+2017/02/07 06:35:19 no errors
+2017/02/07 06:35:19 About to save to database
+2017/02/07 06:35:19 &{ObjectIdHex("5899db27a54d75f66524018c")      9c63e7be-a468-49b5-9cae-f9253a1f24d4 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 06:35:19.264176496 -0800 PST 2017-02-07 06:35:19.264176496 -0800 PST false 0}
+2017/02/07 06:36:17 API is Listening on:  0.0.0.0:9090
+2017/02/07 06:36:28 starting post
+2017/02/07 06:36:28 no errors
+2017/02/07 06:36:28 About to save to database
+2017/02/07 06:36:28 &{ObjectIdHex("5899db6ca54d75f69f29bfb8") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  e517c335-e377-4b42-83e4-42e888f6f064 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 06:36:28.512722477 -0800 PST 2017-02-07 06:36:28.512722477 -0800 PST false 0}
+2017/02/07 06:36:48 price is: 
+2017/02/07 06:36:48 Length of web orders is : 4
+2017/02/07 06:37:13 API is Listening on:  0.0.0.0:9090
+2017/02/07 06:37:20 price is: 
+2017/02/07 06:37:20 Length of web orders is : 4
+2017/02/07 06:37:34 starting post
+2017/02/07 06:37:34 no errors
+2017/02/07 06:37:34 About to save to database
+2017/02/07 06:37:34 &{ObjectIdHex("5899dbaea54d75f6c08362c6") Caleb P saunders calebsaunders@gmail.com 3234236654 http://google.com  b9d831b9-448e-49a9-871b-af629de42ce2 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 06:37:34.545673498 -0800 PST 2017-02-07 06:37:34.545673498 -0800 PST false 0}
+2017/02/07 06:37:52 price is: 999.99
+2017/02/07 06:37:52 Length of web orders is : 4
+2017/02/07 06:38:31 price is: 88.99
+2017/02/07 06:38:31 Length of web orders is : 3
+2017/02/07 06:43:28 API is Listening on:  0.0.0.0:9090
+2017/02/07 06:44:14 API is Listening on:  0.0.0.0:9090
+2017/02/07 06:45:23 Length of web orders is : 3
+2017/02/07 06:45:55 API is Listening on:  0.0.0.0:9090
+2017/02/07 06:46:40 API is Listening on:  0.0.0.0:9090
+2017/02/07 06:46:58 starting post
+2017/02/07 06:46:58 no errors
+2017/02/07 06:46:58 About to save to database
+2017/02/07 06:46:58 &{ObjectIdHex("5899dde2a54d75fafad497e9") Jean-Lee publicprivacybusiness@gmail.com 3236172090 http://loletteshair.com  f86e4940-cd8d-45e9-87ec-de143d807533 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 06:46:58.321962203 -0800 PST 2017-02-07 06:46:58.321962203 -0800 PST false 0}
+2017/02/07 06:47:18 Length of web orders is : 3
+2017/02/07 07:00:43 API is Listening on:  0.0.0.0:9090
+2017/02/07 08:52:32 starting post
+2017/02/07 08:52:32 no errors
+2017/02/07 08:52:32 About to save to database
+2017/02/07 08:52:32 &{ObjectIdHex("5899fb50a54d75fea5597469") Caleb P saunders calebsaunders@gmail.com 3234236654 http://myspace.com  7aa02a2a-fd5f-40a0-b555-4ca80f2d6953 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 08:52:32.210832281 -0800 PST 2017-02-07 08:52:32.210832281 -0800 PST false 0}

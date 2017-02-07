@@ -57,7 +57,6 @@ func AdminProcessOrder(w http.ResponseWriter, r *http.Request) {
 	decision := r.PostFormValue("decision")
 	price := r.PostFormValue("price")
 
-	log.Println("price is:", price)
 	switch decision {
 	case "approve":
 		webOrder.Decision = "approved"
@@ -69,7 +68,6 @@ func AdminProcessOrder(w http.ResponseWriter, r *http.Request) {
 	}
 	webOrder.Acknowledged = true
 	var newPrice int
-
 	newPrice, err = strconv.Atoi(price)
 	webOrder.Price = newPrice
 	err = repo.UpdateOrder(webOrder)
@@ -78,15 +76,6 @@ func AdminProcessOrder(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var webOrders []models.WebOrder
-
-	webOrders, err = repo.GetNewOrders()
-	if err != nil {
-		common.DisplayAppError(w, err, "Could not retrieve orders. Contact IT", 500)
-		return
-	}
-
-	log.Println("Length of web orders is :", len(webOrders))
 	//renderTemplate(w, "admin", "base", webOrders)
 
 	w.Header()["Location"] = []string{"/admin"}

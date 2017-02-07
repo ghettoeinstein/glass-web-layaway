@@ -108,6 +108,16 @@ func AddSourceToCustomer(w http.ResponseWriter, r *http.Request) {
 
 }
 
+func ChargeForOffer(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()
+	for key, values := range r.Form { // range over map
+		for _, value := range values { // range over []string
+			log.Println(key, value)
+		}
+	}
+	http.Redirect(w, r, "/glass", 307)
+}
+
 func ChargeCustomer(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	cust, err := customerFromRequest(r)
