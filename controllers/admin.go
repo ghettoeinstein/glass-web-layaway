@@ -4,6 +4,7 @@ import (
 	"../common"
 	"../data"
 	"../models"
+	"html/template"
 	"log"
 	"strconv"
 	"time"
@@ -54,9 +55,17 @@ func AdminProcessOrder(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	decision := r.PostFormValue("decision")
-	price := r.PostFormValue("price")
+	price := template.HTMLEscapeString(r.PostFormValue("price"))
+	res, err := strconv.ParseFloat(price, 64)
+	if err != nil {
 
+		println("Error parsing price string into int:", err)
+	}
+
+	log.Println(res)
+	webOrder.Price = float64(res)
+
+	decision := r.PostFormValue("decision")
 	switch decision {
 	case "approve":
 		webOrder.Decision = "approved"
@@ -67,9 +76,7 @@ func AdminProcessOrder(w http.ResponseWriter, r *http.Request) {
 		webOrder.Decision = "denied"
 	}
 	webOrder.Acknowledged = true
-	var newPrice int
-	newPrice, err = strconv.Atoi(price)
-	webOrder.Price = newPrice
+
 	err = repo.UpdateOrder(webOrder)
 	if err != nil {
 		common.DisplayAppError(w, err, err.Error(), 500)
@@ -174,6 +181,24 @@ func AdminGetEditOrder(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "order", "base", webOrder)
 	return
 
+}
+
+func AdminDeleteOrder(w http.ResponseWriter, r *http.Request) {
+
+	id := IdFromRequest(r)
+
+	context := NewContext()
+	defer context.Close()
+
+	c := context.DbCollection("web_orders")
+	repo := &data.WebOrderRepository{c}
+
+	err := repo.DeleteByUUID(id)
+	if err != nil {
+		common.DisplayAppError(w, err, "Error deleting order", 500)
+		return
+	}
+	http.Redirect(w, r, r.Referer(), 303)
 }
 
 // Used to process front-end login

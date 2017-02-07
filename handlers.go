@@ -7,7 +7,7 @@ import (
 	"./models"
 	"./random"
 	"github.com/gorilla/mux"
-
+	"github.com/joiggama/money"
 	"html/template"
 	"log"
 	"net/http"
@@ -144,7 +144,20 @@ func termsHandler(w http.ResponseWriter, r *http.Request) {
 		common.DisplayAppError(w, err, "Error fetching order for UUID", 500)
 		return
 	}
-	renderTemplate(w, "terms", "base", webOrder)
+
+	serviceFee := webOrder.Price * 0.1
+	termsPayload := struct {
+		MonthlyPayment interface{}
+		Total          interface{}
+		FirstPayment   interface{}
+		UUID           interface{}
+	}{
+		money.Format(webOrder.Price / 4),
+		money.Format(webOrder.Price),
+		money.Format(webOrder.Price/4 + serviceFee),
+		uuid["id"],
+	}
+	renderTemplate(w, "terms", "base", termsPayload)
 }
 
 func aboutUsHandler(w http.ResponseWriter, r *http.Request) {

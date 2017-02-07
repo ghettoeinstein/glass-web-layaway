@@ -22,8 +22,12 @@ func (r *UserRepository) CreateUser(user *models.User) error {
 	}
 	user.HashPassword = hpass
 	//clear the incoming text password
+
 	user.Password = ""
-	user.CreatedAt = time.Now()
+
+	now := time.Now()
+	user.CreatedAt = now
+	user.UpdatedAt = now
 	err = r.C.Insert(&user)
 	return err
 }
@@ -43,6 +47,7 @@ func (r *UserRepository) Update(user *models.User) error {
 			"zip_code":      user.ZipCode,
 			"phone_number":  user.PhoneNumber,
 			"updated_at":    time.Now(),
+			"customer":      user.StripeCustomer,
 		}})
 	return err
 }

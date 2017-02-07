@@ -52,14 +52,6 @@ type (
 	// For Post/Put - /tasks
 	// For Get - /tasks/id
 
-	MerchantResource struct {
-		Data models.Merchant `json:"data"`
-	}
-	// For Get - /tasks
-	MerchantsResource struct {
-		Data []models.Merchant `json:"data"`
-	}
-
 	//Model for authentication
 	LoginModel struct {
 		Email    string `json:"email"`

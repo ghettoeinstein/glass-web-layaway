@@ -367,18 +367,18 @@
 		<!-- Header Row -->
 		<div class="row" style="" >
 			<div class="col-md-12  text-center" >
-				<h1 id="purchase-amount" style="padding-top:20px;padding-bottom: 30px;"> Purchase Amount $ {.Total} </h1>
+				<h1 id="purchase-amount" style="padding-top:20px;padding-bottom: 30px;"> Purchase Amount {{.Total}} </h1>
 			</div>
 		</div>
 		<div class="row containerbox" >
-			<p class="terms-gray">4 Interest Fee Payments Of</p>
-			<span class="terms-green">${{.Price}}</span><span class="terms-charcoal">    every 30 days</span>
+			<p class="terms-gray">3 Interest Free Payments Of</p>
+			<span class="terms-green">{{.MonthlyPayment}}</span><span class="terms-charcoal">    every 30 days</span>
 			
 		</div>
 		
 		<div class="row containerbox" >
 			<p class="terms-gray">Due Today</p>
-			<span class="terms-green">${.FirstPayment}</span>
+			<span class="terms-green">{{.FirstPayment}}</span>
 			<span style="float:right; padding:none" class="terms-black">10% service fee + tax included </span>
 		</div>
 
@@ -393,7 +393,7 @@
 
 		<div class="row">
 			<div class="col-md-12 text-center">
-				<form class="form-horizontal" id="payment-form" style="margin-top:30;" action="/offer/{{.}}/charge" method="POST" enctype="multipart/form-data">
+				<form class="form-horizontal" id="payment-form" style="margin-top:30;" action="/offer/{{.UUID}}/charge" method="POST" enctype="multipart/form-data">
 					<span class="payment-errors"></span>
 
 					<fieldset>
@@ -411,11 +411,11 @@
 						</div>
 
 						<div class="form-group">
-							<div class="col-md-2 ">
+							<div class="col-md-3 ">
 								<input id="expiry"  data-stripe="exp_month" type="text" placeholder="02" class="form-control input-md" required="">
 						
 							</div>
-							<div class="col-md-2 ">
+							<div class="col-md-3 ">
 								<input id="expiry"  data-stripe="exp_year" type="text" placeholder="18" class="form-control input-md" required="">
 						
 							</div>
@@ -490,8 +490,8 @@
 
     // Insert the token ID into the form so it gets submitted to the server:
     $form.append($('<input type="hidden" name="stripeToken">').val(token));
-    alert(token);
-    // Sbmit the form:
+    
+    // Submit the form:
     $form.get(0).submit();
 
 }

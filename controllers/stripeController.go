@@ -11,11 +11,34 @@ import (
 	"github.com/stripe/stripe-go/card"
 	"github.com/stripe/stripe-go/charge"
 	"github.com/stripe/stripe-go/customer"
+	"github.com/stripe/stripe-go/invoiceitem"
+	"github.com/stripe/stripe-go/sub"
+
+	"github.com/stripe/stripe-go/plan"
 	"log"
 	"net/http"
 	"os"
 	"strconv"
 )
+
+func NewUserFromWebOrder(o *models.WebOrder) (*models.User, error) {
+
+	user := &models.User{
+		Email:    o.Email,
+		FullName: o.FullName,
+	}
+
+	context := NewContext()
+	defer context.Close()
+	c := context.DbCollection("users")
+	repo := &data.UserRepository{c}
+
+	err := repo.CreateUser(user)
+	if err != nil {
+		return nil, err
+	}
+	return user, nil
+}
 
 func GetCustomerForUser(w http.ResponseWriter, r *http.Request) {
 	cust, err := customerFromRequest(r)
@@ -31,24 +54,30 @@ func GetCustomerForUser(w http.ResponseWriter, r *http.Request) {
 }
 
 //Pass in a pointer to a models.User, and `sc` channel to report completion of creating customer
-func CreateStripeCustomer(u *models.User, sc chan<- string) (interface{}, error) {
+func CreateStripeCustomerWithToken(u *models.User, token string) (*stripe.Customer, error) {
 	params := &stripe.CustomerParams{
-		Desc: "Customer for " + u.Email,
+		Email: u.Email,
+		Desc:  "Customer for " + u.Email,
+	}
+	log.Println("token is", "token")
+	err := params.SetSource(token)
+	if err != nil {
+		log.Println("Could not add source to customer")
+		return nil, err
 	}
 	stripe.Key = os.Getenv("STRIPE_KEY")
 
 	cust, err := customer.New(params)
 	if err != nil {
 		log.Println(err)
-		return nil, err
+		return cust, err
 
 	}
 	//Set the user's Stripe `CustomerId` Field
 	u.StripeCustomer.CustomerId = cust.ID
 
 	// send the customer id back from stripe on the send-only channel `sc`. The calling invoker of this function blocks
-	//waiting for this send.
-	sc <- cust.ID
+
 	log.Println("Created customer with id ", cust.ID)
 	return cust, nil
 }
@@ -109,13 +138,85 @@ func AddSourceToCustomer(w http.ResponseWriter, r *http.Request) {
 }
 
 func ChargeForOffer(w http.ResponseWriter, r *http.Request) {
-	r.ParseForm()
-	for key, values := range r.Form { // range over map
-		for _, value := range values { // range over []string
-			log.Println(key, value)
-		}
+	stripe.Key = os.Getenv("STRIPE_KEY")
+	log.Println("Stripe key is:", stripe.Key)
+	r.ParseMultipartForm(32 << 20)
+	token := r.PostFormValue("stripeToken")
+
+	if token == "" {
+		log.Fatalln("No token")
+		return
 	}
-	http.Redirect(w, r, "/glass", 307)
+
+	id := IdFromRequest(r)
+
+	context := NewContext()
+	defer context.Close()
+	c := context.DbCollection("web_orders")
+	repo := &data.WebOrderRepository{c}
+
+	webOrder, err := repo.GetByUUID(id)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
+	log.Println(webOrder.UUID)
+
+	//Create and save a user to the database from the web order
+	user, err := NewUserFromWebOrder(webOrder)
+	if err != nil {
+		log.Println("error creating user", err)
+		return
+	}
+
+	//C reate a stripe customer from the user
+	stripeCustomer, err := CreateStripeCustomerWithToken(user, token)
+	if err != nil {
+		log.Println("Error creating User", err)
+		return
+	}
+	// set the user's stripe customerid to the returned customer object's
+	user.StripeCustomer.CustomerId = stripeCustomer.ID
+
+	serviceFee := int64(2000)
+	// Create an invoice for the service fee of the loan for the user.
+	invoiceParams := &stripe.InvoiceItemParams{
+		Customer: user.StripeCustomer.CustomerId,
+		Amount:   serviceFee,
+		Currency: "usd",
+		Desc:     "One-time service fee for plan: " + id,
+	}
+	_, err = invoiceitem.New(invoiceParams)
+	if err != nil {
+		log.Println("Error creating invoice item")
+		return
+	}
+
+	p, err := plan.New(&stripe.PlanParams{
+		Amount:   19999,
+		Interval: "month",
+		Name:     id + " Installment Plan",
+		Currency: "usd",
+		ID:       id,
+	})
+
+	if err != nil {
+		log.Println("Error creating plan")
+		return
+	}
+	log.Println(p)
+
+	_, err = sub.New(&stripe.SubParams{
+		Customer: user.StripeCustomer.CustomerId,
+		Plan:     p.ID,
+	})
+	if err != nil {
+		log.Println("Error creating subscription")
+		return
+	}
+
+	http.Redirect(w, r, "/success", 200)
 }
 
 func ChargeCustomer(w http.ResponseWriter, r *http.Request) {

@@ -1020,3 +1020,249 @@
 2017/02/07 08:52:32 no errors
 2017/02/07 08:52:32 About to save to database
 2017/02/07 08:52:32 &{ObjectIdHex("5899fb50a54d75fea5597469") Caleb P saunders calebsaunders@gmail.com 3234236654 http://myspace.com  7aa02a2a-fd5f-40a0-b555-4ca80f2d6953 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 08:52:32.210832281 -0800 PST 2017-02-07 08:52:32.210832281 -0800 PST false 0}
+2017/02/07 09:05:51 API is Listening on:  0.0.0.0:9090
+2017/02/07 09:15:27 starting post
+2017/02/07 09:15:27 no errors
+2017/02/07 09:15:27 About to save to database
+2017/02/07 09:15:27 &{ObjectIdHex("589a00afa54d750fa4d26b6e") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  53b589bf-11b7-4f82-8545-65b0b061aa3b 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 09:15:27.87565624 -0800 PST 2017-02-07 09:15:27.87565624 -0800 PST false 0}
+2017/02/07 09:15:46 Starting login
+2017/02/07 09:15:46 AppError]: crypto/bcrypt: hashedPassword is not the hash of the given password
+2017/02/07 09:15:52 Starting login
+2017/02/07 09:15:52 AppError]: crypto/bcrypt: hashedPassword is not the hash of the given password
+2017/02/07 09:16:06 starting post
+2017/02/07 09:16:06 no errors
+2017/02/07 09:16:06 About to save to database
+2017/02/07 09:16:06 &{ObjectIdHex("589a00d6a54d750fa4d26b6f") Aikea Jones hollowbutterfly@gmail.com 3236172090 http://google.com  068f121a-e722-40c0-ac5e-0d409065ba91 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 09:16:06.705518646 -0800 PST 2017-02-07 09:16:06.705518646 -0800 PST false 0}
+2017/02/07 09:16:17 Starting login
+2017/02/07 09:16:17 ijjjjj
+2017/02/07 09:56:48 starting post
+2017/02/07 09:56:48 no errors
+2017/02/07 09:56:48 About to save to database
+2017/02/07 09:56:48 &{ObjectIdHex("589a0a60a54d750fa4d26b70") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  93c002b8-9026-4a5a-9eae-5b04e4b1e07e 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 09:56:48.625639368 -0800 PST 2017-02-07 09:56:48.625639368 -0800 PST false 0}
+2017/02/07 09:56:54 starting post
+2017/02/07 09:56:54 no errors
+2017/02/07 09:56:54 About to save to database
+2017/02/07 09:56:54 &{ObjectIdHex("589a0a66a54d750fa4d26b71") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  d68c5289-a965-4721-a42e-6dc6856738b2 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 09:56:54.190822133 -0800 PST 2017-02-07 09:56:54.190822133 -0800 PST false 0}
+2017/02/07 10:00:53 starting post
+2017/02/07 10:00:53 no errors
+2017/02/07 10:00:53 About to save to database
+2017/02/07 10:00:53 &{ObjectIdHex("589a0b55a54d750fa4d26b72") Caleb P saunders calebsaunders@gmail.com 3234236654 http://google.com  79912fd7-3fce-49a0-9ab6-1bc87ccdd5ce 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 10:00:53.546204913 -0800 PST 2017-02-07 10:00:53.546204913 -0800 PST false 0}
+2017/02/07 10:55:25 API is Listening on:  0.0.0.0:9090
+2017/02/07 10:55:25 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/07 10:55:32 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:01:51 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:02:38 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:02:43 template: denied.html:97:40: executing "body" at <.UUID>: can't evaluate field UUID in type []models.WebOrder
+2017/02/07 11:04:12 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:06:24 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:08:33 Starting login
+2017/02/07 11:08:33 ijjjjj
+2017/02/07 11:10:42 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:11:08 starting post
+2017/02/07 11:11:08 no errors
+2017/02/07 11:11:08 About to save to database
+2017/02/07 11:11:08 &{ObjectIdHex("589a1bcca54d75207d536754") Aikea Jones hollowbutterfly@gmail.com 3236172090 http://niketalk.com/f/7353/general  0dc9f8b0-dc9d-4d78-ac2e-4705aa410e43 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 11:11:08.332272585 -0800 PST 2017-02-07 11:11:08.332272585 -0800 PST false 0}
+2017/02/07 11:24:06 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:24:08 625
+2017/02/07 11:24:08 template: terms.html:375:32: executing "body" at <.Price>: can't evaluate field Price in type struct { WebOrder *models.WebOrder; FirstPayment float64; MonthlyPayment float64 }
+2017/02/07 11:24:47 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:24:56 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:25:00 625
+2017/02/07 11:25:39 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:25:42 625
+2017/02/07 11:26:23 24.75
+2017/02/07 11:26:56 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:26:58 24.75
+2017/02/07 11:28:03 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:28:05 24.75
+2017/02/07 11:28:18 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:28:44 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:28:46 24.75
+2017/02/07 11:28:49 24.75
+2017/02/07 11:29:08 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:29:10 24.75
+2017/02/07 11:29:31 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:29:47 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:29:49 24.75
+2017/02/07 11:30:07 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:30:09 24.75
+2017/02/07 11:30:18 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:30:20 24.75
+2017/02/07 11:30:36 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:30:39 24.75
+2017/02/07 11:30:56 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:30:58 24.75
+2017/02/07 11:31:31 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:31:32 24.75
+2017/02/07 11:31:46 24.875
+2017/02/07 11:42:26 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:42:29 template: terms.html:370:97: executing "body" at <.Total>: can't evaluate field Total in type *models.WebOrder
+2017/02/07 11:42:34 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:42:35 template: terms.html:370:97: executing "body" at <.Total>: can't evaluate field Total in type *models.WebOrder
+2017/02/07 11:42:46 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:42:55 Id is: 47142706-1fda-49fb-a3cc-ff11c82f35df
+2017/02/07 11:44:32 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:46:54 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:47:38 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:50:40 API is Listening on:  0.0.0.0:9090
+2017/02/07 11:54:52 starting post
+2017/02/07 11:54:52 no errors
+2017/02/07 11:54:52 About to save to database
+2017/02/07 11:54:52 &{ObjectIdHex("589a260ca54d753cbfbf2d5d") Aikea Jones hollowbutterfly@gmail.com 3236172090 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  4cdf77ab-6432-40fa-9f3e-0006e376aee2 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 11:54:52.759000611 -0800 PST 2017-02-07 11:54:52.759000611 -0800 PST false 0}
+2017/02/07 12:06:32 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:06:32 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/07 12:06:39 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:07:13 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:10:55 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:10:59 Error fetching order for UUID: not found
+2017/02/07 12:10:59 AppError]: not found
+2017/02/07 12:11:16 starting post
+2017/02/07 12:11:16 no errors
+2017/02/07 12:11:16 About to save to database
+2017/02/07 12:11:16 &{ObjectIdHex("589a29e4a54d7542015ca020") Caleb P saunders calebsaunders@gmail.com 3234236654 http://loletteshair.com  cd08117b-c3df-4d50-b867-9bc4faec6b82 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 12:11:16.677077851 -0800 PST 2017-02-07 12:11:16.677077851 -0800 PST false 0}
+2017/02/07 12:12:47 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:12:47 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/07 12:12:55 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:13:14 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:13:44 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:14:29 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:14:46 cd08117b-c3df-4d50-b867-9bc4faec6b82
+2017/02/07 12:15:41 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:16:07 starting post
+2017/02/07 12:16:07 no errors
+2017/02/07 12:16:07 About to save to database
+2017/02/07 12:16:07 &{ObjectIdHex("589a2b07a54d754666c5c0be") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  e2411c73-8050-40cc-ab19-f818a21829e8 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 12:16:07.294473508 -0800 PST 2017-02-07 12:16:07.294473508 -0800 PST false 0}
+2017/02/07 12:16:20 0
+2017/02/07 12:17:13 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:17:16 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:17:24 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:17:29 450
+2017/02/07 12:19:02 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:21:29 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:22:02 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:22:44 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:23:18 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:23:25 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:23:48 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:24:56 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:25:19 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:27:24 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:30:39 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:31:22 starting post
+2017/02/07 12:31:22 no errors
+2017/02/07 12:31:22 About to save to database
+2017/02/07 12:31:22 &{ObjectIdHex("589a2e9aa54d75504e48f05c") Jean-Lee publicprivacybusiness@gmail.com 3236172090 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  8317320f-6703-408c-b1d8-f7bc22d35f44 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 12:31:22.097773557 -0800 PST 2017-02-07 12:31:22.097773557 -0800 PST false 0}
+2017/02/07 12:31:29 100
+2017/02/07 12:33:00 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:34:16 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:34:29 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:34:44 1000
+2017/02/07 12:34:56 1000.5
+2017/02/07 12:35:13 1000.78
+2017/02/07 12:35:44 1000
+2017/02/07 12:37:41 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:39:12 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:39:42 
+2017/02/07 12:40:28 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:40:46 No token
+2017/02/07 12:41:08 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:41:54 No token
+2017/02/07 12:42:56 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:43:19 No token
+2017/02/07 12:45:01 API is Listening on:  0.0.0.0:9090
+2017/02/07 12:45:41 zip 90302
+2017/02/07 12:45:41 stripeToken tok_19kfqLFQxklbxpZmpNyk0jrf
+2017/02/07 12:45:41 tok_19kfqLFQxklbxpZmpNyk0jrf
+2017/02/07 12:55:26 starting post
+2017/02/07 12:55:26 no errors
+2017/02/07 12:55:26 About to save to database
+2017/02/07 12:55:26 &{ObjectIdHex("589a343ea54d755661333a0c") Aikea Jones hollowbutterfly@gmail.com 3236172090 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  7f3f71e4-c486-4d8e-a2a2-53475e751270 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 12:55:26.593451973 -0800 PST 2017-02-07 12:55:26.593451973 -0800 PST false 0}
+2017/02/07 12:55:52 100
+2017/02/07 12:56:00 100.51
+2017/02/07 13:24:00 API is Listening on:  0.0.0.0:9090
+2017/02/07 13:24:51 e2411c73-8050-40cc-ab19-f818a21829e8
+2017/02/07 13:24:51 {"type":"invalid_request_error","message":"Invalid API Key provided: ","status":401}
+2017/02/07 13:24:51 Error creating User {"type":"invalid_request_error","message":"Invalid API Key provided: ","status":401}
+2017/02/07 13:26:47 API is Listening on:  0.0.0.0:9090
+2017/02/07 13:26:59 e2411c73-8050-40cc-ab19-f818a21829e8
+2017/02/07 13:27:00 {"type":"invalid_request_error","message":"Invalid API Key provided: ","status":401}
+2017/02/07 13:27:00 Error creating User {"type":"invalid_request_error","message":"Invalid API Key provided: ","status":401}
+2017/02/07 13:28:08 e2411c73-8050-40cc-ab19-f818a21829e8
+2017/02/07 13:28:08 {"type":"invalid_request_error","message":"Invalid API Key provided: ","status":401}
+2017/02/07 13:28:08 Error creating User {"type":"invalid_request_error","message":"Invalid API Key provided: ","status":401}
+2017/02/07 13:28:41 API is Listening on:  0.0.0.0:9090
+2017/02/07 13:28:45 
+2017/02/07 13:28:45 e2411c73-8050-40cc-ab19-f818a21829e8
+2017/02/07 13:28:45 {"type":"invalid_request_error","message":"Invalid API Key provided: ","status":401}
+2017/02/07 13:28:45 Error creating User {"type":"invalid_request_error","message":"Invalid API Key provided: ","status":401}
+2017/02/07 13:29:23 API is Listening on:  0.0.0.0:9090
+2017/02/07 13:29:54 Stripe key is: 
+2017/02/07 13:29:54 e2411c73-8050-40cc-ab19-f818a21829e8
+2017/02/07 13:29:54 {"type":"invalid_request_error","message":"Invalid API Key provided: ","status":401}
+2017/02/07 13:29:54 Error creating User {"type":"invalid_request_error","message":"Invalid API Key provided: ","status":401}
+2017/02/07 13:32:43 API is Listening on:  0.0.0.0:9090
+2017/02/07 13:33:23 API is Listening on:  0.0.0.0:9090
+2017/02/07 13:33:27 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/07 13:33:27 e2411c73-8050-40cc-ab19-f818a21829e8
+2017/02/07 13:33:27 Created customer with id  cus_A4qHbb7d3oYUUF
+2017/02/07 13:37:38 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/07 13:37:38 e2411c73-8050-40cc-ab19-f818a21829e8
+2017/02/07 13:37:38 Created customer with id  cus_A4qL6PGA6VhJmH
+2017/02/07 14:06:44 API is Listening on:  0.0.0.0:9090
+2017/02/07 14:06:44 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/07 14:06:50 API is Listening on:  0.0.0.0:9090
+2017/02/07 14:07:14 starting post
+2017/02/07 14:07:14 no errors
+2017/02/07 14:07:14 About to save to database
+2017/02/07 14:07:14 &{ObjectIdHex("589a4512a54d757fbcbdbd51") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  a5e66d91-2e0c-408d-b142-6a5b6566497d 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 14:07:14.191126671 -0800 PST 2017-02-07 14:07:14.191126671 -0800 PST false 0}
+2017/02/07 14:07:26 99.99
+2017/02/07 14:08:15 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/07 14:08:15 a5e66d91-2e0c-408d-b142-6a5b6566497d
+2017/02/07 14:08:15 Created customer with id  cus_A4qpLkAOhsNMoj
+2017/02/07 14:10:37 API is Listening on:  0.0.0.0:9090
+2017/02/07 14:10:43 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/07 14:10:43 a5e66d91-2e0c-408d-b142-6a5b6566497d
+2017/02/07 14:10:43 Created customer with id  cus_A4qsNz0MJk00dL
+2017/02/07 14:14:15 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/07 14:14:15 a5e66d91-2e0c-408d-b142-6a5b6566497d
+2017/02/07 14:14:16 Created customer with id  cus_A4qvFM4nymbgB6
+2017/02/07 14:17:39 API is Listening on:  0.0.0.0:9090
+2017/02/07 14:17:43 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/07 14:17:43 a5e66d91-2e0c-408d-b142-6a5b6566497d
+2017/02/07 14:17:43 token is token
+2017/02/07 14:17:43 Created customer with id  cus_A4qz87pIWOh8I5
+2017/02/07 14:18:36 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/07 14:18:36 a5e66d91-2e0c-408d-b142-6a5b6566497d
+2017/02/07 14:18:36 token is token
+2017/02/07 14:18:37 {"type":"invalid_request_error","message":"You cannot use a Stripe token more than once: tok_19kh8FFQxklbxpZmToI9ATPh.","request_id":"req_A4r0oiMuJIeE51","status":400}
+2017/02/07 14:18:37 Error creating User {"type":"invalid_request_error","message":"You cannot use a Stripe token more than once: tok_19kh8FFQxklbxpZmToI9ATPh.","request_id":"req_A4r0oiMuJIeE51","status":400}
+2017/02/07 14:18:49 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/07 14:18:49 a5e66d91-2e0c-408d-b142-6a5b6566497d
+2017/02/07 14:18:49 token is token
+2017/02/07 14:18:49 {"type":"invalid_request_error","message":"You cannot use a Stripe token more than once: tok_19kh8FFQxklbxpZmToI9ATPh.","request_id":"req_A4r0F6VTRY7EYv","status":400}
+2017/02/07 14:18:49 Error creating User {"type":"invalid_request_error","message":"You cannot use a Stripe token more than once: tok_19kh8FFQxklbxpZmToI9ATPh.","request_id":"req_A4r0F6VTRY7EYv","status":400}
+2017/02/07 14:52:21 API is Listening on:  0.0.0.0:9090
+2017/02/07 14:52:21 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/07 14:52:27 API is Listening on:  0.0.0.0:9090
+2017/02/07 14:52:47 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/07 14:52:47 a5e66d91-2e0c-408d-b142-6a5b6566497d
+2017/02/07 14:52:47 token is token
+2017/02/07 14:52:47 Created customer with id  cus_A4rYVk7jFkvqk4
+2017/02/07 14:52:48 &{a5e66d91-2e0c-408d-b142-6a5b6566497d false 19999 1486507967 usd month 1 a5e66d91-2e0c-408d-b142-6a5b6566497d Installment Plan map[] 0  false}
+2017/02/07 14:59:26 API is Listening on:  0.0.0.0:9090
+2017/02/07 14:59:26 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/07 14:59:31 API is Listening on:  0.0.0.0:9090
+2017/02/07 14:59:50 starting post
+2017/02/07 14:59:50 no errors
+2017/02/07 14:59:50 About to save to database
+2017/02/07 14:59:50 &{ObjectIdHex("589a5166a54d750e2c4da203") X'zavierr garland csaunders1@toromail.csudh.edu 3233655083 http://www.apple.com/shop/buy-ipad/ipad-pro  9d953385-7c5d-4b9b-8e29-1d6925730e39 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 14:59:50.888355485 -0800 PST 2017-02-07 14:59:50.888355485 -0800 PST false 0}
+2017/02/07 14:59:54 Starting login
+2017/02/07 14:59:54 AppError]: not found
+2017/02/07 15:00:14 Starting login
+2017/02/07 15:00:14 AppError]: not found
+2017/02/07 15:00:20 Starting login
+2017/02/07 15:00:20 AppError]: not found
+2017/02/07 15:00:27 Starting login
+2017/02/07 15:00:27 AppError]: not found
+2017/02/07 15:00:33 Starting login
+2017/02/07 15:00:33 AppError]: not found

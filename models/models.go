@@ -22,10 +22,11 @@ type (
 		CreatedAt      time.Time     `json:"created_at" bson:"created_at"`
 		UpdatedAt      time.Time     `json:"updated_at" bson:"updated_at"`
 		Acknowledged   bool          `json:"acknowledged" bson:"acknowledged"`
-		Price          int           `json:"price" bson:"price"`
+		Price          float64       `json:"price" bson:"price"`
 	}
 	User struct {
 		Id          bson.ObjectId `bson:"_id,omitempty" json:"id"`
+		FullName    string        `json:"full_name" bson:"full_name"`
 		FirstName   string        `json:"first_name" bson:"first_name"`
 		LastName    string        `json:"last_name"  bson:"last_name"`
 		Email       string        `json:"email"      bson:"email"`
@@ -35,32 +36,18 @@ type (
 		Address2    string        `json:"address_2" bson:"address_2"`
 		City        string        `json:"city" bson:"city"`
 
-		State        string `json:"state" bson:"state"`
-		ZipCode      string `json:"zip_code" bson:"zip_code"`
-		DOB          string `json:"dob" 	bson:date_of_birth"`
-		HashPassword []byte `json:"hashpassword,omitempty "`
-		StripeCustomer
-		CreatedAt time.Time `json:"created_at" bson:"created_at"`
-		UpdatedAt time.Time `json:"updated_at" bson:"updated_at"`
+		State          string `json:"state" bson:"state"`
+		ZipCode        string `json:"zip_code" bson:"zip_code"`
+		DOB            string `json:"dob" 	bson:date_of_birth"`
+		HashPassword   []byte `json:"hashpassword,omitempty "`
+		StripeCustomer `json:"stripe_customer" bson:"stripe_customer"`
+		CreatedAt      time.Time `json:"created_at" bson:"created_at"`
+		UpdatedAt      time.Time `json:"updated_at" bson:"updated_at"`
 	}
 	Admin struct {
 		User
 	}
 
-	Category struct {
-		Name string
-	}
-
-	Merchant struct {
-		Id        bson.ObjectId `json:"merchant_id" bson:"_id,omitempty"`
-		Website   string        `json:"website" bson:"website"`
-		Category  string        `json:"category" bson:"category" `
-		LogoURL   string        `json:"logo_url"    bson:"logo_url"`
-		BrandName string        `json:"brand_name"  bson:"brand_name"`
-		Active    bool          `json:"active"`
-		CreatedAt time.Time     `json:"created_at"`
-		UpdatedAt time.Time     `json:"updated_at"`
-	}
 	Item struct {
 		ProductId   string `json:"product_id"`
 		URL         string `json:"url" bson:"url"`
