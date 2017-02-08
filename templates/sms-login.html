@@ -1,0 +1,165 @@
+{{define "head"}}
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<link href="https://fonts.googleapis.com/css?family=Nunito:100" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<title>Login</title>
+<style>
+  body {
+    background-color: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+  }
+  .form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+  }
+  .form-signin .form-signin-heading,
+  .form-signin .checkbox {
+    margin-bottom: 10px;
+  }
+  .form-signin .checkbox {
+    font-weight: normal;
+  }
+  .form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  <style>
+    .navbar-brand:hover {
+      color: red;
+    }
+    /* Global Styles */
+    .navbar-fixed-top {
+      border: 0;
+      color :white;
+      background-color: #fff;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .navbar > li > a {
+      color:white;
+    }
+    .navbar > li > a:hover {
+      color:black;
+      border:0px 0px 2px 0px black solid;
+    }
+    .navbar {
+      background-color: white; 
+      border:0px 0px 2px 0px black solid;
+    }
+    body {
+      font-size: 1.6em;
+      font-family: 'Open Sans', san-serif;
+    }
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+#logo {
+  padding:10px;
+  margin-left:auto;
+  margin-right:auto;
+  display: block;
+}
+
+
+#requestOTP {
+  background-color: #2800D7;
+}
+
+.form-signin {
+  font-family: Nunito;
+  font-weight: 100;
+
+}
+.form-group {
+  padding-top: 40px;
+}
+
+
+#sms {
+  display: block;
+  margin-left: auto;
+  margin-right:auto;
+  margin-top:30px;
+  max-height: 60px;
+}
+
+</style>
+
+{{end}}
+{{define "body"}}
+<div class="container-fluid">
+  <div>
+    <img id="logo" src="/assets/glogo-circle.svg">
+  </div>
+
+   
+      <img id="sms" src='/assets/sms.svg'  >
+    <form class="form-signin" id="login" method="GET" action="/login/verify" >
+
+      <h2 class="form-signin-heading text-center">Login Via SMS </h2>
+      <fieldset>
+        <div class="form-group">
+          <input type="phone" name="phone" id="phone" class="form-control" placeholder="Enter Phone Number" required="true" autofocus>
+          <small class="text-center">e.g.: "6505551234"</small>
+
+        </div>
+        <button class="btn btn-lg btn-primary btn-block " id="requestOTP" type="submit">Text Secure PIN</button>
+      </fieldset>
+    </form>
+
+  </div> <!-- /container -->
+
+
+
+  {{end}}
