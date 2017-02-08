@@ -1651,3 +1651,114 @@
 2017/02/08 05:04:47 API is Listening on:  0.0.0.0:9090
 2017/02/08 05:04:56 API is Listening on:  0.0.0.0:9090
 2017/02/08 05:05:22 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:07:00 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:08:07 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:09:09 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:11:37 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:20:25 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:20:28 Generated OTP: 562405 0x9f30 3234236654
+2017/02/08 05:20:28 3234236654
+ 2017-02-08 05:23:28.078345444 -0800 PST
+ 562405
+
+2017/02/08 05:22:47 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:23:13 Generated OTP: 450373 0xa020 3234236654
+2017/02/08 05:23:13 3234236654
+ 2017-02-08 05:26:13.622300156 -0800 PST
+ 450373
+
+2017/02/08 05:24:17 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:24:22 Generated OTP: 818243 0xa020 3234236654
+2017/02/08 05:24:22 3234236654
+ 2017-02-08 05:27:22.326370704 -0800 PST
+ 818243
+
+2017/02/08 05:24:38 818243
+2017/02/08 05:28:52 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:28:52 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/08 05:28:56 Generated OTP: 247747 0xa020 3234236654
+2017/02/08 05:28:56 3234236654
+ 2017-02-08 05:31:56.385743595 -0800 PST
+ 247747
+
+2017/02/08 05:29:11 247747
+2017/02/08 05:30:02 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:30:02 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/08 05:30:10 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:30:16 Generated OTP: 883883 0xa5a0 3234236654
+2017/02/08 05:30:17 Sent message successfully to handset:  3234236654
+2017/02/08 05:30:30 3234236654
+2017/02/08 05:30:30 Match is true
+2017/02/08 05:34:26 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:34:37 Generated OTP: 712222 0xa5a0 3234236654
+2017/02/08 05:34:37 Sent message successfully to handset:  3234236654
+2017/02/08 05:34:48 3234236654
+2017/02/08 05:34:48 Match is true
+2017/02/08 05:35:24 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:35:30 Generated OTP: 347556 0xa5a0 3234236654
+2017/02/08 05:35:30 Sent message successfully to handset:  3234236654
+2017/02/08 05:35:40 3234236654
+2017/02/08 05:35:40 Match is true
+2017/02/08 05:35:40 Caleb P Saunders
+2017/02/08 05:36:03 Caleb P Saunders
+2017/02/08 05:36:04 Caleb P Saunders
+2017/02/08 05:36:49 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:36:55 Caleb P Saunders
+2017/02/08 05:36:58 Caleb P Saunders
+2017/02/08 05:37:00 Caleb P Saunders
+2017/02/08 05:37:17 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:37:29 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:37:31 Caleb P Saunders
+2017/02/08 05:37:53 Generated OTP: 352817 0xa5a0 3234236654
+2017/02/08 05:37:53 Sent message successfully to handset:  3234236654
+2017/02/08 05:38:14 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:38:25 3234236654
+2017/02/08 05:38:25 returning false from verifyOTP method
+2017/02/08 05:39:22 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:39:22 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/08 05:39:31 Generated OTP: 330100 0xa650 3234236654
+2017/02/08 05:39:31 Sent message successfully to handset:  3234236654
+2017/02/08 05:39:38 3234236654
+2017/02/08 05:39:38 Match is true
+2017/02/08 05:39:45 Generated OTP: 478181 0xa650 3234236654
+2017/02/08 05:39:46 Sent message successfully to handset:  3234236654
+2017/02/08 05:39:56 3234236654
+2017/02/08 05:39:56 Match is true
+2017/02/08 05:44:58 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:44:58 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/08 05:45:02 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:45:36 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:45:43 Generated OTP: 877372 0xae70 3234236654
+2017/02/08 05:45:44 Sent message successfully to handset:  3234236654
+2017/02/08 05:45:55 3234236654
+2017/02/08 05:45:55 Passcode is 478181
+2017/02/08 05:45:55 Phone number is 3234236654
+2017/02/08 05:46:37 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:46:45 Generated OTP: 238451 0xaed0 3234236654
+2017/02/08 05:46:46 Sent message successfully to handset:  3234236654
+2017/02/08 05:46:55 Starting login for:   3234236654
+2017/02/08 05:46:55 Match is true
+2017/02/08 05:46:55 Generating cookie for:  calebsaunders@gmail.com
+2017/02/08 05:47:13 Generated OTP: 603651 0xaed0 3234236654
+2017/02/08 05:47:13 Sent message successfully to handset:  3234236654
+2017/02/08 05:47:21 Starting login for:   3234236654
+2017/02/08 05:47:21 Match is true
+2017/02/08 05:47:21 Generating cookie for:  calebsaunders@gmail.com
+2017/02/08 05:48:11 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:48:24 Generated OTP: 504835 0xaeb0 3234236654
+2017/02/08 05:48:25 Sent message successfully to handset:  3234236654
+2017/02/08 05:50:26 Starting login for:   3234236654
+2017/02/08 05:50:26 Match is true
+2017/02/08 05:50:26 Generating cookie for:  calebsaunders@gmail.com
+2017/02/08 05:50:26 Caleb P Saunders
+2017/02/08 05:50:42 Caleb P Saunders
+2017/02/08 05:51:17 API is Listening on:  0.0.0.0:9090
+2017/02/08 05:51:18 Farnsworth P Saunders
+2017/02/08 05:52:15 Generated OTP: 288324 0xaeb0 3234236654
+2017/02/08 05:52:15 Sent message successfully to handset:  3234236654
+2017/02/08 05:52:23 Starting login for:   3234236654
+2017/02/08 05:52:23 Match is true
+2017/02/08 05:52:23 Generating cookie for:  calebsaunders@gmail.com
+2017/02/08 05:52:23 Farnsworth P Saunders
+2017/02/08 05:52:34 Farnsworth P Saunders
+2017/02/08 05:52:38 Farnsworth P Saunders

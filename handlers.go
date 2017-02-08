@@ -21,11 +21,56 @@ func SMSLogin(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func VerifySMSLogin(w http.ResponseWriter, r *http.Request) {
+func GETVerifySMSLogin(w http.ResponseWriter, r *http.Request) {
+
 	r.ParseForm()
 	phone := r.FormValue("phone")
 
+	otp := GenerateOTP(6, phone)
+	otpStore[phone] = otp
+
+	if _, _, err := sendMessage(phone, "Your Glass verification code is: "+otp.Passcode); err != nil {
+		log.Fatal("Error sending msg: ", err)
+	}
+	log.Println("Sent message successfully to handset: ", phone)
 	renderTemplate(w, "sms-verify", "base", phone)
+}
+
+func POSTVerifySMSLogin(w http.ResponseWriter, r *http.Request) {
+
+	r.ParseForm()
+	passcode := r.FormValue("passcode")
+	phone := r.FormValue("phone")
+	log.Println("Starting login for:  ", phone)
+
+	ok := verifyOTP(passcode, phone)
+	if !ok {
+		//Unsuccessful login
+
+		http.Redirect(w, r, "/login", 401)
+		return
+	} else {
+
+		//Successful Login
+		user, err := UserByNumber(phone)
+		if err != nil {
+
+			common.DisplayAppError(w, err, "Could not find user to verify", 500)
+			return
+		}
+		token, err := common.GenerateJWT(user.Email, "member")
+		if err != nil {
+			log.Println("Error creating JWT for %s %s", user.Email, err)
+			http.Redirect(w, r, "/login", 500)
+		}
+		log.Println("Generating cookie for: ", user.Email)
+		cookie := http.Cookie{Name: "Auth", Value: token, Path: "/user/", Expires: time.Now().Add(time.Hour * 24), HttpOnly: true}
+		http.SetCookie(w, &cookie)
+
+		http.Redirect(w, r, "/user/profile", 302)
+	}
+	//
+
 }
 
 func rootHandler(w http.ResponseWriter, r *http.Request) {
@@ -308,6 +353,13 @@ func IdFromRequest(r *http.Request) string {
 }
 
 func userLogout(w http.ResponseWriter, r *http.Request) {
+	http.SetCookie(w, &http.Cookie{
+		Name:   "Auth",
+		Value:  "",
+		Path:   "/user/",
+		MaxAge: -1,
+	})
+
 	http.SetCookie(w, &http.Cookie{
 		Name:   "Auth",
 		Value:  "",

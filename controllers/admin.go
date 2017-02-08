@@ -254,7 +254,7 @@ func AdminLogin(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// Generate JWT token
-	token, err = common.GenerateJWT(user.Email, "member")
+	token, err = common.GenerateJWT(user.Email, "administrator")
 	if err != nil {
 		common.DisplayAppError(
 			w,
