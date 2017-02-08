@@ -19,6 +19,7 @@ func setupTemplates() {
 	templates["index"] = template.Must(template.ParseFiles("templates/index.html", "templates/base.html"))
 	templates["profile"] = template.Must(template.ParseFiles("templates/profile.html", "templates/base.html"))
 	templates["history"] = template.Must(template.ParseFiles("templates/history.html", "templates/base.html"))
+	templates["history-details"] = template.Must(template.ParseFiles("templates/history-details.html", "templates/base.html"))
 	templates["order"] = template.Must(template.ParseFiles("templates/order.html", "templates/base.html"))
 
 	templates["home"] = template.Must(template.ParseFiles("templates/home.html", "templates/base.html"))

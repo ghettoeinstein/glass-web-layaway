@@ -67,7 +67,7 @@ func POSTVerifySMSLogin(w http.ResponseWriter, r *http.Request) {
 		cookie := http.Cookie{Name: "Auth", Value: token, Path: "/user/", Expires: time.Now().Add(time.Hour * 24), HttpOnly: true}
 		http.SetCookie(w, &cookie)
 
-		http.Redirect(w, r, "/user/profile", 302)
+		http.Redirect(w, r, "/user/home", 302)
 	}
 	//
 
