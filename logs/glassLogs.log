@@ -1266,3 +1266,272 @@
 2017/02/07 15:00:27 AppError]: not found
 2017/02/07 15:00:33 Starting login
 2017/02/07 15:00:33 AppError]: not found
+2017/02/07 15:19:13 API is Listening on:  0.0.0.0:9090
+2017/02/07 15:19:20 API is Listening on:  0.0.0.0:9090
+2017/02/07 15:23:03 API is Listening on:  0.0.0.0:9090
+2017/02/07 15:24:59 API is Listening on:  0.0.0.0:9090
+2017/02/07 15:25:50 Starting login
+2017/02/07 15:25:50 ijjjjj
+2017/02/07 15:26:00 99.99
+2017/02/07 15:26:51 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/07 15:26:51 9d953385-7c5d-4b9b-8e29-1d6925730e39
+2017/02/07 15:26:51 token is token
+2017/02/07 15:26:52 Created customer with id  cus_A4s6iZG1BdMKYa
+2017/02/07 15:26:52 &{9d953385-7c5d-4b9b-8e29-1d6925730e39 false 19999 1486510012 usd month 1 9d953385-7c5d-4b9b-8e29-1d6925730e39 Installment Plan map[] 0  false}
+2017/02/07 15:40:02 API is Listening on:  0.0.0.0:9090
+2017/02/07 15:40:17 starting post
+2017/02/07 15:40:17 no errors
+2017/02/07 15:40:17 About to save to database
+2017/02/07 15:40:17 &{ObjectIdHex("589a5ae1a54d7519a213ed2e") Aikea Jones hollowbutterfly@gmail.com 3236172090 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  0ad37533-686b-4d63-963e-b02cb4c86bcb 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 15:40:17.788855481 -0800 PST 2017-02-07 15:40:17.788855481 -0800 PST false 0}
+2017/02/07 15:40:30 100
+2017/02/07 15:41:10 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/07 15:41:10 0ad37533-686b-4d63-963e-b02cb4c86bcb
+2017/02/07 15:41:11 token is token
+2017/02/07 15:41:11 Created customer with id  cus_A4sKAbGFgBFX4B
+2017/02/07 15:41:12 &{0ad37533-686b-4d63-963e-b02cb4c86bcb false 19999 1486510871 usd month 1 0ad37533-686b-4d63-963e-b02cb4c86bcb Installment Plan map[] 0  false}
+2017/02/07 15:47:52 API is Listening on:  0.0.0.0:9090
+2017/02/07 15:48:29 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/07 15:48:29 0ad37533-686b-4d63-963e-b02cb4c86bcb
+2017/02/07 15:48:29 token is token
+2017/02/07 15:48:30 Created customer with id  cus_A4sSpDHLMAcj4v
+2017/02/07 15:48:30 Error creating plan
+2017/02/07 15:49:17 starting post
+2017/02/07 15:49:17 no errors
+2017/02/07 15:49:17 About to save to database
+2017/02/07 15:49:17 &{ObjectIdHex("589a5cfda54d751db73ea13c") Aikea Jones hollowbutterfly@gmail.com 3236172090 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  af9ead94-8b02-4c47-a8a6-ad2bbfa96020 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 15:49:17.700222157 -0800 PST 2017-02-07 15:49:17.700222157 -0800 PST false 0}
+2017/02/07 15:49:27 Starting login
+2017/02/07 15:49:28 ijjjjj
+2017/02/07 15:49:33 99.78
+2017/02/07 15:50:18 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/07 15:50:18 af9ead94-8b02-4c47-a8a6-ad2bbfa96020
+2017/02/07 15:50:18 token is token
+2017/02/07 15:50:18 Created customer with id  cus_A4sTyMb9dhO5zX
+2017/02/07 15:50:19 &{af9ead94-8b02-4c47-a8a6-ad2bbfa96020 false 19999 1486511419 usd month 1 af9ead94-8b02-4c47-a8a6-ad2bbfa96020 Installment Plan map[] 0  false}
+2017/02/07 16:02:52 API is Listening on:  0.0.0.0:9090
+2017/02/07 16:03:44 Starting login
+2017/02/07 16:03:44 AppError]: crypto/bcrypt: hashedPassword is not the hash of the given password
+2017/02/07 16:05:15 Starting login
+2017/02/07 16:05:15 AppError]: crypto/bcrypt: hashedPassword is not the hash of the given password
+2017/02/07 16:05:22 Starting login
+2017/02/07 16:05:22 ijjjjj
+2017/02/07 16:06:25 API is Listening on:  0.0.0.0:9090
+2017/02/07 16:07:34 API is Listening on:  0.0.0.0:9090
+2017/02/07 16:08:54 API is Listening on:  0.0.0.0:9090
+2017/02/07 16:17:12 API is Listening on:  0.0.0.0:9090
+2017/02/07 16:17:25 Starting login
+2017/02/07 16:17:44 Starting login
+2017/02/07 16:17:44 AppError]: crypto/bcrypt: hashedPassword is not the hash of the given password
+2017/02/07 16:27:17 starting post
+2017/02/07 16:27:17 no errors
+2017/02/07 16:27:17 About to save to database
+2017/02/07 16:27:17 &{ObjectIdHex("589a65e5a54d75226c549c7a") Jean-Lee publicprivacybusiness@gmail.com 3236172090 http://google.com  bc9a9659-febf-4b15-98dd-9969ca6d1538 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 16:27:17.782402078 -0800 PST 2017-02-07 16:27:17.782402078 -0800 PST false 0}
+2017/02/07 16:27:59 API is Listening on:  0.0.0.0:9090
+2017/02/07 16:28:46 API is Listening on:  0.0.0.0:9090
+2017/02/07 16:31:07 Starting login
+2017/02/07 16:31:07 AppError]: crypto/bcrypt: hashedPassword is not the hash of the given password
+2017/02/07 16:31:13 Starting login
+2017/02/07 16:32:03 API is Listening on:  0.0.0.0:9090
+2017/02/07 16:35:05 Starting login
+2017/02/07 16:35:13 starting post
+2017/02/07 16:35:13 no errors
+2017/02/07 16:35:13 About to save to database
+2017/02/07 16:35:13 &{ObjectIdHex("589a67c1a54d752799353739") Caleb P saunders calebsaunders@gmail.com 3234236654 http://google.com  c75a7674-62f2-406c-8e84-f532406466f2 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 16:35:13.9112594 -0800 PST 2017-02-07 16:35:13.9112594 -0800 PST false 0}
+2017/02/07 16:35:26 99.45
+2017/02/07 16:36:06 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/07 16:36:06 c75a7674-62f2-406c-8e84-f532406466f2
+2017/02/07 16:36:06 token is token
+2017/02/07 16:36:06 Created customer with id  cus_A4tDl1dUj3rp5C
+2017/02/07 16:36:07 &{c75a7674-62f2-406c-8e84-f532406466f2 false 19999 1486514167 usd month 1 c75a7674-62f2-406c-8e84-f532406466f2 Installment Plan map[] 0  false}
+2017/02/07 18:09:46 API is Listening on:  0.0.0.0:9090
+2017/02/07 18:09:59 User is:  <nil>
+2017/02/07 18:10:17 User is:  <nil>
+2017/02/07 18:11:06 API is Listening on:  0.0.0.0:9090
+2017/02/07 18:11:09 User is:  <nil>
+2017/02/07 18:14:02 API is Listening on:  0.0.0.0:9090
+2017/02/07 18:14:06 user not a key in context
+2017/02/07 18:14:06 User is:  <nil>
+2017/02/07 18:14:59 API is Listening on:  0.0.0.0:9090
+2017/02/07 18:15:02 Authorize called
+2017/02/07 18:15:02 user not a key in context
+2017/02/07 18:15:02 User is:  <nil>
+2017/02/07 18:16:10 API is Listening on:  0.0.0.0:9090
+2017/02/07 18:16:18 map[user:calebsaunders@gmail.com]
+2017/02/07 18:16:18 user not a key in context
+2017/02/07 18:16:18 User is:  <nil>
+2017/02/07 18:16:57 API is Listening on:  0.0.0.0:9090
+2017/02/07 18:17:04 user not a key in context
+2017/02/07 18:17:04 User is:  <nil>
+2017/02/07 18:17:06 user not a key in context
+2017/02/07 18:17:06 User is:  <nil>
+2017/02/07 18:17:07 user not a key in context
+2017/02/07 18:17:07 User is:  <nil>
+2017/02/07 18:17:09 user not a key in context
+2017/02/07 18:17:09 User is:  <nil>
+2017/02/07 18:17:10 user not a key in context
+2017/02/07 18:17:10 User is:  <nil>
+2017/02/07 18:17:44 API is Listening on:  0.0.0.0:9090
+2017/02/07 18:17:50 map[]
+2017/02/07 18:17:50 template: profile.html:444:30: executing "body" at <.FullName>: can't evaluate field FullName in type string
+2017/02/07 18:18:38 API is Listening on:  0.0.0.0:9090
+2017/02/07 18:18:54 map[]
+2017/02/07 18:18:54 template: profile.html:444:30: executing "body" at <.FullName>: can't evaluate field FullName in type string
+2017/02/07 18:19:57 API is Listening on:  0.0.0.0:9090
+2017/02/07 18:19:59 token valid
+2017/02/07 18:19:59 map[]
+2017/02/07 18:19:59 template: profile.html:444:30: executing "body" at <.FullName>: can't evaluate field FullName in type string
+2017/02/07 18:20:41 API is Listening on:  0.0.0.0:9090
+2017/02/07 18:20:43 token valid
+2017/02/07 18:20:43 map[]
+2017/02/07 18:20:47 token valid
+2017/02/07 18:20:47 map[]
+2017/02/07 18:20:48 token valid
+2017/02/07 18:20:48 map[]
+2017/02/07 18:20:49 token valid
+2017/02/07 18:20:49 map[]
+2017/02/07 18:20:50 token valid
+2017/02/07 18:20:50 map[]
+2017/02/07 18:21:01 token valid
+2017/02/07 18:21:01 map[]
+2017/02/07 18:21:02 token valid
+2017/02/07 18:21:02 map[]
+2017/02/07 18:21:36 token valid
+2017/02/07 18:21:36 map[]
+2017/02/07 18:22:17 API is Listening on:  0.0.0.0:9090
+2017/02/07 18:22:19 token valid
+2017/02/07 18:22:19 map[]
+2017/02/07 18:22:19 template: profile.html:444:30: executing "body" at <.FullName>: can't evaluate field FullName in type string
+2017/02/07 18:22:50 API is Listening on:  0.0.0.0:9090
+2017/02/07 18:23:04 API is Listening on:  0.0.0.0:9090
+2017/02/07 18:23:06 token valid
+2017/02/07 18:23:06 map[]
+2017/02/07 18:23:06 template: profile.html:468:10: executing "body" at <.SecondaryLast4>: can't evaluate field SecondaryLast4 in type string
+2017/02/07 18:23:56 API is Listening on:  0.0.0.0:9090
+2017/02/07 18:23:58 token valid
+2017/02/07 18:23:58 map[]
+2017/02/07 18:28:53 token valid
+2017/02/07 18:28:53 token valid
+2017/02/07 18:28:53 map[]
+2017/02/07 18:28:54 token valid
+2017/02/07 18:28:56 token valid
+2017/02/07 20:06:19 API is Listening on:  0.0.0.0:9090
+2017/02/07 20:06:33 token valid
+2017/02/07 20:06:35 token valid
+2017/02/07 20:06:35 map[]
+2017/02/07 20:12:41 token valid
+2017/02/07 20:12:42 token valid
+2017/02/07 20:12:42 map[]
+2017/02/07 20:12:42 token valid
+2017/02/07 20:12:45 token valid
+2017/02/07 21:01:08 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:01:16 &{eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhbGVic2F1bmRlcnNAZ21haWwuY29tIiwicm9sZSI6IkN1c3RvbWVyIiwiZXhwIjoxNDg5MTA2MTY4LCJpc3MiOiJhZG1pbiJ9.Jp-cNYxybeVu4IKLSppD_jlPx219ZrUKZVryaD11paZ70R_FMOwSyKevpHcOxMAApHhIk-q-j6e-gtjlcMLeHg1ZQs9NX1w6j2JKr0YAe0XdBZViW_EDyDmQFh2_fxyANCQQxCE0wHmae5J5CiKB-1vH4aEZrUaCE2hWd5d5JuE 0xc4200c8780 map[alg:RS256 typ:JWT] 0xc4200ff180 Jp-cNYxybeVu4IKLSppD_jlPx219ZrUKZVryaD11paZ70R_FMOwSyKevpHcOxMAApHhIk-q-j6e-gtjlcMLeHg1ZQs9NX1w6j2JKr0YAe0XdBZViW_EDyDmQFh2_fxyANCQQxCE0wHmae5J5CiKB-1vH4aEZrUaCE2hWd5d5JuE true}
+2017/02/07 21:01:55 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:01:59 &{eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhbGVic2F1bmRlcnNAZ21haWwuY29tIiwicm9sZSI6IkN1c3RvbWVyIiwiZXhwIjoxNDg5MTA2MTY4LCJpc3MiOiJhZG1pbiJ9.Jp-cNYxybeVu4IKLSppD_jlPx219ZrUKZVryaD11paZ70R_FMOwSyKevpHcOxMAApHhIk-q-j6e-gtjlcMLeHg1ZQs9NX1w6j2JKr0YAe0XdBZViW_EDyDmQFh2_fxyANCQQxCE0wHmae5J5CiKB-1vH4aEZrUaCE2hWd5d5JuE 0xc4200c8780 map[alg:RS256 typ:JWT] 0xc4201c8680 Jp-cNYxybeVu4IKLSppD_jlPx219ZrUKZVryaD11paZ70R_FMOwSyKevpHcOxMAApHhIk-q-j6e-gtjlcMLeHg1ZQs9NX1w6j2JKr0YAe0XdBZViW_EDyDmQFh2_fxyANCQQxCE0wHmae5J5CiKB-1vH4aEZrUaCE2hWd5d5JuE true}
+2017/02/07 21:01:59 got token from context
+2017/02/07 21:07:17 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:07:21 &{calebsaunders@gmail.com Customer { 1489106168  0 admin 0 }}
+2017/02/07 21:07:21 &{eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhbGVic2F1bmRlcnNAZ21haWwuY29tIiwicm9sZSI6IkN1c3RvbWVyIiwiZXhwIjoxNDg5MTA2MTY4LCJpc3MiOiJhZG1pbiJ9.Jp-cNYxybeVu4IKLSppD_jlPx219ZrUKZVryaD11paZ70R_FMOwSyKevpHcOxMAApHhIk-q-j6e-gtjlcMLeHg1ZQs9NX1w6j2JKr0YAe0XdBZViW_EDyDmQFh2_fxyANCQQxCE0wHmae5J5CiKB-1vH4aEZrUaCE2hWd5d5JuE 0xc4200ec620 map[typ:JWT alg:RS256] 0xc4201e1700 Jp-cNYxybeVu4IKLSppD_jlPx219ZrUKZVryaD11paZ70R_FMOwSyKevpHcOxMAApHhIk-q-j6e-gtjlcMLeHg1ZQs9NX1w6j2JKr0YAe0XdBZViW_EDyDmQFh2_fxyANCQQxCE0wHmae5J5CiKB-1vH4aEZrUaCE2hWd5d5JuE true}
+2017/02/07 21:07:21 got token from context
+2017/02/07 21:08:39 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:08:39 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/07 21:08:42 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:08:49 calebsaunders@gmail.com
+2017/02/07 21:08:49 Customer
+2017/02/07 21:08:49 got token from context
+2017/02/07 21:13:59 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:14:02 calebsaunders@gmail.com
+2017/02/07 21:14:02 got email from context
+2017/02/07 21:18:04 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:18:07 Caleb P saunders
+2017/02/07 21:18:53 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:18:58 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:19:00 Caleb P saunders
+2017/02/07 21:20:22 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:20:53 Caleb P saunders
+2017/02/07 21:20:55 Caleb P saunders
+2017/02/07 21:20:56 Caleb P saunders
+2017/02/07 21:20:58 Caleb P saunders
+2017/02/07 21:20:59 Caleb P saunders
+2017/02/07 21:21:07 Starting login
+2017/02/07 21:21:14 Caleb P saunders
+2017/02/07 21:21:44 Starting login
+2017/02/07 21:21:49 
+2017/02/07 21:21:57 
+2017/02/07 21:22:02 
+2017/02/07 21:23:06 
+2017/02/07 21:23:07 
+2017/02/07 21:23:07 
+2017/02/07 21:29:08 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:29:18 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:29:32 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:30:44 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:31:57 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:32:13 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:32:58 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:33:18 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:33:42 Starting login
+2017/02/07 21:35:16 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:35:24 0
+2017/02/07 21:35:36 starting post
+2017/02/07 21:35:36 no errors
+2017/02/07 21:35:36 About to save to database
+2017/02/07 21:35:36 &{ObjectIdHex("589aae28a54d7532fb3b568e") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  5cfbdd35-0051-473d-8552-648a153c73c3 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-07 21:35:36.14073171 -0800 PST 2017-02-07 21:35:36.14073171 -0800 PST false 0}
+2017/02/07 21:35:58 94.09
+2017/02/07 21:36:39 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/07 21:36:39 5cfbdd35-0051-473d-8552-648a153c73c3
+2017/02/07 21:36:39 token is token
+2017/02/07 21:36:40 Created customer with id  cus_A4y4nb5qF6302Y
+2017/02/07 21:36:40 &{5cfbdd35-0051-473d-8552-648a153c73c3 false 19999 1486532200 usd month 1 5cfbdd35-0051-473d-8552-648a153c73c3 Installment Plan map[] 0  false}
+2017/02/07 21:36:51 Caleb P saunders
+2017/02/07 21:37:10 Caleb P saunders
+2017/02/07 21:37:56 Caleb P saunders
+2017/02/07 21:38:03 Caleb P saunders
+2017/02/07 21:38:05 Caleb P saunders
+2017/02/07 21:38:05 Caleb P saunders
+2017/02/07 21:40:26 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:40:31 Caleb P saunders
+2017/02/07 21:40:44 Caleb P saunders
+2017/02/07 21:40:45 Caleb P saunders
+2017/02/07 21:43:52 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:43:58 Starting login
+2017/02/07 21:44:45 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:45:28 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:45:50 Starting login
+2017/02/07 21:45:50 AppError]: crypto/bcrypt: hashedPassword is not the hash of the given password
+2017/02/07 21:45:55 Starting login
+2017/02/07 21:47:11 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:47:21 Starting login
+2017/02/07 21:47:44 Starting login
+2017/02/07 21:53:56 Starting login
+2017/02/07 21:53:56 AppError]: crypto/bcrypt: hashedPassword is not the hash of the given password
+2017/02/07 21:54:08 Starting login
+2017/02/07 21:54:08 AppError]: crypto/bcrypt: hashedPassword is not the hash of the given password
+2017/02/07 21:58:13 API is Listening on:  0.0.0.0:9090
+2017/02/07 21:58:25 Starting login
+2017/02/07 21:58:32 Starting login
+2017/02/07 21:59:41 Starting login
+2017/02/07 21:59:47 Starting login
+2017/02/07 22:03:57 API is Listening on:  0.0.0.0:9090
+2017/02/07 22:04:23 API is Listening on:  0.0.0.0:9090
+2017/02/07 22:15:42 API is Listening on:  0.0.0.0:9090
+2017/02/07 22:16:18 API is Listening on:  0.0.0.0:9090
+2017/02/07 22:38:07 API is Listening on:  0.0.0.0:9090
+2017/02/07 22:39:18 API is Listening on:  0.0.0.0:9090
+2017/02/07 22:44:12 API is Listening on:  0.0.0.0:9090
+2017/02/07 22:46:56 API is Listening on:  0.0.0.0:9090
+2017/02/07 22:50:14 API is Listening on:  0.0.0.0:9090
+2017/02/07 22:55:17 API is Listening on:  0.0.0.0:9090
+2017/02/07 23:14:20 API is Listening on:  0.0.0.0:9090
+2017/02/07 23:16:47 API is Listening on:  0.0.0.0:9090
+2017/02/07 23:17:37 API is Listening on:  0.0.0.0:9090
+2017/02/07 23:20:26 API is Listening on:  0.0.0.0:9090
+2017/02/07 23:21:21 API is Listening on:  0.0.0.0:9090
+2017/02/07 23:22:26 API is Listening on:  0.0.0.0:9090
+2017/02/07 23:24:28 API is Listening on:  0.0.0.0:9090
+2017/02/07 23:26:01 API is Listening on:  0.0.0.0:9090
+2017/02/07 23:30:02 API is Listening on:  0.0.0.0:9090
+2017/02/07 23:30:20 API is Listening on:  0.0.0.0:9090
+2017/02/07 23:30:29 html/template:base: "\"" in attribute name: ";\"id=\"marketing-signup\" action=\""
+2017/02/07 23:30:32 API is Listening on:  0.0.0.0:9090
+2017/02/07 23:30:34 html/template:base: "\"" in attribute name: ";\"id=\"marketing-signup\" action=\""
+2017/02/07 23:30:51 API is Listening on:  0.0.0.0:9090
+2017/02/07 23:31:13 API is Listening on:  0.0.0.0:9090

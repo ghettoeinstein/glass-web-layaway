@@ -37,6 +37,7 @@ func main() {
 			log.Printf("Trapped panic: %s (%T) \n", err, err)
 		}
 	}()
+	go controllers.InitTemplates()
 
 	f, err := os.OpenFile("logs/glassLogs.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
@@ -51,7 +52,7 @@ func main() {
 	router.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 
 	//router.HandleFunc("/register", controllers.Register).Methods("POST")
-	//router.ServeFiles("/assets/*filepath", http.Dir("assets"))
+	//router.ServeFiles("/assets/*filepath", http.Dir("/assets"))
 	//
 	//router.GET("/about-us", aboutUsHandler)
 	router.HandleFunc("/about-us", aboutUsHandler).Methods("GET")
@@ -63,14 +64,24 @@ func main() {
 	router.HandleFunc("/getglass", glassHandler).Methods("GET")
 
 	router.HandleFunc("/congratulations", congratulationsHandler).Methods("GET")
-	router.HandleFunc("/user/home", homeHandler).Methods("GET")
-	router.HandleFunc("/user/history", historyHandler).Methods("GET")
-	router.HandleFunc("/user/profile", profileHandler).Methods("GET")
+
 	router.HandleFunc("/terms/{id}", termsHandler).Methods("GET")
 	router.HandleFunc("/decision/{id}", decisionHandler).Methods("GET")
 	router.HandleFunc("/offer/{id}/charge", controllers.ChargeForOffer).Methods("POST")
 	router.HandleFunc("/", rootHandler)
-	router.HandleFunc("/logout", logout).Methods("GET")
+	router.HandleFunc("/logout", userLogout).Methods("GET")
+	router.HandleFunc("/users/register", controllers.Register).Methods("POST")
+
+	userRouter := mux.NewRouter()
+
+	userRouter.HandleFunc("/user/home", homeHandler).Methods("GET")
+	userRouter.HandleFunc("/user/history", historyHandler).Methods("GET")
+	userRouter.HandleFunc("/user/profile", profileHandler).Methods("GET")
+	router.PathPrefix("/user").Handler(negroni.New(
+		negroni.HandlerFunc(common.Authorize),
+		negroni.Wrap(userRouter),
+	))
+
 	//router.POST("/orders", controllers.CreateOrder).Methids("POST")
 
 	router.HandleFunc("/about", aboutUsHandler)
@@ -78,7 +89,7 @@ func main() {
 	//
 	router.HandleFunc("/login", controllers.GetLogin).Methods("GET")
 	router.HandleFunc("/login", controllers.AdminLogin).Methods("POST")
-	go controllers.InitTemplates()
+
 	adminRouter := mux.NewRouter()
 	adminRouter.HandleFunc("/admin/chat", chatHandler).Methods("GET")
 	adminRouter.HandleFunc("/admin/orders/{id}", controllers.AdminDisplayOrder).Methods("GET")

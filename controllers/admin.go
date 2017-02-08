@@ -35,6 +35,11 @@ func AdminGetNewOrders(w http.ResponseWriter, r *http.Request) {
 	}
 
 	log.Println(len(orders))
+	//set  page to  expiration time in past, so that the page is never cached.
+	w.Header().Set("Cache-Control", "no-cache,no-store, must-revalidate")
+
+	w.Header().Set("Pragma", "no-cache")
+	w.Header().Set("Expires", " Sat, 26 Jul 1997 05:00:00 GMT")
 	renderTemplate(w, "orders", "base", orders)
 
 }
@@ -105,6 +110,12 @@ func AdminGetDeniedOrders(w http.ResponseWriter, r *http.Request) {
 		common.DisplayAppError(w, err, "Could not retrieve orders. Contact IT", 500)
 		return
 	}
+
+	//set  page to  expiration time in past, so that the page is never cached.
+	w.Header().Set("Cache-Control", "no-cache,no-store, must-revalidate")
+
+	w.Header().Set("Pragma", "no-cache")
+	w.Header().Set("Expires", " Sat, 26 Jul 1997 05:00:00 GMT")
 	renderTemplate(w, "denied", "base", orders)
 
 }
@@ -125,6 +136,12 @@ func AdminGetApprovedOrders(w http.ResponseWriter, r *http.Request) {
 		common.DisplayAppError(w, err, "Could not retrieve approved orders. Contact IT", 500)
 		return
 	}
+
+	//set  page to  expiration time in past, so that the page is never cached.
+	w.Header().Set("Cache-Control", "no-cache,no-store, must-revalidate")
+
+	w.Header().Set("Pragma", "no-cache")
+	w.Header().Set("Expires", " Sat, 26 Jul 1997 05:00:00 GMT")
 	renderTemplate(w, "approved", "base", orders)
 
 }
@@ -231,12 +248,9 @@ func AdminLogin(w http.ResponseWriter, r *http.Request) {
 	// Authenticate the login user
 	user, err := repo.Login(loginUser)
 	if err != nil {
-		common.DisplayAppError(
-			w,
-			err,
-			"Invalid login credentials",
-			401,
-		)
+
+		http.Redirect(w, r, "/login", 301)
+
 		return
 	}
 	// Generate JWT token
@@ -250,8 +264,8 @@ func AdminLogin(w http.ResponseWriter, r *http.Request) {
 		)
 		return
 	}
-	log.Println("ijjjjj")
-	cookie := http.Cookie{Name: "Auth", Value: token, Expires: time.Now().Add(time.Hour * 3), HttpOnly: true}
+
+	cookie := http.Cookie{Name: "Auth", Value: token, Expires: time.Now().Add(time.Hour * 24), HttpOnly: true}
 	http.SetCookie(w, &cookie)
 	http.Redirect(w, r, "/admin", 302)
 

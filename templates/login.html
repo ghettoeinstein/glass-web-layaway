@@ -8,9 +8,10 @@
   <title>Login</title>
 <style>
 body {
+  background-color: white;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #eee;
+
 }
 .form-signin {
   max-width: 330px;
@@ -101,14 +102,22 @@ body {
 .container .text-muted {
   margin: 20px 0;
 }
+
+#logo {
+  margin-left:auto;
+  margin-right:auto;
+  display: block;
+}
 </style>
 
 {{end}}
 {{define "body"}}
  <div class="container-fluid">
-
+      <div>
+      <img id="logo" src="/assets/glogo.svg">
+      </div>
       <form class="form-signin" id="login" method="POST" action="/login" >
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h2 class="form-signin-heading text-center">Enter Login </h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" name ="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>

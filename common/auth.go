@@ -1,12 +1,12 @@
 package common
 
 import (
+	"context"
 	"crypto/rsa"
 	"errors"
 	"fmt"
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/dgrijalva/jwt-go/request"
-	"github.com/gorilla/context"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -14,8 +14,15 @@ import (
 	"time"
 )
 
-// using asymmetric crypto/RSA keys
+func NewContextWithEmail(ctx context.Context, token *jwt.Token) context.Context {
+	return context.WithValue(ctx, EmailKey, token.Claims.(*AppClaims).UserName)
+}
+
+type Key int
+
+// using asymmetric crypto/RSA keyss
 const (
+	EmailKey Key = 0
 	// openssl genrsa -out app.rsa 1024
 	privKeyPath = "keys/app.rsa"
 	// openssl rsa -in app.rsa -pubout > app.rsa.pub
@@ -67,7 +74,7 @@ func GenerateJWT(name, role string) (string, error) {
 	// Create the Claims
 	claims := AppClaims{
 		name,
-		"Customer",
+		role,
 		jwt.StandardClaims{
 			ExpiresAt: time.Now().Add(time.Hour * 24 * 30).Unix(),
 			Issuer:    "admin",
@@ -152,8 +159,9 @@ func Authorize(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 		}
 		if token.Valid {
 			// Set user name to HTTP context
-			context.Set(r, "user", token.Claims.(*AppClaims).UserName)
-			next(w, r)
+
+			ctx := NewContextWithEmail(r.Context(), token)
+			next(w, r.WithContext(ctx))
 			return
 		} else {
 			DisplayAppError(
@@ -204,10 +212,10 @@ func Authorize(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 		}
 
 	}
+
 	if token.Valid {
-		// Set user name to HTTP context
-		context.Set(r, "user", token.Claims.(*AppClaims).UserName)
-		next(w, r)
+		ctx := NewContextWithEmail(r.Context(), token)
+		next(w, r.WithContext(ctx))
 	} else {
 		DisplayAppError(
 			w,
@@ -219,7 +227,7 @@ func Authorize(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 }
 
 // TokenFromAuthHeader is a "TokenExtractor" that takes a given request and extracts
-// the JWT token from the Authorization header.
+// the JWT token from the Authorization header in API
 func TokenFromAuthHeader(r *http.Request) (string, error) {
 	// Look for an Authorization header
 	if ah := r.Header.Get("Authorization"); ah != "" {

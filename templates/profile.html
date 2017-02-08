@@ -393,7 +393,7 @@ color: #9B9B9B;
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/glass"><img src="assets/glogo.svg" width="50px" alt="Glass">
+				<a class="navbar-brand" href="/glass"><img src="/assets/glogo.svg" width="50px" alt="Glass">
 				</a>
 			</div>
 
@@ -414,9 +414,9 @@ color: #9B9B9B;
 
 				
 			<ul class="nav nav-sidebar">
-				<li><a href="/home">Home</a></li>
-				<li><a href="/profile">Profile</a></li>
-				<li><a href="/history">History</a></li>
+				<li><a href="/user/home">Home</a></li>
+				<li><a href="/user/profile">Profile</a></li>
+				<li><a href="/user/history">History</a></li>
 				<li><a href="/logout">Logout</a></li>
 
 			</ul>
@@ -435,15 +435,15 @@ color: #9B9B9B;
 
 				<div class="row">
 					<div class="col-md-11 col-md-offset-1" style="margin:5px">
-						<img id="user-info" src="assets/user-info.svg"/>
+						<img id="user-info" src="/assets/user-info.svg"/>
 						<span id="general-info">General Info</span>
 
 					</div>
 				</div>
 
-				<h3  id="name" style="">.{FullName}</h3>
-				<h6  id="phone-number">{.PhoneNumber}</h6>
-				<h6  id="email">{.Email}</h6> <a href="#edit-profil"><span id="edit">Edit</span></a>
+				<h3  id="name" style="">{{.FullName}}</h3>
+				<h6  id="phone-number">{{.PhoneNumber}}</h6>
+				<h6  id="email">{{.Email}}</h6> <a href="#edit-profil"><span id="edit">Edit</span></a>
 				<br>
 				<br>
 				<br>
@@ -454,20 +454,22 @@ color: #9B9B9B;
 
 				<div class="row" >
 					<div class="col-md-12 "  style="margin:5px;">
-						<img id="user-info" src="assets/wallet.svg"/>
+						<img id="user-info" src="/assets/wallet.svg"/>
 						<span id="payment-methods">Payment Methods</span>
-						<a href="#edit-payment"><img id="pencil" src="assets/pencil.svg" /></a>
+						<a href="#edit-payment"><img id="pencil" src="/assets/pencil.svg" /></a>
 
 						<div style=" height: 40px;
 						line-height: 40px;
 
 						text-align: left;
 						"><div>
-						<img id="card" src="assets/Visa.svg"> <span id="primarylast4">{.PrimaryLast4}</span>
+						<img id="card" src="/assets/Visa.svg"> <span id="primarylast4">{.PrimaryLast4}</span>
 					</div>
+
 					<div style="line-height: none;padding-top:10px;">
-						<img id="card" src="assets/Visa.svg"> <span id="secondarylast4">{.SecondaryLast4}</span>
+						<img id="card" src="/assets/Visa.svg"> <span id="secondarylast4">{.SecondaryLast4}</span>
 					</div>
+				
 				</div>
 			</div>
 			<br>

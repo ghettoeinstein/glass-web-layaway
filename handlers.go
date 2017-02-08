@@ -6,6 +6,7 @@ import (
 	"./data"
 	"./models"
 	"./random"
+
 	"github.com/gorilla/mux"
 	"github.com/joiggama/money"
 	"html/template"
@@ -88,7 +89,29 @@ func saveOrder(order *models.WebOrder) (err error) {
 }
 
 func profileHandler(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "profile", "base", "nil")
+
+	//set  page to  expiration time in past, so that the page is never cached.
+	// Put this into middleware  later
+	ctx := r.Context()
+	email := ctx.Value(common.EmailKey).(string)
+
+	context := controllers.NewContext()
+	defer context.Close()
+	c := context.DbCollection("users")
+	repo := &data.UserRepository{c}
+	user, err := repo.GetByUsername(email)
+	if err != nil {
+		log.Println("No user found for email")
+	}
+
+	log.Println(user.FullName)
+
+	w.Header().Set("Cache-Control", "no-cache,no-store, must-revalidate")
+	w.Header().Set("Pragma", "no-cache")
+	w.Header().Set("Expires", " Sat, 26 Jul 1997 05:00:00 GMT")
+
+	renderTemplate(w, "profile", "base", user)
+
 }
 
 func congratulationsHandler(w http.ResponseWriter, r *http.Request) {
@@ -112,6 +135,13 @@ func chatHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func historyHandler(w http.ResponseWriter, r *http.Request) {
+
+	//set  page to  expiration time in past, so that the page is never cached.
+	w.Header().Set("Cache-Control", "no-cache,no-store, must-revalidate")
+
+	w.Header().Set("Pragma", "no-cache")
+	w.Header().Set("Expires", " Sat, 26 Jul 1997 05:00:00 GMT")
+
 	renderTemplate(w, "history", "base", "")
 }
 
@@ -123,6 +153,13 @@ func ordersHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
+
+	//set  page to  expiration time in past, so that the page is never cached.
+	w.Header().Set("Cache-Control", "no-cache,no-store, must-revalidate")
+
+	w.Header().Set("Pragma", "no-cache")
+	w.Header().Set("Expires", " Sat, 26 Jul 1997 05:00:00 GMT")
+
 	renderTemplate(w, "home", "base", "")
 }
 
@@ -194,6 +231,7 @@ func adminHandler(w http.ResponseWriter, r *http.Request) {
 	//w.Header().Set("Content-Type", "application/json")
 	//w.Write(j)
 
+	//set  page to  expiration time in past, so that the page is never cached.
 	w.Header().Set("Cache-Control", "no-cache,no-store, must-revalidate")
 
 	w.Header().Set("Pragma", "no-cache")
@@ -218,8 +256,7 @@ func logout(w http.ResponseWriter, r *http.Request) {
 		MaxAge: -1,
 	})
 
-	w.Header()["Location"] = []string{"/login"}
-	w.WriteHeader(http.StatusTemporaryRedirect)
+	http.Redirect(w, r, "/login", 303)
 
 }
 
@@ -255,4 +292,16 @@ func IdFromRequest(r *http.Request) string {
 	id := vars["id"]
 
 	return id
+}
+
+func userLogout(w http.ResponseWriter, r *http.Request) {
+	http.SetCookie(w, &http.Cookie{
+		Name:   "Auth",
+		Value:  "",
+		Path:   "/",
+		MaxAge: -1,
+	})
+
+	w.Header()["Location"] = []string{"/login"}
+	w.WriteHeader(http.StatusTemporaryRedirect)
 }

@@ -166,7 +166,7 @@
 							<label class="col-md-4 control-label" for="phone">Price</label>  
 							<div class="col-md-4">
 								
-								<input type="number" step="0.01" min="0" max="2500.00" placeholder="75.00" name="price"  class="form-control input-md" required="true">
+								<input type="number" step="0.01" min="0" max="2500.00" placeholder="75.00" name="price"  class="form-control input-md" requred="">
 								<span class="help-block">Please enter correct price from the PRODUCT URL, in whole cents eg: $100 = 10000</span>  
 							</div>
 						</div>
@@ -187,6 +187,7 @@
 							<div class="col-md-8">
 								<button id="approve" name="decision" class="btn btn-success" value="approve">Send Approval</button>
 								<button id="deny" name="decision" class="btn btn-danger" value="deny">Send Denial</button>
+								<small style="color:red">Before you submit, did you enter a price for the approval?</small>
 							</div>
 						</div>
 

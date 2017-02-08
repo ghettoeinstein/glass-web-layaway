@@ -36,6 +36,7 @@ func createDbSession() {
 	if err != nil {
 		log.Fatalf("[createDbSession]: %s\n", err)
 	}
+	session.SetMode(mgo.Monotonic, true)
 }
 
 func GenerateObjectId() bson.ObjectId {

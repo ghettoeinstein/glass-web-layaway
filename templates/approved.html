@@ -81,7 +81,7 @@ code {
           <th>Order Link</th>
           <th>URL</th>
           <th>Date Created</th>
-          <th>Delete Link</th>
+    
         </tr>
       </thead>
       <tbody>
@@ -90,7 +90,7 @@ code {
         <td><a href="/admin/orders/{{.UUID}}">{{.FullName}}</a></td>
         <td><a href="{{.URL}}">{{.URL}}</a></td>
         <td>{{.CreatedAt}}</td>
-        <td><a id="delete" href="/admin/orders/{{.UUID}}/delete">Delete Order</a></td>
+
       </tr>
       {{ else }}
       <tr>  

@@ -6,13 +6,13 @@ import (
 	"../models"
 	"encoding/json"
 	"github.com/dgrijalva/jwt-go/request"
-
 	"github.com/stripe/stripe-go"
 	"github.com/stripe/stripe-go/card"
 	"github.com/stripe/stripe-go/charge"
 	"github.com/stripe/stripe-go/customer"
 	"github.com/stripe/stripe-go/invoiceitem"
 	"github.com/stripe/stripe-go/sub"
+	"time"
 
 	"github.com/stripe/stripe-go/plan"
 	"log"
@@ -24,8 +24,9 @@ import (
 func NewUserFromWebOrder(o *models.WebOrder) (*models.User, error) {
 
 	user := &models.User{
-		Email:    o.Email,
-		FullName: o.FullName,
+		Email:       o.Email,
+		FullName:    o.FullName,
+		PhoneNumber: o.PhoneNumber,
 	}
 
 	context := NewContext()
@@ -216,7 +217,22 @@ func ChargeForOffer(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	http.Redirect(w, r, "/success", 200)
+	authToken, err := common.GenerateJWT(user.Email, "Customer")
+	if err != nil {
+		log.Println("Error creating token")
+	}
+
+	http.SetCookie(w, &http.Cookie{
+		Name:     "Auth",
+		Value:    authToken,
+		Path:     "/user/",
+		Expires:  time.Now().Add(time.Hour * 24),
+		HttpOnly: true,
+	})
+
+	w.Header()["Location"] = []string{"/user/history"}
+	w.WriteHeader(http.StatusSeeOther)
+
 }
 
 func ChargeCustomer(w http.ResponseWriter, r *http.Request) {
