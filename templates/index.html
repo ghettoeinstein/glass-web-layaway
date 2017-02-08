@@ -1,15 +1,15 @@
 {{define "head"}}
 
 <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
-		<link href="/assets/css/styles.css" rel='stylesheet' type="text/css"> 
-		<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+<link href="/assets/css/styles.css" rel='stylesheet' type="text/css"> 
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-		<style>
+<style>
 
-		#home-subheading { max-width:700px; margin: 20px auto; line-height:1.4; letter-spacing: 1px;}
-		</style>
+	#home-subheading { max-width:700px; margin: 20px auto; line-height:1.4; letter-spacing: 1px;}
+</style>
 {{end}}
 {{define "body"}}
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -44,7 +44,7 @@
 			<div class="inner">
 				<h1 style="font-weight:600;">Pay Over Time</h1>
 				<h3 id ="home-subheading">Glass makes it easy to pay for almost anything over time. 
- </h3>
+				</h3>
 				<hr>
 				<a href="/glass"> <button  id="home-btn" class="btn btn-primary btn-xl" >Get Started</button></a>
 			</div>
@@ -74,7 +74,7 @@
 						<div class="right">
 							<h3>RIGHT TIME. RIGHT PRICE.</h3>
 							<p class="text-faded">Buy now to lock in earlybird and sale pricing to get the items you want while maximizing your savings.
-</p>
+							</p>
 						</div>
 
 					</div>
@@ -88,50 +88,50 @@
 						<div class="right">
 							<h3>SHOP NOW</h3>
 							<p class="text-faded">
-						Shop now for back-to-school items, birthdays, holidays and more and they’ll be at your doorstep in no time.
+								Shop now for back-to-school items, birthdays, holidays and more and they’ll be at your doorstep in no time.
 
-</ul>
-</p>
-						</div>
-
+							</ul>
+						</p>
 					</div>
-				</div>      
-			</div>
-			<div class="row">
-				<div class="col-md-6  col-sm-8">
-					<div class="feature">
-						<div class="left">
-							<img src="/assets/worldwide.svg" width="45"/>   		    
-						</div>
-						<div class="right">
-							<h3>SHOP ANYWHERE</h3>
-							<p class="text-faded">Our payment plans aren’t limited to just the big brands. Shop anywhere online and get a decision in 2 minutes or less.</p>
-						</div>
+
+				</div>
+			</div>      
+		</div>
+		<div class="row">
+			<div class="col-md-6  col-sm-8">
+				<div class="feature">
+					<div class="left">
+						<img src="/assets/worldwide.svg" width="45"/>   		    
+					</div>
+					<div class="right">
+						<h3>SHOP ANYWHERE</h3>
+						<p class="text-faded">Our payment plans aren’t limited to just the big brands. Shop anywhere online and get a decision in 2 minutes or less.</p>
 					</div>
 				</div>
-				<div class="col-md-6  col-sm-8 ">
-					<div class="feature">
-						<div class="left">
-							<img src="/assets/no-fees.svg" width="45"/>
-						</div>
-						<div class="right">
-							<h3>NO HIDDEN TERMS OR FEES
-</h3>
-							<p class="text-faded ">We like surprises but when it comes to your money, not so much. With Glass there are no hidden penalties or fees.</p>
-						</div>
-
-					</div>
-				</div>
-
 			</div>
+			<div class="col-md-6  col-sm-8 ">
+				<div class="feature">
+					<div class="left">
+						<img src="/assets/no-fees.svg" width="45"/>
+					</div>
+					<div class="right">
+						<h3>NO HIDDEN TERMS OR FEES
+						</h3>
+						<p class="text-faded ">We like surprises but when it comes to your money, not so much. With Glass there are no hidden penalties or fees.</p>
+					</div>
+
+				</div>
+			</div>
+
 		</div>
 	</div>
+</div>
 </section>
 
 <section class="bg-primary parallax" id="subscribe-section" style="color:white;">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2 text-center">
+			<div class="col-lg-8 col-lg-offset-2 text-center" id="subscribe-copy">
 				<h2 class="margin-top-0" id="subscribe-header">Subscribe to Glass updates</h2>
 				<hr class="primary">
 				<p id="subscribe-paragraph">Stay in the loop on upcoming product announcements and updates.</p>
@@ -139,12 +139,12 @@
 			<div class="col-lg-10 col-lg-offset-1 text-center">
 				<form class="contact-form row" id="marketing-signup" action="/submit-email" method="POST">
 					<div class="col-md-6 col-md-offset-3">
-						<label></label> <input class="form-control" name="email" placeholder="Enter your best email"
-						type="text">
+						<label></label> <input class="form-control" id="emailInput" name="email" placeholder="Enter your best email"
+						type="text" required="true">
 					</div>
 					<div class="col-md-6 col-md-offset-3">
 						<label></label> <button class="btn btn-primary btn-block btn-lg " id="send-btn"
-						 data-toggle="modal" type="submit">Send
+						data-toggle="modal" type="submit">Send
 					</button>
 				</div>
 			</form>
@@ -162,7 +162,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 text-center">
-			    <p style="font-weight:300;font-size:13px">650-382-4073</p>
+				<p style="font-weight:300;font-size:13px">650-382-4073</p>
 				<a href="https://twitter.com/glassfinancial"><img src="/assets/twitter.svg" width="35"></a>
 			</div>
 		</div>
@@ -194,20 +194,56 @@
 </div>
 <script type="text/javascript">
 
-            $(document).ready(function() {
+	$(document).ready(function() {
             //option A
             $("#marketing-signup").submit(function(e){
-                submitFormWithAjax();
-                e.preventDefault(e);
+
+            	e.preventDefault(e);
+            	submitFormWithAjax(e);
             });}
             );
+	function sleep(ms) {
+		return new Promise(resolve => setTimeout(resolve, ms));
+	}
+
+	function showThanks() {
+		$('#subscribe-header').text('Thank you!')
+		$('#subscribe-paragraph').text("Please check your email to confirm your subscription to Glass updates and company announcements.")
+		$('#subscribe-header').fadeIn(2500);
+		$('#subscribe-paragraph').fadeIn(2500);
+
+	}
+
+
+	function submitFormWithAjax(e){
+		e.stopPropagation();
+
+
+		$('#subscribe-header').hide();
+		$('#subscribe-paragraph').hide();
+		$('form').fadeOut(1000);
+		
+
+		var formData = $('#marketing-signup').serialize();
+		var email = document.getElementById("emailInput").value;
+		console.log(formData);
+		$.ajax({
+			url: $('#marketing-signup').attr('action'),
+			type: 'POST',
+			data:formData
+		})
+		.done(function(response){
+			console.log(response);
+			showThanks();
+		})
+		.fail(function(data){	
+			showThanks();
+		});	
 
 
 
-            function submitFormWithAjax(){
-            	console.log("yes");
-            }
-        </script>
+}
+</script>
 
 
 </script>

@@ -27,6 +27,9 @@ func setupTemplates() {
 	templates["chat"] = template.Must(template.ParseFiles("templates/chat.html", "templates/base.html"))
 	templates["orders"] = template.Must(template.ParseFiles("templates/orders.html", "templates/base.html"))
 
+	templates["sms-login"] = template.Must(template.ParseFiles("templates/sms-login.html", "templates/base.html"))
+	templates["sms-verify"] = template.Must(template.ParseFiles("templates/sms-verify.html", "templates/base.html"))
+
 }
 
 func renderTemplate(w http.ResponseWriter, name string, template string, viewModel interface{}) {

@@ -15,7 +15,7 @@ import (
 )
 
 func GetLogin(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "login", "base", nil)
+	renderTemplate(w, "admin-login", "base", nil)
 }
 
 func AdminGetNewOrders(w http.ResponseWriter, r *http.Request) {

@@ -6,7 +6,8 @@ import (
 	"./data"
 	"./models"
 	"./random"
-
+	"encoding/json"
+	"errors"
 	"github.com/gorilla/mux"
 	"github.com/joiggama/money"
 	"html/template"
@@ -14,6 +15,18 @@ import (
 	"net/http"
 	"time"
 )
+
+func SMSLogin(w http.ResponseWriter, r *http.Request) {
+	renderTemplate(w, "sms-login", "base", nil)
+
+}
+
+func VerifySMSLogin(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()
+	phone := r.FormValue("phone")
+
+	renderTemplate(w, "sms-verify", "base", phone)
+}
 
 func rootHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "index", "base", "")
@@ -304,4 +317,28 @@ func userLogout(w http.ResponseWriter, r *http.Request) {
 
 	w.Header()["Location"] = []string{"/login"}
 	w.WriteHeader(http.StatusTemporaryRedirect)
+}
+
+func emailHandler(w http.ResponseWriter, r *http.Request) {
+	r.ParseMultipartForm(32 << 20)
+
+	email := r.FormValue("email")
+
+	if email == "" {
+		http.Error(w, errors.New("Cannot have blank email").Error(), 500)
+		return
+	}
+
+	if err := AddSubscriberToMailChimp(email); err != nil {
+		log.Println("Error adding email", email, "to mailchimp: ", err)
+	}
+
+	log.Println("Email is: ", email)
+	payload := struct {
+		Result string `json:"result"`
+	}{
+		"Saved email successfully",
+	}
+	json.NewEncoder(w).Encode(payload)
+	return
 }

@@ -71,12 +71,14 @@ func main() {
 	router.HandleFunc("/", rootHandler)
 	router.HandleFunc("/logout", userLogout).Methods("GET")
 	router.HandleFunc("/users/register", controllers.Register).Methods("POST")
+	router.HandleFunc("/submit-email", emailHandler).Methods("POST")
 
 	userRouter := mux.NewRouter()
 
 	userRouter.HandleFunc("/user/home", homeHandler).Methods("GET")
 	userRouter.HandleFunc("/user/history", historyHandler).Methods("GET")
 	userRouter.HandleFunc("/user/profile", profileHandler).Methods("GET")
+
 	router.PathPrefix("/user").Handler(negroni.New(
 		negroni.HandlerFunc(common.Authorize),
 		negroni.Wrap(userRouter),
@@ -87,8 +89,12 @@ func main() {
 	router.HandleFunc("/about", aboutUsHandler)
 
 	//
-	router.HandleFunc("/login", controllers.GetLogin).Methods("GET")
-	router.HandleFunc("/login", controllers.AdminLogin).Methods("POST")
+	router.HandleFunc("/login", SMSLogin).Methods("GET")
+
+	router.HandleFunc("/login/verify", VerifySMSLogin).Methods("GET")
+	router.HandleFunc("/login/verify", VerifySMSLogin).Methods("POST")
+	router.HandleFunc("/team/login", controllers.GetLogin).Methods("GET")
+	router.HandleFunc("/team/login", controllers.AdminLogin).Methods("POST")
 
 	adminRouter := mux.NewRouter()
 	adminRouter.HandleFunc("/admin/chat", chatHandler).Methods("GET")
