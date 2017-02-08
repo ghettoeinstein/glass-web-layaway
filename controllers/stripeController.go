@@ -208,7 +208,7 @@ func ChargeForOffer(w http.ResponseWriter, r *http.Request) {
 	}
 	log.Println(p)
 
-	_, err = sub.New(&stripe.SubParams{
+	s, err = sub.New(&stripe.SubParams{
 		Customer: user.StripeCustomer.CustomerId,
 		Plan:     p.ID,
 	})
