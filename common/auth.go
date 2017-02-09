@@ -126,7 +126,7 @@ func Authorize(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 
 	//Authorize for Web login
 	if cookie, err := r.Cookie("Auth"); err != nil {
-		if r.URL.Path == "/admin/" || r.URL.Path "/admin" {
+		if r.URL.Path == "/admin/" || r.URL.Path == "/admin" {
 			http.Redirect(w, r, "/team/login", 307)
 			return
 		} else {
