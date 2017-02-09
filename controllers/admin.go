@@ -248,7 +248,7 @@ func AdminLogin(w http.ResponseWriter, r *http.Request) {
 	// Authenticate the login user
 	user, err := repo.Login(loginUser)
 	if err != nil {
-
+		log.Println(err)
 		http.Redirect(w, r, "/login", 301)
 
 		return
