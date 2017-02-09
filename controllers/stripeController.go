@@ -180,21 +180,19 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 		Total:               webOrder.Price,
 		BalancePostCreation: webOrder.Price * 0.75,
 		BalancePostFirst:    (webOrder.Price / 2),
-
-		BalancePostSecond: (webOrder.Price / 4),
-		User:              user,
-		Email:             webOrder.Email,
-		URL:               webOrder.URL,
-		UUID:              webOrder.UUID,
-		CustomerId:        stripeCustomer.ID,
-		SalesTax:          webOrder.Price * 0.0875,
-		MonthlyPayment:    webOrder.Price / 4,
-		MonthlyPaymentFmt: money.Format(webOrder.Price / 4),
-		FirstPaymentDue:   time.Now().Add(time.Hour * 24 * 30).Format("01/02/06"),
-		SecondPaymentDue:  time.Now().Add(time.Hour * 24 * 60).Format("01/02/06"),
-		ThirdPaymentDue:   time.Now().Add(time.Hour * 24 * 90).Format("01/02/06"),
+		BalancePostSecond:   (webOrder.Price / 4),
+		User:                user,
+		Email:               webOrder.Email,
+		URL:                 webOrder.URL,
+		UUID:                webOrder.UUID,
+		CustomerId:          stripeCustomer.ID,
+		SalesTax:            webOrder.Price * 0.0875,
+		MonthlyPayment:      webOrder.Price / 4,
+		MonthlyPaymentFmt:   money.Format(webOrder.Price / 4),
+		FirstPaymentDue:     time.Now().Add(time.Hour * 24 * 30).Format("01/02/06"),
+		SecondPaymentDue:    time.Now().Add(time.Hour * 24 * 60).Format("01/02/06"),
+		ThirdPaymentDue:     time.Now().Add(time.Hour * 24 * 90).Format("01/02/06"),
 	}
-
 	c = context.DbCollection("orders")
 	orderRepo := &data.OrderRepository{c}
 
@@ -202,6 +200,7 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 	log.Println("Service Fee is:", serviceFee)
 	order.ServiceFee = serviceFee
 
+	order.CombinedTotal = order.Total + order.SalesTax + order.ServiceFee
 	// Create an invoice for the Glas Service Fee(10%) of the total cost of goods  for the user.
 
 	invoiceItem1, err := invoiceitem.New(&stripe.InvoiceItemParams{
