@@ -126,8 +126,13 @@ func Authorize(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 
 	//Authorize for Web login
 	if cookie, err := r.Cookie("Auth"); err != nil {
-		http.Redirect(w, r, "/login", 307)
-		return
+		if r.URL.Path == "/admin" {
+			http.Redirect(w, r, "/team/login", 307)
+			return
+		} else {
+			http.Redirect(w, r, "/login", 307)
+			return
+		}
 	} else {
 		token, err := jwt.ParseWithClaims(cookie.Value, &AppClaims{}, KeyFunc)
 		if err != nil {

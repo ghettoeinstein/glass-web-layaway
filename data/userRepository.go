@@ -48,6 +48,7 @@ func (r *UserRepository) Update(user *models.User) error {
 			"phone_number":    user.PhoneNumber,
 			"updated_at":      time.Now(),
 			"stripe_customer": user.StripeCustomer,
+			"payment_methods": user.PaymentMethods,
 		}})
 	return err
 }

@@ -321,28 +321,28 @@
 	}
 
 	.sidebar {
-	padding:0;
-}
-.nav > li {
-	max-height:70px;
-	border-bottom: 1px lightgray solid;
-	font-family: Nunito;
-	font-weight: 100;
-	font-size:18px;
-	color:#9B9B9B;
-	text-align: center;
-vertical-align: middle;
-line-height: 60px; 
+		padding:0;
+	}
+	.nav > li {
+		max-height:70px;
+		border-bottom: 1px lightgray solid;
+		font-family: Nunito;
+		font-weight: 100;
+		font-size:18px;
+		color:#9B9B9B;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 60px; 
 
 
 
-/* Home: */
+		/* Home: */
 
-}
-li a{
-color: #9B9B9B;
+	}
+	li a{
+		color: #9B9B9B;
 
-}
+	}
 
 
 	@media only  screen and (max-width:400px){
@@ -412,14 +412,14 @@ color: #9B9B9B;
 		<div class="upload-image">
 		</div>
 
-				
-			<ul class="nav nav-sidebar">
-				<li><a href="/user/home">Home</a></li>
-				<li><a href="/user/profile">Profile</a></li>
-				<li><a href="/user/history">History</a></li>
-				<li><a href="/logout">Logout</a></li>
 
-			</ul>
+		<ul class="nav nav-sidebar">
+			<li><a href="/user/home">Home</a></li>
+			<li><a href="/user/profile">Profile</a></li>
+			<li><a href="/user/history">History</a></li>
+			<li><a href="/logout">Logout</a></li>
+
+		</ul>
 
 		
 	</div>
@@ -441,9 +441,9 @@ color: #9B9B9B;
 					</div>
 				</div>
 
-				<h3  id="name" style="">{{.FullName}}</h3>
-				<h6  id="phone-number">{{.PhoneNumber}}</h6>
-				<h6  id="email">{{.Email}}</h6> <a href="#edit-profil"><span id="edit">Edit</span></a>
+				<h3  id="name" style="">{{.User.FullName}}</h3>
+				<h6  id="phone-number">{{.User.PhoneNumber}}</h6>
+				<h6  id="email">{{.User.Email}}</h6> <a href="#edit-profil"><span id="edit" style="display:none">Edit</span></a>
 				<br>
 				<br>
 				<br>
@@ -456,28 +456,21 @@ color: #9B9B9B;
 					<div class="col-md-12 "  style="margin:5px;">
 						<img id="user-info" src="/assets/wallet.svg"/>
 						<span id="payment-methods">Payment Methods</span>
-						<a href="#edit-payment"><img id="pencil" src="/assets/pencil.svg" /></a>
+						<a href="#edit-payment"><img id="pencil"  style="display:none" src="/assets/pencil.svg" /></a>
 
-						<div style=" height: 40px;
-						line-height: 40px;
-
-						text-align: left;
-						"><div>
-						<img id="card" src="/assets/Visa.svg"> <span id="primarylast4">{.PrimaryLast4}</span>
+						{{ range .PaymentMethods}}
+						<div style=" height: 40px;line-height: 40px;text-align: left;">
+							<img id="card" src="/assets/{{.Card.Brand}}.svg"> <span id="primarylast4">{{.Card.LastFour}}</span>
+						</div>
+						{{end}}
 					</div>
-
-					<div style="line-height: none;padding-top:10px;">
-						<img id="card" src="/assets/Visa.svg"> <span id="secondarylast4">{.SecondaryLast4}</span>
-					</div>
-				
 				</div>
+				<br>
+				<br>
+				<br>
 			</div>
-			<br>
-				<br>
-				<br>
 		</div>
 	</div>
-</div>
 </div>
 
 </div>

@@ -8,7 +8,7 @@ import (
 	"github.com/julienschmidt/httprouter"
 
 	"gopkg.in/mgo.v2/bson"
-	"log"
+
 	"net/http"
 )
 
@@ -41,14 +41,5 @@ func CreateOrder(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 }
 
 func GetOrdersForUser(w http.ResponseWriter, r *http.Request) {
-	cust, err := customerFromRequest(r)
-	if err != nil {
-		log.Println("Error fetching customer for request:", err.Error)
-		common.DisplayAppError(w, err, "Error fetching customer:", 500)
-		return
-	}
-
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
-	json.NewEncoder(w).Encode(cust)
 	return
 }

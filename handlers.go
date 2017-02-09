@@ -10,9 +10,13 @@ import (
 	"errors"
 	"github.com/gorilla/mux"
 	"github.com/joiggama/money"
+	"github.com/stripe/stripe-go"
+	"github.com/stripe/stripe-go/customer"
+	_ "github.com/stripe/stripe-go/source"
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -147,7 +151,7 @@ func saveOrder(order *models.WebOrder) (err error) {
 }
 
 func profileHandler(w http.ResponseWriter, r *http.Request) {
-
+	stripe.Key = os.Getenv("STRIPE_KEY")
 	//set  page to  expiration time in past, so that the page is never cached.
 	// Put this into middleware  later
 	ctx := r.Context()
@@ -162,13 +166,26 @@ func profileHandler(w http.ResponseWriter, r *http.Request) {
 		log.Println("No user found for email")
 	}
 
+	cust, err := customer.Get(user.StripeCustomer.CustomerId, nil)
+	if err != nil {
+		log.Println("Error fetching customer data")
+	}
+	log.Println(cust)
 	log.Println(user.FullName)
 
 	w.Header().Set("Cache-Control", "no-cache,no-store, must-revalidate")
 	w.Header().Set("Pragma", "no-cache")
 	w.Header().Set("Expires", " Sat, 26 Jul 1997 05:00:00 GMT")
 
-	renderTemplate(w, "profile", "base", user)
+	profilePayload := struct {
+		User           *models.User
+		PaymentMethods []*stripe.PaymentSource
+	}{
+		user,
+		cust.Sources.Values,
+	}
+
+	renderTemplate(w, "profile", "base", profilePayload)
 
 }
 
@@ -193,14 +210,36 @@ func chatHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func historyHandler(w http.ResponseWriter, r *http.Request) {
-
+	stripe.Key = os.Getenv("STRIPE_KEY")
 	//set  page to  expiration time in past, so that the page is never cached.
 	w.Header().Set("Cache-Control", "no-cache,no-store, must-revalidate")
 
 	w.Header().Set("Pragma", "no-cache")
 	w.Header().Set("Expires", " Sat, 26 Jul 1997 05:00:00 GMT")
 
-	renderTemplate(w, "history", "base", "")
+	ctx := r.Context()
+	email := ctx.Value(common.EmailKey).(string)
+
+	context := controllers.NewContext()
+	defer context.Close()
+	c := context.DbCollection("users")
+	repo := &data.UserRepository{c}
+	user, err := repo.GetByUsername(email)
+	if err != nil {
+		log.Println("No user found for email")
+	}
+
+	cust, err := customer.Get(user.StripeCustomer.CustomerId, nil)
+	if err != nil {
+		log.Println("Error fetching customer data")
+	}
+	log.Println(cust)
+	log.Println(user.FullName)
+
+	// Use an inline struct to pass an ad-hoc data structure for any data that the page might need.
+	historyPayload := struct{ PlanCount uint32 }{cust.Subs.ListMeta.Count}
+
+	renderTemplate(w, "history", "base", historyPayload)
 }
 
 func ordersHandler(w http.ResponseWriter, r *http.Request) {

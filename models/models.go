@@ -63,21 +63,21 @@ type (
 		Price          float64       `json:"price" bson:"price"`
 	}
 	User struct {
-		Id          bson.ObjectId `bson:"_id,omitempty" json:"id"`
-		FullName    string        `json:"full_name" bson:"full_name"`
-		FirstName   string        `json:"first_name" bson:"first_name"`
-		LastName    string        `json:"last_name"  bson:"last_name"`
-		Email       string        `json:"email"      bson:"email"`
-		PhoneNumber string        `json:"phone_number" bson:"phone_number"`
-		Password    string        `json:"password,omitempty"`
-		Address1    string        `json:"address_1" bson:"address_1"`
-		Address2    string        `json:"address_2" bson:"address_2"`
-		City        string        `json:"city" bson:"city"`
-
-		State          string `json:"state" bson:"state"`
-		ZipCode        string `json:"zip_code" bson:"zip_code"`
-		DOB            string `json:"dob" 	bson:date_of_birth"`
-		HashPassword   []byte `json:"hashpassword,omitempty "`
+		Id             bson.ObjectId   `bson:"_id,omitempty" json:"id"`
+		FullName       string          `json:"full_name" bson:"full_name"`
+		FirstName      string          `json:"first_name" bson:"first_name"`
+		LastName       string          `json:"last_name"  bson:"last_name"`
+		Email          string          `json:"email"      bson:"email"`
+		PhoneNumber    string          `json:"phone_number" bson:"phone_number"`
+		Password       string          `json:"password,omitempty"`
+		Address1       string          `json:"address_1" bson:"address_1"`
+		Address2       string          `json:"address_2" bson:"address_2"`
+		City           string          `json:"city" bson:"city"`
+		PaymentMethods []PaymentMethod `json:"payment_methods" bson:"payment_methods"`
+		State          string          `json:"state" bson:"state"`
+		ZipCode        string          `json:"zip_code" bson:"zip_code"`
+		DOB            string          `json:"dob" 	bson:date_of_birth"`
+		HashPassword   []byte          `json:"hashpassword,omitempty "`
 		StripeCustomer `json:"stripe_customer" bson:"stripe_customer"`
 		CreatedAt      time.Time `json:"created_at" bson:"created_at"`
 		UpdatedAt      time.Time `json:"updated_at" bson:"updated_at"`
@@ -104,7 +104,17 @@ type (
 	}
 	Role struct {
 	}
+	PaymentMethod struct {
+		Id       string
+		Object   string
+		Last4    string
+		Brand    string
+		ExpMonth int64
+		ExpYear  int64
+	}
 )
+
+func (u User) CustomerId() string { return u.StripeCustomer.CustomerId }
 
 func (u User) isAdmin() bool  { return false }
 func (a Admin) isAdmin() bool { return true }

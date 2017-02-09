@@ -2015,3 +2015,140 @@
 2017/02/08 21:32:00 Saved order successfully:  e86be1f4-40ca-4899-a95c-8aa3291cc49b
 2017/02/08 22:02:30 Caleb P saunders
 2017/02/08 22:02:31 Caleb P saunders
+2017/02/08 22:43:52 API is Listening on:  0.0.0.0:9090
+2017/02/08 22:44:55 0
+2017/02/08 23:20:30 API is Listening on:  0.0.0.0:9090
+2017/02/08 23:20:46 Error fetching customer data
+2017/02/08 23:21:26 API is Listening on:  0.0.0.0:9090
+2017/02/08 23:21:28 Error fetching customer data
+2017/02/08 23:21:28 &{ false <nil> 0 0  <nil> false  <nil>  map[] <nil> false <nil> }
+2017/02/08 23:21:28 Caleb P saunders
+2017/02/08 23:23:23 API is Listening on:  0.0.0.0:9090
+2017/02/08 23:23:27 &{cus_A5LDINTrZTDnhX false 0xc420482390 1486618318 0 usd 0xc4204a6000 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420482d20 false <nil> }
+2017/02/08 23:23:27 Caleb P saunders
+2017/02/08 23:27:21 API is Listening on:  0.0.0.0:9090
+2017/02/08 23:27:21 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/08 23:27:26 &{cus_A5LDINTrZTDnhX false 0xc4204efb00 1486618318 0 usd 0xc420491db0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4201d60f0 false <nil> }
+2017/02/08 23:27:26 Caleb P saunders
+2017/02/08 23:27:28 &{cus_A5LDINTrZTDnhX false 0xc4201d6db0 1486618318 0 usd 0xc4204c0230 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4201d73e0 false <nil> }
+2017/02/08 23:27:28 Caleb P saunders
+2017/02/08 23:27:35 API is Listening on:  0.0.0.0:9090
+2017/02/08 23:27:38 &{cus_A5LDINTrZTDnhX false 0xc42012a3c0 1486618318 0 usd 0xc4204b20a0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42012ac90 false <nil> }
+2017/02/08 23:27:38 Caleb P saunders
+2017/02/08 23:28:34 API is Listening on:  0.0.0.0:9090
+2017/02/08 23:28:37 &{cus_A5LDINTrZTDnhX false 0xc42045a420 1486618318 0 usd 0xc4201300f0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42045ad50 false <nil> }
+2017/02/08 23:28:37 Caleb P saunders
+2017/02/08 23:29:54 API is Listening on:  0.0.0.0:9090
+2017/02/08 23:29:54 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/08 23:29:57 &{cus_A5LDINTrZTDnhX false 0xc4203ec3f0 1486618318 0 usd 0xc42004e050 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4203ecae0 false <nil> }
+2017/02/08 23:29:57 Caleb P saunders
+2017/02/08 23:30:26 API is Listening on:  0.0.0.0:9090
+2017/02/08 23:30:28 &{cus_A5LDINTrZTDnhX false 0xc420414390 1486618318 0 usd 0xc4203440f0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420414d20 false <nil> }
+2017/02/08 23:30:28 Caleb P saunders
+2017/02/08 23:30:28 &{{1 false /v1/customers/cus_A5LDINTrZTDnhX/sources} [0xc420344190]}
+2017/02/08 23:31:17 API is Listening on:  0.0.0.0:9090
+2017/02/08 23:31:17 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/08 23:31:24 API is Listening on:  0.0.0.0:9090
+2017/02/08 23:31:28 &{cus_A5LDINTrZTDnhX false 0xc4204684b0 1486618318 0 usd 0xc42013e000 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420468f90 false <nil> }
+2017/02/08 23:31:28 Caleb P saunders
+2017/02/08 23:31:28 
+2017/02/08 23:32:33 API is Listening on:  0.0.0.0:9090
+2017/02/08 23:32:39 &{cus_A5LDINTrZTDnhX false 0xc420414420 1486618318 0 usd 0xc42033a050 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420414ea0 false <nil> }
+2017/02/08 23:32:39 Caleb P saunders
+2017/02/08 23:32:39 &{cus_A5LDINTrZTDnhX false 0xc420460540 1486618318 0 usd 0xc420480230 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420460bd0 false <nil> }
+2017/02/08 23:32:39 Caleb P saunders
+2017/02/08 23:39:49 API is Listening on:  0.0.0.0:9090
+2017/02/08 23:39:56 &{cus_A5LDINTrZTDnhX false 0xc42014c330 1486618318 0 usd 0xc4204900a0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42014cd20 false <nil> }
+2017/02/08 23:39:56 Caleb P saunders
+2017/02/09 00:43:37 &{cus_A5LDINTrZTDnhX false 0xc42014cc00 1486618318 0 usd 0xc42015a1e0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42014d170 false <nil> }
+2017/02/09 00:43:37 Caleb P saunders
+2017/02/09 03:55:52 &{cus_A5LDINTrZTDnhX false 0xc420586ff0 1486618318 0 usd 0xc4201c2460 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4205874a0 false <nil> }
+2017/02/09 03:55:52 Caleb P saunders
+2017/02/09 03:57:55 API is Listening on:  0.0.0.0:9090
+2017/02/09 03:58:27 &{cus_A5LDINTrZTDnhX false 0xc4204724b0 1486618318 0 usd 0xc4202200f0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420472ff0 false <nil> }
+2017/02/09 03:58:27 Caleb P saunders
+2017/02/09 04:04:59 &{cus_A5LDINTrZTDnhX false 0xc4204211d0 1486618318 0 usd 0xc4202205f0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420421830 false <nil> }
+2017/02/09 04:04:59 Caleb P saunders
+2017/02/09 04:05:03 &{cus_A5LDINTrZTDnhX false 0xc42044c300 1486618318 0 usd 0xc42048c000 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42044ca50 false <nil> }
+2017/02/09 04:05:03 Caleb P saunders
+2017/02/09 04:05:06 &{cus_A5LDINTrZTDnhX false 0xc42044d2c0 1486618318 0 usd 0xc42048c190 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42044d980 false <nil> }
+2017/02/09 04:05:06 Caleb P saunders
+2017/02/09 04:07:41 API is Listening on:  0.0.0.0:9090
+2017/02/09 04:07:46 &{cus_A5LDINTrZTDnhX false 0xc42014a3c0 1486618318 0 usd 0xc42049a000 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42014ac90 false <nil> }
+2017/02/09 04:07:46 Caleb P saunders
+2017/02/09 04:11:45 API is Listening on:  0.0.0.0:9090
+2017/02/09 04:11:54 &{cus_A5LDINTrZTDnhX false 0xc42014e360 1486618318 0 usd 0xc42048a050 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42014ecf0 false <nil> }
+2017/02/09 04:11:54 Caleb P saunders
+2017/02/09 04:12:05 &{cus_A5LDINTrZTDnhX false 0xc42043c0f0 1486618318 0 usd 0xc42048a370 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42043c840 false <nil> }
+2017/02/09 04:12:05 Caleb P saunders
+2017/02/09 04:13:52 API is Listening on:  0.0.0.0:9090
+2017/02/09 04:13:57 &{cus_A5LDINTrZTDnhX false 0xc42045e390 1486618318 0 usd 0xc4201340f0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42045ef90 false <nil> }
+2017/02/09 04:13:57 Caleb P saunders
+2017/02/09 04:13:57 template: profile.html:444:30: executing "body" at <.FullName>: can't evaluate field FullName in type struct { User *models.User; PaymentMethods []*stripe.PaymentSource }
+2017/02/09 04:14:52 API is Listening on:  0.0.0.0:9090
+2017/02/09 04:15:03 API is Listening on:  0.0.0.0:9090
+2017/02/09 04:15:08 &{cus_A5LDINTrZTDnhX false 0xc420478390 1486618318 0 usd 0xc420242050 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420478c30 false <nil> }
+2017/02/09 04:15:08 Caleb P saunders
+2017/02/09 04:16:04 API is Listening on:  0.0.0.0:9090
+2017/02/09 04:16:05 &{cus_A5LDINTrZTDnhX false 0xc42014a390 1486618318 0 usd 0xc42048e000 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42014acc0 false <nil> }
+2017/02/09 04:16:05 Caleb P saunders
+2017/02/09 04:17:54 API is Listening on:  0.0.0.0:9090
+2017/02/09 04:17:58 &{cus_A5LDINTrZTDnhX false 0xc420496690 1486618318 0 usd 0xc4204b41e0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420496f30 false <nil> }
+2017/02/09 04:17:58 Caleb P saunders
+2017/02/09 04:17:58 template: profile.html:463:88: executing "body" at <.Card.Last4>: can't evaluate field Last4 in type *stripe.Card
+2017/02/09 04:18:32 API is Listening on:  0.0.0.0:9090
+2017/02/09 04:18:36 &{cus_A5LDINTrZTDnhX false 0xc420488420 1486618318 0 usd 0xc4204ac050 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420488d50 false <nil> }
+2017/02/09 04:18:36 Caleb P saunders
+2017/02/09 04:20:51 API is Listening on:  0.0.0.0:9090
+2017/02/09 04:21:14 API is Listening on:  0.0.0.0:9090
+2017/02/09 04:23:15 API is Listening on:  0.0.0.0:9090
+2017/02/09 04:23:18 Error fetching customer data
+2017/02/09 04:23:18 &{ false <nil> 0 0  <nil> false  <nil>  map[] <nil> false <nil> }
+2017/02/09 04:23:18 Caleb P saunders
+2017/02/09 04:23:45 &{cus_A5LDINTrZTDnhX false 0xc4204a2a50 1486618318 0 usd 0xc4204c2370 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4204a3230 false <nil> }
+2017/02/09 04:23:45 Caleb P saunders
+2017/02/09 04:24:58 API is Listening on:  0.0.0.0:9090
+2017/02/09 04:25:03 Error fetching customer data
+2017/02/09 04:25:03 &{ false <nil> 0 0  <nil> false  <nil>  map[] <nil> false <nil> }
+2017/02/09 04:25:03 Caleb P saunders
+2017/02/09 04:25:59 API is Listening on:  0.0.0.0:9090
+2017/02/09 04:26:03 &{cus_A5LDINTrZTDnhX false 0xc42014c3c0 1486618318 0 usd 0xc4204b0050 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42014cc90 false <nil> }
+2017/02/09 04:26:03 Caleb P saunders
+2017/02/09 04:26:08 &{cus_A5LDINTrZTDnhX false 0xc42057e180 1486618318 0 usd 0xc42049a0a0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42057e630 false <nil> }
+2017/02/09 04:26:08 Caleb P saunders
+2017/02/09 04:27:20 API is Listening on:  0.0.0.0:9090
+2017/02/09 04:27:22 &{cus_A5LDINTrZTDnhX false 0xc42043e3c0 1486618318 0 usd 0xc4201560a0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42043ec90 false <nil> }
+2017/02/09 04:27:22 Caleb P saunders
+2017/02/09 04:27:26 &{cus_A5LDINTrZTDnhX false 0xc4205181b0 1486618318 0 usd 0xc4201ba050 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420518660 false <nil> }
+2017/02/09 04:27:26 Caleb P saunders
+2017/02/09 04:27:27 &{cus_A5LDINTrZTDnhX false 0xc420514ab0 1486618318 0 usd 0xc420157ef0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420514f60 false <nil> }
+2017/02/09 04:27:27 Caleb P saunders
+2017/02/09 04:27:29 &{cus_A5LDINTrZTDnhX false 0xc420468390 1486618318 0 usd 0xc4204660a0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420468b10 false <nil> }
+2017/02/09 04:27:29 Caleb P saunders
+2017/02/09 04:27:30 &{cus_A5LDINTrZTDnhX false 0xc420519290 1486618318 0 usd 0xc4201ba280 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420519740 false <nil> }
+2017/02/09 04:27:30 Caleb P saunders
+2017/02/09 04:27:31 &{cus_A5LDINTrZTDnhX false 0xc420515f50 1486618318 0 usd 0xc4202a8230 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420550420 false <nil> }
+2017/02/09 04:27:31 Caleb P saunders
+2017/02/09 04:27:36 &{cus_A5LDINTrZTDnhX false 0xc42054c360 1486618318 0 usd 0xc4201ba4b0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42054c810 false <nil> }
+2017/02/09 04:27:36 Caleb P saunders
+2017/02/09 04:27:37 &{cus_A5LDINTrZTDnhX false 0xc420550a20 1486618318 0 usd 0xc4202a8460 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420550ed0 false <nil> }
+2017/02/09 04:27:37 Caleb P saunders
+2017/02/09 04:27:38 &{cus_A5LDINTrZTDnhX false 0xc42054d800 1486618318 0 usd 0xc4201ba7d0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42054dcb0 false <nil> }
+2017/02/09 04:27:38 Caleb P saunders
+2017/02/09 04:27:54 &{cus_A5LDINTrZTDnhX false 0xc420556570 1486618318 0 usd 0xc420466640 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42014c420 false <nil> }
+2017/02/09 04:27:54 Caleb P saunders
+2017/02/09 04:28:00 Generated OTP: 604367 0xb850 3234236654
+2017/02/09 04:28:01 Sent message successfully to handset:  3234236654
+2017/02/09 04:28:10 Starting login for:   3234236654
+2017/02/09 04:28:10 Match is true
+2017/02/09 04:28:10 Generating cookie for:  calebsaunders@gmail.com
+2017/02/09 04:28:12 &{cus_A5LDINTrZTDnhX false 0xc4205001b0 1486618318 0 usd 0xc4204660f0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420500840 false <nil> }
+2017/02/09 04:28:12 Caleb P saunders
+2017/02/09 04:28:13 &{cus_A5LDINTrZTDnhX false 0xc420397590 1486618318 0 usd 0xc4201bbc20 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420397b30 false <nil> }
+2017/02/09 04:28:13 Caleb P saunders
+2017/02/09 04:28:14 &{cus_A5LDINTrZTDnhX false 0xc420501410 1486618318 0 usd 0xc420466320 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4205018f0 false <nil> }
+2017/02/09 04:28:14 Caleb P saunders
+2017/02/09 04:28:15 &{cus_A5LDINTrZTDnhX false 0xc4204d3230 1486618318 0 usd 0xc420157270 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4204d36e0 false <nil> }
+2017/02/09 04:28:15 Caleb P saunders
+2017/02/09 04:28:16 &{cus_A5LDINTrZTDnhX false 0xc420488c60 1486618318 0 usd 0xc420466a00 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420489500 false <nil> }
+2017/02/09 04:28:16 Caleb P saunders

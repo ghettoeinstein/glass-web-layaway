@@ -100,7 +100,7 @@ func (r *OrderRepository) Update(order *models.Order) (err error) {
 			"balance_post_second":   order.BalancePostSecond,
 			"total_fmt":             order.TotalFmt,
 			"monthly_payment_fmt":   order.MonthlyPaymentFmt,
-			"taxes":                 order.Taxes,
+			"sales_tax":             order.SalesTax,
 			"combined_total":        order.CombinedTotal,
 			"url":                   order.URL,
 			"updated_at":            time.Now(),

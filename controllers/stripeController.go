@@ -4,12 +4,11 @@ import (
 	"../common"
 	"../data"
 	"../models"
-	"encoding/json"
-	"github.com/dgrijalva/jwt-go/request"
+
 	"github.com/joiggama/money"
 	"github.com/stripe/stripe-go"
-	"github.com/stripe/stripe-go/card"
-	"github.com/stripe/stripe-go/charge"
+	//"github.com/stripe/stripe-go/card"
+	//"github.com/stripe/stripe-go/charge"
 	"github.com/stripe/stripe-go/customer"
 	"github.com/stripe/stripe-go/invoiceitem"
 	"github.com/stripe/stripe-go/sub"
@@ -19,7 +18,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"strconv"
 )
 
 func NewUserFromWebOrder(o *models.WebOrder) (*models.User, error) {
@@ -43,19 +41,11 @@ func NewUserFromWebOrder(o *models.WebOrder) (*models.User, error) {
 }
 
 func GetCustomerForUser(w http.ResponseWriter, r *http.Request) {
-	cust, err := customerFromRequest(r)
-	if err != nil {
-		log.Println("Error fetching customer for request:", err.Error)
-		common.DisplayAppError(w, err, "Error fetching customer:", 500)
-		return
-	}
 
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
-	json.NewEncoder(w).Encode(cust)
 	return
 }
 
-//Pass in a pointer to a models.User, and `sc` channel to report completion of creating customer
+//Pass in a pointer to a models.User, and token string to facilitate creating customer
 func CreateStripeCustomerWithToken(u *models.User, token string) (*stripe.Customer, error) {
 	params := &stripe.CustomerParams{
 		Email: u.Email,
@@ -85,60 +75,60 @@ func CreateStripeCustomerWithToken(u *models.User, token string) (*stripe.Custom
 }
 
 // Set default payment source(card) for a customer
-func SetDefaultSource(w http.ResponseWriter, r *http.Request) {
-	cust, err := customerFromRequest(r)
-	if err != nil {
-		log.Println("Error fetching customer")
-	}
-	log.Println(cust)
-	stripe.Key = os.Getenv("STRIPE_KEY")
-
-	r.ParseForm()
-
-	source := r.Form.Get("source")
-
-	c, err := customer.Update(
-		cust.ID,
-		&stripe.CustomerParams{DefaultSource: source},
-	)
-	log.Println(c)
-	if err != nil {
-		log.Println(err.Error())
-		w.WriteHeader(402)
-		return
-	}
-	w.WriteHeader(200)
-	return
-
-}
-
-func AddSourceToCustomer(w http.ResponseWriter, r *http.Request) {
-	cust, err := customerFromRequest(r)
-	if err != nil {
-		common.DisplayAppError(w, err, "Error fetching customer", 500)
-		return
-	}
-	r.ParseForm()
-
-	source := r.Form.Get("source")
-	log.Println("Source is:", source)
-	stripe.Key = os.Getenv("STRIPE_KEY")
-
-	c, err := card.New(&stripe.CardParams{
-		Customer: cust.ID,
-		Token:    source,
-	})
-	if err != nil {
-		log.Println(err)
-		w.WriteHeader(402)
-		return
-	}
-	log.Println("Added card:", c)
-	w.WriteHeader(200)
-	return
-
-}
-
+//func SetDefaultSource(w http.ResponseWriter, r *http.Request) {
+//	cust, err := customerFromRequest(r)
+//	if err != nil {
+//		log.Println("Error fetching customer")
+//	}
+//	log.Println(cust)
+//	stripe.Key = os.Getenv("STRIPE_KEY")
+//
+//	r.ParseForm()
+//
+//	source := r.Form.Get("source")
+//
+//	c, err := customer.Update(
+//		cust.ID,
+//		&stripe.CustomerParams{DefaultSource: source},
+//	)
+//	log.Println(c)
+//	if err != nil {
+//		log.Println(err.Error())
+//		w.WriteHeader(402)
+//		return
+//	}
+//	w.WriteHeader(200)
+//	return
+//
+//}
+//
+//func AddSourceToCustomer(w http.ResponseWriter, r *http.Request) {
+//	cust, err := customerFromRequest(r)
+//	if err != nil {
+//		common.DisplayAppError(w, err, "Error fetching customer", 500)
+//		return
+//	}
+//	r.ParseForm()
+//
+//	source := r.Form.Get("source")
+//	log.Println("Source is:", source)
+//	stripe.Key = os.Getenv("STRIPE_KEY")
+//
+//	c, err := card.New(&stripe.CardParams{
+//		Customer: cust.ID,
+//		Token:    source,
+//	})
+//	if err != nil {
+//		log.Println(err)
+//		w.WriteHeader(402)
+//		return
+//	}
+//	log.Println("Added card:", c)
+//	w.WriteHeader(200)
+//	return
+//
+//}
+//
 func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 	stripe.Key = os.Getenv("STRIPE_KEY")
 	log.Println("Stripe key is:", stripe.Key)
@@ -299,70 +289,4 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 	w.Header()["Location"] = []string{"/user/history"}
 	w.WriteHeader(http.StatusSeeOther)
 
-}
-
-func ChargeCustomer(w http.ResponseWriter, r *http.Request) {
-	r.ParseForm()
-	cust, err := customerFromRequest(r)
-	if err != nil {
-		common.DisplayAppError(w, err, "Error getting customer from database", 500)
-		return
-	}
-	source := r.Form.Get("source")
-	amount := r.Form.Get("amount")
-	chargeAmount, err := strconv.Atoi(amount)
-	if err != nil {
-		log.Println("error getting amouunt")
-	}
-	log.Println(" Amount is  " + amount)
-	log.Println("Source for charge is:", source)
-	stripe.Key = os.Getenv("STRIPE_KEY")
-
-	chargeParams := &stripe.ChargeParams{
-		Customer: cust.ID,
-		Amount:   uint64(chargeAmount),
-		Currency: "usd",
-		Desc:     "Charge for test@getglass.co",
-	}
-	chargeParams.SetSource(source)
-	ch, err := charge.New(chargeParams)
-	if err != nil {
-		log.Println(err.Error())
-		w.WriteHeader(402)
-		return
-	}
-
-	log.Println("Charge was successful", ch)
-	w.WriteHeader(200)
-	return
-
-}
-
-func customerFromRequest(r *http.Request) (cust *stripe.Customer, err error) {
-	token, err := request.ParseFromRequestWithClaims(r, request.AuthorizationHeaderExtractor, &common.AppClaims{}, common.KeyFunc)
-	if err != nil {
-		return nil, err
-	}
-
-	username := token.Claims.(*common.AppClaims).UserName
-	log.Println("Looking up user for username: ", username)
-	context := NewContext()
-	defer context.Close()
-	c := context.DbCollection("users")
-
-	repo := &data.UserRepository{c}
-	user, err := repo.GetByUsername(username)
-	if err != nil {
-		log.Println("error fetching user from db:", err.Error())
-		return nil, err
-	}
-
-	// We have user at this point
-	log.Println("User stripe customer id:", user.CustomerId)
-
-	stripe.Key = os.Getenv("STRIPE_KEY")
-
-	cust, err = customer.Get(user.CustomerId, nil)
-
-	return
 }
