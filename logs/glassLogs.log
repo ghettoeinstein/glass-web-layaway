@@ -2152,3 +2152,303 @@
 2017/02/09 04:28:15 Caleb P saunders
 2017/02/09 04:28:16 &{cus_A5LDINTrZTDnhX false 0xc420488c60 1486618318 0 usd 0xc420466a00 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420489500 false <nil> }
 2017/02/09 04:28:16 Caleb P saunders
+2017/02/09 09:06:09 API is Listening on:  0.0.0.0:9090
+2017/02/09 09:06:34 &{cus_A5LDINTrZTDnhX false 0xc420430480 1486618318 0 usd 0xc42047e050 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420430e10 false <nil> }
+2017/02/09 09:06:34 Caleb P saunders
+2017/02/09 09:06:35 &{cus_A5LDINTrZTDnhX false 0xc4203e0240 1486618318 0 usd 0xc420462050 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4203e0810 false <nil> }
+2017/02/09 09:06:35 Caleb P saunders
+2017/02/09 09:06:36 &{cus_A5LDINTrZTDnhX false 0xc420407170 1486618318 0 usd 0xc42047e280 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4204077a0 false <nil> }
+2017/02/09 09:06:36 Caleb P saunders
+2017/02/09 09:06:37 &{cus_A5LDINTrZTDnhX false 0xc4204804e0 1486618318 0 usd 0xc42012c320 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420480ab0 false <nil> }
+2017/02/09 09:06:37 Caleb P saunders
+2017/02/09 09:06:39 &{cus_A5LDINTrZTDnhX false 0xc42038c6c0 1486618318 0 usd 0xc42047e500 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42038cc30 false <nil> }
+2017/02/09 09:06:39 Caleb P saunders
+2017/02/09 09:06:41 &{cus_A5LDINTrZTDnhX false 0xc4203ae390 1486618318 0 usd 0xc420462370 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4203ae990 false <nil> }
+2017/02/09 09:06:41 Caleb P saunders
+2017/02/09 09:06:42 &{cus_A5LDINTrZTDnhX false 0xc42038d890 1486618318 0 usd 0xc42047e6e0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42038de00 false <nil> }
+2017/02/09 09:06:42 Caleb P saunders
+2017/02/09 09:06:44 &{cus_A5LDINTrZTDnhX false 0xc420324210 1486618318 0 usd 0xc42012c7d0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4203248a0 false <nil> }
+2017/02/09 09:06:44 Caleb P saunders
+2017/02/09 09:06:45 &{cus_A5LDINTrZTDnhX false 0xc42025f140 1486618318 0 usd 0xc42047ea00 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4201dda40 false <nil> }
+2017/02/09 09:06:45 Caleb P saunders
+2017/02/09 09:06:46 &{cus_A5LDINTrZTDnhX false 0xc420325d40 1486618318 0 usd 0xc42012ca50 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4201b6570 false <nil> }
+2017/02/09 09:06:46 Caleb P saunders
+2017/02/09 09:06:47 &{cus_A5LDINTrZTDnhX false 0xc420019320 1486618318 0 usd 0xc42047ec30 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4204581b0 false <nil> }
+2017/02/09 09:06:47 Caleb P saunders
+2017/02/09 09:06:47 &{cus_A5LDINTrZTDnhX false 0xc4203af740 1486618318 0 usd 0xc420462640 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4203afcb0 false <nil> }
+2017/02/09 09:06:47 Caleb P saunders
+2017/02/09 09:06:49 &{cus_A5LDINTrZTDnhX false 0xc420459320 1486618318 0 usd 0xc42047eeb0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4204598f0 false <nil> }
+2017/02/09 09:06:49 Caleb P saunders
+2017/02/09 09:06:51 &{cus_A5LDINTrZTDnhX false 0xc42028b6b0 1486618318 0 usd 0xc420462870 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42028bb60 false <nil> }
+2017/02/09 09:06:51 Caleb P saunders
+2017/02/09 10:09:16 Starting login
+2017/02/09 10:10:04 Generated OTP: 601232 0xb850 3234236654
+2017/02/09 10:10:04 Sent message successfully to handset:  3234236654
+2017/02/09 10:10:15 Starting login for:   3234236654
+2017/02/09 10:10:15 Match is true
+2017/02/09 10:10:15 Generating cookie for:  calebsaunders@gmail.com
+2017/02/09 10:10:23 &{cus_A5LDINTrZTDnhX false 0xc42038d980 1486618318 0 usd 0xc4204406e0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42038def0 false <nil> }
+2017/02/09 10:10:23 Caleb P saunders
+2017/02/09 10:10:24 &{cus_A5LDINTrZTDnhX false 0xc4203af6b0 1486618318 0 usd 0xc420462a50 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4203afbf0 false <nil> }
+2017/02/09 10:10:24 Caleb P saunders
+2017/02/09 10:10:24 &{cus_A5LDINTrZTDnhX false 0xc4203257a0 1486618318 0 usd 0xc42012d360 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420325da0 false <nil> }
+2017/02/09 10:10:24 Caleb P saunders
+2017/02/09 10:10:26 &{cus_A5LDINTrZTDnhX false 0xc4200195f0 1486618318 0 usd 0xc42012d6d0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4204c6390 false <nil> }
+2017/02/09 10:10:26 Caleb P saunders
+2017/02/09 10:12:22 API is Listening on:  0.0.0.0:9090
+2017/02/09 10:12:24 &{cus_A5LDINTrZTDnhX false 0xc420162480 1486618318 0 usd 0xc4204aa140 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc420162d20 false <nil> }
+2017/02/09 10:12:24 Caleb P saunders
+2017/02/09 10:12:36 &{cus_A5LDINTrZTDnhX false 0xc42048a4e0 1486618318 0 usd 0xc4204c2280 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42048aa20 false <nil> }
+2017/02/09 10:12:36 Caleb P saunders
+2017/02/09 10:12:37 &{cus_A5LDINTrZTDnhX false 0xc420476210 1486618318 0 usd 0xc420492000 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4204767e0 false <nil> }
+2017/02/09 10:12:37 Caleb P saunders
+2017/02/09 10:12:41 starting post
+2017/02/09 10:12:41 no errors
+2017/02/09 10:12:41 About to save to database
+2017/02/09 10:12:41 &{ObjectIdHex("589cb119a54d75539a917c97")    http://google.com  15a807cb-c07a-48c4-ac95-e371e2fe5b23 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-09 10:12:41.841537529 -0800 PST 2017-02-09 10:12:41.841537529 -0800 PST false 0}
+2017/02/09 10:17:05 API is Listening on:  0.0.0.0:9090
+2017/02/09 10:17:24 starting post
+2017/02/09 10:17:24 no errors
+2017/02/09 10:17:24 About to save to database
+2017/02/09 10:17:24 &{ObjectIdHex("589cb234a54d75561707b2aa") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  b3f87a9c-328c-4349-b864-20d5c1754b36 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-09 10:17:24.920862158 -0800 PST 2017-02-09 10:17:24.920862158 -0800 PST false 0}
+2017/02/09 10:17:38 Starting login
+2017/02/09 10:17:48 400
+2017/02/09 10:18:12 API is Listening on:  0.0.0.0:9090
+2017/02/09 10:18:46 API is Listening on:  0.0.0.0:9090
+2017/02/09 10:19:23 API is Listening on:  0.0.0.0:9090
+2017/02/09 10:29:50 API is Listening on:  0.0.0.0:9090
+2017/02/09 10:29:52 template: terms-auth.html:404:15: executing "body" at <.PaymentMethods>: can't evaluate field PaymentMethods in type struct { MonthlyPayment interface {}; Total interface {}; FirstPayment interface {}; UUID interface {} }
+2017/02/09 10:29:56 API is Listening on:  0.0.0.0:9090
+2017/02/09 10:29:58 template: terms-auth.html:404:15: executing "body" at <.PaymentMethods>: can't evaluate field PaymentMethods in type struct { MonthlyPayment interface {}; Total interface {}; FirstPayment interface {}; UUID interface {} }
+2017/02/09 10:31:10 API is Listening on:  0.0.0.0:9090
+2017/02/09 10:31:14 template: terms-auth.html:404:15: executing "body" at <.PaymentMethods>: can't evaluate field PaymentMethods in type struct { MonthlyPayment interface {}; Total interface {}; FirstPayment interface {}; UUID interface {} }
+2017/02/09 10:31:17 API is Listening on:  0.0.0.0:9090
+2017/02/09 10:31:18 template: terms-auth.html:404:15: executing "body" at <.PaymentMethods>: can't evaluate field PaymentMethods in type struct { MonthlyPayment interface {}; Total interface {}; FirstPayment interface {}; UUID interface {} }
+2017/02/09 10:31:58 API is Listening on:  0.0.0.0:9090
+2017/02/09 10:54:18 API is Listening on:  0.0.0.0:9090
+2017/02/09 10:54:30 starting post
+2017/02/09 10:54:30 no errors
+2017/02/09 10:54:30 About to save to database
+2017/02/09 10:54:30 &{ObjectIdHex("589cbae6a54d756c09dbda84")    http://google.com  cf8fc02c-819a-4fc5-953c-3a2b4ca46f24 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-09 10:54:30.661935864 -0800 PST 2017-02-09 10:54:30.661935864 -0800 PST false 0}
+2017/02/09 10:54:30 http: multiple response.WriteHeader calls
+2017/02/09 10:55:22 API is Listening on:  0.0.0.0:9090
+2017/02/09 10:55:28 API is Listening on:  0.0.0.0:9090
+2017/02/09 10:55:30 starting post
+2017/02/09 10:55:30 no errors
+2017/02/09 10:55:30 About to save to database
+2017/02/09 10:55:30 &{ObjectIdHex("589cbb22a54d756c23047157")    http://google.com  32b19f5f-20ed-40e3-86f6-574a322381b4 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-09 10:55:30.419801343 -0800 PST 2017-02-09 10:55:30.419801343 -0800 PST false 0}
+2017/02/09 10:55:30 http: multiple response.WriteHeader calls
+2017/02/09 10:56:08 API is Listening on:  0.0.0.0:9090
+2017/02/09 10:56:18 starting post
+2017/02/09 10:56:18 no errors
+2017/02/09 10:56:18 About to save to database
+2017/02/09 10:56:18 &{ObjectIdHex("589cbb52a54d756c7c3bb6a6")    http://google.com  50ffb9a5-afe8-4d38-806f-9d6c1ccb0cbb 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-09 10:56:18.119036368 -0800 PST 2017-02-09 10:56:18.119036368 -0800 PST false 0}
+2017/02/09 10:56:18 http: multiple response.WriteHeader calls
+2017/02/09 10:57:53 API is Listening on:  0.0.0.0:9090
+2017/02/09 10:59:00 API is Listening on:  0.0.0.0:9090
+2017/02/09 10:59:01 starting post
+2017/02/09 10:59:01 no errors
+2017/02/09 10:59:01 About to save to database
+2017/02/09 10:59:01 &{ObjectIdHex("589cbbf5a54d756e0274188f")    http://google.com  ad9ac7ec-6f76-47de-88e0-5771abb3b0ff 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-09 10:59:01.233160092 -0800 PST 2017-02-09 10:59:01.233160092 -0800 PST false 0}
+2017/02/09 10:59:18 starting post
+2017/02/09 10:59:18 no errors
+2017/02/09 10:59:18 About to save to database
+2017/02/09 10:59:18 &{ObjectIdHex("589cbc06a54d756e02741890")    http://google.com  3f4ff71e-e61d-4cb8-8c6c-eb6df3adaba2 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-09 10:59:18.279550136 -0800 PST 2017-02-09 10:59:18.279550136 -0800 PST false 0}
+2017/02/09 11:03:14 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:03:19 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:03:26 starting post
+2017/02/09 11:03:26 no errors
+2017/02/09 11:03:54 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:03:55 starting post
+2017/02/09 11:03:55 no errors
+2017/02/09 11:05:27 starting post
+2017/02/09 11:05:27 no errors
+2017/02/09 11:05:32 Error fetching customer data
+2017/02/09 11:05:32 &{ false <nil> 0 0  <nil> false  <nil>  map[] <nil> false <nil> }
+2017/02/09 11:05:32 
+2017/02/09 11:07:33 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:07:38 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:07:40 Error fetching customer data
+2017/02/09 11:07:40 &{ false <nil> 0 0  <nil> false  <nil>  map[] <nil> false <nil> }
+2017/02/09 11:07:40 
+2017/02/09 11:07:41 Error fetching customer data
+2017/02/09 11:07:41 &{ false <nil> 0 0  <nil> false  <nil>  map[] <nil> false <nil> }
+2017/02/09 11:07:41 
+2017/02/09 11:09:09 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:09:37 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:09:39 Error fetching customer data
+2017/02/09 11:09:39 &{ false <nil> 0 0  <nil> false  <nil>  map[] <nil> false <nil> }
+2017/02/09 11:09:39 
+2017/02/09 11:10:48 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:10:50 Error fetching customer data
+2017/02/09 11:10:50 &{ false <nil> 0 0  <nil> false  <nil>  map[] <nil> false <nil> }
+2017/02/09 11:10:50 
+2017/02/09 11:13:49 Error fetching customer data
+2017/02/09 11:13:49 &{ false <nil> 0 0  <nil> false  <nil>  map[] <nil> false <nil> }
+2017/02/09 11:13:49 
+2017/02/09 11:13:56 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:14:06 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:14:12 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:14:13 Error fetching customer data
+2017/02/09 11:14:13 &{ false <nil> 0 0  <nil> false  <nil>  map[] <nil> false <nil> }
+2017/02/09 11:14:13 
+2017/02/09 11:14:51 starting post
+2017/02/09 11:14:51 no errors
+2017/02/09 11:14:51 About to save to database
+2017/02/09 11:14:51 &{ObjectIdHex("589cbfaba54d757cbb511e39") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  4c8ab957-aae2-4f3c-b73f-9088e8307e64 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-09 11:14:51.112892848 -0800 PST 2017-02-09 11:14:51.112892848 -0800 PST false 0}
+2017/02/09 11:15:03 400
+2017/02/09 11:15:48 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/09 11:15:48 token is token
+2017/02/09 11:15:49 Created customer with id  cus_A5YVunI7Xh6Gaz
+2017/02/09 11:15:49 Service Fee is: 40
+2017/02/09 11:15:49 &{4c8ab957-aae2-4f3c-b73f-9088e8307e64 false 10000 1486667749 usd month 1 4c8ab957-aae2-4f3c-b73f-9088e8307e64 Installment Plan map[] 0  false}
+2017/02/09 11:15:50 Saved order successfully:  4c8ab957-aae2-4f3c-b73f-9088e8307e64
+2017/02/09 11:15:51 &{cus_A5LDINTrZTDnhX false 0xc42039d470 1486618318 0 usd 0xc4204cf680 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42039da40 false <nil> }
+2017/02/09 11:15:51 Caleb P saunders
+2017/02/09 11:15:53 &{cus_A5LDINTrZTDnhX false 0xc4204e1140 1486618318 0 usd 0xc4204e6410 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4204e1b30 false <nil> }
+2017/02/09 11:15:53 Caleb P saunders
+2017/02/09 11:15:55 &{cus_A5LDINTrZTDnhX false 0xc4204c11a0 1486618318 0 usd 0xc4204cf8b0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4204c16e0 false <nil> }
+2017/02/09 11:15:55 Caleb P saunders
+2017/02/09 11:15:56 &{cus_A5LDINTrZTDnhX false 0xc4201503c0 1486618318 0 usd 0xc4204cfb30 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4201508d0 false <nil> }
+2017/02/09 11:15:56 Caleb P saunders
+2017/02/09 11:15:59 &{cus_A5LDINTrZTDnhX false 0xc42024a270 1486618318 0 usd 0xc42050c230 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42024a810 false <nil> }
+2017/02/09 11:15:59 Caleb P saunders
+2017/02/09 11:16:00 &{cus_A5LDINTrZTDnhX false 0xc420151110 1486618318 0 usd 0xc4204cfd60 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4201516b0 false <nil> }
+2017/02/09 11:16:00 Caleb P saunders
+2017/02/09 11:16:03 starting post
+2017/02/09 11:16:03 no errors
+2017/02/09 11:16:03 About to save to database
+2017/02/09 11:16:03 &{ObjectIdHex("589cbff3a54d757cbb511e3c")    http://loletteshair.com  11d9ea2b-0c27-4f78-950d-693587f4240b 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-09 11:16:03.976248852 -0800 PST 2017-02-09 11:16:03.976248852 -0800 PST false 0}
+2017/02/09 11:17:30 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:17:38 starting post
+2017/02/09 11:17:38 no errors
+2017/02/09 11:18:30 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:18:43 starting post
+2017/02/09 11:18:43 no errors
+2017/02/09 11:19:01 &{cus_A5LDINTrZTDnhX false 0xc4204fc690 1486618318 0 usd 0xc4205042d0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4204fd0e0 false <nil> }
+2017/02/09 11:19:01 Caleb P saunders
+2017/02/09 11:19:12 starting post
+2017/02/09 11:19:12 no errors
+2017/02/09 11:20:05 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:20:16 starting post
+2017/02/09 11:20:16 no errors
+2017/02/09 11:20:16 context.Background.WithValue(&http.contextKey{name:"http-server"}, &http.Server{Addr:"0.0.0.0:9090", Handler:(*negroni.Negroni)(0xc4200e8510), ReadTimeout:0, WriteTimeout:0, TLSConfig:(*tls.Config)(0xc4202a6000), MaxHeaderBytes:0, TLSNextProto:map[string]func(*http.Server, *tls.Conn, http.Handler){"h2":(func(*http.Server, *tls.Conn, http.Handler))(0x140020), "h2-14":(func(*http.Server, *tls.Conn, http.Handler))(0x140020)}, ConnState:(func(net.Conn, http.ConnState))(nil), ErrorLog:(*log.Logger)(nil), disableKeepAlives:0, nextProtoOnce:sync.Once{m:sync.Mutex{state:0, sema:0x0}, done:0x1}, nextProtoErr:error(nil)}).WithValue(&http.contextKey{name:"local-addr"}, &net.TCPAddr{IP:net.IP{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, Port:9090, Zone:""}).WithCancel.WithCancel.WithValue(0, map[string]string{}).WithValue(1, &mux.Route{parent:(*mux.Router)(0xc42013a0a0), handler:(http.HandlerFunc)(0x3a10), matchers:[]mux.matcher{(*mux.routeRegexp)(0xc4201a0600), mux.methodMatcher{"POST"}}, regexp:(*mux.routeRegexpGroup)(0xc42011ef90), strictSlash:false, skipClean:false, useEncodedPath:false, buildOnly:false, name:"", err:error(nil), buildVarsFunc:(mux.BuildVarsFunc)(nil)})
+2017/02/09 11:20:16 Attempting to get email jky
+2017/02/09 11:21:13 context.Background.WithValue(&http.contextKey{name:"http-server"}, &http.Server{Addr:"0.0.0.0:9090", Handler:(*negroni.Negroni)(0xc4200e8510), ReadTimeout:0, WriteTimeout:0, TLSConfig:(*tls.Config)(0xc4202a6000), MaxHeaderBytes:0, TLSNextProto:map[string]func(*http.Server, *tls.Conn, http.Handler){"h2":(func(*http.Server, *tls.Conn, http.Handler))(0x140020), "h2-14":(func(*http.Server, *tls.Conn, http.Handler))(0x140020)}, ConnState:(func(net.Conn, http.ConnState))(nil), ErrorLog:(*log.Logger)(nil), disableKeepAlives:0, nextProtoOnce:sync.Once{m:sync.Mutex{state:0, sema:0x0}, done:0x1}, nextProtoErr:error(nil)}).WithValue(&http.contextKey{name:"local-addr"}, &net.TCPAddr{IP:net.IP{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, Port:9090, Zone:""}).WithCancel.WithCancel.WithValue(0, map[string]string{}).WithValue(1, &mux.Route{parent:(*mux.Router)(0xc42013a0a0), handler:(*negroni.Negroni)(0xc420234540), matchers:[]mux.matcher{(*mux.routeRegexp)(0xc4201a1680)}, regexp:(*mux.routeRegexpGroup)(0xc4202344b0), strictSlash:false, skipClean:false, useEncodedPath:false, buildOnly:false, name:"", err:error(nil), buildVarsFunc:(mux.BuildVarsFunc)(nil)}).WithValue(0, "calebsaunders@gmail.com").WithValue(0, map[string]string{}).WithValue(1, &mux.Route{parent:(*mux.Router)(0xc42013ad70), handler:(http.HandlerFunc)(0x4bf0), matchers:[]mux.matcher{(*mux.routeRegexp)(0xc4201a10e0), mux.methodMatcher{"GET"}}, regexp:(*mux.routeRegexpGroup)(0xc42011fda0), strictSlash:false, skipClean:false, useEncodedPath:false, buildOnly:false, name:"", err:error(nil), buildVarsFunc:(mux.BuildVarsFunc)(nil)})
+2017/02/09 11:21:13 Attempting to get email jky
+2017/02/09 11:21:14 &{cus_A5LDINTrZTDnhX false 0xc4204e6360 1486618318 0 usd 0xc4205100a0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4204e6d50 false <nil> }
+2017/02/09 11:21:14 Caleb P saunders
+2017/02/09 11:21:58 &{cus_A5LDINTrZTDnhX false 0xc4204a2360 1486618318 0 usd 0xc4204fa050 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4204a2960 false <nil> }
+2017/02/09 11:21:58 Caleb P saunders
+2017/02/09 11:22:06 context.Background.WithValue(&http.contextKey{name:"http-server"}, &http.Server{Addr:"0.0.0.0:9090", Handler:(*negroni.Negroni)(0xc4200e8510), ReadTimeout:0, WriteTimeout:0, TLSConfig:(*tls.Config)(0xc4202a6000), MaxHeaderBytes:0, TLSNextProto:map[string]func(*http.Server, *tls.Conn, http.Handler){"h2":(func(*http.Server, *tls.Conn, http.Handler))(0x140020), "h2-14":(func(*http.Server, *tls.Conn, http.Handler))(0x140020)}, ConnState:(func(net.Conn, http.ConnState))(nil), ErrorLog:(*log.Logger)(nil), disableKeepAlives:0, nextProtoOnce:sync.Once{m:sync.Mutex{state:0, sema:0x0}, done:0x1}, nextProtoErr:error(nil)}).WithValue(&http.contextKey{name:"local-addr"}, &net.TCPAddr{IP:net.IP{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, Port:9090, Zone:""}).WithCancel.WithCancel.WithValue(0, map[string]string{}).WithValue(1, &mux.Route{parent:(*mux.Router)(0xc42013a0a0), handler:(*negroni.Negroni)(0xc420234540), matchers:[]mux.matcher{(*mux.routeRegexp)(0xc4201a1680)}, regexp:(*mux.routeRegexpGroup)(0xc4202344b0), strictSlash:false, skipClean:false, useEncodedPath:false, buildOnly:false, name:"", err:error(nil), buildVarsFunc:(mux.BuildVarsFunc)(nil)}).WithValue(0, "calebsaunders@gmail.com").WithValue(0, map[string]string{}).WithValue(1, &mux.Route{parent:(*mux.Router)(0xc42013ad70), handler:(http.HandlerFunc)(0x4bf0), matchers:[]mux.matcher{(*mux.routeRegexp)(0xc4201a10e0), mux.methodMatcher{"GET"}}, regexp:(*mux.routeRegexpGroup)(0xc42011fda0), strictSlash:false, skipClean:false, useEncodedPath:false, buildOnly:false, name:"", err:error(nil), buildVarsFunc:(mux.BuildVarsFunc)(nil)})
+2017/02/09 11:22:06 Attempting to get email jky
+2017/02/09 11:22:06 &{cus_A5LDINTrZTDnhX false 0xc4204c46f0 1486618318 0 usd 0xc420510230 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4204c4c60 false <nil> }
+2017/02/09 11:22:06 Caleb P saunders
+2017/02/09 11:23:27 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:23:34 starting post
+2017/02/09 11:23:34 no errors
+2017/02/09 11:23:34 context.Background.WithValue(&http.contextKey{name:"http-server"}, &http.Server{Addr:"0.0.0.0:9090", Handler:(*negroni.Negroni)(0xc4202b24e0), ReadTimeout:0, WriteTimeout:0, TLSConfig:(*tls.Config)(0xc420132580), MaxHeaderBytes:0, TLSNextProto:map[string]func(*http.Server, *tls.Conn, http.Handler){"h2":(func(*http.Server, *tls.Conn, http.Handler))(0x140020), "h2-14":(func(*http.Server, *tls.Conn, http.Handler))(0x140020)}, ConnState:(func(net.Conn, http.ConnState))(nil), ErrorLog:(*log.Logger)(nil), disableKeepAlives:0, nextProtoOnce:sync.Once{m:sync.Mutex{state:0, sema:0x0}, done:0x1}, nextProtoErr:error(nil)}).WithValue(&http.contextKey{name:"local-addr"}, &net.TCPAddr{IP:net.IP{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, Port:9090, Zone:""}).WithCancel.WithCancel.WithValue(0, map[string]string{}).WithValue(1, &mux.Route{parent:(*mux.Router)(0xc4200e6230), handler:(*negroni.Negroni)(0xc420242570), matchers:[]mux.matcher{(*mux.routeRegexp)(0xc4200f9860)}, regexp:(*mux.routeRegexpGroup)(0xc4202424e0), strictSlash:false, skipClean:false, useEncodedPath:false, buildOnly:false, name:"", err:error(nil), buildVarsFunc:(mux.BuildVarsFunc)(nil)}).WithValue(0, "calebsaunders@gmail.com").WithValue(0, map[string]string{}).WithValue(1, &mux.Route{parent:(*mux.Router)(0xc4200e6e60), handler:(http.HandlerFunc)(0x3a10), matchers:[]mux.matcher{(*mux.routeRegexp)(0xc4200f97a0), mux.methodMatcher{"POST"}}, regexp:(*mux.routeRegexpGroup)(0xc4202423f0), strictSlash:false, skipClean:false, useEncodedPath:false, buildOnly:false, name:"", err:error(nil), buildVarsFunc:(mux.BuildVarsFunc)(nil)})
+2017/02/09 11:23:34 Attempting to get email jky
+2017/02/09 11:23:34 About to save to database
+2017/02/09 11:23:34 &{ObjectIdHex("589cc1b6a54d75826ace76ea") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  abcb1f7e-ef95-4012-be80-c86609183c16 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-09 11:23:34.348201726 -0800 PST 2017-02-09 11:23:34.348201726 -0800 PST false 0}
+2017/02/09 11:23:50 800
+2017/02/09 11:24:06 Error fetching customer data
+2017/02/09 11:24:59 &{cus_A5LDINTrZTDnhX false 0xc4204caba0 1486618318 0 usd 0xc4205343c0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc4204cb4a0 false <nil> }
+2017/02/09 11:24:59 Caleb P saunders
+2017/02/09 11:25:10 starting post
+2017/02/09 11:25:10 no errors
+2017/02/09 11:25:10 context.Background.WithValue(&http.contextKey{name:"http-server"}, &http.Server{Addr:"0.0.0.0:9090", Handler:(*negroni.Negroni)(0xc4202b24e0), ReadTimeout:0, WriteTimeout:0, TLSConfig:(*tls.Config)(0xc420132580), MaxHeaderBytes:0, TLSNextProto:map[string]func(*http.Server, *tls.Conn, http.Handler){"h2":(func(*http.Server, *tls.Conn, http.Handler))(0x140020), "h2-14":(func(*http.Server, *tls.Conn, http.Handler))(0x140020)}, ConnState:(func(net.Conn, http.ConnState))(nil), ErrorLog:(*log.Logger)(nil), disableKeepAlives:0, nextProtoOnce:sync.Once{m:sync.Mutex{state:0, sema:0x0}, done:0x1}, nextProtoErr:error(nil)}).WithValue(&http.contextKey{name:"local-addr"}, &net.TCPAddr{IP:net.IP{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, Port:9090, Zone:""}).WithCancel.WithCancel.WithValue(0, map[string]string{}).WithValue(1, &mux.Route{parent:(*mux.Router)(0xc4200e6230), handler:(*negroni.Negroni)(0xc420242570), matchers:[]mux.matcher{(*mux.routeRegexp)(0xc4200f9860)}, regexp:(*mux.routeRegexpGroup)(0xc4202424e0), strictSlash:false, skipClean:false, useEncodedPath:false, buildOnly:false, name:"", err:error(nil), buildVarsFunc:(mux.BuildVarsFunc)(nil)}).WithValue(0, "calebsaunders@gmail.com").WithValue(0, map[string]string{}).WithValue(1, &mux.Route{parent:(*mux.Router)(0xc4200e6e60), handler:(http.HandlerFunc)(0x3a10), matchers:[]mux.matcher{(*mux.routeRegexp)(0xc4200f97a0), mux.methodMatcher{"POST"}}, regexp:(*mux.routeRegexpGroup)(0xc4202423f0), strictSlash:false, skipClean:false, useEncodedPath:false, buildOnly:false, name:"", err:error(nil), buildVarsFunc:(mux.BuildVarsFunc)(nil)})
+2017/02/09 11:25:10 Attempting to get email jky
+2017/02/09 11:25:10 About to save to database
+2017/02/09 11:25:10 &{ObjectIdHex("589cc216a54d75826ace76eb") Caleb P saunders calebsaunders@gmail.com 3234236654 http://google.com  8bc4302a-9af0-4541-a341-470c12493175 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-09 11:25:10.230038462 -0800 PST 2017-02-09 11:25:10.230038462 -0800 PST false 0}
+2017/02/09 11:25:23 2222
+2017/02/09 11:27:43 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:27:43 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/09 11:27:47 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:27:51 Error fetching customer data
+2017/02/09 11:27:58 starting post
+2017/02/09 11:27:58 no errors
+2017/02/09 11:27:58 context.Background.WithValue(&http.contextKey{name:"http-server"}, &http.Server{Addr:"0.0.0.0:9090", Handler:(*negroni.Negroni)(0xc4201c42a0), ReadTimeout:0, WriteTimeout:0, TLSConfig:(*tls.Config)(0xc4202a8000), MaxHeaderBytes:0, TLSNextProto:map[string]func(*http.Server, *tls.Conn, http.Handler){"h2-14":(func(*http.Server, *tls.Conn, http.Handler))(0x140020), "h2":(func(*http.Server, *tls.Conn, http.Handler))(0x140020)}, ConnState:(func(net.Conn, http.ConnState))(nil), ErrorLog:(*log.Logger)(nil), disableKeepAlives:0, nextProtoOnce:sync.Once{m:sync.Mutex{state:0, sema:0x0}, done:0x1}, nextProtoErr:error(nil)}).WithValue(&http.contextKey{name:"local-addr"}, &net.TCPAddr{IP:net.IP{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, Port:9090, Zone:""}).WithCancel.WithCancel.WithValue(0, map[string]string{}).WithValue(1, &mux.Route{parent:(*mux.Router)(0xc4201160a0), handler:(*negroni.Negroni)(0xc42022e540), matchers:[]mux.matcher{(*mux.routeRegexp)(0xc42017d680)}, regexp:(*mux.routeRegexpGroup)(0xc42022e4b0), strictSlash:false, skipClean:false, useEncodedPath:false, buildOnly:false, name:"", err:error(nil), buildVarsFunc:(mux.BuildVarsFunc)(nil)}).WithValue(0, "calebsaunders@gmail.com").WithValue(0, map[string]string{}).WithValue(1, &mux.Route{parent:(*mux.Router)(0xc420116cd0), handler:(http.HandlerFunc)(0x3a10), matchers:[]mux.matcher{(*mux.routeRegexp)(0xc42017d5c0), mux.methodMatcher{"POST"}}, regexp:(*mux.routeRegexpGroup)(0xc42022e3c0), strictSlash:false, skipClean:false, useEncodedPath:false, buildOnly:false, name:"", err:error(nil), buildVarsFunc:(mux.BuildVarsFunc)(nil)})
+2017/02/09 11:27:58 Attempting to get email jky
+2017/02/09 11:27:58 About to save to database
+2017/02/09 11:27:58 &{ObjectIdHex("589cc2bea54d7584fee4a189") Caleb P saunders calebsaunders@gmail.com 3234236654 http://google.com  ae7a4855-5fbb-4da5-a02d-f5018bdd7b26 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-09 11:27:58.27061469 -0800 PST 2017-02-09 11:27:58.27061469 -0800 PST false 0}
+2017/02/09 11:28:03 0
+2017/02/09 11:28:32 Error fetching customer data
+2017/02/09 11:28:46 Error fetching customer data
+2017/02/09 11:30:47 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:30:54 Error fetching customer data
+2017/02/09 11:31:47 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:31:57 Error fetching customer data:  {"type":"invalid_request_error","message":"Invalid API Key provided: ","status":401}
+2017/02/09 11:32:50 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:33:02 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/09 11:33:02 No token
+2017/02/09 11:34:25 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:34:33 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/09 11:34:33 Service Fee is: 0
+2017/02/09 11:34:33 &{ae7a4855-5fbb-4da5-a02d-f5018bdd7b26 false 0 1486668873 usd month 1 ae7a4855-5fbb-4da5-a02d-f5018bdd7b26 Installment Plan map[] 0  false}
+2017/02/09 11:34:34 Saved order successfully:  ae7a4855-5fbb-4da5-a02d-f5018bdd7b26
+2017/02/09 11:34:34 &{cus_A5LDINTrZTDnhX false 0xc42042edb0 1486618318 0 usd 0xc4204ca7d0 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42042f350 false <nil> }
+2017/02/09 11:34:34 Caleb P saunders
+2017/02/09 11:34:39 starting post
+2017/02/09 11:34:39 no errors
+2017/02/09 11:34:39 context.Background.WithValue(&http.contextKey{name:"http-server"}, &http.Server{Addr:"0.0.0.0:9090", Handler:(*negroni.Negroni)(0xc42022b8c0), ReadTimeout:0, WriteTimeout:0, TLSConfig:(*tls.Config)(0xc420098f20), MaxHeaderBytes:0, TLSNextProto:map[string]func(*http.Server, *tls.Conn, http.Handler){"h2":(func(*http.Server, *tls.Conn, http.Handler))(0x140050), "h2-14":(func(*http.Server, *tls.Conn, http.Handler))(0x140050)}, ConnState:(func(net.Conn, http.ConnState))(nil), ErrorLog:(*log.Logger)(nil), disableKeepAlives:0, nextProtoOnce:sync.Once{m:sync.Mutex{state:0, sema:0x0}, done:0x1}, nextProtoErr:error(nil)}).WithValue(&http.contextKey{name:"local-addr"}, &net.TCPAddr{IP:net.IP{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, Port:9090, Zone:""}).WithCancel.WithCancel.WithValue(0, map[string]string{}).WithValue(1, &mux.Route{parent:(*mux.Router)(0xc4200ae820), handler:(*negroni.Negroni)(0xc4201c9950), matchers:[]mux.matcher{(*mux.routeRegexp)(0xc420075ec0)}, regexp:(*mux.routeRegexpGroup)(0xc4201c98c0), strictSlash:false, skipClean:false, useEncodedPath:false, buildOnly:false, name:"", err:error(nil), buildVarsFunc:(mux.BuildVarsFunc)(nil)}).WithValue(0, "calebsaunders@gmail.com").WithValue(0, map[string]string{}).WithValue(1, &mux.Route{parent:(*mux.Router)(0xc4200af400), handler:(http.HandlerFunc)(0x3a10), matchers:[]mux.matcher{(*mux.routeRegexp)(0xc420075e00), mux.methodMatcher{"POST"}}, regexp:(*mux.routeRegexpGroup)(0xc4201c97d0), strictSlash:false, skipClean:false, useEncodedPath:false, buildOnly:false, name:"", err:error(nil), buildVarsFunc:(mux.BuildVarsFunc)(nil)})
+2017/02/09 11:34:39 Attempting to get email jky
+2017/02/09 11:34:39 About to save to database
+2017/02/09 11:34:39 &{ObjectIdHex("589cc44fa54d7501cc88da4f") Caleb P saunders calebsaunders@gmail.com 3234236654 http://google.com  77408584-60f1-4c1f-acd0-af63bc74097f 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-09 11:34:39.932591639 -0800 PST 2017-02-09 11:34:39.932591639 -0800 PST false 0}
+2017/02/09 11:36:41 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:37:21 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:37:44 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:37:59 &{cus_A5LDINTrZTDnhX false 0xc4202e2ba0 1486618318 0 usd 0xc420126140 false Customer for calebsaunders@gmail.com <nil> calebsaunders@gmail.com map[] 0xc42039b890 false <nil> }
+2017/02/09 11:37:59 Caleb P saunders
+2017/02/09 11:38:40 Generated OTP: 771041 0xe2d0 3234236654
+2017/02/09 11:38:41 Sent message successfully to handset:  3234236654
+2017/02/09 11:38:51 Starting login for:   3234236654
+2017/02/09 11:38:51 Match is true
+2017/02/09 11:38:51 Generating cookie for:  calebsaunders@gmail.com
+2017/02/09 11:38:53 Error fetching customer data
+2017/02/09 11:38:53 &{ false <nil> 0 0  <nil> false  <nil>  map[] <nil> false <nil> }
+2017/02/09 11:38:53 Caleb P saunders
+2017/02/09 11:40:16 No user found for email
+2017/02/09 11:40:30 Generated OTP: 816125 0xe2d0 3234236654
+2017/02/09 11:40:31 Sent message successfully to handset:  3234236654
+2017/02/09 11:40:40 Starting login for:   3234236654
+2017/02/09 11:40:40 Match is true
+2017/02/09 11:40:40 AppError]: not found
+2017/02/09 11:45:20 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:45:33 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:45:48 Generated OTP: 083225 0xe370 3234236654
+2017/02/09 11:45:48 Sent message successfully to handset:  3234236654
+2017/02/09 11:45:57 Starting login for:   3234236654
+2017/02/09 11:45:57 Match is true
+2017/02/09 11:45:57 AppError]: not found
+2017/02/09 11:47:03 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:47:07 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:47:15 AppError]: not found
+2017/02/09 11:47:42 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:48:07 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:49:06 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:49:30 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:49:54 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:50:44 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:54:46 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:54:52 http: multiple response.WriteHeader calls
+2017/02/09 11:55:11 API is Listening on:  0.0.0.0:9090
+2017/02/09 11:55:16 Error fetching order for UUID: not found
+2017/02/09 11:55:16 AppError]: not found
+2017/02/09 11:59:36 API is Listening on:  0.0.0.0:9090
+2017/02/09 12:00:24 API is Listening on:  0.0.0.0:9090
+2017/02/09 12:01:48 API is Listening on:  0.0.0.0:9090
+2017/02/09 12:02:04 starting post
+2017/02/09 12:02:04 no errors
+2017/02/09 12:02:04 About to save to database
+2017/02/09 12:02:04 &{ObjectIdHex("589ccabca54d7509828cda7c") Aikea Jones hollowbutterfly@gmail.com 3236172090 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  09e1d01a-554c-41f3-8610-1bc81ad950cf 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-09 12:02:04.407269901 -0800 PST 2017-02-09 12:02:04.407269901 -0800 PST false 0}
+2017/02/09 12:02:04 New web application submission by  http://localhost:9090/admin/orders/09e1d01a-554c-41f3-8610-1bc81ad950cf
+2017/02/09 12:02:04 {"text":"New web application submission by  http://localhost:9090/admin/orders/09e1d01a-554c-41f3-8610-1bc81ad950cf"}
+2017/02/09 12:02:34 starting post
+2017/02/09 12:02:34 no errors
+2017/02/09 12:02:34 About to save to database
+2017/02/09 12:02:34 &{ObjectIdHex("589ccadaa54d7509828cda7d") Aikea Jones hollowbutterfly@gmail.com 3236172090 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  35369a6f-67dd-443a-b393-a2cab099f32d 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-09 12:02:34.222648481 -0800 PST 2017-02-09 12:02:34.222648481 -0800 PST false 0}
+2017/02/09 12:02:34 New web application submission by  http://localhost:9090/admin/orders/35369a6f-67dd-443a-b393-a2cab099f32d
+2017/02/09 12:02:34 {"text":"New web application submission by  http://localhost:9090/admin/orders/35369a6f-67dd-443a-b393-a2cab099f32d"}
+2017/02/09 12:02:42 Starting login
+2017/02/09 12:02:47 400

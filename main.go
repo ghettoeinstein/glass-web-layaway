@@ -55,13 +55,15 @@ func main() {
 	//router.ServeFiles("/assets/*filepath", http.Dir("/assets"))
 	//
 	//router.GET("/about-us", aboutUsHandler)
+	//router.GET("/tos", termsHandler)
 	router.HandleFunc("/about-us", aboutUsHandler).Methods("GET")
 	router.HandleFunc("/sorry", sorryHandler).Methods("GET")
-	//router.GET("/privacy-policy", privacyPolicyHandler)
+	router.HandleFunc("/privacy-policy", privacyPolicyHandler).Methods("GET")
+
+	router.HandleFunc("/tos", tosHandler).Methods("GET")
 	router.HandleFunc("/glass", glassHandler).Methods("GET")
-	//router.GET("/terms", termsHandler)
+
 	router.HandleFunc("/glass", postGlassHandler).Methods("POST")
-	router.HandleFunc("/getglass", glassHandler).Methods("GET")
 
 	router.HandleFunc("/congratulations", congratulationsHandler).Methods("GET")
 
@@ -78,6 +80,11 @@ func main() {
 	userRouter.HandleFunc("/user/home", homeHandler).Methods("GET")
 	userRouter.HandleFunc("/user/history", historyHandler).Methods("GET")
 	userRouter.HandleFunc("/user/profile", profileHandler).Methods("GET")
+	userRouter.HandleFunc("/user/terms/{id}", userTermsHandler).Methods("GET")
+	userRouter.HandleFunc("/user/decision/{id}", userDecisionHandler).Methods("GET")
+	userRouter.HandleFunc("/user/offer/{id}/charge", controllers.ChargeCustomerForOffer).Methods("POST")
+	userRouter.HandleFunc("/user/glass", userGlassHandler).Methods("GET")
+	userRouter.HandleFunc("/user/glass", userPostGlassHandler).Methods("POST")
 
 	router.PathPrefix("/user").Handler(negroni.New(
 		negroni.HandlerFunc(common.Authorize),

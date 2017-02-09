@@ -12,10 +12,15 @@ func setupTemplates() {
 
 	templates["about-us"] = template.Must(template.ParseFiles("templates/about-us.html", "templates/base.html"))
 	templates["glass"] = template.Must(template.ParseFiles("templates/glass.html", "templates/base.html"))
+	templates["glass-auth"] = template.Must(template.ParseFiles("templates/glass-auth.html", "templates/base.html"))
 	templates["congratulations"] = template.Must(template.ParseFiles("templates/congratulations.html", "templates/base.html"))
+	templates["congratulations-auth"] = template.Must(template.ParseFiles("templates/congratulations-auth.html", "templates/base.html"))
 	templates["countdown"] = template.Must(template.ParseFiles("templates/countdown.html", "templates/base.html"))
+	templates["countdown-auth"] = template.Must(template.ParseFiles("templates/countdown.html", "templates/base.html"))
 	templates["privacy-policy"] = template.Must(template.ParseFiles("templates/privacy-policy.html", "templates/base.html"))
 	templates["sorry"] = template.Must(template.ParseFiles("templates/sorry.html", "templates/base.html"))
+	templates["sorry-auth"] = template.Must(template.ParseFiles("templates/sorry-auth.html", "templates/base.html"))
+
 	templates["index"] = template.Must(template.ParseFiles("templates/index.html", "templates/base.html"))
 	templates["profile"] = template.Must(template.ParseFiles("templates/profile.html", "templates/base.html"))
 	templates["history"] = template.Must(template.ParseFiles("templates/history.html", "templates/base.html"))
@@ -24,9 +29,11 @@ func setupTemplates() {
 
 	templates["home"] = template.Must(template.ParseFiles("templates/home.html", "templates/base.html"))
 	templates["terms"] = template.Must(template.ParseFiles("templates/terms.html", "templates/base.html"))
+	templates["terms-auth"] = template.Must(template.ParseFiles("templates/terms-auth.html", "templates/base.html"))
 
 	templates["chat"] = template.Must(template.ParseFiles("templates/chat.html", "templates/base.html"))
 	templates["orders"] = template.Must(template.ParseFiles("templates/orders.html", "templates/base.html"))
+	templates["tos"] = template.Must(template.ParseFiles("templates/tos.html", "templates/base.html"))
 
 	templates["sms-login"] = template.Must(template.ParseFiles("templates/sms-login.html", "templates/base.html"))
 	templates["sms-verify"] = template.Must(template.ParseFiles("templates/sms-verify.html", "templates/base.html"))

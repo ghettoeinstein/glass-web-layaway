@@ -30,6 +30,13 @@ func GETVerifySMSLogin(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	phone := r.FormValue("phone")
 
+	_, err := UserByNumber(phone)
+	if err != nil {
+
+		http.Redirect(w, r, "/login", 307)
+		return
+	}
+
 	otp := GenerateOTP(6, phone)
 	otpStore[phone] = otp
 
@@ -86,6 +93,11 @@ func glassHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 
+func userGlassHandler(w http.ResponseWriter, r *http.Request) {
+	renderTemplate(w, "glass-auth", "base", "")
+
+}
+
 func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println("starting post")
 	r.ParseMultipartForm(20 << 32)
@@ -98,10 +110,9 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 	fullname := r.Form.Get("fullname")
 	email := r.Form.Get("email")
 	phoneNumber := r.Form.Get("phoneNumber")
-	dateCreated := time.Now()
+
 	url := r.Form.Get("url")
 	url = template.HTMLEscapeString(url)
-	_ = &NewUser{FullName: fullname, Email: email, PhoneNumber: phoneNumber, DateCreated: dateCreated, URL: url}
 
 	uuid := random.GenerateUUID()
 
@@ -121,8 +132,8 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	//go postOrderToSlack(order)
-	//go textOrderToAdmins(order)
+	go postOrderToSlack(order)
+	go textOrderToAdmins(order)
 
 	payload := struct {
 		Order    *models.WebOrder
@@ -132,7 +143,58 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 		"/decision/" + uuid,
 	}
 	renderTemplate(w, "countdown", "base", payload)
+}
 
+func userPostGlassHandler(w http.ResponseWriter, r *http.Request) {
+	log.Println("starting post")
+	r.ParseMultipartForm(20 << 32)
+	err := r.ParseForm()
+	if err != nil {
+		log.Fatal("Error parsing form")
+	}
+	log.Println("no errors")
+
+	user, err := UserFromRequest(r)
+	if err != nil {
+		log.Println("No user found for email")
+	}
+
+	fullname := user.FullName
+	email := user.Email
+	phoneNumber := user.PhoneNumber
+
+	url := r.Form.Get("url")
+	url = template.HTMLEscapeString(url)
+
+	uuid := random.GenerateUUID()
+
+	order := &models.WebOrder{
+		FullName:    fullname,
+		UUID:        uuid,
+		Email:       email,
+		PhoneNumber: phoneNumber,
+		URL:         url,
+		Decision:    "undecided",
+	}
+
+	err = saveOrder(order)
+	if err != nil {
+		log.Println(err)
+		renderTemplate(w, "glass", "base", err.Error())
+		return
+	}
+
+	go postOrderToSlack(order)
+	go textOrderToAdmins(order)
+
+	payload := struct {
+		Order    *models.WebOrder
+		Redirect string
+	}{
+		order,
+		"/user/decision/" + uuid,
+	}
+	renderTemplate(w, "countdown-auth", "base", payload)
 }
 
 func saveOrder(order *models.WebOrder) (err error) {
@@ -150,18 +212,27 @@ func saveOrder(order *models.WebOrder) (err error) {
 	return nil
 }
 
-func profileHandler(w http.ResponseWriter, r *http.Request) {
-	stripe.Key = os.Getenv("STRIPE_KEY")
-	//set  page to  expiration time in past, so that the page is never cached.
-	// Put this into middleware  later
+func UserFromRequest(r *http.Request) (user *models.User, err error) {
 	ctx := r.Context()
+
+	log.Println(ctx)
+	log.Println("Attempting to get email jky")
 	email := ctx.Value(common.EmailKey).(string)
 
 	context := controllers.NewContext()
 	defer context.Close()
 	c := context.DbCollection("users")
 	repo := &data.UserRepository{c}
-	user, err := repo.GetByUsername(email)
+	user, err = repo.GetByUsername(email)
+	return
+}
+
+func profileHandler(w http.ResponseWriter, r *http.Request) {
+	stripe.Key = os.Getenv("STRIPE_KEY")
+	//set  page to  expiration time in past, so that the page is never cached.
+	// Put this into middleware  later
+
+	user, err := UserFromRequest(r)
 	if err != nil {
 		log.Println("No user found for email")
 	}
@@ -195,6 +266,10 @@ func congratulationsHandler(w http.ResponseWriter, r *http.Request) {
 
 func privacyPolicyHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "privacy-policy", "base", "")
+}
+
+func tosHandler(w http.ResponseWriter, r *http.Request) {
+	renderTemplate(w, "tos", "base", "")
 }
 
 func sorryHandler(w http.ResponseWriter, r *http.Request) {
@@ -237,9 +312,15 @@ func historyHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println(user.FullName)
 
 	// Use an inline struct to pass an ad-hoc data structure for any data that the page might need.
-	historyPayload := struct{ PlanCount uint32 }{cust.Subs.ListMeta.Count}
+	if (cust.Subs.ListMeta.Count) > 0 {
+		historyPayload := struct{ PlanCount uint32 }{cust.Subs.ListMeta.Count}
 
-	renderTemplate(w, "history", "base", historyPayload)
+		renderTemplate(w, "history", "base", historyPayload)
+
+	} else {
+		historyPayload := struct{ PlanCount uint32 }{0}
+		renderTemplate(w, "history", "base", historyPayload)
+	}
 }
 
 func ordersHandler(w http.ResponseWriter, r *http.Request) {
@@ -261,6 +342,9 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func termsHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Cache-Control", "no-cache,no-store, must-revalidate")
+	w.Header().Set("Pragma", "no-cache")
+	w.Header().Set("Expires", " Sat, 26 Jul 1997 05:00:00 GMT")
 
 	uuid := mux.Vars(r)
 	if uuid["id"] == "" {
@@ -278,8 +362,10 @@ func termsHandler(w http.ResponseWriter, r *http.Request) {
 		common.DisplayAppError(w, err, "Error fetching order for UUID", 500)
 		return
 	}
+
 	taxes := webOrder.Price * 0.0875
 	serviceFee := webOrder.Price * 0.1
+
 	termsPayload := struct {
 		MonthlyPayment interface{}
 		Total          interface{}
@@ -291,7 +377,71 @@ func termsHandler(w http.ResponseWriter, r *http.Request) {
 		money.Format(webOrder.Price/4 + serviceFee + taxes),
 		uuid["id"],
 	}
+
 	renderTemplate(w, "terms", "base", termsPayload)
+
+}
+
+func userTermsHandler(w http.ResponseWriter, r *http.Request) {
+	stripe.Key = os.Getenv("STRIPE_KEY")
+	w.Header().Set("Cache-Control", "no-cache,no-store, must-revalidate")
+	w.Header().Set("Pragma", "no-cache")
+	w.Header().Set("Expires", " Sat, 26 Jul 1997 05:00:00 GMT")
+
+	uuid := mux.Vars(r)
+	if uuid["id"] == "" {
+		return
+	}
+
+	context := controllers.NewContext()
+	defer context.Close()
+	c := context.DbCollection("web_orders")
+	repo := &data.WebOrderRepository{c}
+
+	webOrder, err := repo.GetByUUID(uuid["id"])
+	if err != nil {
+		log.Println("Error fetching order for UUID:", err)
+		common.DisplayAppError(w, err, "Error fetching order for UUID", 500)
+		return
+	}
+
+	taxes := webOrder.Price * 0.0875
+	serviceFee := webOrder.Price * 0.1
+
+	ctx := r.Context()
+	email := ctx.Value(common.EmailKey).(string)
+
+	c = context.DbCollection("users")
+	userRepo := &data.UserRepository{c}
+	user, err := userRepo.GetByUsername(email)
+	if err != nil {
+		log.Println("No user found for email")
+		http.Error(w, err.Error(), 500)
+	}
+
+	cust, err := customer.Get(user.StripeCustomer.CustomerId, nil)
+	if err != nil {
+		log.Println("Error fetching customer data: ", err.Error())
+		http.Redirect(w, r, "/user/home", 307)
+		return
+	}
+
+	termsAuthPayload := struct {
+		MonthlyPayment interface{}
+		Total          interface{}
+		FirstPayment   interface{}
+		UUID           interface{}
+		PaymentMethods []*stripe.PaymentSource
+	}{
+		money.Format(webOrder.Price / 4),
+		money.Format(webOrder.Price),
+		money.Format(webOrder.Price/4 + serviceFee + taxes),
+		uuid["id"],
+		cust.Sources.Values,
+	}
+
+	renderTemplate(w, "terms-auth", "base", termsAuthPayload)
+
 }
 
 func aboutUsHandler(w http.ResponseWriter, r *http.Request) {
@@ -380,6 +530,33 @@ func decisionHandler(w http.ResponseWriter, r *http.Request) {
 		renderTemplate(w, "sorry", "base", uuid["id"])
 	default:
 		renderTemplate(w, "sorry", "base", uuid["id"])
+	}
+	return
+}
+
+func userDecisionHandler(w http.ResponseWriter, r *http.Request) {
+	uuid := mux.Vars(r)
+
+	ctx := controllers.NewContext()
+	defer ctx.Close()
+	c := ctx.DbCollection("web_orders")
+	repo := &data.WebOrderRepository{c}
+
+	webOrder, err := repo.GetByUUID(uuid["id"])
+	if err != nil {
+		log.Println(err)
+		common.DisplayAppError(w, err, "Error getting result", 500)
+		return
+	}
+
+	switch webOrder.Decision {
+	case "approved":
+		renderTemplate(w, "congratulations-auth", "base", uuid["id"])
+
+	case "denied":
+		renderTemplate(w, "sorry-auth", "base", uuid["id"])
+	default:
+		renderTemplate(w, "sorry-auth", "base", uuid["id"])
 	}
 	return
 }

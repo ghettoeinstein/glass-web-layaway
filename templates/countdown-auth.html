@@ -1,0 +1,189 @@
+{{define "head"}}
+<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+<meta http-equiv="refresh" content="30;url={{.Redirect}}" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nunito:100,200,300,400,500,600" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style>
+	body {
+		font-family: "Nunito", san-serif;
+	}
+	.form-horizontal {	
+		margin:30px ;
+	}
+	input {
+		background-color:red;
+		padding:50px auto;
+	}
+	.inputForm{
+		-moz-border-radius:5px;
+		-webkit-border-radius:5px;
+		line-height:1.4em;
+		font-size:20px;
+		min-width:80%;
+		display:block;
+		margin:20px auto;
+	}
+	#submitButton{
+		background-color:300px;
+	}
+	h3,small {
+		font-family: "Open Sans", san-serif;
+		color: #2C01D5;
+	}
+	button {
+		background-color: #2BB673;
+		color: white;	
+		font-family: "Open Sans", san-serif;
+		font-weight: 300;
+
+	}
+	#logo {
+		display:block;
+		margin-left:auto;
+		margin-right:auto;
+		top:0;
+		z-index: 100;
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.logo-circle {
+	}
+	input {
+		margin-bottom:15px;
+	}
+	fieldset {
+
+		padding:0;
+		min-width:100%;
+	}
+	#form_div {
+		padding-bottom: 10px;
+		min-height: 10em;
+		position:relative;
+		max-width:40%;
+		max-height:500px;
+		margin-top:6em;
+		margin-bottom:130px;
+		border-radius:8px; 
+		border:solid #E3E3E3 2.5px;
+		margin-left:auto;
+		margin-right:auto;
+		left:0;
+		right:0
+	}
+	span.seperator {
+		color:black;
+	}
+	a:hover {
+		color:black;
+	}
+	a {
+		color:#2C01D5;
+	}
+	.navbar-fixed-bottom {
+		border:0;
+		background-color: white;
+	
+	}
+
+	@media only screen and (max-width: 500px){
+		#form_div {
+			max-width: 90%;
+		}
+	}
+	#standby-text {
+		color:gray;
+		font-family:"Open Sans";
+		font-weight: 500;
+			position:relative;
+
+	}
+</style>
+{{end}}
+{{define "body"}}
+<div class="container">
+	<div id="form_div" >
+		<div class="logo-circle" style="position:relative;top:-50;">
+			<img src="/assets/glogo-circle.svg"  id="logo" width="100px">
+		</div>
+		<!-- Header Row -->
+		<div class="row" style="position: relative;top:-50px">
+			<div class="col-md-10 col-md-offset-1 text-center" >
+				
+				<div><h3><span id="time"></span> </h3></div>
+				<br />
+				<div id="#clock-div">
+					<img src="/assets/clock.svg"  id="logo" width="100px">
+				
+				</div>
+			</div>
+		</div>
+		<p id="standby-text" class="text-center" style="">Standby. We’ll let you know our decision shortly.<br>
+		<span class="text-center"> (Please do not refresh or leave this page.)</span>
+ </p>
+		
+	</div>
+</div>
+<nav class="navbar navbar-default  navbar-fixed-bottom" role="navigation">
+	<div class="container text-center">
+		<p class="navbar-text col-md-12 col-sm-12 col-xs-12" style="color:#2C01D5; margin-top:0px;"> <a href="/terms">Terms of Service </a><span class="seperator">|</span>  <a href="/terms">Privacy Policy </a> <span class="seperator">|</span> <a class="" href="mailto:support@getglass.co"> Customer Service </a></p>
+		<p class="navbar-text col-md-12 col-sm-12 col-xs-12" style="color:#9800B7">&copy; Glass Financial, Inc. 2017 </p>
+
+	</div>
+</nav>
+</div>
+<script>
+
+  
+
+	function startTimer(duration, display) {
+
+		var start = Date.now(),
+		diff,
+		minutes,
+		seconds;
+		function timer() {
+        // get the number of seconds that have elapsed since 
+        // startTimer() was called
+        diff = duration - (((Date.now() - start) / 1000) | 0);
+
+        // does the same job as parseInt truncates the float
+        minutes = (diff / 60) | 0;
+        seconds = (diff % 60) | 0;
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds; 
+
+        if (diff <= 0) {
+            // add one second so that the count down starts at the full duration
+            // example 05:00 not 04:59
+            start = Date.now() + 1000;
+        }
+    };
+    // we don't want to wait a full second before the timer starts
+    timer();
+    setInterval(timer, 1000);
+}
+
+
+window.onload = function () {
+
+	document.onkeydown = function (e) {
+            return (e.which || e.keyCode) != 116;
+        };
+	var fiveMinutes = 60 * 2,
+	display = document.querySelector('#time');
+	startTimer(fiveMinutes, display);
+	
+
+};
+
+
+
+</script>
+{{end}}

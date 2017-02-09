@@ -1,0 +1,174 @@
+{{define "head"}}	
+	
+		<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+		<link href="https://fonts.googleapis.com/css?family=Nunito:300,400" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+				<script src="/assets/js/confetti.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<style>
+			body {
+				background-color: black;
+			}
+			.form-horizontal {	
+				margin:30px ;
+			}
+			input {
+				background-color:red;
+				padding:50px auto;
+			}
+			.inputForm{
+				-moz-border-radius:5px;
+				-webkit-border-radius:5px;
+				line-height:1.4em;
+				font-size:20px;
+				min-width:80%;
+				display:block;
+				margin:20px auto;
+			}
+			#submitButton{
+				background-color:green;
+			}
+			h3,small {
+				font-family: "Nunito", san-serif;
+				color: #2C01D5;
+			}
+			button {
+				background-color: #2BB673;
+				color: white;	
+				font-family: "Nunito", san-serif;
+				font-weight: 300;
+				
+			}
+			#logo {
+				display:block;
+				margin-left:auto;
+				margin-right:auto;
+				top:0;
+				z-index: 100;
+				position: relative;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.logo-circle {
+			}
+			input {
+				margin-bottom:15px;
+			}
+			fieldset {
+				
+				padding:0;
+				min-width:100%;
+			}
+			#congratulations {
+				color:white;
+				font-family: "Nunito", san-serif;
+				font-weight:300;
+				font-size:3.2em;
+				text-transform: uppercase;
+				
+			}
+			#form_div {
+				padding-bottom: 10px;
+				min-height: 10em;
+				position:relative;
+				max-width:50%;
+				min-height:250px;
+				margin-top:10em;
+				margin-bottom:130px;
+				
+				margin-left:auto;
+				margin-right:auto;
+				left:0;
+				right:0
+			}
+			span.seperator {
+				color:black;
+			}
+			a:hover {
+				color:black;
+			}
+			a {
+				color:#2C01D5;
+			}
+			.navbar-fixed-bottom {
+				border:0;
+				background-color: black;
+			}
+			#under-congrats {
+				color:white;
+				font-family: "Nunito", san-serif;
+				font-weight: 300;
+
+			}
+			#offer-btn {
+				background-color: #06BC40;
+				width: 50%;
+				border-radius: 0;
+				font-size:4vh;
+				margin-top:70px;
+				
+				margin-left:auto;
+
+				margin-right:auto;
+				display: block;
+			}
+			
+			@media only screen and (max-width: 500px){
+				#form_div {
+					max-width: 90%;
+
+				}
+				#offer-btn {
+
+					width:75%;
+					margin-left:auto;
+					
+					margin-right:auto;
+					display: block;
+				}	
+
+				#congratulations {
+						font-size:4.5vh;
+				}
+			}
+
+
+			#confetti{
+				position: fixed;
+				left: 0;
+				top: 0;
+				height: 100%;
+				width: 100%;
+				pointer-events:none;
+			}
+
+			img {
+				width: 100%;
+				margin: 20px 0;
+			}
+		</style>
+{{end}}
+{{define "body"}}
+	<canvas height='1' id='confetti' width='1'> </canvas>
+	
+		<div class="container-fluid">
+			<div id="form_div" >
+				<!-- Header Row -->
+				<div class="row" style="" >
+					<div class="col-md-10 col-md-offset-1 text-center" >
+						<h1 id="congratulations" style="padding-top:20px"> Congratulations!</h1>
+							<p id="under-congrats">Looks like we can help you get what you need!</p>
+						</div>
+						<br/>
+						<br/>
+						<br/>
+						<br/>
+						<div class="row" >
+							<div class="col-md-12  text-center" >
+								<a href="/user/terms/{{.}}"><button type="submit" id="offer-btn" class="btn btn-lg btn-success">See Offer</button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+{{end}}

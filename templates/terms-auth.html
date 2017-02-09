@@ -1,0 +1,430 @@
+{{define "head"}}	
+
+<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700" rel="stylesheet">
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+	Stripe.setPublishableKey('pk_test_aymMpCxS1fZclIV0UEE49an8');
+</script>
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="/assets/js/card.js"></script>
+<script src="/assets/js/jquery.card.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style>
+	body {
+
+  background-repeat: no-repeat !important;
+  background-position: 50% 50% !important;
+  background-attachment: fixed !important;
+  background-color: transparent !important;
+  background-size: cover !important;
+
+		font-family: "Nunito";
+		font-weight:300;
+	}
+	.form-horizontal {	
+		margin:30px ;
+	}
+	input {
+		background-color:red;
+		padding:50px auto;
+	}
+	.inputForm{
+		-moz-border-radius:5px;
+		-webkit-border-radius:5px;
+		line-height:1.4em;
+		font-size:20px;
+		min-width:80%;
+		display:block;
+		margin:20px auto;
+	}
+	#submitButton{
+		background-color:green;
+	}
+	h3,small {
+		font-family: "Nunito", san-serif;
+		color: #2C01D5;
+	}
+	button {
+		background-color: #2BB673;
+		color: white;	
+		font-family: "Nunito", san-serif;
+		font-weight: 300;
+
+	}
+	#logo {
+		display:block;
+		margin-left:auto;
+		margin-right:auto;
+		top:0;
+		z-index: 100;
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.logo-circle {
+	}
+	input {
+		margin-bottom:15px;
+	}
+	fieldset {
+
+		padding:0;
+		min-width:100%;
+	}
+	#purchase-amount {
+		color:#06BC40;
+		font-family: "Nunito", san-serif;
+		font-weight:500;
+
+		font-size:3.5vh;
+		
+
+	}
+	#form_div {
+		background-color: white;
+		padding-bottom: 10px;
+
+
+
+
+		margin-top:3em;
+		margin-bottom:130px;
+		border: 1px #979797 solid;
+		margin-left:auto;
+		margin-right:auto;
+		left:0;
+		right:0
+	}
+	span.seperator {
+		color:black;
+	}
+	a:hover {
+		color:black;
+	}
+	a {
+		color:#2C01D5;
+	}
+	.navbar-fixed-bottom {
+		border:0;
+		background-color: black;
+	}
+	#under-congrats {
+		color:white;
+		font-family: "Nunito", san-serif;
+		font-weight: 300;
+
+	}
+	#offer-btn {
+		background-color: #06BC40;
+		width: 50%;
+		border-radius: 0;
+		font-size:4vh;
+		margin-top:70px;
+
+		margin-left:auto;
+
+		margin-right:auto;
+		display: block;
+	}
+
+	@media only screen and (max-width: 700px){
+		#form_div {
+			min-width: 70%;
+
+
+		}
+		
+
+		#offer-btn {
+
+			width:75%;
+			margin-left:auto;
+
+			margin-right:auto;
+			display: block;
+		}	
+	}
+
+
+	#confetti{
+		position: fixed;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		pointer-events:none;
+	}
+
+
+	body {
+		background-size:  cover;
+		background: url('/assets/terms-bg.svg');
+	}
+
+	
+	.fee-box {
+		border: 1px black solid;
+		display: block;
+	}
+	.upper-box-text {
+		color:#979797;
+		font-weight: 400;
+		display: block
+	}
+	.lower-box-text {
+		color:#979797;
+		font-weight: 400;
+		padding-top:20px;
+		display: block
+		font-size:16px;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		width: 100%;
+
+	}
+
+
+	.terms-charcoal {
+		font-size:4vh;
+		font-weight: 500;
+	}
+	.terms-gray {
+		margin:0;
+		padding-top:5px;
+		padding-left:10px;
+		font-weight: 300;
+		font-size:3vh;
+		display: block;
+		color:#979797;
+	}
+	.terms-black {
+		position: absolute;
+		bottom:5;
+		right:10;
+		color:#000;
+	}
+	.terms-green {
+		font-weight: 400;
+		font-family: "Nunito";
+		font-size:4vh;
+		padding-left:10px;
+		display: inline-block;
+		color:#06BC40;
+	}
+	span {
+		display: block
+		float:left;
+
+	}
+
+	#paymentMethod {
+		padding-left:15px;
+		border:0;
+		font-weight:600; 
+	}
+	.containerbox {
+
+		margin-left:20;
+		position: relative;
+
+		margin-bottom:20px;
+		border:1px solid #4A4A4A;
+	}
+
+
+	.containerbox {
+		height: 12%;
+		width: 50%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 20px;
+		border: 1px solid #4A4A4A;
+	}
+	.card {
+		padding-right: 10px;
+	}
+	input {
+		min-height:60px;
+		color:lightgray;
+		font-weight: 400;
+		font-size:20vh;
+		font-family: "Nunito";
+	}
+	body{
+		background-attachment: fixed;
+	}
+
+	@media  only  screen and (max-width:500px) { 
+		/* smartphones, Android phones, landscape iPhone */ 
+		#form_div {max-width:80%;}
+
+		#purchase-amount {
+			font-size:2.44vh;
+		}
+		.card-wrapper {
+		transform: scale(0.8);
+		width: 50%;
+
+		}
+
+
+		@media (min-width:375px) { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ 
+			.terms-charcoal {
+				padding-left:10px;
+				font-size:2.44vh;
+			}
+
+			#purchase-amount {
+				font-size:2.44vh;
+			}
+			.containerbox {
+				height: 10%;
+				width:96%;
+			}
+			.terms-gray {
+				font-size:2.39vh;
+			}
+			.terms-green {
+				font-size:2.00vh;
+			}
+			.terms-black {
+				font-size:2.0vh;
+			}
+
+			#form_div {max-width:100%;}
+		}
+
+
+
+		#offer-btn {
+			max-width: 60%;
+		}
+		.terms-charcoal {
+			padding-left:10px;
+			font-size:2.44vh;
+		}
+		.containerbox {
+			height: 14%;
+			width:86%;
+		}
+		.terms-gray {
+			font-size:2.79vh;
+		}
+		.terms-green {
+			font-size:2.99vh;
+		}
+		.terms-black {
+			font-size:2.0vh;
+		}
+
+	}
+	@media (min-width:600px) { .containerbox {
+		height: 12%;
+		width:96%;
+		font-size:2.99vh;
+	}}
+	@media (min-width:801px) { /* tablet, landscape iPad, lo-res laptops ands desktops */#form_div {max-width:55%;}
+	.terms-charcoal {
+		padding-left:10px;
+		font-size:2.44vh;
+	}
+	.containerbox {
+		height: 12%;
+		width: 67%;
+	}
+	.terms-gray {
+		font-size:2.79vh;
+	}
+	.terms-green {
+		font-size:2.99vh;
+	}
+	.terms-black {
+		font-size:2.0vh;
+	} }
+
+
+	@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ 
+		#form_div {max-width:40%;}.containerbox{ height:13%;}
+	}
+	@media (min-width:1281px) {#form_div { max-width:50%; } .containerbox {height:15%;} }
+
+	#paymentMethod {
+		padding-left:25px;
+	}
+
+	a{
+		font-weight: 100px;
+	}
+</style>
+{{end}}
+{{define "body"}}
+
+
+<div class="container-fluid">
+	<div id="form_div" > 
+		<!-- Header Row -->
+		<div class="row" style="" >
+			<div class="col-md-12  text-center" >
+				<h1 id="purchase-amount" style="padding-top:20px;padding-bottom: 30px;"> Purchase Amount {{.Total}} </h1>
+			</div>
+		</div>
+		<div class="row containerbox" >
+			<p class="terms-gray">3 Interest Free Payments Of</p>
+			<span class="terms-green">{{.MonthlyPayment}}</span><span class="terms-charcoal">    every 30 days</span>
+			
+		</div>
+		
+		<div class="row containerbox" >
+			<p class="terms-gray">Due Today</p>
+			<span class="terms-green">{{.FirstPayment}}</span>
+			<span style="float:right; padding:none" class="terms-black">10% service fee + tax included </span>
+		</div>
+
+		
+		<p id="paymentMethod"> Payment Method</p>
+		<div class='card-wrapper' style="transform: scale(0.5)"></div>
+
+		<!-- CSS is included via this JavaScript file -->
+
+
+
+
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<form class="form-horizontal" id="payment-form" style="margin-top:30;" action="/user/offer/{{.UUID}}/charge" method="POST" enctype="multipart/form-data">
+					<span class="payment-errors"></span>
+
+					<fieldset>
+
+			
+						<div class="form-group">
+
+						{{ range .PaymentMethods}}
+						<div style=" height: 40px;line-height: 40px;text-align: left;">
+							<img id="card" src="/assets/{{.Card.Brand}}.svg"> <span id="primarylast4">{{.Card.LastFour}}</span>
+						</div>
+						{{end}}
+
+						<noscript><p>JavaScript is required for the registration form.</p></noscript>
+						<div class="row">
+							<div class="col-md-12 text-center "><button type="submit" id="offer-btn" class="btn btn-lg btn-success" style="font-weight:300;text-transform: none;border:0;border-radius: 35px">Accept Offer</button>
+								<small class="lower-box-text" style="font-size:12px; max-width: 100%">By accepting the offer and creating an account, I agree to Glass’s <a href="/terms">Terms and Conditions. </a></small>						</div>
+							</div>
+						</fieldset>
+					</form>	
+				</div>
+			</div> 
+
+			
+
+			<div class="row" >
+				<div class="col-md-12  text-center" >
+
+				</div>
+			</div>
+		</div> 
+	</div>
+</div>
+{{end}}
