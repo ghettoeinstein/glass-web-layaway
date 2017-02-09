@@ -50,6 +50,7 @@ func (r *OrderRepository) CreateOrderForUser(user *models.User) (order *models.O
 			"total_fmt":             order.TotalFmt,
 			"monthly_payment_fmt":   order.MonthlyPaymentFmt,
 			"order_date":            order.OrderDate,
+			"combined_total":        order.CombinedTotal,
 			"updated_at":            time.Now(),
 		}})
 	return
