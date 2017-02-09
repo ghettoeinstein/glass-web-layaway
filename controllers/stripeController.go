@@ -6,6 +6,7 @@ import (
 	"../models"
 	"encoding/json"
 	"github.com/dgrijalva/jwt-go/request"
+	"github.com/joiggama/money"
 	"github.com/stripe/stripe-go"
 	"github.com/stripe/stripe-go/card"
 	"github.com/stripe/stripe-go/charge"
@@ -138,7 +139,7 @@ func AddSourceToCustomer(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func ChargeForOffer(w http.ResponseWriter, r *http.Request) {
+func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 	stripe.Key = os.Getenv("STRIPE_KEY")
 	log.Println("Stripe key is:", stripe.Key)
 	r.ParseMultipartForm(32 << 20)
@@ -156,13 +157,12 @@ func ChargeForOffer(w http.ResponseWriter, r *http.Request) {
 	c := context.DbCollection("web_orders")
 	repo := &data.WebOrderRepository{c}
 
+	// get the web Order from the database
 	webOrder, err := repo.GetByUUID(id)
 	if err != nil {
 		log.Println(err)
 		return
 	}
-
-	log.Println(webOrder.UUID)
 
 	//Create and save a user to the database from the web order
 	user, err := NewUserFromWebOrder(webOrder)
@@ -171,7 +171,7 @@ func ChargeForOffer(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	//C reate a stripe customer from the user
+	//Create a stripe customer from the user
 	stripeCustomer, err := CreateStripeCustomerWithToken(user, token)
 	if err != nil {
 		log.Println("Error creating User", err)
@@ -179,44 +179,97 @@ func ChargeForOffer(w http.ResponseWriter, r *http.Request) {
 	}
 	// set the user's stripe customerid to the returned customer object's
 	user.StripeCustomer.CustomerId = stripeCustomer.ID
+	c = context.DbCollection("users")
+	userRepo := &data.UserRepository{c}
+	err = userRepo.Update(user)
+	if err != nil {
+		log.Println("Error persisting users")
+	}
 
-	serviceFee := int64(2000)
-	// Create an invoice for the service fee of the loan for the user.
-	invoiceParams := &stripe.InvoiceItemParams{
+	order := &models.Order{
+		Total:               webOrder.Price,
+		BalancePostCreation: webOrder.Price * 0.75,
+		BalancePostFirst:    (webOrder.Price / 2),
+
+		BalancePostSecond: (webOrder.Price / 4),
+		User:              user,
+		Email:             webOrder.Email,
+		URL:               webOrder.URL,
+		UUID:              webOrder.UUID,
+		CustomerId:        stripeCustomer.ID,
+		MonthlyPayment:    webOrder.Price / 4,
+		MonthlyPaymentFmt: money.Format(webOrder.Price / 4),
+		FirstPaymentDue:   time.Now().Add(time.Hour * 24 * 30).Format("01/02/06"),
+		SecondPaymentDue:  time.Now().Add(time.Hour * 24 * 60).Format("01/02/06"),
+		ThirdPaymentDue:   time.Now().Add(time.Hour * 24 * 90).Format("01/02/06"),
+	}
+
+	c = context.DbCollection("orders")
+	orderRepo := &data.OrderRepository{c}
+
+	serviceFee := order.Total * 0.10
+	log.Println("Service Fee is:", serviceFee)
+	order.ServiceFee = serviceFee
+
+	// Create an invoice for the Glas Service Fee(10%) of the total cost of goods  for the user.
+
+	invoiceItem, err := invoiceitem.New(&stripe.InvoiceItemParams{
 		Customer: user.StripeCustomer.CustomerId,
-		Amount:   serviceFee,
+		Amount:   int64(int(order.ServiceFee * 100)),
 		Currency: "usd",
 		Desc:     "One-time service fee for plan: " + id,
-	}
-	_, err = invoiceitem.New(invoiceParams)
+	})
 	if err != nil {
 		log.Println("Error creating invoice item")
+		http.Error(w, err.Error(), 500)
 		return
 	}
 
+	order.InvoiceItem = invoiceItem
+
 	p, err := plan.New(&stripe.PlanParams{
-		Amount:   19999,
+		Amount:   uint64(int(order.MonthlyPayment * 100)),
 		Interval: "month",
 		Name:     id + " Installment Plan",
 		Currency: "usd",
 		ID:       id,
 	})
-
 	if err != nil {
 		log.Println("Error creating plan")
 		return
 	}
 	log.Println(p)
 
-	s, err = sub.New(&stripe.SubParams{
+	order.PlanID = p.ID
+
+	// Create a subscription and attach the plan for the order to the sub.
+	s, err := sub.New(&stripe.SubParams{
 		Customer: user.StripeCustomer.CustomerId,
 		Plan:     p.ID,
 	})
 	if err != nil {
-		log.Println("Error creating subscription")
+		log.Println("Error creating subscription:", s)
+
+		w.Header()["Location"] = []string{"/terms/" + id}
+		w.WriteHeader(http.StatusSeeOther)
+
 		return
 	}
 
+	order.SubscriptionID = s.ID
+
+	err = orderRepo.SaveOrder(order)
+	if err != nil {
+		log.Println("Error saving order:", order)
+	}
+	log.Println("Saved order successfully: ", order.UUID)
+
+	err = sendConf(order)
+	if err != nil {
+		log.Println("Error sending confirmation email")
+	}
+
+	// If all goes well create a cookie for the user to be able to login. Set to expire in one day.
 	authToken, err := common.GenerateJWT(user.Email, "Customer")
 	if err != nil {
 		log.Println("Error creating token")

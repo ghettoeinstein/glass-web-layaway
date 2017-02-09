@@ -2,12 +2,49 @@ package models
 
 import (
 	"fmt"
-	"time"
-	//	"github.com/stripe/stripe-go/plan"
+	"github.com/stripe/stripe-go"
 	"gopkg.in/mgo.v2/bson"
+	"time"
 )
 
 type (
+	Order struct {
+		Id                  bson.ObjectId       `json:"order_id" bson:"_id,omitempty"`
+		BalancePostCreation float64             `json:"balance_balance_post_creation" bson:"balance_post_creation"`
+		BalancePostFirst    float64             `json:"balance_post_first" bson:"balance_post_first"`
+		BalancePostSecond   float64             `json:"balance_post_second" bson:"balance_post_second"`
+		User                *User               `json:"user" bson:"user"`
+		Shipped             bool                `json:"shipped" bson:"shipped"`
+		ShippingAddress     string              `json:"shipping_address" bson:"shipping_address"`
+		TrackingNumber      string              `json:"tracking_number" bson:"tracking_number"`
+		Items               []Item              `json:"items" bson:"items"`
+		Total               float64             `json:"total" bson:"total"`
+		TotalFmt            string              `json:"total_fmt" bson:"total_fmt"`
+		TaxRate             float64             `json:"tax_rate" bson:"tax_rate"`
+		OrderDate           string              `json:"order_date" bson:"order_date"`
+		PlanID              string              `json:"stripe_plan_id" bson:"stripe_plan_id"`
+		SubscriptionID      string              `json:"subscrption_id" bson:"subscription_id"`
+		CreatedAt           time.Time           `json:"created_at" bson:"created_at"`
+		UpdatedAt           time.Time           `json:"updated_at" bson:"updated_at"`
+		SalesTax            int                 `json:"sales_tax" bson:"sales_tax"`
+		SalesTaxFmt         string              `json:"sales_tax_fmt" bson:"sales_tax_fmt"`
+		Email               string              `json:"email" bson:"email"`
+		UUID                string              `json:"uuid" bson:"uuid"`
+		FirstPaymentPaid    bool                `json:"first_payment"  bson:"first_payment"`
+		FirstPaymentDue     string              `json:"first_payment"  bson:"first_payment_due"`
+		SecondPaymentPaid   bool                `json:"second_payment" bson:"second_payment"`
+		SecondPaymentDue    string              `json:"second_payment" bson:"second_payment_due"`
+		ThirdPaymentPaid    bool                `json:"third_payment" bson:"third_payment"`
+		ThirdPaymentDue     string              `json:"third_payment" bson:"third_payment_due"`
+		MonthlyPayment      float64             `json:"monthly_payment" bson:"monthly_payment"`
+		MonthlyPaymentFmt   string              `json:"monthly_payment_fmt" bson:"monthly_payment_fmt"`
+		Payments            []Payment           `json:"payments" bson:"payments"`
+		CustomerId          string              `json:"customer_id" bson:"customer_id"`
+		MissedDeadline      bool                `json:"missed_deadline" bson:"missed_deadline"`
+		URL                 string              `json:"url" bson:"url"`
+		InvoiceItem         *stripe.InvoiceItem `json:"invoice_item" bson="invoiceitem"`
+		ServiceFee          float64             `json:"service_fee" bson="servicefee"`
+	}
 	WebOrder struct {
 		Id             bson.ObjectId `bson:"_id",omitempty" json:"id`
 		FullName       string        `json:"full_name" bson:"full_name`
@@ -54,39 +91,6 @@ type (
 		Price       string `json:"price"  bson:"price"`
 		Quantity    string `json:"quantity"  bson:"quantity"`
 		ProductName string `json:"product_name" bson:"product_name`
-	}
-
-	Order struct {
-		Id                bson.ObjectId  `json:"order_id" bson:"_id,omitempty"`
-		Balance           int            `json:"balance" bson:"balance"`
-		User              *User          `json:"user" bson:"user"`
-		Shipped           bool           `json:"shipped" bson:"shipped"`
-		ShippingAddress   string         `json:"shipping_address" bson:"shipping_address"`
-		TrackingNumber    string         `json:"tracking_number" bson:"tracking_number"`
-		Items             []Item         `json:"items" bson:"items"`
-		Total             int            `json:"total" bson:"total"`
-		TotalFmt          string         `json:"total_fmt" bson:"total_fmt"`
-		TaxRate           float64        `json:"tax_rate" bson:"tax_rate"`
-		OrderDate         string         `json:"order_date" bson:"order_date"`
-		StripePlanID      string         `json:"stripe_plan_id" bson:"stripe_plan_id"`
-		CreatedAt         time.Time      `json:"created_at" bson:"created_at"`
-		UpdatedAt         time.Time      `json:"updated_at" bson:"updated_at"`
-		SalesTax          int            `json:"sales_tax" bson:"sales_tax"`
-		SalesTaxFmt       string         `json:"sales_tax_fmt" bson:"sales_tax_fmt"`
-		Email             string         `json:"email" bson:"email"`
-		UUID              string         `json:"uuid" bson:"uuid"`
-		FirstPaymentPaid  bool           `json:"first_payment"  bson:"first_payment"`
-		FirstPaymentDue   string         `json:"first_payment"  bson:"first_payment_due"`
-		SecondPaymentPaid bool           `json:"second_payment" bson:"second_payment"`
-		SecondPaymentDue  string         `json:"second_payment" bson:"second_payment_due"`
-		ThirdPaymentPaid  bool           `json:"third_payment" bson:"third_payment"`
-		ThirdPaymentDue   string         `json:"third_payment" bson:"third_payment_due"`
-		MonthlyPayment    int            `json:"monthly_payment" bson:"monthly_payment"`
-		MonthlyPaymentFmt string         `json:"monthly_payment_fmt" bson:"monthly_payment_fmt"`
-		Payments          []Payment      `json:"payments" bson:"payments"`
-		Customer          StripeCustomer `json:"customer" bson:"customer"`
-		MissedDeadline    bool           `json:"missed_deadline" bson:"missed_deadline"`
-		URL               string         `json:"url" bson:"url"`
 	}
 
 	Payment struct {

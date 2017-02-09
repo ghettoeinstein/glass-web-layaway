@@ -1781,3 +1781,215 @@
 2017/02/08 05:58:56 Farnsworth P Saunders
 2017/02/08 05:59:58 Farnsworth P Saunders
 2017/02/08 06:22:10 Farnsworth P Saunders
+2017/02/08 11:28:58 API is Listening on:  0.0.0.0:9090
+2017/02/08 11:29:20 starting post
+2017/02/08 11:29:20 no errors
+2017/02/08 11:29:20 About to save to database
+2017/02/08 11:29:20 &{ObjectIdHex("589b7190a54d757f2db899c0") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  e8b398f1-e332-41ef-9da9-0f4852f352b6 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-08 11:29:20.134115907 -0800 PST 2017-02-08 11:29:20.134115907 -0800 PST false 0}
+2017/02/08 14:08:20 API is Listening on:  0.0.0.0:9090
+2017/02/08 14:08:28 starting post
+2017/02/08 14:08:28 no errors
+2017/02/08 14:08:28 About to save to database
+2017/02/08 14:08:28 &{ObjectIdHex("589b96dca54d75b951a897f6") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  208e1c8e-6018-4b03-a626-ca1b4beee094 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-08 14:08:28.415667914 -0800 PST 2017-02-08 14:08:28.415667914 -0800 PST false 0}
+2017/02/08 14:08:43 Starting login
+2017/02/08 14:08:51 Starting login
+2017/02/08 14:10:03 API is Listening on:  0.0.0.0:9090
+2017/02/08 14:10:18 Starting login
+2017/02/08 14:10:31 starting post
+2017/02/08 14:10:31 no errors
+2017/02/08 14:10:31 About to save to database
+2017/02/08 14:10:31 &{ObjectIdHex("589b9757a54d75b9c4cd78ea") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  18aec465-e2fd-459e-a456-11852554e87d 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-08 14:10:31.860454543 -0800 PST 2017-02-08 14:10:31.860454543 -0800 PST false 0}
+2017/02/08 14:10:43 200
+2017/02/08 14:11:47 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/08 14:11:47 token is token
+2017/02/08 14:11:47 Created customer with id  cus_A5E7TsXOR1vBdK
+2017/02/08 14:11:47 Service Fee is: 20
+2017/02/08 14:11:48 &{18aec465-e2fd-459e-a456-11852554e87d false 5000 1486591908 usd month 1 18aec465-e2fd-459e-a456-11852554e87d Installment Plan map[] 0  false}
+2017/02/08 14:11:48 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/08 14:11:48 token is token
+2017/02/08 14:11:48 {"type":"invalid_request_error","message":"You cannot use a Stripe token more than once: tok_19l3fDFQxklbxpZmF8e1PhEz.","request_id":"req_A5E7cPvZ6zUJ0q","status":400}
+2017/02/08 14:11:48 Error creating User {"type":"invalid_request_error","message":"You cannot use a Stripe token more than once: tok_19l3fDFQxklbxpZmF8e1PhEz.","request_id":"req_A5E7cPvZ6zUJ0q","status":400}
+2017/02/08 14:11:49 Saved order successfully:  18aec465-e2fd-459e-a456-11852554e87d
+2017/02/08 14:12:44 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/08 14:12:44 token is token
+2017/02/08 14:12:45 Created customer with id  cus_A5E8f0zKPtMeDs
+2017/02/08 14:12:45 Service Fee is: 20
+2017/02/08 14:12:45 Error creating plan
+2017/02/08 14:14:36 starting post
+2017/02/08 14:14:36 no errors
+2017/02/08 14:14:36 About to save to database
+2017/02/08 14:14:36 &{ObjectIdHex("589b984ca54d75b9c4cd78ef") Caleb P saunders publicprivacy@me.com 3234236651 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  8035ff89-d0c2-47ca-9989-1f0d10135ba9 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-08 14:14:36.206183185 -0800 PST 2017-02-08 14:14:36.206183185 -0800 PST false 0}
+2017/02/08 14:14:54 75
+2017/02/08 14:15:35 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/08 14:15:35 token is token
+2017/02/08 14:15:36 Created customer with id  cus_A5EBBtIMFXTyhp
+2017/02/08 14:15:36 Service Fee is: 7.5
+2017/02/08 14:15:36 &{8035ff89-d0c2-47ca-9989-1f0d10135ba9 false 1875 1486592136 usd month 1 8035ff89-d0c2-47ca-9989-1f0d10135ba9 Installment Plan map[] 0  false}
+2017/02/08 14:15:37 Saved order successfully:  8035ff89-d0c2-47ca-9989-1f0d10135ba9
+2017/02/08 14:23:14 API is Listening on:  0.0.0.0:9090
+2017/02/08 14:23:45 starting post
+2017/02/08 14:23:45 no errors
+2017/02/08 14:23:45 About to save to database
+2017/02/08 14:23:45 &{ObjectIdHex("589b9a71a54d75bfce9c78e8") john fallone publicprivacy@me.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  ea7ef9be-5213-48e6-a7ca-a257cf0430ed 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-08 14:23:45.69321791 -0800 PST 2017-02-08 14:23:45.69321791 -0800 PST false 0}
+2017/02/08 14:24:07 Starting login
+2017/02/08 14:24:14 600
+2017/02/08 14:24:42 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/08 14:24:42 token is token
+2017/02/08 14:24:43 Created customer with id  cus_A5EKRYShQJLMTj
+2017/02/08 14:24:43 Service Fee is: 60
+2017/02/08 14:24:44 &{ea7ef9be-5213-48e6-a7ca-a257cf0430ed false 15000 1486592684 usd month 1 ea7ef9be-5213-48e6-a7ca-a257cf0430ed Installment Plan map[] 0  false}
+2017/02/08 14:24:45 Saved order successfully:  ea7ef9be-5213-48e6-a7ca-a257cf0430ed
+2017/02/08 14:26:37 Caleb P saunders
+2017/02/08 14:26:42 Caleb P saunders
+2017/02/08 14:26:51 Generated OTP: 411326 0xaf90 3234236654
+2017/02/08 14:26:52 Sent message successfully to handset:  3234236654
+2017/02/08 14:27:03 Starting login for:   3234236654
+2017/02/08 14:27:03 Match is true
+2017/02/08 14:27:03 Generating cookie for:  calebsaunders@gmail.com
+2017/02/08 14:27:05 Caleb P saunders
+2017/02/08 14:27:25 Caleb P saunders
+2017/02/08 14:30:08 API is Listening on:  0.0.0.0:9090
+2017/02/08 14:31:14 starting post
+2017/02/08 14:31:14 no errors
+2017/02/08 14:31:14 About to save to database
+2017/02/08 14:31:14 &{ObjectIdHex("589b9c32a54d75c192fd103d") Caleb P saunders calebsaunders@gmail.com 3234236654 http://google.com  aac4143b-36d8-42d5-a869-a9c2a2c29469 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-08 14:31:14.932653422 -0800 PST 2017-02-08 14:31:14.932653422 -0800 PST false 0}
+2017/02/08 14:31:34 Starting login
+2017/02/08 14:31:41 2220
+2017/02/08 14:32:12 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/08 14:32:12 token is token
+2017/02/08 14:32:13 Created customer with id  cus_A5ERy9xFsHS8Ax
+2017/02/08 14:32:13 Service Fee is: 222
+2017/02/08 14:32:13 &{aac4143b-36d8-42d5-a869-a9c2a2c29469 false 55500 1486593133 usd month 1 aac4143b-36d8-42d5-a869-a9c2a2c29469 Installment Plan map[] 0  false}
+2017/02/08 14:32:14 Saved order successfully:  aac4143b-36d8-42d5-a869-a9c2a2c29469
+2017/02/08 14:36:27 API is Listening on:  0.0.0.0:9090
+2017/02/08 14:36:29 starting post
+2017/02/08 14:36:29 no errors
+2017/02/08 14:36:29 About to save to database
+2017/02/08 14:36:29 &{ObjectIdHex("589b9d6da54d75c398c8d3ae") Caleb P saunders calebsaunders@gmail.com 3234236654 http://loletteshair.com  d460627d-1c59-4763-ba83-440c18e1f983 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-08 14:36:29.700583935 -0800 PST 2017-02-08 14:36:29.700583935 -0800 PST false 0}
+2017/02/08 14:36:53 Starting login
+2017/02/08 14:37:02 Starting login
+2017/02/08 14:37:12 starting post
+2017/02/08 14:37:12 no errors
+2017/02/08 14:37:12 About to save to database
+2017/02/08 14:37:12 &{ObjectIdHex("589b9d98a54d75c398c8d3af") Aikea Jones hollowbutterfly@gmail.com 3236172090 http://loletteshair.com  1080b1ac-ebb1-40cf-b34a-01cadc91fe96 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-08 14:37:12.014666113 -0800 PST 2017-02-08 14:37:12.014666113 -0800 PST false 0}
+2017/02/08 14:37:21 75
+2017/02/08 14:37:58 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/08 14:37:58 token is token
+2017/02/08 14:37:59 Created customer with id  cus_A5EXErYEnNUwYs
+2017/02/08 14:37:59 Service Fee is: 7.5
+2017/02/08 14:37:59 &{1080b1ac-ebb1-40cf-b34a-01cadc91fe96 false 1875 1486593479 usd month 1 1080b1ac-ebb1-40cf-b34a-01cadc91fe96 Installment Plan map[] 0  false}
+2017/02/08 14:38:00 Saved order successfully:  1080b1ac-ebb1-40cf-b34a-01cadc91fe96
+2017/02/08 14:41:29 API is Listening on:  0.0.0.0:9090
+2017/02/08 14:41:29 listen tcp 0.0.0.0:9090: bind: address already in use
+2017/02/08 14:41:32 API is Listening on:  0.0.0.0:9090
+2017/02/08 14:42:06 starting post
+2017/02/08 14:42:06 no errors
+2017/02/08 14:42:06 About to save to database
+2017/02/08 14:42:06 &{ObjectIdHex("589b9ebea54d75c4fbf48a26") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  3294b4d7-b2ec-4a0c-a616-5f0dd4c96da2 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-08 14:42:06.23344456 -0800 PST 2017-02-08 14:42:06.23344456 -0800 PST false 0}
+2017/02/08 14:42:27 Starting login
+2017/02/08 14:42:39 100
+2017/02/08 14:43:04 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/08 14:43:04 token is token
+2017/02/08 14:43:04 Created customer with id  cus_A5EclIdT32CjOY
+2017/02/08 14:43:04 Service Fee is: 10
+2017/02/08 14:43:05 &{3294b4d7-b2ec-4a0c-a616-5f0dd4c96da2 false 2500 1486593785 usd month 1 3294b4d7-b2ec-4a0c-a616-5f0dd4c96da2 Installment Plan map[] 0  false}
+2017/02/08 14:43:06 Saved order successfully:  3294b4d7-b2ec-4a0c-a616-5f0dd4c96da2
+2017/02/08 14:43:08 Caleb P saunders
+2017/02/08 14:46:23 Starting login
+2017/02/08 14:46:29 starting post
+2017/02/08 14:46:29 no errors
+2017/02/08 14:46:29 About to save to database
+2017/02/08 14:46:29 &{ObjectIdHex("589b9fc5a54d75c4fbf48a29") Jean-Lee publicprivacybusiness@gmail.com 3236172090 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  abd01397-a5f0-457c-98c4-f725ed028e64 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-08 14:46:29.937758297 -0800 PST 2017-02-08 14:46:29.937758297 -0800 PST false 0}
+2017/02/08 14:46:50 199.99
+2017/02/08 14:47:14 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/08 14:47:14 token is token
+2017/02/08 14:47:14 Created customer with id  cus_A5EgFEGiZp93UE
+2017/02/08 14:47:14 Service Fee is: 19.999000000000002
+2017/02/08 14:47:15 &{abd01397-a5f0-457c-98c4-f725ed028e64 false 4999 1486594035 usd month 1 abd01397-a5f0-457c-98c4-f725ed028e64 Installment Plan map[] 0  false}
+2017/02/08 14:47:16 Saved order successfully:  abd01397-a5f0-457c-98c4-f725ed028e64
+2017/02/08 15:12:33 starting post
+2017/02/08 15:12:33 no errors
+2017/02/08 15:12:33 About to save to database
+2017/02/08 15:12:33 &{ObjectIdHex("589ba5e1a54d75c4fbf48a2c") cale saunders calebsaunders@gmail.com 3234236654 http://www.apple.com/shop/buy-ipad/ipad-pro  c33ee8a6-dfc3-4ace-b5f9-aa56665f45f1 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-08 15:12:33.787233812 -0800 PST 2017-02-08 15:12:33.787233812 -0800 PST false 0}
+2017/02/08 15:12:44 API is Listening on:  0.0.0.0:9090
+2017/02/08 15:12:54 200
+2017/02/08 15:13:24 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/08 15:13:24 token is token
+2017/02/08 15:13:25 Created customer with id  cus_A5F7qsmALeAsA0
+2017/02/08 15:13:25 Service Fee is: 20
+2017/02/08 15:13:25 &{c33ee8a6-dfc3-4ace-b5f9-aa56665f45f1 false 5000 1486595605 usd month 1 c33ee8a6-dfc3-4ace-b5f9-aa56665f45f1 Installment Plan map[] 0  false}
+2017/02/08 15:13:26 Saved order successfully:  c33ee8a6-dfc3-4ace-b5f9-aa56665f45f1
+2017/02/08 15:14:06 API is Listening on:  0.0.0.0:9090
+2017/02/08 15:14:46 starting post
+2017/02/08 15:14:46 no errors
+2017/02/08 15:14:46 About to save to database
+2017/02/08 15:14:46 &{ObjectIdHex("589ba666a54d75cf6206fdfc") cale saunders calebsaunders@gmail.com 3234236654 http://www.apple.com/shop/buy-ipad/ipad-pro  92fec8d7-f025-4d33-9b09-b710352513aa 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-08 15:14:46.850300647 -0800 PST 2017-02-08 15:14:46.850300647 -0800 PST false 0}
+2017/02/08 15:14:59 2222
+2017/02/08 15:15:36 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/08 15:15:37 token is token
+2017/02/08 15:15:37 Created customer with id  cus_A5F9oZ0toKFrlj
+2017/02/08 15:15:37 Service Fee is: 222.2
+2017/02/08 15:15:38 &{92fec8d7-f025-4d33-9b09-b710352513aa false 55550 1486595738 usd month 1 92fec8d7-f025-4d33-9b09-b710352513aa Installment Plan map[] 0  false}
+2017/02/08 15:15:39 Saved order successfully:  92fec8d7-f025-4d33-9b09-b710352513aa
+2017/02/08 15:23:42 API is Listening on:  0.0.0.0:9090
+2017/02/08 15:24:01 API is Listening on:  0.0.0.0:9090
+2017/02/08 15:25:15 starting post
+2017/02/08 15:25:15 no errors
+2017/02/08 15:25:15 About to save to database
+2017/02/08 15:25:15 &{ObjectIdHex("589ba8dba54d75d22cd051cd") Caleb Saunders publicprivacy@icloud.com 3234236654  http://www.apple.com/shop/buy-ipad  fba10cd4-d7dd-4917-8085-f1dc2b3ca416 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-08 15:25:15.71451883 -0800 PST 2017-02-08 15:25:15.71451883 -0800 PST false 0}
+2017/02/08 15:25:45 500.45
+2017/02/08 15:26:34 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/08 15:26:34 token is token
+2017/02/08 15:26:34 Created customer with id  cus_A5FKmnee2vGI1H
+2017/02/08 15:26:34 Service Fee is: 50.045
+2017/02/08 15:26:35 &{fba10cd4-d7dd-4917-8085-f1dc2b3ca416 false 12511 1486596395 usd month 1 fba10cd4-d7dd-4917-8085-f1dc2b3ca416 Installment Plan map[] 0  false}
+2017/02/08 15:26:36 Saved order successfully:  fba10cd4-d7dd-4917-8085-f1dc2b3ca416
+2017/02/08 15:33:16 API is Listening on:  0.0.0.0:9090
+2017/02/08 15:35:10 starting post
+2017/02/08 15:35:10 no errors
+2017/02/08 15:35:10 About to save to database
+2017/02/08 15:35:10 &{ObjectIdHex("589bab2ea54d75d6fbe5a1ff") Caleb Saunders calebs 3234236654  http://www.apple.com/shop/buy-ipad  d638bf1d-f99f-4916-be48-6ba52c0de6fd 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-08 15:35:10.986798126 -0800 PST 2017-02-08 15:35:10.986798126 -0800 PST false 0}
+2017/02/08 15:35:22 87.54
+2017/02/08 15:35:55 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/08 15:35:55 token is token
+2017/02/08 15:35:56 Created customer with id  cus_A5FTuf2D4qNV6E
+2017/02/08 15:35:56 Service Fee is: 8.754000000000001
+2017/02/08 15:35:56 &{d638bf1d-f99f-4916-be48-6ba52c0de6fd false 2188 1486596956 usd month 1 d638bf1d-f99f-4916-be48-6ba52c0de6fd Installment Plan map[] 0  false}
+2017/02/08 15:35:57 Saved order successfully:  d638bf1d-f99f-4916-be48-6ba52c0de6fd
+2017/02/08 15:36:29 Caleb Saunders
+2017/02/08 15:36:50 starting post
+2017/02/08 15:36:50 no errors
+2017/02/08 15:36:50 About to save to database
+2017/02/08 15:36:50 &{ObjectIdHex("589bab92a54d75d6fbe5a202") Caleb Saunders calebsaunders@gmail.com 3234236654  http://www.apple.com/shop/buy-ipad  b23adbe1-6d70-4e03-a73f-07208162827d 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-08 15:36:50.500954974 -0800 PST 2017-02-08 15:36:50.500954974 -0800 PST false 0}
+2017/02/08 15:36:59 559.3
+2017/02/08 15:37:40 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/08 15:37:40 token is token
+2017/02/08 15:37:41 {"type":"card_error","message":"Your card was declined. Your request was in test mode, but used a non test card. For a list of valid test cards, visit: https://stripe.com/docs/testing.","code":"card_declined","request_id":"req_A5FV5yhw7HOYMv","status":402}
+2017/02/08 15:37:41 Error creating User {"type":"card_error","message":"Your card was declined. Your request was in test mode, but used a non test card. For a list of valid test cards, visit: https://stripe.com/docs/testing.","code":"card_declined","request_id":"req_A5FV5yhw7HOYMv","status":402}
+2017/02/08 15:38:22 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/08 15:38:22 token is token
+2017/02/08 15:38:22 {"type":"card_error","message":"Your card was declined. Your request was in test mode, but used a non test card. For a list of valid test cards, visit: https://stripe.com/docs/testing.","code":"card_declined","request_id":"req_A5FWKZYYYjdhgq","status":402}
+2017/02/08 15:38:22 Error creating User {"type":"card_error","message":"Your card was declined. Your request was in test mode, but used a non test card. For a list of valid test cards, visit: https://stripe.com/docs/testing.","code":"card_declined","request_id":"req_A5FWKZYYYjdhgq","status":402}
+2017/02/08 15:39:14 starting post
+2017/02/08 15:39:14 no errors
+2017/02/08 15:39:14 About to save to database
+2017/02/08 15:39:14 &{ObjectIdHex("589bac22a54d75d6fbe5a205") Caleb Saunders calebsaunders@gmail.com 3234236654  http://www.apple.com/shop/buy-ipad  a25032f4-c315-49bc-9d94-b45d9d182e0f 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-08 15:39:14.876437664 -0800 PST 2017-02-08 15:39:14.876437664 -0800 PST false 0}
+2017/02/08 15:39:23 100
+2017/02/08 15:40:49 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/08 15:40:49 token is token
+2017/02/08 15:40:50 Created customer with id  cus_A5FYkW9if3FEoa
+2017/02/08 15:40:50 Service Fee is: 10
+2017/02/08 15:40:50 &{a25032f4-c315-49bc-9d94-b45d9d182e0f false 2500 1486597250 usd month 1 a25032f4-c315-49bc-9d94-b45d9d182e0f Installment Plan map[] 0  false}
+2017/02/08 15:40:51 Saved order successfully:  a25032f4-c315-49bc-9d94-b45d9d182e0f
+2017/02/08 15:47:46 API is Listening on:  0.0.0.0:9090
+2017/02/08 15:48:09 starting post
+2017/02/08 15:48:09 no errors
+2017/02/08 15:48:09 About to save to database
+2017/02/08 15:48:09 &{ObjectIdHex("589bae39a54d75da862c4e85") caleb calebsaunders@gmail.com 3234236654 http://www.apple.com/shop/buy-ipad/ipad-pro  91979d7c-0a54-42ac-9c36-d925f61e2c79 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-08 15:48:09.511639093 -0800 PST 2017-02-08 15:48:09.511639093 -0800 PST false 0}
+2017/02/08 15:48:28 1234.56
+2017/02/08 15:49:09 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/08 15:49:09 token is token
+2017/02/08 15:49:10 Created customer with id  cus_A5FgISqi3D3uaN
+2017/02/08 15:49:10 Service Fee is: 12345.599999999999
+2017/02/08 15:49:10 &{91979d7c-0a54-42ac-9c36-d925f61e2c79 false 30864 1486597750 usd month 1 91979d7c-0a54-42ac-9c36-d925f61e2c79 Installment Plan map[] 0  false}
+2017/02/08 15:49:11 Saved order successfully:  91979d7c-0a54-42ac-9c36-d925f61e2c79

@@ -36,18 +36,18 @@ func (r *UserRepository) Update(user *models.User) error {
 	// partial update on MongoDB
 	err := r.C.Update(bson.M{"_id": user.Id},
 		bson.M{"$set": bson.M{
-			"first_name":    user.FirstName,
-			"last_name":     user.LastName,
-			"email":         user.Email,
-			"date_of_birth": user.DOB,
-			"address_1":     user.Address1,
-			"address_2":     user.Address2,
-			"city":          user.City,
-			"state":         user.State,
-			"zip_code":      user.ZipCode,
-			"phone_number":  user.PhoneNumber,
-			"updated_at":    time.Now(),
-			"customer":      user.StripeCustomer,
+			"first_name":      user.FirstName,
+			"last_name":       user.LastName,
+			"email":           user.Email,
+			"date_of_birth":   user.DOB,
+			"address_1":       user.Address1,
+			"address_2":       user.Address2,
+			"city":            user.City,
+			"state":           user.State,
+			"zip_code":        user.ZipCode,
+			"phone_number":    user.PhoneNumber,
+			"updated_at":      time.Now(),
+			"stripe_customer": user.StripeCustomer,
 		}})
 	return err
 }

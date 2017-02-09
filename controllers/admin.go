@@ -265,7 +265,7 @@ func AdminLogin(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	cookie := http.Cookie{Name: "Auth", Value: token, Expires: time.Now().Add(time.Hour * 24), HttpOnly: true}
+	cookie := http.Cookie{Name: "Auth", Path: "/", Value: token, Expires: time.Now().Add(time.Hour * 24), HttpOnly: true}
 	http.SetCookie(w, &cookie)
 	http.Redirect(w, r, "/admin", 302)
 
