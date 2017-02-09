@@ -26,7 +26,7 @@ func (p *Payload) Print() string {
 
 func postSlack(o *models.WebOrder) {
 
-	msg := fmt.Sprintf("New web application submission http://localhost:9090/admin/orders/" + o.UUID)
+	msg := fmt.Sprintf("New web application submission https://getglass.co/admin/orders/" + o.UUID)
 	log.Println(msg)
 	p := &Payload{msg}
 	jsonStr := p.Print()
