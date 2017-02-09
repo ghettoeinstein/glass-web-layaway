@@ -16,7 +16,7 @@ const (
 	passcode_length = 4
 )
 
-var admins = []string{"+13234236654"}
+var admins = []string{"+13234236654", "+17185219161"}
 
 var url = ".https://getglass.co/admin/orders/"
 
