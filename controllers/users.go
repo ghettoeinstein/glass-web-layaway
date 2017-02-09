@@ -42,7 +42,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	//	return
 	//
 	//}
-	//
+	//90
 	//result := <-custChan
 	//user.CustomerId = result
 	err = repo.CreateUser(user)
