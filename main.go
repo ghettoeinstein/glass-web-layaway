@@ -72,7 +72,7 @@ func main() {
 	router.HandleFunc("/offer/{id}/charge", controllers.ChargeNewCustomerForOffer).Methods("POST")
 	router.HandleFunc("/", rootHandler)
 	router.HandleFunc("/logout", userLogout).Methods("GET")
-	router.HandleFunc("/users/register", controllers.Register).Methods("POST")
+	//router.HandleFunc("/users/register", controllers.Register).Methods("POST")
 	router.HandleFunc("/submit-email", emailHandler).Methods("POST")
 
 	userRouter := mux.NewRouter()
