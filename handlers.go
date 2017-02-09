@@ -239,7 +239,7 @@ func termsHandler(w http.ResponseWriter, r *http.Request) {
 		common.DisplayAppError(w, err, "Error fetching order for UUID", 500)
 		return
 	}
-
+	taxes := webOrder.Price * 0.0875
 	serviceFee := webOrder.Price * 0.1
 	termsPayload := struct {
 		MonthlyPayment interface{}
@@ -249,7 +249,7 @@ func termsHandler(w http.ResponseWriter, r *http.Request) {
 	}{
 		money.Format(webOrder.Price / 4),
 		money.Format(webOrder.Price),
-		money.Format(webOrder.Price/4 + serviceFee),
+		money.Format(webOrder.Price/4 + serviceFee + taxes),
 		uuid["id"],
 	}
 	renderTemplate(w, "terms", "base", termsPayload)

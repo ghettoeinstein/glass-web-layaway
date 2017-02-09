@@ -1993,3 +1993,25 @@
 2017/02/08 15:49:10 Service Fee is: 12345.599999999999
 2017/02/08 15:49:10 &{91979d7c-0a54-42ac-9c36-d925f61e2c79 false 30864 1486597750 usd month 1 91979d7c-0a54-42ac-9c36-d925f61e2c79 Installment Plan map[] 0  false}
 2017/02/08 15:49:11 Saved order successfully:  91979d7c-0a54-42ac-9c36-d925f61e2c79
+2017/02/08 17:46:41 API is Listening on:  0.0.0.0:9090
+2017/02/08 17:46:54 0
+2017/02/08 21:17:09 API is Listening on:  0.0.0.0:9090
+2017/02/08 21:26:58 API is Listening on:  0.0.0.0:9090
+2017/02/08 21:27:18 starting post
+2017/02/08 21:27:18 no errors
+2017/02/08 21:27:18 About to save to database
+2017/02/08 21:27:18 &{ObjectIdHex("589bfdb6a54d75e8adf7183a") Caleb P saunders calebsaunders@gmail.com 3234236654 http://www.sephora.com/ruby-pink-gel-coat-P414001?skuId=1890474&amp;icid2=just%20arrived:p414001  e86be1f4-40ca-4899-a95c-8aa3291cc49b 0001-01-01 00:00:00 +0000 UTC undecided 0001-01-01 00:00:00 +0000 UTC 2017-02-08 21:27:18.067699894 -0800 PST 2017-02-08 21:27:18.067699894 -0800 PST false 0}
+2017/02/08 21:27:37 400
+2017/02/08 21:29:25 API is Listening on:  0.0.0.0:9090
+2017/02/08 21:31:30 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/08 21:31:30 token is token
+2017/02/08 21:31:31 {"type":"card_error","message":"Your card was declined. Your request was in test mode, but used a non test card. For a list of valid test cards, visit: https://stripe.com/docs/testing.","code":"card_declined","request_id":"req_A5LDCr5egedim0","status":402}
+2017/02/08 21:31:31 Error creating User {"type":"card_error","message":"Your card was declined. Your request was in test mode, but used a non test card. For a list of valid test cards, visit: https://stripe.com/docs/testing.","code":"card_declined","request_id":"req_A5LDCr5egedim0","status":402}
+2017/02/08 21:31:58 Stripe key is: sk_test_BjJ3sAvvwKwz570Qq3s6MzGL
+2017/02/08 21:31:58 token is token
+2017/02/08 21:31:58 Created customer with id  cus_A5LDINTrZTDnhX
+2017/02/08 21:31:58 Service Fee is: 40
+2017/02/08 21:31:59 &{e86be1f4-40ca-4899-a95c-8aa3291cc49b false 10000 1486618319 usd month 1 e86be1f4-40ca-4899-a95c-8aa3291cc49b Installment Plan map[] 0  false}
+2017/02/08 21:32:00 Saved order successfully:  e86be1f4-40ca-4899-a95c-8aa3291cc49b
+2017/02/08 22:02:30 Caleb P saunders
+2017/02/08 22:02:31 Caleb P saunders

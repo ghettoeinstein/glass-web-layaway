@@ -43,6 +43,8 @@ func sendConf(order *models.Order) error {
 		"THIRD_PAYMENT":         order.ThirdPaymentDue,
 		"GRAND_TOTAL":           money.Format(order.Total),
 		"SERVICE_FEE":           money.Format(order.ServiceFee),
+		"TAXES":                 money.Format(order.SalesTax),
+		"COMBINED_TOTAL":        money.Format(order.CombinedTotal),
 	})
 	_, err := client.MessagesSendTemplate(message, "new-receipt", nil)
 	if err != nil {

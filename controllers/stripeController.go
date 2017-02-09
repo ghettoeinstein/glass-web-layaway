@@ -197,6 +197,7 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 		URL:               webOrder.URL,
 		UUID:              webOrder.UUID,
 		CustomerId:        stripeCustomer.ID,
+		SalesTax:          webOrder.Price * 0.0875,
 		MonthlyPayment:    webOrder.Price / 4,
 		MonthlyPaymentFmt: money.Format(webOrder.Price / 4),
 		FirstPaymentDue:   time.Now().Add(time.Hour * 24 * 30).Format("01/02/06"),
@@ -213,7 +214,7 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 
 	// Create an invoice for the Glas Service Fee(10%) of the total cost of goods  for the user.
 
-	invoiceItem, err := invoiceitem.New(&stripe.InvoiceItemParams{
+	invoiceItem1, err := invoiceitem.New(&stripe.InvoiceItemParams{
 		Customer: user.StripeCustomer.CustomerId,
 		Amount:   int64(int(order.ServiceFee * 100)),
 		Currency: "usd",
@@ -225,7 +226,19 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	order.InvoiceItem = invoiceItem
+	invoiceItem2, err := invoiceitem.New(&stripe.InvoiceItemParams{
+		Customer: user.StripeCustomer.CustomerId,
+		Amount:   int64(int(order.SalesTax * 100)),
+		Currency: "usd",
+		Desc:     "One-time taxes(8.75%) for plan: " + id,
+	})
+	if err != nil {
+		log.Println("Error creating invoice item")
+		http.Error(w, err.Error(), 500)
+		return
+	}
+
+	order.InvoiceItems = append(order.InvoiceItems, invoiceItem1, invoiceItem2)
 
 	p, err := plan.New(&stripe.PlanParams{
 		Amount:   uint64(int(order.MonthlyPayment * 100)),
