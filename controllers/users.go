@@ -44,7 +44,10 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	//
 	//result := <-custChan
 	//user.CustomerId = result
-	repo.CreateUser(user)
+	err = repo.CreateUser(user)
+	if err != nil {
+		log.Fatalln(err)
+	}
 	// Clean-up the hashpassword to eliminate it from response JSON
 	user.HashPassword = nil
 

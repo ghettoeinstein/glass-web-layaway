@@ -215,8 +215,6 @@ func saveOrder(order *models.WebOrder) (err error) {
 func UserFromRequest(r *http.Request) (user *models.User, err error) {
 	ctx := r.Context()
 
-	log.Println(ctx)
-	log.Println("Attempting to get email jky")
 	email := ctx.Value(common.EmailKey).(string)
 
 	context := controllers.NewContext()
