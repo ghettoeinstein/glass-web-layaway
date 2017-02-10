@@ -1,5 +1,5 @@
 {
-  "Server"      : "0.0.0.0:9000",
+  "Server"      : "127.0.0.1:9000",
   "MongoDBHost" : "127.0.0.1",
   "MongoDBUser"	: "",
   "MongoDBPwd"	: "",
