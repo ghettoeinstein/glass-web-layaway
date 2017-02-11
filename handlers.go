@@ -233,11 +233,22 @@ func profileHandler(w http.ResponseWriter, r *http.Request) {
 	user, err := UserFromRequest(r)
 	if err != nil {
 		log.Println("No user found for email")
+		profilePayload := struct {
+			User           *models.User
+			PaymentMethods []*stripe.PaymentSource
+		}{
+			user,
+			nil,
+		}
+
+		renderTemplate(w, "profile", "base", profilePayload)
+		return
 	}
 
 	cust, err := customer.Get(user.StripeCustomer.CustomerId, nil)
 	if err != nil {
-		log.Println("Error fetching customer data")
+		panic(err)
+		return
 	}
 	log.Println(cust)
 	log.Println(user.FullName)
