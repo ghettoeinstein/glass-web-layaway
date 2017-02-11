@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 )
 
 const (
@@ -24,31 +25,9 @@ func (p *Payload) Print() string {
 		p.Msg)
 }
 
-func postSlack(o *models.WebOrder) {
-
-	msg := fmt.Sprintf("New web application submission https://getglass.co/admin/orders/" + o.UUID)
-	log.Println(msg)
-	p := &Payload{msg}
-	jsonStr := p.Print()
-	log.Println(jsonStr)
-
-	req, err := http.NewRequest("POST", TestWebHookURL, bytes.NewBuffer([]byte(jsonStr)))
-	if err != nil {
-		log.Println(err)
-	}
-	req.Header.Set("Content-Type", "application/json")
-
-	client := &http.Client{}
-	_, err = client.Do(req)
-	if err != nil {
-		log.Println(err)
-	}
-
-}
-
 func postOrderToSlack(o *models.WebOrder) {
-
-	msg := fmt.Sprintf("New web application submission by  https://getglass.co/admin/orders/" + o.UUID)
+	url := os.Getenv("GLASS_URL")
+	msg := fmt.Sprintf("New web application submission from:" + o.FullName + " https://" + url + "/admin/orders/" + o.UUID)
 	log.Println(msg)
 	p := &Payload{msg}
 	jsonStr := p.Print()

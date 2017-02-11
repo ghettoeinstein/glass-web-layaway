@@ -2,8 +2,10 @@ package main
 
 import (
 	"./models"
+	"fmt"
 	"github.com/subosito/twilio"
 	"log"
+	"os"
 )
 
 var (
@@ -18,11 +20,12 @@ const (
 
 var admins = []string{"+13234236654", "+17185219161"}
 
-var url = ".https://getglass.co/admin/orders/"
+var url = os.Getenv("GLASS_URL")
+var order_url = ".https://" + url + "getglass.co/admin/orders/"
 
 func textOrderToAdmins(o *models.WebOrder) {
 	for _, admin := range admins {
-		sendMessage(admin, url+o.UUID+".")
+		sendMessage(admin, fmt.Sprintf("New web application submission from:"+o.FullName+" .https://"+url+"/admin/orders/"+o.UUID+"."))
 	}
 }
 

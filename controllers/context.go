@@ -1,9 +1,9 @@
 package controllers
 
 import (
-	"gopkg.in/mgo.v2"
-
 	"../common"
+	"gopkg.in/mgo.v2"
+	"os"
 )
 
 // Struct used for maintaining HTTP Request Context
@@ -18,7 +18,7 @@ func (c *Context) Close() {
 
 // Returns mgo.collection for the given name
 func (c *Context) DbCollection(name string) *mgo.Collection {
-	return c.MongoSession.DB(common.AppConfig.Database).C(name)
+	return c.MongoSession.DB(os.Getenv("GLASS_DB")).C(name)
 }
 
 // Create a new Context object for each HTTP request

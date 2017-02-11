@@ -246,9 +246,11 @@ func AdminLogin(w http.ResponseWriter, r *http.Request) {
 	col := context.DbCollection("users")
 	repo := &data.UserRepository{C: col}
 	// Authenticate the login user
+
+	log.Println(loginUser)
 	user, err := repo.Login(loginUser)
 	if err != nil {
-		log.Println(err)
+		log.Println("Error logging in: ", err)
 		http.Redirect(w, r, "/team/login", 301)
 
 		return

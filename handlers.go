@@ -386,7 +386,7 @@ func termsHandler(w http.ResponseWriter, r *http.Request) {
 		money.Format(webOrder.Price),
 		money.Format(webOrder.Price/4 + serviceFee + taxes),
 		uuid["id"],
-		os.Getenv("STRIPE_PUB_KEY")
+		os.Getenv("STRIPE_PUB_KEY"),
 	}
 
 	renderTemplate(w, "terms", "base", termsPayload)
@@ -443,12 +443,14 @@ func userTermsHandler(w http.ResponseWriter, r *http.Request) {
 		FirstPayment   interface{}
 		UUID           interface{}
 		PaymentMethods []*stripe.PaymentSource
+		PublishableKey string
 	}{
 		money.Format(webOrder.Price / 4),
 		money.Format(webOrder.Price),
 		money.Format(webOrder.Price/4 + serviceFee + taxes),
 		uuid["id"],
 		cust.Sources.Values,
+		os.Getenv("STRIPE_PUB_KEY"),
 	}
 
 	renderTemplate(w, "terms-auth", "base", termsAuthPayload)
