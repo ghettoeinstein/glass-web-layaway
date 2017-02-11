@@ -380,11 +380,13 @@ func termsHandler(w http.ResponseWriter, r *http.Request) {
 		Total          interface{}
 		FirstPayment   interface{}
 		UUID           interface{}
+		PublishableKey string
 	}{
 		money.Format(webOrder.Price / 4),
 		money.Format(webOrder.Price),
 		money.Format(webOrder.Price/4 + serviceFee + taxes),
 		uuid["id"],
+		os.Getenv("STRIPE_PUB_KEY")
 	}
 
 	renderTemplate(w, "terms", "base", termsPayload)
