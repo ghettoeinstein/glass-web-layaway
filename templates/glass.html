@@ -56,12 +56,13 @@
 		min-width:100%;
 	}
 	#form_div {
+		background-color:#fff;
 		padding-bottom: 10px;
-		min-height: 10em;
+		max-height: 32em;
 		position:relative;
-		max-width:50%;
-		margin-top:6em;
-		margin-bottom:130px;
+		max-width:40%;
+		margin-top:5em;
+		
 		border-radius:8px; 
 		border:solid #E3E3E3 1.5px;
 		margin-left:auto;
@@ -86,16 +87,48 @@
 		position:relative;
 	}
 
+
+
 	@media only screen and (max-width: 500px){
 		#form_div {
 			max-width: 90%;
+			max-height: 90%;
+			margin-bottom: 15px;
+
 		}
 	}
 
-	p a {
-		color:gray;
+	.form-control {
+		border-radius: 10px;
+	}
+	
+
+	body {
+
+  background-repeat: no-repeat !important;
+  background-position: 50% 50% !important;
+  background-attachment: fixed !important;
+  background-color: transparent !important;
+  background-size: cover !important;
+
+		background-size:  cover;
+		background: url('../assets/terms-bg.svg');
 	}
 
+
+#footer-nav {
+	color:white;
+	background: none;
+}
+
+nav a {
+	color:white;
+}
+
+
+.error {
+    color:red;
+}
 </style>
 {{end}}
 {{define "body"}}
@@ -112,39 +145,41 @@
 			</div>
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
-					<form class="form-horizontal" action="/glass" method="POST"  enctype="application/x-www-
+					<form class="form-horizontal" id="application" action="/glass" method="POST" onsubmit="validateForm()" enctype="application/x-www-
  form-urlencoded">
 						<fieldset>
-							<!-- Full Name input-->
+							<!-- First Name input-->
 							<div class="form-group">
-								<div class="col-md-12 ">
-									<input id="fullName" name="fullname" type="text" placeholder="Enter Full Name" class="form-control input-md" required="true">
+								<div class="col-md-6 ">
+									<input id="first-name" name="first-name" type="text" placeholder="First Name" class="form-control input-md" >
+								</div>
+					
+
+							<!-- Last Name input-->
+				
+								<div class="col-md-6 ">
+									<input id="last-name" name="last-name" type="text" placeholder="Last Name" class="form-control input-md" >
 								</div>
 							</div>
-							<!-- Phone Number input-->
-							<div class="form-group">
-								<div class="col-md-12  ">
-									<input id="phoneNumber" name="phoneNumber" type="text" placeholder="Enter Mobile Number" class="form-control input-md" required="true">
-								</div>
-							</div>
+							
 							<!-- Email Address input-->
 							<div class="form-group">
 								<div class="col-md-12 ">
-									<input id="email" name="email" type="text" placeholder="Enter Email" class="form-control input-md" required="true">
+									<input id="email" name="email" type="text" placeholder="Email Address" class="form-control input-md" >
 								</div>
 							</div>
 							<!-- URL input-->
 							<div class="form-group">
 								<div class="col-md-12   ">
-									<input id="url" name="url" type="text" placeholder="insert product URL or wishlist" class="form-control input-md" required="true">
-									<small>e.g.: <em>http://www.apple.com/shop/buy-ipad/ipad-pro</em></small>
+									<input id="url" name="url" type="text" placeholder="Paste product URL or wishlist here" class="form-control input-md" >
+								
 								</div>
 							</div>
 							<!-- Submit Button -->
 							<div class="form-group">
 								<div class="col-md-8 col-md-offset-2 text-center ">
 									<button id="submit" name="submit" class="btn  btn-lg
-									" style="width:60%;text-transform: none">Submit!</button>
+									" style="width:60%;text-transform: none">Continue</button>
 								</div>
 							</div>
 						</fieldset>
@@ -153,10 +188,10 @@
 			</div>
 		</div>
 	</div>
-	<nav class="navbar navbar-default  navbar-fixed-bottom" role="navigation">
-		<div class="container text-center" style="color:gray">
+	<nav class="navbar navbar-default  navbar-fixed-bottom" role="navigation" id="footer-nav">
+		<div class="container text-center" style="">
 			<p class="navbar-text col-md-12 col-sm-12 col-xs-12" style=" margin:0px;"> <a href="/tos">Terms of Service </a><span class="seperator">|</span>  <a href="/privacy-policy">Privacy Policy </a> <span class="seperator">|</span> <a class="" href="mailto:support@getglass.co"> Customer Service </a></p>
-			<p class="navbar-text col-md-12 col-sm-12 col-xs-12" style="color:#2C01D5">&copy; Glass Financial, Inc. 2017 </p>
+			<p class="navbar-text col-md-12 col-sm-12 col-xs-12" style="color:#fff">&copy; Glass Financial, Inc. 2017 </p>
 
 		</div>
 	</nav>
@@ -164,14 +199,51 @@
 
 <script>
 
-	$(function(){ 
-			 // $(document).ready shorthand
-			 $('#fullName').focus();
-			});
+		$(document).ready(function() {
+            //option A
+            $("#application").submit(function(e){
+
+            	e.preventDefault(e);
+            	submitFormWithAjax(e);
+            });}
+            );
+
+  //$("form").submit(function(e){
+   //     e.preventDefault();
+   //});
 
 
+function validateForm() {
+
+    var fname = document.forms["application"]["first-name"].value;
+    if (fname == "") {
+        alert("Please supply your first name before submitting");   
+    }
+
+     var lname = document.forms["application"]["last-name"].value;
+    if (fname == "") {
+        alert(" Please supply your last name before submitting.");   
+    }
+
+      var email = document.forms["application"]["email"].value;
+    if (fname == "") {
+        alert("Please supply your email address before submitting");   
+    }
+
+     var lname = document.forms["application"]["last-name"].value;
+    if (fname == "") {
+        alert(" Please supply your last name before submitting.");   
+    }
 
 
-		</script>
+    var url = document.forms["application"]["url"].value;
+     if (url == "") {
+        alert("URL field must not be empty.");
+        return false;
+    }
 
+
+}
+
+</script>
 		{{end}}

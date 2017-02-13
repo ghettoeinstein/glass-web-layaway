@@ -41,9 +41,9 @@ func GETVerifySMSLogin(w http.ResponseWriter, r *http.Request) {
 	otpStore[phone] = otp
 
 	if _, _, err := sendMessage(phone, "Your Glass verification code is: "+otp.Passcode); err != nil {
-		log.Fatal("Error sending msg: ", err)
+		Error.Fatalln("Error sending msg: ", err)
 	}
-	log.Println("Sent message successfully to handset: ", phone)
+	Info.Println("Sent message successfully to handset: ", phone)
 	renderTemplate(w, "sms-verify", "base", phone)
 }
 
@@ -52,7 +52,7 @@ func POSTVerifySMSLogin(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	passcode := r.FormValue("passcode")
 	phone := r.FormValue("phone")
-	log.Println("Starting login for:  ", phone)
+	Info.Println("Starting login for:  ", phone)
 
 	ok := verifyOTP(passcode, phone)
 	if !ok {
@@ -71,10 +71,10 @@ func POSTVerifySMSLogin(w http.ResponseWriter, r *http.Request) {
 		}
 		token, err := common.GenerateJWT(user.Email, "member")
 		if err != nil {
-			log.Println("Error creating JWT for %s %s", user.Email, err)
+			Error.Println("Error creating JWT for %s %s", user.Email, err)
 			http.Redirect(w, r, "/login", 500)
 		}
-		log.Println("Generating cookie for: ", user.Email)
+		Info.Println("Generating cookie for: ", user.Email)
 		cookie := http.Cookie{Name: "Auth", Value: token, Path: "/user/", Expires: time.Now().Add(time.Hour * 24), HttpOnly: true}
 		http.SetCookie(w, &cookie)
 
@@ -99,17 +99,19 @@ func userGlassHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func postGlassHandler(w http.ResponseWriter, r *http.Request) {
-	log.Println("starting post")
+	Trace.Println("Starting post glass handler, for: ", r.RemoteAddr)
 	r.ParseMultipartForm(20 << 32)
 	err := r.ParseForm()
 	if err != nil {
-		log.Fatal("Error parsing form")
+		Warning.Fatal("Error parsing form")
+		return
 	}
-	log.Println("no errors")
+	Trace.Println("No errors parsing post request for: ", r.RemoteAddr)
 
-	fullname := r.Form.Get("fullname")
+	fullname := r.Form.Get("first-name")
+	lastname := r.Form.Get("last-name")
+
 	email := r.Form.Get("email")
-	phoneNumber := r.Form.Get("phoneNumber")
 
 	url := r.Form.Get("url")
 	url = template.HTMLEscapeString(url)
@@ -117,17 +119,17 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 	uuid := random.GenerateUUID()
 
 	order := &models.WebOrder{
-		FullName:    fullname,
-		UUID:        uuid,
-		Email:       email,
-		PhoneNumber: phoneNumber,
-		URL:         url,
-		Decision:    "undecided",
+		FirstName: fullname,
+		LastName:  lastname,
+		UUID:      uuid,
+		Email:     email,
+		URL:       url,
+		Decision:  "undecided",
 	}
 
 	err = saveOrder(order)
 	if err != nil {
-		log.Println(err)
+		Error.Println(err)
 		renderTemplate(w, "glass", "base", err.Error())
 		return
 	}
@@ -146,40 +148,43 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func userPostGlassHandler(w http.ResponseWriter, r *http.Request) {
-	log.Println("starting post")
+	Trace.Println("Starting userPostGlassHandler: ", r.RemoteAddr)
 	r.ParseMultipartForm(20 << 32)
 	err := r.ParseForm()
 	if err != nil {
-		log.Fatal("Error parsing form")
+		Error.Fatal("Error parsing form")
 	}
-	log.Println("no errors")
+	Info.Println("no errors")
 
 	user, err := UserFromRequest(r)
 	if err != nil {
-		log.Println("No user found for email")
+		Error.Println("No user found for email")
 	}
 
-	fullname := user.FullName
+	// First store the variable, then escape it.
+	firstname := user.FirstName
+	firstname = template.HTMLEscapeString(firstname)
+	lastname := user.LastName
+	lastname = template.HTMLEscapeString(lastname)
 	email := user.Email
-	phoneNumber := user.PhoneNumber
-
+	email = template.HTMLEscapeString(email)
 	url := r.Form.Get("url")
 	url = template.HTMLEscapeString(url)
 
 	uuid := random.GenerateUUID()
 
 	order := &models.WebOrder{
-		FullName:    fullname,
-		UUID:        uuid,
-		Email:       email,
-		PhoneNumber: phoneNumber,
-		URL:         url,
-		Decision:    "undecided",
+		FirstName: firstname,
+		LastName:  lastname,
+		UUID:      uuid,
+		Email:     email,
+		URL:       url,
+		Decision:  "undecided",
 	}
 
 	err = saveOrder(order)
 	if err != nil {
-		log.Println(err)
+		Error.Println(err)
 		renderTemplate(w, "glass", "base", err.Error())
 		return
 	}
@@ -204,9 +209,9 @@ func saveOrder(order *models.WebOrder) (err error) {
 	c := context.DbCollection("web_orders")
 	repo := &data.WebOrderRepository{c}
 
-	log.Println("About to save to database")
+	Trace.Printf("About to save web order %s to database", order.UUID)
 	if err = repo.NewWebOrder(order); err != nil {
-		log.Fatalf(err.Error())
+		Error.Fatalf(err.Error())
 	}
 
 	return nil
@@ -232,7 +237,7 @@ func profileHandler(w http.ResponseWriter, r *http.Request) {
 
 	user, err := UserFromRequest(r)
 	if err != nil {
-		log.Println("No user found for email")
+		Error.Println("No user found for email")
 		profilePayload := struct {
 			User           *models.User
 			PaymentMethods []*stripe.PaymentSource
@@ -250,7 +255,7 @@ func profileHandler(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 		return
 	}
-	log.Println(cust)
+	Trace.Println(cust)
 	log.Println(user.FullName)
 
 	w.Header().Set("Cache-Control", "no-cache,no-store, must-revalidate")
@@ -315,7 +320,7 @@ func historyHandler(w http.ResponseWriter, r *http.Request) {
 
 	cust, err := customer.Get(user.StripeCustomer.CustomerId, nil)
 	if err != nil {
-		log.Println("Error fetching customer data")
+		Error.Println("Error fetching customer data")
 	}
 	log.Println(cust)
 	log.Println(user.FullName)
@@ -426,13 +431,13 @@ func userTermsHandler(w http.ResponseWriter, r *http.Request) {
 	userRepo := &data.UserRepository{c}
 	user, err := userRepo.GetByUsername(email)
 	if err != nil {
-		log.Println("No user found for email")
+		Error.Println("No user found for email")
 		http.Error(w, err.Error(), 500)
 	}
 
 	cust, err := customer.Get(user.StripeCustomer.CustomerId, nil)
 	if err != nil {
-		log.Println("Error fetching customer data: ", err.Error())
+		Error.Println("Error fetching customer data: ", err.Error())
 		http.Redirect(w, r, "/user/home", 307)
 		return
 	}
@@ -472,7 +477,7 @@ func adminHandler(w http.ResponseWriter, r *http.Request) {
 	web_orders, err := repo.GetNewOrders()
 
 	if err != nil {
-		log.Println("DB Error looking up web orders :", err)
+		Error.Println("DB Error looking up web orders :", err)
 		renderTemplate(w, "orders", "base", nil)
 		return
 	}
@@ -530,7 +535,7 @@ func decisionHandler(w http.ResponseWriter, r *http.Request) {
 
 	webOrder, err := repo.GetByUUID(uuid["id"])
 	if err != nil {
-		log.Println(err)
+		Error.Println(err)
 		common.DisplayAppError(w, err, "Error getting result", 500)
 		return
 	}
@@ -557,7 +562,7 @@ func userDecisionHandler(w http.ResponseWriter, r *http.Request) {
 
 	webOrder, err := repo.GetByUUID(uuid["id"])
 	if err != nil {
-		log.Println(err)
+		Error.Println(err)
 		common.DisplayAppError(w, err, "Error getting result", 500)
 		return
 	}
@@ -611,10 +616,10 @@ func emailHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if err := AddSubscriberToMailChimp(email); err != nil {
-		log.Println("Error adding email", email, "to mailchimp: ", err)
+		Error.Println("Error adding email", email, "to mailchimp: ", err)
 	}
 
-	log.Println("Email is: ", email)
+	Info.Println("Email is: ", email)
 	payload := struct {
 		Result string `json:"result"`
 	}{

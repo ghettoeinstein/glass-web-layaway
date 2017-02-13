@@ -136,10 +136,19 @@
 						
 						<!-- FullName input-->
 						<div class="form-group">
-							<label class="col-md-4 control-label" for="full-name">Full Name</label>  
+							<label class="col-md-4 control-label" for="full-name">FirstName</label>  
 							<div class="col-md-4">
-								<input id="full-name" name="full-name" type="text" value="{{.FullName}}" class="form-control input-md" required="">
+								<input id="full-name" name="full-name" type="text" value="{{.FirstName}}" class="form-control input-md" required="">
 								<span class="help-block">The submitted full name</span>  
+							</div>
+						</div>
+
+						<!-- Phone input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="phone">LastName</label>  
+							<div class="col-md-4">
+								<input id="phone" name="phone" type="text" value="{{.LastName}}" class="form-control input-md" required="">
+								<span class="help-block">The submitted phone number.</span>  
 							</div>
 						</div>
 
@@ -152,14 +161,7 @@
 							</div>
 						</div>
 
-						<!-- Phone input-->
-						<div class="form-group">
-							<label class="col-md-4 control-label" for="phone">Phone</label>  
-							<div class="col-md-4">
-								<input id="phone" name="phone" type="text" value="{{.PhoneNumber}}" class="form-control input-md" required="">
-								<span class="help-block">The submitted phone number.</span>  
-							</div>
-						</div>
+						
 
 						<!-- Price input-->
 						<div class="form-group">

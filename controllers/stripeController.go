@@ -23,9 +23,9 @@ import (
 func NewUserFromWebOrder(o *models.WebOrder) (*models.User, error) {
 
 	user := &models.User{
-		Email:       o.Email,
-		FullName:    o.FullName,
-		PhoneNumber: o.PhoneNumber,
+		Email:     o.Email,
+		FirstName: o.FirstName,
+		LastName:  o.LastName,
 	}
 
 	context := NewContext()

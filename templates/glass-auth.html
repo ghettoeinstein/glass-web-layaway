@@ -95,7 +95,9 @@
 	p a {
 		color:gray;
 	}
-
+	.error {
+		color:red;
+	}
 </style>
 {{end}}
 {{define "body"}}
@@ -108,58 +110,58 @@
 		<div class="row" style="position: relative;top:-50px">
 			<div class="col-md-10 col-md-offset-1 text-center" >
 				<h2 class="title"> Glass </h2>
-		        <p class="lead">Simple monthly installments, on anything</p>
+				<p class="lead">Simple monthly installments, on anything</p>
 			</div>
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
 					<form class="form-horizontal" action="/user/glass" method="POST"  enctype="application/x-www-
- form-urlencoded">
-						<fieldset>
-							<!-- Full Name input-->
-							<div class="form-group">
-								<div class="col-md-12 ">
-									<input id="fullName" name="fullname" type="text" placeholder="Enter Full Name" class="form-control input-md" required="true">
-								</div>
+					form-urlencoded">
+					<fieldset>
+						<!-- Full Name input-->
+						<div class="form-group">
+							<div class="col-md-12 ">
+								<input id="fullName" name="fullname" type="text" placeholder="Enter Full Name" class="form-control input-md" required="true">
 							</div>
-							<!-- Phone Number input-->
-							<div class="form-group">
-								<div class="col-md-12  ">
-									<input id="phoneNumber" name="phoneNumber" type="text" placeholder="Enter Mobile Number" class="form-control input-md" required="true">
-								</div>
+						</div>
+						<!-- Phone Number input-->
+						<div class="form-group">
+							<div class="col-md-12  ">
+								<input id="phoneNumber" name="phoneNumber" type="text" placeholder="Enter Mobile Number" class="form-control input-md" required="true">
 							</div>
-							<!-- Email Address input-->
-							<div class="form-group">
-								<div class="col-md-12 ">
-									<input id="email" name="email" type="text" placeholder="Enter Email" class="form-control input-md" required="true">
-								</div>
+						</div>
+						<!-- Email Address input-->
+						<div class="form-group">
+							<div class="col-md-12 ">
+								<input id="email" name="email" type="text" placeholder="Enter Email" class="form-control input-md" required="true">
 							</div>
-							<!-- URL input-->
-							<div class="form-group">
-								<div class="col-md-12   ">
-									<input id="url" name="url" type="text" placeholder="insert product URL or wishlist" class="form-control input-md" required="true">
-									<small>e.g.: <em>http://www.apple.com/shop/buy-ipad/ipad-pro</em></small>
-								</div>
+						</div>
+						<!-- URL input-->
+						<div class="form-group">
+							<div class="col-md-12   ">
+								<input id="url" name="url" type="text" placeholder="insert product URL or wishlist" class="form-control input-md" required="true">
+								<small>e.g.: <em>http://www.apple.com/shop/buy-ipad/ipad-pro</em></small>
 							</div>
-							<!-- Submit Button -->
-							<div class="form-group">
-								<div class="col-md-8 col-md-offset-2 text-center ">
-									<button id="submit" name="submit" class="btn  btn-lg
-									" style="width:60%;text-transform: none">Submit!</button>
-								</div>
+						</div>
+						<!-- Submit Button -->
+						<div class="form-group">
+							<div class="col-md-8 col-md-offset-2 text-center ">
+								<button id="submit" name="submit" class="btn  btn-lg
+								" style="width:60%;text-transform: none">Submit!</button>
 							</div>
-						</fieldset>
-					</form>
-				</div>
+						</div>
+					</fieldset>
+				</form>
 			</div>
 		</div>
 	</div>
-	<nav class="navbar navbar-default  navbar-fixed-bottom" role="navigation">
-		<div class="container text-center" style="color:gray">
-			<p class="navbar-text col-md-12 col-sm-12 col-xs-12" style=" margin:0px;"> <a href="/tos">Terms of Service </a><span class="seperator">|</span>  <a href="/privacy-policy">Privacy Policy </a> <span class="seperator">|</span> <a class="" href="mailto:support@getglass.co"> Customer Service </a></p>
-			<p class="navbar-text col-md-12 col-sm-12 col-xs-12" style="color:#2C01D5">&copy; Glass Financial, Inc. 2017 </p>
+</div>
+<nav class="navbar navbar-default  navbar-fixed-bottom" role="navigation">
+	<div class="container text-center" style="color:gray">
+		<p class="navbar-text col-md-12 col-sm-12 col-xs-12" style=" margin:0px;"> <a href="/tos">Terms of Service </a><span class="seperator">|</span>  <a href="/privacy-policy">Privacy Policy </a> <span class="seperator">|</span> <a class="" href="mailto:support@getglass.co"> Customer Service </a></p>
+		<p class="navbar-text col-md-12 col-sm-12 col-xs-12" style="color:#2C01D5">&copy; Glass Financial, Inc. 2017 </p>
 
-		</div>
-	</nav>
+	</div>
+</nav>
 </div>
 
 <script>

@@ -579,14 +579,14 @@
 
 	#about-subscribe-section {
 		background-position: url('../../assets/about-section.png')
-		min-height: 75%;
+		min-height: 100%;
 		color:white;
 
 	}
 
 
 	#subscribe-section {
-		min-height: 75%;
+		min-height: 100%;
 		color:white;
 
 	}
@@ -608,7 +608,7 @@
 
 		/* Create the parallax scrolling effect */
 		background-attachment: fixed;
-		background-position: center;
+
 		background-repeat: no-repeat;
 		background-size: cover;
 		padding-top:200px;
@@ -626,7 +626,7 @@
 
 		/* Create the parallax scrolling effect */
 		background-attachment: fixed;
-		background-position: center;
+		
 		background-repeat: no-repeat;
 		background-size: cover;
 		padding-top:200px;

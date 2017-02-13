@@ -2,7 +2,7 @@ package main
 
 import (
 	"html/template"
-	"log"
+
 	"net/http"
 )
 
@@ -48,7 +48,7 @@ func renderTemplate(w http.ResponseWriter, name string, template string, viewMod
 	}
 	err := tmpl.ExecuteTemplate(w, template, viewModel)
 	if err != nil {
-		log.Fatal(err.Error())
+		Error.Fatal(err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }

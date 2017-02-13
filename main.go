@@ -10,11 +10,19 @@ import (
 
 	"github.com/urfave/negroni"
 	"html/template"
+
 	"log"
 	"math/rand"
 	"net/http"
-
 	"time"
+)
+
+// Variables for different levels of logging.
+var (
+	Trace   *log.Logger // Just about Anything
+	Info    *log.Logger // Important information
+	Warning *log.Logger // Be concerned
+	Error   *log.Logger
 )
 
 func init() {
@@ -37,6 +45,7 @@ func main() {
 			log.Printf("Trapped panic: %s (%T) \n", err, err)
 		}
 	}()
+
 	go controllers.InitTemplates()
 
 	f, err := os.OpenFile("logs/glassLogs.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
@@ -46,6 +55,22 @@ func main() {
 	defer f.Close()
 
 	log.SetOutput(f)
+	Trace = log.New(f,
+		"[TRACE] ",
+		log.Ldate|log.Ltime|log.Lshortfile)
+
+	Info = log.New(f,
+		"[INFO] ",
+		log.Ldate|log.Ltime|log.Lshortfile)
+
+	Error = log.New(f,
+		"[ERROR] ",
+		log.Ldate|log.Ltime|log.Lshortfile)
+
+	Warning = log.New(f,
+		"[WARNING] ",
+		log.Ldate|log.Ltime|log.Lshortfile)
+
 	//http.HandleFunc("/", rootHandler)
 
 	router := mux.NewRouter()
@@ -131,7 +156,7 @@ func main() {
 		Handler: n,
 	}
 
-	log.Println("API is Listening on: ", common.AppConfig.Server)
+	Info.Println("API is Listening on: ", common.AppConfig.Server)
 	log.Fatal(server.ListenAndServe())
 
 }

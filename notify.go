@@ -4,7 +4,7 @@ import (
 	"./models"
 	"bytes"
 	"fmt"
-	"log"
+
 	"net/http"
 	"os"
 )
@@ -26,23 +26,29 @@ func (p *Payload) Print() string {
 }
 
 func postOrderToSlack(o *models.WebOrder) {
+
+	env := os.Getenv("DEVELOPMENT")
+	if env == "1" {
+		Trace.Println(" Skipping Slack, due to being in development environment")
+		return
+	}
+
 	url := os.Getenv("GLASS_URL")
-	msg := fmt.Sprintf("New web application submission from:" + o.FullName + " https://" + url + "/admin/orders/" + o.UUID)
-	log.Println(msg)
+	msg := fmt.Sprintf("New web application submission from:" + o.FirstName + " " + o.LastName + " https://" + url + "/admin/orders/" + o.UUID)
+	Info.Println(msg)
 	p := &Payload{msg}
 	jsonStr := p.Print()
-	log.Println(jsonStr)
 
 	req, err := http.NewRequest("POST", TestWebHookURL, bytes.NewBuffer([]byte(jsonStr)))
 	if err != nil {
-		log.Println(err)
+		Error.Println(err)
 	}
 	req.Header.Set("Content-Type", "application/json")
 
 	client := &http.Client{}
 	_, err = client.Do(req)
 	if err != nil {
-		log.Println(err)
+		Error.Println(err)
 	}
 
 }

@@ -87,7 +87,7 @@ code {
       <tbody>
        {{range .}}
        <tr>
-        <td><a href="/admin/orders/{{.UUID}}">{{.FullName}}</a></td>
+        <td><a href="/admin/orders/{{.UUID}}">{{.FirstName}}</a></td>
         <td><a href="{{.URL}}">{{.URL}}</a></td>
         <td>{{.CreatedAt}}</td>
         <td><a id="delete" href="/admin/orders/{{.UUID}}/delete">Delete Order</a></td>

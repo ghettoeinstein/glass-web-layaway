@@ -7,7 +7,6 @@ import (
 
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
-	"log"
 )
 
 //  Putting this here for now. Break this out later.
@@ -21,7 +20,6 @@ func (r *WebOrderRepository) NewWebOrder(order *models.WebOrder) (err error) {
 	order.CreatedAt = now
 	order.UpdatedAt = now
 	err = r.C.Insert(&order)
-	log.Println(order)
 	return
 }
 
@@ -42,7 +40,8 @@ func (r *WebOrderRepository) UpdateOrder(wo *models.WebOrder) (err error) {
 
 	err = r.C.Update(bson.M{"_id": wo.Id},
 		bson.M{"$set": bson.M{
-			"full_name":    wo.FullName,
+			"first_name":   wo.FirstName,
+			"last_name":    wo.LastName,
 			"email":        wo.Email,
 			"phone_number": wo.PhoneNumber,
 			"url":          wo.URL,

@@ -4,7 +4,7 @@ import (
 	"./models"
 	"fmt"
 	"github.com/subosito/twilio"
-	"log"
+
 	"os"
 )
 
@@ -25,11 +25,17 @@ var order_url = ".https://" + url + "getglass.co/admin/orders/"
 
 func textOrderToAdmins(o *models.WebOrder) {
 	for _, admin := range admins {
-		sendMessage(admin, fmt.Sprintf("New web application submission from:"+o.FullName+" .https://"+url+"/admin/orders/"+o.UUID+"."))
+		sendMessage(admin, fmt.Sprintf("New web application submission from:"+o.FirstName+"  "+o.LastName+".https://"+url+"/admin/orders/"+o.UUID+"."))
 	}
 }
 
 func sendMessage(to, msg string) (*twilio.Message, bool, error) {
+	env := os.Getenv("DEVELOPMENT")
+	if env == "1" {
+		Trace.Println(" Skipping SMS, due to being in development environment")
+		return nil, false, nil
+	}
+
 	c := twilio.NewClient(AccountSid, AuthToken, nil)
 
 	from := "+16502065606"
@@ -38,7 +44,7 @@ func sendMessage(to, msg string) (*twilio.Message, bool, error) {
 	}
 	s, resp, err := c.Messages.Send(from, to, params)
 	if err != nil {
-		log.Fatal(s, resp, err)
+		Error.Fatal(s, resp, err)
 		return nil, false, err
 	}
 
