@@ -108,10 +108,14 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	Trace.Println("No errors parsing post request for: ", r.RemoteAddr)
 
-	fullname := r.Form.Get("first-name")
+	firstname := r.Form.Get("first-name")
+	//firstname = template.HTMLEscapeString(firstname)
+
 	lastname := r.Form.Get("last-name")
+	lastname = template.HTMLEscapeString(lastname)
 
 	email := r.Form.Get("email")
+	email = template.HTMLEscapeString(email)
 
 	url := r.Form.Get("url")
 	url = template.HTMLEscapeString(url)
@@ -119,7 +123,7 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 	uuid := random.GenerateUUID()
 
 	order := &models.WebOrder{
-		FirstName: fullname,
+		FirstName: firstname,
 		LastName:  lastname,
 		UUID:      uuid,
 		Email:     email,

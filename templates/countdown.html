@@ -9,6 +9,20 @@
 	body {
 		font-family: "Nunito", san-serif;
 	}
+
+	body {
+
+		background-repeat: no-repeat !important;
+		background-position: 50% 50% !important;
+		background-attachment: fixed !important;
+		background-color: transparent !important;
+		background-size: cover !important;
+
+		background-size:  cover;
+		background: url('../assets/terms-bg.svg');
+	}
+
+
 	.form-horizontal {	
 		margin:30px ;
 	}
@@ -60,6 +74,7 @@
 		min-width:100%;
 	}
 	#form_div {
+		background-color: white;
 		padding-bottom: 10px;
 		min-height: 10em;
 		position:relative;
@@ -83,10 +98,18 @@
 	a {
 		color:#2C01D5;
 	}
-	.navbar-fixed-bottom {
-		border:0;
-		background-color: white;
+	#navbar-bottom {
+			border:0;
+			color:white;
+			background:none;
 	
+	}
+	nav a {
+		color:white;
+	}
+
+	nav .navbar-text {
+		color:white;
 	}
 
 	@media only screen and (max-width: 500px){
@@ -100,6 +123,11 @@
 		font-weight: 500;
 			position:relative;
 
+	}
+
+	#footer-nav {
+		color:white;
+		background: none;
 	}
 </style>
 {{end}}
@@ -127,10 +155,10 @@
 		
 	</div>
 </div>
-<nav class="navbar navbar-default  navbar-fixed-bottom" role="navigation">
+<nav class="navbar navbar-default  navbar-fixed-bottom" id="navbar-bottom" role="navigation">
 	<div class="container text-center">
-		<p class="navbar-text col-md-12 col-sm-12 col-xs-12" style="color:#2C01D5; margin-top:0px;"> <a href="/tos">Terms of Service </a><span class="seperator">|</span>  <a href="/privacy-policy">Privacy Policy </a> <span class="seperator">|</span> <a class="" href="mailto:support@getglass.co"> Customer Service </a></p>
-		<p class="navbar-text col-md-12 col-sm-12 col-xs-12" style="color:#9800B7">&copy; Glass Financial, Inc. 2017 </p>
+		<p class="navbar-text col-md-12 col-sm-12 col-xs-12" style=" margin-top:0px;"> <a href="/tos">Terms of Service </a><span class="seperator">|</span>  <a href="/privacy-policy">Privacy Policy </a> <span class="seperator">|</span> <a class="" href="mailto:support@getglass.co"> Customer Service </a></p>
+		<p class="navbar-text col-md-12 col-sm-12 col-xs-12" style="color:white">&copy; Glass Financial, Inc. 2017 </p>
 
 	</div>
 </nav>

@@ -33,7 +33,7 @@ func init() {
 
 	go setupTemplates()
 	go func() {
-		globalRoom = newRoom()
+		globalRoom = newRoom("global")
 		globalRoom.run()
 	}()
 

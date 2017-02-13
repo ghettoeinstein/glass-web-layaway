@@ -57,12 +57,12 @@
 	}
 	#form_div {
 		background-color:#fff;
-		padding-bottom: 10px;
-		max-height: 32em;
+		padding-bottom: 0px;
+		min-height:41%;
 		position:relative;
-		max-width:40%;
+		max-width:41%;
 		margin-top:5em;
-		
+		margin-bottom: 100px;
 		border-radius:8px; 
 		border:solid #E3E3E3 1.5px;
 		margin-left:auto;
@@ -89,11 +89,13 @@
 
 
 
-	@media only screen and (max-width: 500px){
+
+
+	@media only screen and (max-width: 800px){
 		#form_div {
 			max-width: 90%;
-			max-height: 90%;
-			margin-bottom: 15px;
+			min-height: 90%;
+			margin-bottom: 105px;
 
 		}
 	}
@@ -105,30 +107,30 @@
 
 	body {
 
-  background-repeat: no-repeat !important;
-  background-position: 50% 50% !important;
-  background-attachment: fixed !important;
-  background-color: transparent !important;
-  background-size: cover !important;
+		background-repeat: no-repeat !important;
+		background-position: 50% 50% !important;
+		background-attachment: fixed !important;
+		background-color: transparent !important;
+		background-size: cover !important;
 
 		background-size:  cover;
 		background: url('../assets/terms-bg.svg');
 	}
 
 
-#footer-nav {
-	color:white;
-	background: none;
-}
+	#footer-nav {
+		color:white;
+		background: none;
+	}
 
-nav a {
-	color:white;
-}
+	nav a {
+		color:white;
+	}
 
 
-.error {
-    color:red;
-}
+	.error {
+		color:red;
+	}
 </style>
 {{end}}
 {{define "body"}}
@@ -141,23 +143,28 @@ nav a {
 		<div class="row" style="position: relative;top:-50px">
 			<div class="col-md-10 col-md-offset-1 text-center" >
 				<h2 class="title"> Glass </h2>
-		        <p class="lead">Simple monthly installments, on anything</p>
+				<p class="lead">Simple monthly installments, on anything</p>
 			</div>
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
-					<form class="form-horizontal" id="application" action="/glass" method="POST" onsubmit="validateForm()" enctype="application/x-www-
- form-urlencoded">
+					<form class="form-horizontal" id="application" action="/glass" method="POST" onsubmit="" enctype="application/x-www-form-urlencoded">
 						<fieldset>
 							<!-- First Name input-->
 							<div class="form-group">
 								<div class="col-md-6 ">
+									<div class="alert alert-danger " role="alert" id="fname-alert" style="display:none">
+										<strong>Please enter your first name </strong>
+									</div>
 									<input id="first-name" name="first-name" type="text" placeholder="First Name" class="form-control input-md" >
 								</div>
-					
 
-							<!-- Last Name input-->
-				
+
+								<!-- Last Name input-->
+
 								<div class="col-md-6 ">
+									<div class="alert alert-danger " role="alert" id="lname-alert" style="display:none">
+										<strong>Please enter a last name.</strong>
+									</div>
 									<input id="last-name" name="last-name" type="text" placeholder="Last Name" class="form-control input-md" >
 								</div>
 							</div>
@@ -165,14 +172,20 @@ nav a {
 							<!-- Email Address input-->
 							<div class="form-group">
 								<div class="col-md-12 ">
+									<div class="alert alert-danger " role="alert" id="email-alert" style="display:none">
+										<strong>Please enter a valid email address</strong>
+									</div>
 									<input id="email" name="email" type="text" placeholder="Email Address" class="form-control input-md" >
 								</div>
 							</div>
 							<!-- URL input-->
 							<div class="form-group">
 								<div class="col-md-12   ">
+									<div class="alert alert-danger " role="alert" id="url-alert" style="display:none">
+										<strong>Please enter a valid URL / link.</strong>
+									</div>
 									<input id="url" name="url" type="text" placeholder="Paste product URL or wishlist here" class="form-control input-md" >
-								
+
 								</div>
 							</div>
 							<!-- Submit Button -->
@@ -188,6 +201,8 @@ nav a {
 			</div>
 		</div>
 	</div>
+
+
 	<nav class="navbar navbar-default  navbar-fixed-bottom" role="navigation" id="footer-nav">
 		<div class="container text-center" style="">
 			<p class="navbar-text col-md-12 col-sm-12 col-xs-12" style=" margin:0px;"> <a href="/tos">Terms of Service </a><span class="seperator">|</span>  <a href="/privacy-policy">Privacy Policy </a> <span class="seperator">|</span> <a class="" href="mailto:support@getglass.co"> Customer Service </a></p>
@@ -199,51 +214,87 @@ nav a {
 
 <script>
 
-		$(document).ready(function() {
-            //option A
-            $("#application").submit(function(e){
 
-            	e.preventDefault(e);
-            	submitFormWithAjax(e);
-            });}
-            );
-
-  //$("form").submit(function(e){
-   //     e.preventDefault();
-   //});
+	$("form").submit(function(e){
 
 
-function validateForm() {
-
-    var fname = document.forms["application"]["first-name"].value;
-    if (fname == "") {
-        alert("Please supply your first name before submitting");   
-    }
-
-     var lname = document.forms["application"]["last-name"].value;
-    if (fname == "") {
-        alert(" Please supply your last name before submitting.");   
-    }
-
-      var email = document.forms["application"]["email"].value;
-    if (fname == "") {
-        alert("Please supply your email address before submitting");   
-    }
-
-     var lname = document.forms["application"]["last-name"].value;
-    if (fname == "") {
-        alert(" Please supply your last name before submitting.");   
-    }
+	
+		var valid = true;
 
 
-    var url = document.forms["application"]["url"].value;
-     if (url == "") {
-        alert("URL field must not be empty.");
-        return false;
-    }
+
+		var fname = document.forms["application"]["first-name"].value;
+		if (fname == "") {
+			$("#fname-alert").show();
+			valid = false; 	  
+		} else {
+			$("#fname-alert").hide();
+		}
+
+		var lname = document.forms["application"]["last-name"].value;
+		if (lname == "") {
+			$("#lname-alert").show();
+			valid = false; 
+		} else {
+			$("#lname-alert").hide();
+		}
 
 
-}
+
+		var email = document.forms["application"]["email"].value;
+		if (!validateEmail(email)) {
+			console.log("Not valid email");
+			$("#email-alert").show();
+			valid = false;
+			
+		} else {
+			$("#email-alert").hide();
+		}
+
+
+
+		var url = document.forms["application"]["url"].value;
+		if (!isURL(url)) {
+			console.log("Not valid url");
+			$("#url-alert").show();
+			valid = false; 
+
+		} else {
+			$("#url-alert").hide();
+		}
+
+		if (!valid) {
+			console.log("Not valid");
+			return(false);
+		}
+
+		if (valid == true) {
+			$("#fname-alert").hide();
+			$("#lname-alert").hide();
+			$("#email-alert").hide();
+			$("#url-alert").hide();
+
+			console.log("is valid");
+		}
+
+
+	});
+
+
+
+
+	function isURL(str) {
+		var urlRegex = '^(?!mailto:)(?:(?:http|https|ftp)://)(?:\\S+(?::\\S*)?@)?(?:(?:(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}(?:\\.(?:[0-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))|(?:(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)(?:\\.(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)*(?:\\.(?:[a-z\\u00a1-\\uffff]{2,})))|localhost)(?::\\d{2,5})?(?:(/|\\?|#)[^\\s]*)?$';
+		var url = new RegExp(urlRegex, 'i');
+		return str.length < 2083 && url.test(str);
+	}
+
+	function validateEmail(email) {
+		var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(email);
+	}
+
 
 </script>
-		{{end}}
+
+{{end}}

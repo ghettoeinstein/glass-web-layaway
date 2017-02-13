@@ -10,6 +10,8 @@ import (
 var globalRoom *room
 
 type room struct {
+	//the name of the channel
+	name string
 	// forward is a channel that holds incoming messages
 	// that should be forwarded to the other clients.
 	forward chan []byte
@@ -23,8 +25,19 @@ type room struct {
 	clients map[*client]bool
 }
 
-func newRoom() *room {
+func newRoom(name string) *room {
+	if name == "" {
+		return &room{
+			name:    "ignore",
+			forward: make(chan []byte),
+			join:    make(chan *client),
+			orders:  make(chan *Order),
+			leave:   make(chan *client),
+			clients: make(map[*client]bool),
+		}
+	}
 	return &room{
+		name:    name,
 		forward: make(chan []byte),
 		join:    make(chan *client),
 		orders:  make(chan *Order),
@@ -89,7 +102,7 @@ var upgrader = &websocket.Upgrader{ReadBufferSize: socketBufferSize,
 func (r *room) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	socket, err := upgrader.Upgrade(w, req, nil)
 	if err != nil {
-		log.Fatal("ServeHTTP:", err)
+		Error.Fatal("ServeHTTP:", err)
 		return
 	}
 	client := &client{

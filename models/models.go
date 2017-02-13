@@ -48,7 +48,7 @@ type (
 	}
 	WebOrder struct {
 		Id             bson.ObjectId `bson:"_id",omitempty" json:"id`
-		FirstName      string        `json:"first_name" bson:"last_name"`
+		FirstName      string        `json:"first_name" bson:"first_name"`
 		LastName       string        `json:"last_name bson:"last_name"`
 		Email          string        `json:"email" bson:"email"`
 		PhoneNumber    string        `json:"phone_number" bson:"phone_number`
