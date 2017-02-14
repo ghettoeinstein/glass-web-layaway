@@ -35,7 +35,7 @@
     if (!window["WebSocket"]) { 
       alert("Error: Your browser does not support web  sockets.") 
     } else { 
-      var socket = new WebSocket("ws://localhost:9000/admin/room?room={{.RoomId}}"); 
+      var socket = new WebSocket("ws://localhost:9000/room"); 
 
 
 
@@ -50,7 +50,10 @@
         alert(e);
       };
       socket.onmessage = function(e) { 
-        var url  = "http://localhost:9000/orders/";
+        console.log(e.data);
+        alert(e.data);
+
+        var url  = "http://{{.ServerAddr}}/orders/";
 
         var a = document.createElement("a");
         var ulist = document.getElementById("messages");

@@ -168,6 +168,16 @@
 									<input id="last-name" name="last-name" type="text" placeholder="Last Name" class="form-control input-md" >
 								</div>
 							</div>
+
+							<!-- Email Address input-->
+							<div class="form-group">
+								<div class="col-md-12 ">
+									<div class="alert alert-danger " role="alert" id="phone-alert" style="display:none">
+										<strong>Please enter a valid  phone number in 10-digit format eg: 6505551234</strong>
+									</div>
+									<input id="phone-number" name="phone-number" type="text" placeholder="6505551234" class="form-control input-md" >
+								</div>
+							</div>
 							
 							<!-- Email Address input-->
 							<div class="form-group">
@@ -218,7 +228,7 @@
 	$("form").submit(function(e){
 
 
-	
+
 		var valid = true;
 
 
@@ -240,7 +250,14 @@
 		}
 
 
+		var phone = document.forms["application"]["phone-number"].value;
+		if (!validatePhone(phone)) {
+			$("#phone-alert").show();
+			valid = false;
+		} else {
+			$("#phone-alert").hide();
 
+		}
 		var email = document.forms["application"]["email"].value;
 		if (!validateEmail(email)) {
 			console.log("Not valid email");
@@ -279,6 +296,12 @@
 
 
 	});
+
+
+	function validatePhone(phone) {
+		var pattern = new RegExp("^[0-9]{10}$");
+		return pattern.test(phone);
+	}
 
 
 

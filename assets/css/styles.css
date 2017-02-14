@@ -579,14 +579,14 @@
 
 	#about-subscribe-section {
 		background-position: url('../../assets/about-section.png')
-		min-height: 100%;
+		min-height: 75%;
 		color:white;
 
 	}
 
 
 	#subscribe-section {
-		min-height: 100%;
+		min-height: 75%;
 		color:white;
 
 	}

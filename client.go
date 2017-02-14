@@ -7,6 +7,7 @@ import (
 // client represents a single chatting user.
 type client struct {
 	// socket is the web socket for this client.
+	name   string
 	socket *websocket.Conn
 	// send is a channel on which messages are sent.
 	send chan []byte

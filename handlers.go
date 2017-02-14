@@ -8,6 +8,7 @@ import (
 	"./random"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/joiggama/money"
 	"github.com/stripe/stripe-go"
@@ -114,6 +115,9 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 	lastname := r.Form.Get("last-name")
 	lastname = template.HTMLEscapeString(lastname)
 
+	phoneNumber := r.Form.Get("phone-number")
+	phoneNumber = template.HTMLEscapeString(phoneNumber)
+
 	email := r.Form.Get("email")
 	email = template.HTMLEscapeString(email)
 
@@ -123,12 +127,13 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 	uuid := random.GenerateUUID()
 
 	order := &models.WebOrder{
-		FirstName: firstname,
-		LastName:  lastname,
-		UUID:      uuid,
-		Email:     email,
-		URL:       url,
-		Decision:  "undecided",
+		FirstName:   firstname,
+		LastName:    lastname,
+		PhoneNumber: phoneNumber,
+		UUID:        uuid,
+		Email:       email,
+		URL:         url,
+		Decision:    "undecided",
 	}
 
 	err = saveOrder(order)
@@ -136,6 +141,14 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 		Error.Println(err)
 		renderTemplate(w, "glass", "base", err.Error())
 		return
+	}
+
+	orderRoom := newRoom(order.UUID)
+
+	if orderRoom != nil {
+		Trace.Println(orderRoom.name)
+		roomStore[uuid] = orderRoom
+		globalRoom.forward <- []byte(fmt.Sprintf("Chat room created for order %s", roomStore[uuid].name))
 	}
 
 	go postOrderToSlack(order)
@@ -167,23 +180,25 @@ func userPostGlassHandler(w http.ResponseWriter, r *http.Request) {
 
 	// First store the variable, then escape it.
 	firstname := user.FirstName
-	firstname = template.HTMLEscapeString(firstname)
+
 	lastname := user.LastName
-	lastname = template.HTMLEscapeString(lastname)
+
+	phoneNumber := user.PhoneNumber
 	email := user.Email
-	email = template.HTMLEscapeString(email)
+
 	url := r.Form.Get("url")
 	url = template.HTMLEscapeString(url)
 
 	uuid := random.GenerateUUID()
 
 	order := &models.WebOrder{
-		FirstName: firstname,
-		LastName:  lastname,
-		UUID:      uuid,
-		Email:     email,
-		URL:       url,
-		Decision:  "undecided",
+		FirstName:   firstname,
+		LastName:    lastname,
+		PhoneNumber: phoneNumber,
+		UUID:        uuid,
+		Email:       email,
+		URL:         url,
+		Decision:    "undecided",
 	}
 
 	err = saveOrder(order)
@@ -299,7 +314,14 @@ func offerHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func chatHandler(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "chat", "base", "")
+
+	payload := struct {
+		ServerAddr string
+	}{
+		os.Getenv("GLASS_URL"),
+	}
+
+	renderTemplate(w, "chat", "base", payload)
 }
 
 func historyHandler(w http.ResponseWriter, r *http.Request) {

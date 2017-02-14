@@ -26,6 +26,9 @@ var (
 )
 
 func init() {
+	if roomStore == nil {
+		roomStore = make(map[string]*room)
+	}
 	rand.Seed(time.Now().UTC().UnixNano())
 	if templates == nil {
 		templates = make(map[string]*template.Template)
@@ -127,6 +130,8 @@ func main() {
 	router.HandleFunc("/login/verify", POSTVerifySMSLogin).Methods("POST")
 	router.HandleFunc("/team/login", controllers.GetLogin).Methods("GET")
 	router.HandleFunc("/team/login", controllers.AdminLogin).Methods("POST")
+	router.HandleFunc("/chat", chatHandler)
+	router.Handle("/room", globalRoom)
 
 	adminRouter := mux.NewRouter()
 	adminRouter.HandleFunc("/admin/chat", chatHandler).Methods("GET")
