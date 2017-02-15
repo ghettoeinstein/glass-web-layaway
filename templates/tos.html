@@ -1,484 +1,446 @@
 {{define "head"}}
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
   <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    p.p3 {margin: 0.0px 0.0px 0.0px 18.0px; text-align: justify; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    p.p4 {margin: 0.0px 0.0px 0.0px 49.5px; text-align: justify; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    p.p5 {margin: 0.0px 0.0px 0.0px 99.0px; text-align: justify; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    p.p6 {margin: 0.0px 0.0px 0.0px 72.0px; text-align: justify; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    p.p7 {margin: 0.0px 0.0px 0.0px 58.5px; text-align: justify; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    p.p8 {margin: 0.0px 0.0px 0.0px 54.0px; text-align: justify; text-indent: -18.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    p.p9 {margin: 0.0px 0.0px 0.0px 54.0px; text-align: justify; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
-    p.p10 {margin: 0.0px 0.0px 0.0px 54.0px; text-align: justify; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    p.p11 {margin: 0.0px 0.0px 0.0px 108.0px; text-align: justify; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    p.p12 {margin: 0.0px 0.0px 0.0px 58.5px; text-align: justify; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
-    p.p13 {margin: 0.0px 0.0px 0.0px 76.5px; text-align: justify; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    p.p14 {margin: 0.0px 0.0px 0.0px 36.0px; text-align: justify; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    p.p15 {margin: 0.0px 0.0px 0.0px 18.0px; text-align: justify; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
-    p.p16 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; line-height: 14.0px; font: 12.0px Times; color: #333333; -webkit-text-stroke: #333333}
-    p.p18 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    li.li2 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    li.li16 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; line-height: 14.0px; font: 12.0px Times; color: #333333; -webkit-text-stroke: #333333}
-    li.li17 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; line-height: 14.0px; font: 12.0px Times; color: #0000ff; -webkit-text-stroke: #0000ff}
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p4 {margin: 0.0px 0.0px 0.0px 18.0px; text-align: justify; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 49.5px; text-align: justify; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p6 {margin: 0.0px 0.0px 0.0px 58.5px; text-align: justify; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 99.0px; text-align: justify; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p8 {margin: 0.0px 0.0px 0.0px 72.0px; text-align: justify; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p9 {margin: 0.0px 0.0px 0.0px 18.0px; text-align: justify; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p10 {margin: 0.0px 0.0px 0.0px 54.0px; text-align: justify; text-indent: -18.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 54.0px; text-align: justify; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 108.0px; text-align: justify; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 58.5px; text-align: justify; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p14 {margin: 0.0px 0.0px 0.0px 76.5px; text-align: justify; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p15 {margin: 0.0px 0.0px 0.0px 36.0px; text-align: justify; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; color: #333333; -webkit-text-stroke: #333333}
+    p.p18 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #333333; -webkit-text-stroke: #333333}
+    li.li3 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    li.li16 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; color: #333333; -webkit-text-stroke: #333333}
+    li.li17 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; color: #0000ff; -webkit-text-stroke: #0000ff}
     span.s1 {font-kerning: none}
-    span.s2 {-webkit-text-stroke: 0px #000000}
-    span.s3 {text-decoration: underline ; font-kerning: none; color: #0563c1; -webkit-text-stroke: 0px #0563c1}
-    span.s4 {color: #000000; -webkit-text-stroke: 0px #000000}
-    span.s5 {font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
-    span.s6 {color: #333333; -webkit-text-stroke: 0px #000000}
+    span.s2 {font: 12.0px Helvetica; color: #000000}
+    span.s3 {text-decoration: underline ; font-kerning: none}
+    span.s4 {text-decoration: underline ; font-kerning: none; color: #0563c1; -webkit-text-stroke: 0px #0563c1}
+    span.s5 {font: 12.0px Helvetica; color: #000000; -webkit-text-stroke: 0px #000000}
+    span.s6 {font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
     span.s7 {font-kerning: none; color: #333333; -webkit-text-stroke: 0px #333333}
-    span.s8 {text-decoration: underline ; font-kerning: none; color: #0000ff; -webkit-text-stroke: 0px #0000ff}
+    span.s8 {font: 12.0px Helvetica; color: #000000; -webkit-text-stroke: 0px #333333}
+    span.s9 {text-decoration: underline ; font-kerning: none; color: #0000ff; -webkit-text-stroke: 0px #0000ff}
     ol.ol1 {list-style-type: decimal}
     ol.ol2 {list-style-type: lower-alpha}
     ol.ol3 {list-style-type: lower-roman}
   </style>
 {{end}}
 {{define "body"}}
-<div>
-<h2 style="display:block; text-align:center">Glass Terms of Service and Conditions</h2>
-</div>
-<div style="max-width:650px;margin-left:auto; margin-right:auto; display:block">
-<p class="p2"><span class="s1"><br>
-</span></p>
-<p class="p2"><span class="s1">Glass Financial, Inc. is the legal entity of GetGlass.co (herein referred to as “Glass”)</span></p>
-<p class="p2"><span class="s1"><br>
-</span></p>
+<div class="container-fluid">
+<p class="p1"><span class="s1"><b>Glass Terms of Use</b></span></p>
+<p class="p1"><span class="s1"><b>(“Terms” or “Agreement”)</b></span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p3"><span class="s1">Glass Financial, Inc. is the legal entity of GetGlass.co (herein referred to as “Glass”)</span></p>
+<p class="p2"><span class="s1"></span><br></p>
 <ol class="ol1">
-  <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>This Agreement</b></span></li>
+  <li class="li3"><span class="s2"></span><span class="s1"><b>This Agreement</b></span></li>
 </ol>
-<p class="p3"><span class="s1"><br>
-</span></p>
+<p class="p4"><span class="s1"></span><br></p>
 <ol class="ol1">
   <ol class="ol2">
-    <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Parties to this Agreement</b>. These Terms serve as a contract between a Merchant (defined as any party who sells goods or services to consumers using the Service) utilizing the Application, a customer of a Merchant who has entered into a Layaway Transaction (defined as a purchase of goods or services from a Merchant using the Service) using the Service (the “Customer”), and Glass (“we”, “us”, “our”) to Your use of our Application and Service (the “Agreement”). References to “You” or “Your” is to Merchants and Customers, collectively, denoting application of the relevant provision to both parties. For purposes of these Terms, Product shall mean the Application and Service, collectively. Please read these Terms carefully, as they impose rules, obligations and other responsibilities on all parties that use the Application and the Service. You agree that Your ongoing use of our Product serves as Your acceptance of the Terms and this Agreement. Before You create an account to use Glass’s Product, You should read these Terms. We recommend that You store or print a copy of these Terms for Your records. <b>Any party that does not agree with these Terms is prohibited from using or accessing the Application or Service.</b></span></li>
+    <li class="li3"><span class="s2"></span><span class="s1"><b>Parties to this Agreement</b>. These Terms apply to the relationship between Glass (“we”, “us”, “our”) and any user (“Customer”) of its Product (as defined below). Generally, Customers use Glass’s Product to enter into a Layaway Transaction (defined as a purchase of an Underlying Good (as defined below) from a merchant using the Service. References to “You” or “Your” are in regards to Customers, collectively, denoting application of the relevant provision to both parties. For purposes of these Terms, Product shall mean the Application and/or the Service (both as defined below). Please read these Terms carefully, as they impose rules, obligations and other responsibilities on all parties that use the Product. You agree that Your ongoing use of our Product serves as Your acceptance of the Terms and this Agreement. Before You create an account to use Glass’s Product, You </span><span class="s3"><b>MUST</b></span><span class="s1"> read these Terms. We recommend that You store or print a copy of these Terms for Your records. <b>Any party that does not agree with these Terms or the Glass Privacy Policy located at </b><a href="http://getglass.co/tos"><span class="s4">getglass.co/tos</span></a><b> is prohibited from using or accessing the Application or Service.</b></span></li>
   </ol>
 </ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
+<p class="p2"><span class="s1"></span><br></p>
 <ol class="ol1">
   <ol class="ol2">
-    <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>How Glass Works</b>.<b><span class="Apple-converted-space"> </span></b></span></li>
+    <li class="li3"><span class="s2"></span><span class="s1"><b>How Glass Works</b>.<b><span class="Apple-converted-space"> </span></b></span></li>
   </ol>
 </ol>
-<p class="p3"><span class="s1"><br>
-</span></p>
+<p class="p4"><span class="s1"></span><br></p>
 <ol class="ol1">
   <ol class="ol2">
     <ol class="ol3">
-      <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>The Service</b>. Glass provides Merchants with modern day layaway—a way for a merchant’s customers to secure the purchase of a good or service by paying off the balance owed (and any associated fees) on that good over time (the “Service”).<span class="Apple-converted-space"> </span></span></li>
+      <li class="li3"><span class="s2"></span><span class="s1"><b>The Service</b>. Glass provides Customers with modern day layaway—a way for a to secure the purchase of a good or service by paying off the balance owed (and any associated fees) on that good over time (the “Service”).<span class="Apple-converted-space"> </span></span></li>
     </ol>
   </ol>
 </ol>
-<p class="p4"><span class="s1"><br>
-</span></p>
+<p class="p5"><span class="s1"></span><br></p>
 <ol class="ol1">
   <ol class="ol2">
     <ol class="ol3">
-      <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>The Application</b>.<b> </b>Glass does not provide the Service directly to consumers; rather, Glass provides Merchants an application programming interface (the “Application”), utilizing which a merchant can integrate the Service into the Merchant’s offerings.<span class="Apple-converted-space"> </span></span></li>
+      <li class="li3"><span class="s2"></span><span class="s1"><b>The Application</b>.<b> </b>Glass provides the Service directly to Customers from Glass’s website (the “Application”). Glass’s Customers can utilize the Service by creating an account on Glass to use the Service and beginning saving for a good or service in a layaway-like manner (the “Customer Account”).</span></li>
     </ol>
   </ol>
 </ol>
-<p class="p4"><span class="s1"><br>
-</span></p>
+<p class="p5"><span class="s1"></span><br></p>
 <ol class="ol1">
   <ol class="ol2">
     <ol class="ol3">
-      <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Customer Accounts</b>.<b> </b>After a Merchant has integrated the Application so as to enable Customers to utilize the Service, any Customer who enters into a Layaway Transaction will be prompted to create an account on Glass to use the Service (the “Customer Account”).<span class="Apple-converted-space"> </span></span></li>
+      <li class="li3"><span class="s2"></span><span class="s1"> <b>Creating Customer’s<span class="Apple-converted-space">  </span>Glass Account.</b> When registering for an account to use Glass’s Product, Customer will be prompted to provide (1) Customer ‘s email address, (2) Customer’s full name (if a business, the business’s legal name), (3) Customer’s address (if a business, the principal place of business), (4) a valid U.S. phone number that can receive SMS text messages, and (5) the banking information needed by Glass to automatically withdraw funds from the source account of the Customer that will fund ANY Layaway Account associated with the Customer (“Source Account”). Following creation of a Customer Account, each time a Customer attempts to log into the Service, Glass will send Customer, to the phone number proved by Customer, a one-time secure pin via SMS text message.</span></li>
     </ol>
   </ol>
 </ol>
-<p class="p4"><span class="s1"><br>
-</span></p>
+<p class="p5"><span class="s1"></span><br></p>
 <ol class="ol1">
   <ol class="ol2">
     <ol class="ol3">
-      <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Using the Service</b>.<b> </b>After creating a Customer Account and depositing funds for a Layaway Transaction, a bank account will be created for the Customer to hold funds for a Layaway Transaction in escrow (“Layaway Account”). When creating an account for a Layaway Transaction, a Customer will be prompted to select a payment schedule that will determine the dates on which Customer will deposit a set amount of funds into the Customer’s Layaway Account (“Payment Schedule”) in order to sufficiently fund the purchase of the good underlying the Layaway Transaction (the “Underlying Good”). When sufficient funds have been deposited to (1) satisfy all Fees (as defined below) owed to Glass for the Service and (2) pay the entire amount of costs, shipping, and taxes (the “Total Cost”) required to purchase the Underlying Good (“Sufficient Funds”), Glass will remit the Fee to Glass and remit Total Costs to the Merchant. The moment at which Merchant receives the remittance of Total Costs is the moment at which purchase occurs and Customer is the owner of the Underlying Good (the “Purchase”).</span></li>
+      <li class="li3"><span class="s2"></span><span class="s1"><b>Using the Service</b>.<b><span class="Apple-converted-space"> </span></b></span></li>
     </ol>
   </ol>
 </ol>
-<p class="p5"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <ol class="ol3">
-      <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Fees. </b>In exchange for the use of the Service, Customer shall be charged a service fee equal to an amount that is between 12% and 16% (based upon the value of the Underlying Goods that are subject of the Layaway Transaction, which is stated on Glass’s pricing page) of the Total Cost of an Underlying Good. Glass does not charge interest for any transaction.</span></li>
-    </ol>
-  </ol>
-</ol>
-<p class="p3"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Changes to this Agreement.</b> Glass may amend these Terms at any time for any reason including, for example, if we change the functionality of our Product, introduce new features, applications or products, or as required by law. We will post the amended Terms on our website. If You do not agree with the changes, please cease to use the Application. Any amendments to these Terms, will not alter existing obligations that You may have with Your customers who utilize the Service.</span></li>
-</ol>
-<p class="p3"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Customer Obligations</b></span></li>
-</ol>
-<p class="p6"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Generally: </b>By using the Service, Customer:</span></li>
-  </ol>
-</ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <ol class="ol3">
-      <li class="li2"><span class="s2"></span><span class="s1">Agrees to satisfy all obligations of the Payment Schedule;</span></li>
-    </ol>
-  </ol>
-</ol>
-<p class="p7"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <ol class="ol3">
-      <li class="li2"><span class="s2"></span><span class="s1">Agrees to pay all Fees, Cancellation Fees, and Total Costs;</span></li>
-    </ol>
-  </ol>
-</ol>
-<p class="p7"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <ol class="ol3">
-      <li class="li2"><span class="s2"></span><span class="s1">Acknowledges that any Layaway Transaction may be subject to Glass’s approval prior to completion;</span></li>
-    </ol>
-  </ol>
-</ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <ol class="ol3">
-      <li class="li2"><span class="s2"></span><span class="s1">Represents and warrants that they have not provided, and will not in the future provide, Glass with any false, inaccurate or misleading information;</span></li>
-    </ol>
-  </ol>
-</ol>
-<p class="p7"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <ol class="ol3">
-      <li class="li2"><span class="s2"></span><span class="s1">Agrees to update all required account information, as contained in Section 3(b) below, when such information changes;</span></li>
-    </ol>
-  </ol>
-</ol>
-<p class="p7"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <ol class="ol3">
-      <li class="li2"><span class="s2"></span><span class="s1">Acknowledges that Glass does not collect or pay any taxes on Customer’s behalf concerning use of the Service; and</span></li>
-    </ol>
-  </ol>
-</ol>
-<p class="p7"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <ol class="ol3">
-      <li class="li2"><span class="s2"></span><span class="s1">Acknowledges that Glass does not mediate any disputes between Customers and Merchants.</span></li>
-    </ol>
-  </ol>
-</ol>
-<p class="p6"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Creating Customer’s<span class="Apple-converted-space">  </span>Glass Account.</b> When registering for an account to use Glass’s Products, Customer will be prompted to provide (1) Customer ‘s email address, (2) Customer’s full name (if a business, the business’s legal name), (3) Customer’s address (if a business, the principal place of business), (4) a valid U.S. phone number that can receive SMS text messages, and (5) the banking information needed by Glass to automatically withdraw funds from the source account of the Customer that will fund the Customer’s Layaway Account (“Source Account”). Following creation of a Customer Account, each time a Customer attempts to log into the Service, Glass will send Customer, to the phone number proved by Customer, a one-time secure pin via SMS text message.</span></li>
-  </ol>
-</ol>
-<p class="p3"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Layaway Transactions and Accounts. </b>A Customer enters into a Layaway Transaction when choosing to use the Service as the method of payment to purchase a good or service from Merchant, and thereafter authorizes Glass to enter into the Layaway Transaction and create a Layaway Account. For example, John Doe<span class="Apple-converted-space">  </span>would enter into a Layaway Transaction if he were to select the Service as the payment option while purchasing shoes from Jane Doe’s website, and then created a Customer Account, supplying all the requested information to create a Customer Account and authorizing Glass to fund a Layaway Account.<span class="Apple-converted-space">  </span>In the event that Customer uses the Service to enter into a Layaway Transaction, Customer:</span></li>
-  </ol>
-</ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <ol class="ol3">
-      <li class="li2"><span class="s2"></span><span class="s1">Agrees and consents to Glass creating a Layaway Account for the Customer, in which funds will be deposited (in accordance with Customer’s Payment Schedule) and stored until Sufficient Funds exist;<span class="Apple-converted-space"> </span></span></li>
-    </ol>
-  </ol>
-</ol>
-<p class="p8"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <ol class="ol3">
-      <li class="li2"><span class="s2"></span><span class="s1">Agrees and consents to Glass automatically withdrawing funds from the source account that is used to fund the Layaway Account in accordance with the Customer’s Payment Schedule;</span></li>
-    </ol>
-  </ol>
-</ol>
-<p class="p9"><span class="s1"><span class="Apple-converted-space"> </span></span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <ol class="ol3">
-      <li class="li2"><span class="s2"></span><span class="s1">Agrees and consents to Glass, when Sufficient Funds exist, remitting (1) the Total Cost of the Underlying Good to the Merchant and (2) the Fees to Glass, in order to complete the Purchase;</span></li>
-    </ol>
-  </ol>
-</ol>
-<p class="p8"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <ol class="ol3">
-      <li class="li2"><span class="s2"></span><span class="s1">Acknowledges that the Merchant will continue to own the Underlying Good, <b><i>and that Customer will have no ownership rights or any interest in such Underlying Good</i></b>, until Purchase; and <span class="Apple-converted-space"> </span></span></li>
-    </ol>
-  </ol>
-</ol>
-<p class="p10"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <ol class="ol3">
-      <li class="li2"><span class="s2"></span><span class="s1">Acknowledges that Glass does not have any control over, and is not responsible or liable for, the Underlying Good purchased from a Merchant using the Service or any actions or inactions committed by a Merchant.<span class="Apple-converted-space"> </span></span></li>
-    </ol>
-  </ol>
-</ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Agreement with Merchant Terms</b>. Glass provides the Service, whereas Merchant supplies the Underlying Good<b>. </b>As such, Customer acknowledges that the terms of purchasing an Underlying Good are the terms under which the Merchant is offering the Underlying Good, and in no way is Glass responsible for such terms or for setting such terms.</span></li>
-  </ol>
-</ol>
-<p class="p3"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Unauthorized Transactions.</b> Customer is responsible for maintaining the security of Customer’s Customer Account. Glass bears no responsibility for unauthorized access and use of Customer’s Glass Account.<span class="Apple-converted-space">  </span>In the event that an unauthorized third party gains access or uses a Customer Account, Customer:</span></li>
-  </ol>
-</ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <ol class="ol3">
-      <li class="li2"><span class="s2"></span><span class="s1">Agrees to, and acknowledges that they will, bear responsibility for any Layaway Transaction or Purchase entered into using that Customer’s Customer Account, whether or not such use was the result of the action of an unauthorized third party;</span></li>
-    </ol>
-  </ol>
-</ol>
-<p class="p7"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <ol class="ol3">
-      <li class="li2"><span class="s2"></span><span class="s1">Agrees to, and acknowledges that they, will be responsible and liable for obligations hereunder or as created by the unauthorized third party as if the third party were the Customer and validly using the Customer Account; and</span></li>
-    </ol>
-  </ol>
-</ol>
-<p class="p7"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <ol class="ol3">
-      <li class="li2"><span class="s2"></span><span class="s1">Agrees to immediately notify Glass of any unauthorized access or use of a Customer Account.</span></li>
-    </ol>
-  </ol>
-</ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Illegal Use. </b>Customer represents and warrants that Customer will not use the Service to:</span></li>
-  </ol>
-</ol>
-<p class="p11"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <ol class="ol3">
-      <li class="li2"><span class="s2"></span><span class="s1">Violate any law, regulation or other published policy;</span></li>
-      <li class="li2"><span class="s2"></span><span class="s1">Commit fraud or misrepresentation on another party; <span class="Apple-converted-space"> </span></span></li>
-      <li class="li2"><span class="s2"></span><span class="s1">Violate or infringe on intellectual property, privacy, or rights of another; or</span></li>
-      <li class="li2"><span class="s2"></span><span class="s1">Violate any applicable third party policies or requirements of which Customer may be aware.</span></li>
-    </ol>
-  </ol>
-</ol>
-<p class="p12"><span class="s1"><b><span class="Apple-converted-space"> </span></b></span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Consumer Rights Protections</b>. Customer acknowledges that Customer has certain rights and protections concerning use of the Service, the Layaway Transaction and the Purchase (“Consumer Rights”). These Consumer Rights may include, without limitation, protections under the Federal Trade Commission Act, the Truth in Lending Act, and various state and local laws and regulations. These Terms and the Products are not intended to exclude, restrict or modify any of Customer’s Consumer Rights.</span></li>
-  </ol>
-</ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Closing Customer’s Glass Account.</b></span></li>
-  </ol>
-</ol>
-<p class="p3"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <ol class="ol3">
-      <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Closing a Customer Account</b>. Customer may only request to close Customer’s Glass Account by contacting us directly at help@getglass.co. Glass will only close a Customer Account if:</span></li>
-    </ol>
-  </ol>
-</ol>
-<p class="p7"><span class="s1"><br>
-</span></p>
+<p class="p5"><span class="s1"></span><br></p>
 <ol class="ol1">
   <ol class="ol2">
     <ol class="ol3">
       <ol class="ol1">
-        <li class="li2"><span class="s2"></span><span class="s1">Customer has paid all Fees and Total Costs due on any Layaway Transactions or Purchase to which customer is currently bound;</span></li>
-        <li class="li2"><span class="s2"></span><span class="s1">Customer has no open disputes or refunds in process; and</span></li>
-        <li class="li2"><span class="s2"></span><span class="s1">Customer is not currently under investigation by any legal body.</span></li>
+        <li class="li3"><span class="s2"></span><span class="s1"><b>Selecting Goods and Services</b>. To use the Product and enter into a Layaway Transaction, Customer must copy the URL link to the landing page from which a good or service underlying the intended Layaway Transaction (the “Underlying Good”) can be purchased and then paste that link into the purchase link box (“Underlying Good Link”). Once the Underlying Good Link has been provided to Glass in the purchase link box, Glass will have 2 minutes to approve or deny whether or not Glass can enter into the intended Layaway Transaction. If Glass denies the request, Customer may email Glass Customer support for further information at: <a href="mailto:support@getglass.co"><span class="s4">support@getglass.co</span></a>. Once an intended Layaway Transaction has been approved by Glass, Customer can begin contributing funds to the purchase of the Underlying Good.<span class="Apple-converted-space"> </span></span></li>
       </ol>
     </ol>
   </ol>
 </ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<p class="p7"><span class="s1">At the time Glass closes Customer’s Customer Account, Glass will remit all funds in Customer’s Layaway Account to Customer, less any amount owed (Cancellation Fees, Fees, Total Costs, or other amounts).</span></p>
-<p class="p13"><span class="s1"><br>
-</span></p>
+<p class="p6"><span class="s1"></span><br></p>
 <ol class="ol1">
   <ol class="ol2">
     <ol class="ol3">
-      <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Glass Initiated Customer Account Closure and Restriction</b>. Glass may close, restrict the use of, limit or suspend Customer’s Customer Account, or cancel any Layaway Transaction, at any time, for any reason (including violation of these Terms) or no reason, upon giving Customer at least 5 days’ notice. These Terms will continue to apply to Customer use of the Service during such period. Upon any Glass initiated closure of a Customer Account or cancellation of any Customer Layaway Transaction, Glass will remit any funds associated with such Customer Account or Layaway Transaction, less any Fees, Cancellation Fees or Total Costs, to the Customer, absent a valid legal order preventing such return.</span></li>
+      <ol class="ol1">
+        <li class="li3"><span class="s2"></span><span class="s1"><b>Layaway Account Creation</b>.<b> </b>After creating a Customer Account and depositing funds for a Layaway Transaction, a bank account will be created for the Customer to hold and deposit funds into for the purchase of an Underlying Good and the payment of any Glass Fees (as defined below) (“Layaway Account”).<span class="Apple-converted-space"> </span></span></li>
+      </ol>
     </ol>
   </ol>
 </ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Payment Schedule</b>.<span class="Apple-converted-space">  </span>Customer agrees to maintain sufficient funds in the Source Account so as to enable Glass to automatically withdraw funds from the Source Account on a monthly basis in accordance with the Payment Schedule selected by the Customer when entering into the Layaway Transaction.</span></li>
-  </ol>
-</ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <ol class="ol2">
-    <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Returns, Refunds and Cancellations. <span class="Apple-converted-space"> </span></b></span></li>
-  </ol>
-</ol>
-<p class="p14"><span class="s1"><br>
-</span></p>
+<p class="p6"><span class="s1"></span><br></p>
 <ol class="ol1">
   <ol class="ol2">
     <ol class="ol3">
-      <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Completed Purchase.</b> In the event that Purchase has already occurred, and Customer desires to return the Underlying Good, cancel the Purchase or seek a refund for any reason or no reason, Customer must make such request from the Merchant who sold Customer the Underlying Good; the Merchant’s policy on such requests shall control. <b>In no event will Glass refund the Fee on any Purchase.</b></span></li>
+      <ol class="ol1">
+        <li class="li3"><span class="s2"></span><span class="s1"><b>Glass Fees</b>. In exchange for the use of the Service, Customer shall be charged a service fee equal to an amount that is 10% (“Fee”) of the entire amount of costs, shipping, and taxes of an Underlying Good (the “Total Cost”, not including the Fee). </span><span class="s3"><b>Glass does not charge any interest on any Layaway Transaction</b>.</span></li>
+      </ol>
     </ol>
   </ol>
 </ol>
-<p class="p7"><span class="s1"><br>
-</span></p>
+<p class="p2"><span class="s1"></span><br></p>
 <ol class="ol1">
   <ol class="ol2">
     <ol class="ol3">
-      <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Incomplete Purchase. </b>At any time before Purchase and in accordance with Merchant’s policies, Customer may cancel a Layaway Transaction (“Cancellation”). In the event of Cancellation, Glass will remit the balance of the Layaway Account to Customer, less a cancellation fee of $10 remitted<span class="Apple-converted-space">  </span>to Glass (“Cancellation Fee”). Alternatively, Glass will waive collecting a Cancellation Fee if Customer elects to keep the Layaway Account open and enter into another Layaway Transaction within ___ days of Cancellation.<span class="Apple-converted-space"> </span></span></li>
+      <ol class="ol1">
+        <li class="li3"><span class="s2"></span><span class="s1"><b>Initial Deposits</b>. Upon the creation of a Layaway Account for a Layaway Transaction, Customer shall immediately deposit an amount equal to 25% of the aggregate of the Total Cost and the Fee associated with the Layaway Transaction into the Layaway Account (the “Initial Deposit”)</span></li>
+      </ol>
     </ol>
   </ol>
 </ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Merchant Obligations. </b>To provide Customers with the ability to use the Service, Merchants must adopt the Application utilizing the Application documentation found here: <a href="http://developers.getglass.co/"><span class="s3">developers.getglass.co</span></a> and incorporate it as a payment method authorized to pay for goods and services that they offer. In the event that the Merchant uses the Application, the Merchant agrees that:</span></li>
-</ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
+<p class="p6"><span class="s1"></span><br></p>
 <ol class="ol1">
   <ol class="ol2">
-    <li class="li2"><span class="s2"></span><span class="s1">A Layaway Transaction is not complete until Purchase;<span class="Apple-converted-space"> </span></span></li>
-    <li class="li2"><span class="s2"></span><span class="s1">Until Purchase, Glass and a Customer purchasing an Underlying Good shall not have any obligation or liability to the Merchant;</span></li>
-    <li class="li2"><span class="s2"></span><span class="s1">In the event that a Customer cancels any Layaway Transaction, Customer and Glass owe no obligation or liability to Merchant;</span></li>
-    <li class="li2"><span class="s2"></span><span class="s1">Glass may close, restrict the use of, limit or suspend any Merchant’s use of the Application, or cancel any Layaway Transaction, at any time, for any reason (including violation of these Terms) or no reason, upon giving Merchant at least 5 days’ notice; in which event, these Terms will continue to apply to Customer use of the Service during such period;</span></li>
-    <li class="li2"><span class="s2"></span><span class="s1">Upon any Glass initiated restriction on a Merchant’s use of the Application or any Layaway Transaction (and absent a valid legal order preventing such return), Glass will remit any funds associated with such Merchant use of the Application or Layaway Transaction Fees owed to the Merchant, less any Fees; and</span></li>
-    <li class="li2"><span class="s2"></span><span class="s1">Merchant will not<span class="Apple-converted-space"> </span></span></li>
     <ol class="ol3">
-      <li class="li2"><span class="s2"></span><span class="s1">Violate any law, regulation or other published policy;</span></li>
-      <li class="li2"><span class="s2"></span><span class="s1">Commit fraud or misrepresentation on another party; <span class="Apple-converted-space"> </span></span></li>
-      <li class="li2"><span class="s2"></span><span class="s1">Violate or infringe on intellectual property, privacy, or rights of another; or</span></li>
-      <li class="li2"><span class="s2"></span><span class="s1">Violate any applicable third party policies or requirements of which Customer may be aware.</span></li>
+      <ol class="ol1">
+        <li class="li3"><span class="s2"></span><span class="s1"><b>Subsequent Deposits</b>. Until sufficient funds have been deposited into a Layaway Account to satisfy the payment of the Total Cost and Fees associated with a Layaway Transaction (“Sufficient Funds”), on each monthly anniversary (and if there is no corresponding day, the last day of the month) of the Initial Deposit, Glass, will automatically debit an amount equal to 25% of the aggregate of the Total Cost and the Fee associated with the Layaway Transaction from the Customer’s Source Account.<span class="Apple-converted-space"> </span></span></li>
+      </ol>
     </ol>
   </ol>
 </ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Eligibility</b>. By using Glass’s Products You represent and warrant that You meet the following eligibility requirements, which are a prerequisite to Your use of any of the Products:<span class="Apple-converted-space"> </span></span></li>
-</ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
+<p class="p6"><span class="s1"></span><br></p>
 <ol class="ol1">
   <ol class="ol2">
-    <li class="li2"><span class="s2"></span><span class="s1">If You are an individual, you are at least 18 years old;</span></li>
-    <li class="li2"><span class="s2"></span><span class="s1">You are capable and authorized to enter into a legally binding contract;</span></li>
-    <li class="li2"><span class="s2"></span><span class="s1">You have a valid and verifiable email address and telephone number;</span></li>
-    <li class="li2"><span class="s2"></span><span class="s1">You have and will provide a valid delivery address in United States; and</span></li>
-    <li class="li2"><span class="s2"></span><span class="s1">You have access to make and receive payments, as the case may require.</span></li>
+    <ol class="ol3">
+      <ol class="ol1">
+        <li class="li3"><span class="s2"></span><span class="s1"><b>Sufficient Funds</b>. When Sufficient Funds have been accumulated in the Layaway Account, Glass will [NOTIFY CUSTOMER TO AUTHORIZE] the remittance of the Fee to Glass and the remittance of the Total Costs to the merchant. The moment at which merchant receives the remittance of Total Costs is the moment at which purchase occurs and Customer is the owner of the Underlying Good (the “Purchase”).</span></li>
+      </ol>
+    </ol>
   </ol>
 </ol>
-<p class="p15"><span class="s1"><b><span class="Apple-converted-space"> </span></b></span></p>
+<p class="p7"><span class="s1"></span><br></p>
+<p class="p4"><span class="s1"></span><br></p>
 <ol class="ol1">
-  <li class="li16"><span class="s4"><b></b></span><span class="s5"><b>Warranty</b>. </span><span class="s1"><b>Except as required by applicable law, Glass’s Products are provided “as-is” and without any representation or warranty, whether express, implied or statutory.  Glass hereby disclaims any implied warranties, including those of</b></span></li>
+  <li class="li3"><span class="s2"></span><span class="s1"><b>Changes to this Agreement.</b> Glass may amend these Terms at any time for any reason including, for example, if we change the functionality of our Product, introduce new features, applications or products, or as required by law. We will post the amended Terms on our website. If You do not agree with the changes, please cease to use the Application and Service. Any amendments to these Terms, will not alter existing obligations that You may have with Your customers who utilize the Product.</span></li>
 </ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
+<p class="p4"><span class="s1"></span><br></p>
 <ol class="ol1">
-  <li class="li16"><span class="s2"><b></b></span><span class="s1"><b>Release from Dispute. If You have any dispute with a Customer or Merchant, You hereby release Glass from any and all claims, demands and damages (actual and consequential) of every kind and every nature, known and unknown. Furthermore, You expressly waive any protections, including, without limitation, those protections of California Civil Code § 1542, that would otherwise limit the extent of this release to include only those claims known at the time of release.</b></span></li>
+  <li class="li3"><span class="s2"></span><span class="s1"><b>Customer Obligations.</b></span></li>
 </ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
+<p class="p8"><span class="s1"></span><br></p>
 <ol class="ol1">
-  <li class="li16"><span class="s2"><b></b></span><span class="s1"><b>Limitation of Liability. To the maximum extent permitted by applicable law, You agree not to hold Glass liable, and Glass shall not be liable, for <i>any damages or losses</i> that result directly or indirectly from: (1) Your use, or reliance on using, the Products; (2) delays or disruptions caused by the Products; (3) bugs, errors, or inaccuracies of any kind in Glass’s Products; (4) the actions or inactions of other parties; or (5) a suspension or other action taken with regards to Your use of Glass’s Products.</b></span></li>
-</ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <li class="li16"><span class="s2"><b></b></span><span class="s1"><b>Indemnification</b>. <b>You agree to indemnify Glass for actions related to Your use of Glass’s Products, whether such use is as a Merchant or as a Customer. You agree to indemnify and hold Glass harmless from any claim or demand (including attorneys’ fees) made by any third party as a result of Your (including Your allowance of a third party to use Your Glass account) (i) breach of these Terms, (ii) improper use of the Products, or (iii) violation of any applicable law, regulation, statute or ordinance.</b></span></li>
-</ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <li class="li2"><span class="s2"><b></b></span><span class="s1"><b>Assignment. </b>You cannot transfer or assign any rights You may have under this Agreement without Glass’s prior written consent, which must not be unreasonably withheld. Glass may transfer or assign this Agreement, and any right under this Agreement, to a third party without notice to You or Your consent unless the assignment will detrimentally affect Your rights under the Agreement. You agree that we may appoint third party collections agencies to collect any amounts owing to us under this Agreement without Your consent. For the avoidance of doubt, You acknowledge that no assignment by us to another person of any amount You owe to us will require Your consent or notice to You.</span></li>
-</ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <li class="li2"><span class="s6"><b></b></span><span class="s7"><b>Intellectual Property. </b></span><span class="s1">You may not modify, reverse engineer, decompile or disassemble the Services. You may not copy, adapt, alter, modify, translate, or create derivative works of the Services without written authorization of InfoReach.</span></li>
-</ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <li class="li16"><span class="s2"><b></b></span><span class="s1"><b>Consent To Receive Notices.</b> You (a) consent to receive communications from Glass in an electronic form via the email address you may be asked to submit; and (b) agree that all terms, agreements, notices, disclosures, and other communications that Glass provides to you electronically satisfy any legal requirement that such communications would satisfy if they were in writing.<span class="Apple-converted-space">  </span>The foregoing does not affect your non-waivable rights. We may also use your email address to send you other messages, including information about Glass and special offers. You may opt out of such email by sending us a message at any destination noted in Section 12.</span></li>
-</ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<ol class="ol1">
-  <li class="li16"><span class="s2"><b></b></span><span class="s1"><b>Notices.</b> Except as explicitly stated otherwise, any notices to us should be given:</span></li>
   <ol class="ol2">
-    <li class="li16"><span class="s2"><b></b></span><span class="s1"><b>By Mail: </b>Glass Financial, Inc., 640 Homer Ave, Palo Alto, CA 94301</span></li>
-    <li class="li17"><span class="s6"><b></b></span><span class="s7"><b>By Email: </b><a href="mailto:info@getglass.co"><span class="s8">info@getglass.co</span></a></span></li>
-    <li class="li16"><span class="s2"><b></b></span><span class="s1"><b>By Phone: </b>650-382-4073</span></li>
+    <li class="li3"><span class="s2"></span><span class="s1"><b>Generally: </b>By using the Product, Customer:</span></li>
   </ol>
 </ol>
-<p class="p14"><span class="s1"><br>
-</span></p>
+<p class="p2"><span class="s1"></span><br></p>
 <ol class="ol1">
-  <li class="li16"><span class="s2"><b></b></span><span class="s1"><b>General Terms. </b>If any part of this Agreement is held invalid or unenforceable, that portion of the Agreement shall be construed consistent with applicable law.  The remaining portions shall remain in full force and effect. Any failure on the part of Glass to enforce any provision of this Agreement shall not be considered a waiver of our right to enforce such provision.  Glass’s rights under this Agreement shall survive any termination of this Agreement.</span></li>
+  <ol class="ol2">
+    <ol class="ol3">
+      <li class="li3"><span class="s2"></span><span class="s1">Agrees to satisfy all obligations of the Payment Schedule;</span></li>
+    </ol>
+  </ol>
 </ol>
-<p class="p2"><span class="s1"><br>
-</span></p>
+<p class="p6"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <ol class="ol3">
+      <li class="li3"><span class="s2"></span><span class="s1">Agrees to pay all Fees, Cancellation Fees, and Total Costs;</span></li>
+    </ol>
+  </ol>
+</ol>
+<p class="p6"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <ol class="ol3">
+      <li class="li3"><span class="s2"></span><span class="s1">Acknowledges that any Layaway Transaction may be subject to Glass’s approval prior to completion;</span></li>
+    </ol>
+  </ol>
+</ol>
+<p class="p2"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <ol class="ol3">
+      <li class="li3"><span class="s2"></span><span class="s1">Represents and warrants that they have not provided, and will not in the future provide, Glass with any false, inaccurate or misleading information;</span></li>
+    </ol>
+  </ol>
+</ol>
+<p class="p6"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <ol class="ol3">
+      <li class="li3"><span class="s2"></span><span class="s1">Agrees to update Customer Account information when information changes;</span></li>
+    </ol>
+  </ol>
+</ol>
+<p class="p6"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <ol class="ol3">
+      <li class="li3"><span class="s2"></span><span class="s1">Acknowledges that Glass does not collect or pay any taxes on Customer’s behalf concerning use of the Product; and</span></li>
+    </ol>
+  </ol>
+</ol>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p9"><span class="s1">Acknowledges that Glass does not mediate any disputes between Customers and merchants.</span></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <li class="li3"><span class="s2"></span><span class="s1"><b>Layaway Transactions and Accounts. </b>A Customer enters into a Layaway Transaction when choosing to use the Product, and thereby authorizes Glass to create a Layaway Account on the Customer’s behalf. In the event that Customer uses the Product to enter into a Layaway Transaction, Customer:</span></li>
+  </ol>
+</ol>
+<p class="p2"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <ol class="ol3">
+      <li class="li3"><span class="s2"></span><span class="s1">Agrees and consents to Glass creating a Layaway Account for the Customer, in which funds will be deposited (in accordance with Customer’s Payment Schedule) and stored until Sufficient Funds exist;<span class="Apple-converted-space"> </span></span></li>
+    </ol>
+  </ol>
+</ol>
+<p class="p10"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <ol class="ol3">
+      <li class="li3"><span class="s2"></span><span class="s1">Agrees and consents to Glass automatically withdrawing funds from the Source Account that is used to fund the Layaway Account;</span></li>
+    </ol>
+  </ol>
+</ol>
+<p class="p11"><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <ol class="ol3">
+      <li class="li3"><span class="s2"></span><span class="s1">Agrees and consents to Glass, when Sufficient Funds exist and upon receiving Customer’s consent, remitting (1) the Total Cost of the Underlying Good to the merchant and (2) the Fees to Glass, in order to complete the Purchase;</span></li>
+    </ol>
+  </ol>
+</ol>
+<p class="p10"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <ol class="ol3">
+      <li class="li3"><span class="s2"></span><span class="s1">Acknowledges that the merchant will continue to own the Underlying Good, <b><i>and that Customer will have no ownership rights or any interest in such Underlying Good</i></b>, until Purchase; and <span class="Apple-converted-space"> </span></span></li>
+    </ol>
+  </ol>
+</ol>
+<p class="p11"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <ol class="ol3">
+      <li class="li3"><span class="s2"></span><span class="s1">Acknowledges that Glass does not have any control over, and is not responsible or liable for, the Underlying Good purchased from a merchant using the Product or any actions or inactions committed by a merchant.<span class="Apple-converted-space"> </span></span></li>
+    </ol>
+  </ol>
+</ol>
+<p class="p2"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <li class="li3"><span class="s2"></span><span class="s1"><b>Agreement with Merchant Terms</b>. Glass provides the Product, whereas merchant supplies the Underlying Good<b>. </b>As such, Customer acknowledges that the terms of purchasing an Underlying Good are the terms under which the merchant is offering the Underlying Good, and in no way is Glass responsible for such terms or for setting such terms.</span></li>
+  </ol>
+</ol>
+<p class="p4"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <li class="li3"><span class="s2"></span><span class="s1"><b>Unauthorized Transactions.</b> Customer is responsible for maintaining the security of Customer’s Customer Account. Glass bears no responsibility for unauthorized access and use of Customer’s Glass Account.<span class="Apple-converted-space">  </span>In the event that an unauthorized third party gains access or uses a Customer Account, Customer:</span></li>
+  </ol>
+</ol>
+<p class="p2"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <ol class="ol3">
+      <li class="li3"><span class="s2"></span><span class="s1">Agrees to, and acknowledges that they will, bear responsibility for any Layaway Transaction or Purchase entered into using that Customer’s Customer Account, whether or not such use was the result of the action of an unauthorized third party;</span></li>
+    </ol>
+  </ol>
+</ol>
+<p class="p6"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <ol class="ol3">
+      <li class="li3"><span class="s2"></span><span class="s1">Agrees to, and acknowledges that they, will be responsible and liable for obligations hereunder or as created by the unauthorized third party as if the third party were the Customer and validly using the Customer Account; and</span></li>
+    </ol>
+  </ol>
+</ol>
+<p class="p6"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <ol class="ol3">
+      <li class="li3"><span class="s2"></span><span class="s1">Agrees to immediately notify Glass of any unauthorized access or use of a Customer Account.</span></li>
+    </ol>
+  </ol>
+</ol>
+<p class="p2"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <li class="li3"><span class="s2"></span><span class="s1"><b>Illegal Use. </b>Customer represents and warrants that Customer will not use the Product to:</span></li>
+  </ol>
+</ol>
+<p class="p12"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <ol class="ol3">
+      <li class="li3"><span class="s2"></span><span class="s1">Violate any law, regulation or other published policy;</span></li>
+      <li class="li3"><span class="s2"></span><span class="s1">Commit fraud or misrepresentation on another party; <span class="Apple-converted-space"> </span></span></li>
+      <li class="li3"><span class="s2"></span><span class="s1">Violate or infringe on intellectual property, privacy, or rights of another; or</span></li>
+      <li class="li3"><span class="s2"></span><span class="s1">Violate any applicable third party policies or requirements of which Customer may be aware.</span></li>
+    </ol>
+  </ol>
+</ol>
+<p class="p6"><span class="s1"><b><span class="Apple-converted-space"> </span></b></span></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <li class="li3"><span class="s2"></span><span class="s1"><b>Consumer Rights Protections</b>. Customer acknowledges that Customer has certain rights and protections concerning use of the Product, the Layaway Transaction and the Purchase (“Consumer Rights”). These Consumer Rights may include, without limitation, protections under the Federal Trade Commission Act, the Truth in Lending Act, and various state and local laws and regulations. These Terms and the Product are not intended to exclude, restrict or modify any of Customer’s Consumer Rights.</span></li>
+  </ol>
+</ol>
+<p class="p2"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <li class="li3"><span class="s2"></span><span class="s1"><b>Closing Customer’s Glass Account.</b></span></li>
+  </ol>
+</ol>
+<p class="p4"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <ol class="ol3">
+      <li class="li3"><span class="s2"></span><span class="s1"><b>Closing a Customer Account</b>. Customer may only request to close Customer’s Glass Account by contacting us directly at help@getglass.co. Glass will only close a Customer Account if:</span></li>
+    </ol>
+  </ol>
+</ol>
+<p class="p6"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <ol class="ol3">
+      <ol class="ol1">
+        <li class="li3"><span class="s2"></span><span class="s1">Customer has paid all Fees and Total Costs due on any Layaway Transactions or Purchase to which customer is currently bound;</span></li>
+        <li class="li3"><span class="s2"></span><span class="s1">Customer has no open disputes or refunds in process; and</span></li>
+        <li class="li3"><span class="s2"></span><span class="s1">Customer is not currently under investigation by any legal body.</span></li>
+      </ol>
+    </ol>
+  </ol>
+</ol>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p13"><span class="s1">At the time Glass closes Customer’s Customer Account, Glass will remit all funds in Customer’s Layaway Account to Customer, less any amount owed (Cancellation Fees, Fees, Total Costs, or other amounts).</span></p>
+<p class="p14"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <ol class="ol3">
+      <li class="li3"><span class="s2"></span><span class="s1"><b>Glass Initiated Customer Account Closure and Restriction</b>. Glass may close, restrict the use of, limit or suspend Customer’s Customer Account, or cancel any Layaway Transaction, at any time, for any reason (including violation of these Terms) or no reason, upon giving Customer at least 5 days’ notice. These Terms will continue to apply to Customer use of the Product during such period. Upon any Glass initiated closure of a Customer Account or cancellation of any Customer Layaway Transaction, Glass will remit any funds associated with such Customer Account or Layaway Transaction, less any Fees, Cancellation Fees or Total Costs, to the Customer, absent a valid legal order preventing such return.</span></li>
+    </ol>
+  </ol>
+</ol>
+<p class="p2"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <li class="li3"><span class="s2"></span><span class="s1"><b>Payment Schedule</b>.<span class="Apple-converted-space">  </span>Customer agrees to maintain sufficient funds in the Source Account so as to enable Glass to automatically debit funds from the Source Account on a monthly basis.</span></li>
+  </ol>
+</ol>
+<p class="p4"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <li class="li3"><span class="s2"></span><span class="s1"><b>Returns, Refunds and Cancellations. <span class="Apple-converted-space"> </span></b></span></li>
+  </ol>
+</ol>
+<p class="p15"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <ol class="ol3">
+      <li class="li3"><span class="s2"></span><span class="s1"><b>Completed Purchase.</b> In the event that Purchase has already occurred, and Customer desires to return the Underlying Good, cancel the Purchase or seek a refund for any reason or no reason, Customer must make such request from the merchant who sold Customer the Underlying Good; the merchant’s policy on such requests shall control. <b>In no event will Glass refund the Fee on any Purchase.</b></span></li>
+    </ol>
+  </ol>
+</ol>
+<p class="p6"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <ol class="ol3">
+      <li class="li3"><span class="s2"></span><span class="s1"><b>Incomplete Purchase. </b>At any time before Purchase and in accordance with merchant’s policies, Customer may cancel a Layaway Transaction (“Cancellation”). In the event of Cancellation, Glass will remit the balance of the Layaway Account to Customer, less a cancellation fee of $10 remitted to Glass (“Cancellation Fee”). Alternatively, Glass will waive collecting a Cancellation Fee if Customer elects to keep the Layaway Account open and enter into another Layaway Transaction within<span class="Apple-converted-space">  </span>7 days of Cancellation.<span class="Apple-converted-space"> </span></span></li>
+    </ol>
+  </ol>
+</ol>
+<p class="p2"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <li class="li3"><span class="s2"></span><span class="s1"><b>Eligibility</b>. By using Glass’s Product You represent and warrant that You meet the following eligibility requirements, which are a prerequisite to Your use of the Product:<span class="Apple-converted-space"> </span></span></li>
+</ol>
+<p class="p2"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <ol class="ol2">
+    <li class="li3"><span class="s2"></span><span class="s1">If You are an individual, you are at least 18 years old;</span></li>
+    <li class="li3"><span class="s2"></span><span class="s1">You are capable and authorized to enter into a legally binding contract;</span></li>
+    <li class="li3"><span class="s2"></span><span class="s1">You have a valid and verifiable email address and telephone number;</span></li>
+    <li class="li3"><span class="s2"></span><span class="s1">You have and will provide a valid delivery address in United States; and</span></li>
+    <li class="li3"><span class="s2"></span><span class="s1">have access to make and receive payments, as the case may require.</span></li>
+  </ol>
+</ol>
+<p class="p4"><span class="s1"><b><span class="Apple-converted-space"> </span></b></span></p>
+<ol class="ol1">
+  <li class="li16"><span class="s5"></span><span class="s6"><b>Warranty</b>. </span><span class="s1"><b>Except as required by applicable law, Glass’s Product is provided “as-is” and without any representation or warranty, whether express, implied or statutory.  Glass hereby disclaims any implied warranties, including those of</b></span></li>
+</ol>
+<p class="p2"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <li class="li16"><span class="s5"></span><span class="s1"><b>Release from Dispute. If You have any dispute with a merchant, You hereby release Glass from any and all claims, demands and damages (actual and consequential) of every kind and every nature, known and unknown. Furthermore, You expressly waive any protections, including, without limitation, those protections of California Civil Code § 1542, that would otherwise limit the extent of this release to include only those claims known at the time of release.</b></span></li>
+</ol>
+<p class="p2"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <li class="li16"><span class="s5"></span><span class="s1"><b>Limitation of Liability. To the maximum extent permitted by applicable law, You agree not to hold Glass liable, and Glass shall not be liable, for <i>any damages or losses</i> that result directly or indirectly from: (1) Your use, or reliance on using, the Product; (2) delays or disruptions caused by the Product; (3) bugs, errors, or inaccuracies of any kind in Glass’s Product; (4) the actions or inactions of other parties; or (5) a suspension or other action taken with regards to Your use of Glass’s Product.</b></span></li>
+</ol>
+<p class="p2"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <li class="li16"><span class="s5"></span><span class="s1"><b>Indemnification</b>. <b>You agree to indemnify Glass for actions related to Your use of Glass’s Product. You agree to indemnify and hold Glass harmless from any claim or demand (including attorneys’ fees) made by any third party as a result of Your (including Your allowance of a third party to use Your Glass account) (i) breach of these Terms, (ii) improper use of the Product, or (iii) violation of any applicable law, regulation, statute or ordinance.</b></span></li>
+</ol>
+<p class="p2"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <li class="li3"><span class="s2"></span><span class="s1"><b>Assignment. </b>You cannot transfer or assign any rights You may have under this Agreement without Glass’s prior written consent, which must not be unreasonably withheld. Glass may transfer or assign this Agreement, and any right under this Agreement, to a third party without notice to You or Your consent unless the assignment will detrimentally affect Your rights under the Agreement. You agree that we may appoint third party collections agencies to collect any amounts owing to us under this Agreement without Your consent. For the avoidance of doubt, You acknowledge that no assignment by us to another person of any amount You owe to us will require Your consent or notice to You.</span></li>
+</ol>
+<p class="p2"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <li class="li3"><span class="s2"></span><span class="s7"><b> Intellectual Property. </b></span><span class="s1">You may not modify, reverse engineer, decompile or disassemble the Product. You may not copy, adapt, alter, modify, translate, or create derivative works of the Product without written authorization of Glass.</span></li>
+</ol>
+<p class="p2"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <li class="li16"><span class="s5"></span><span class="s1"><b>Consent To Receive Notices.</b> You (a) consent to receive communications from Glass in an electronic form via the email address you may be asked to submit; and (b) agree that all terms, agreements, notices, disclosures, and other communications that Glass provides to you electronically satisfy any legal requirement that such communications would satisfy if they were in writing.<span class="Apple-converted-space">  </span>The foregoing does not affect your non-waivable rights. We may also use your email address to send you other messages, including information about Glass and special offers. You may opt out of such email by sending us a message at any destination noted in Section 12.</span></li>
+</ol>
+<p class="p2"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <li class="li16"><span class="s5"></span><span class="s1"><b>Notices.</b> Except as explicitly stated otherwise, any notices to us should be given:</span></li>
+  <ol class="ol2">
+    <li class="li16"><span class="s2"></span><span class="s1"><b>By Mail: </b>Glass Financial, Inc., 640 Homer Ave, Palo Alto, CA 94301</span></li>
+    <li class="li17"><span class="s8"></span><span class="s7"><b>By Email: </b><a href="mailto:info@getglass.co"><span class="s9">info@getglass.co</span></a></span></li>
+    <li class="li16"><span class="s2"></span><span class="s1"><b>By Phone: </b>650-382-4073</span></li>
+  </ol>
+</ol>
+<p class="p15"><span class="s1"></span><br></p>
+<ol class="ol1">
+  <li class="li16"><span class="s5"></span><span class="s1"><b>General Terms. </b>If any part of this Agreement is held invalid or unenforceable, that portion of the Agreement shall be construed consistent with applicable law.  The remaining portions shall remain in full force and effect. Any failure on the part of Glass to enforce any provision of this Agreement shall not be considered a waiver of our right to enforce such provision.  Glass’s rights under this Agreement shall survive any termination of this Agreement.</span></li>
+</ol>
+<p class="p2"><span class="s1"></span><br></p>
 <p class="p16"><span class="s1">You hereby agree that any cause of action related to, or arising out of, Your relationship with Glass must commence within ONE (1) year after the cause of action accrues.  Otherwise, such cause of action shall be permanently barred.</span></p>
-<p class="p2"><span class="s1"><br>
-</span></p>
-<p class="p16"><span class="s1">These Terms and Your use of the Product are governed by the federal laws of the United States of America and the laws of the state of California, without regard to conflict of law provisions.</span></p>
-<p class="p18"><span class="s1"><br>
-</span></p>
-<p class="p18"><span class="s1"><br>
-</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p18"><span class="s1">These Terms and Your use of the Product are governed by the federal laws of the United States of America and the laws of the state of California, without regard to conflict of law provisions.</span><span class="s6"><span class="Apple-converted-space"> </span></span></p>
 </div>
 {{end}}

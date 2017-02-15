@@ -212,6 +212,49 @@ window.onload = function () {
 };
 
 
+  function setupSocket(){ 
+    var socket = null; 
+    var msgBox = $("#chatbox textarea"); 
+    var messages = $("#messages"); 
+    $("#chatbox").submit(function(){ 
+      if (!msgBox.val()) return false; 
+      if (!socket) { 
+        alert("Error: There is no socket connection."); 
+        return false; 
+      } 
+      socket.send(msgBox.val()); 
+      msgBox.val(""); 
+      return false; 
+    }); 
+    if (!window["WebSocket"]) { 
+/*     alert("Error: Your browser does not support web  sockets.") */
+    } else { 
+      var socket = new WebSocket("ws://localhost:9000/room"); 
+
+
+
+      socket.onopen = function() {   };
+      socket.onclose = function() { 
+        alert("Connection has been closed."); 
+       /* setupSocket(); */
+      } 
+
+      socket.onerror = function(e) {
+        console.log("WebSocket failure, error", e);
+      };
+      socket.onmessage = function(e) { 
+      	if (e.data == "{{.Order.UUID}}") {
+      		window.location = "/decision/{{.Order.UUID}}";
+      		return false;
+      	}
+        console.log(e.data);
+
+      }
+    }
+  }
+  setupSocket();
+</script> 
+
 
 </script>
 {{end}}

@@ -101,7 +101,9 @@ const (
 )
 
 var upgrader = &websocket.Upgrader{ReadBufferSize: socketBufferSize,
-	WriteBufferSize: socketBufferSize}
+	WriteBufferSize: socketBufferSize, CheckOrigin: func(r *http.Request) bool {
+		return true
+	}}
 
 func (r *room) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	socket, err := upgrader.Upgrade(w, req, nil)

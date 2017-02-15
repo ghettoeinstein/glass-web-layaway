@@ -44,7 +44,7 @@ func sendMessage(to, msg string) (*twilio.Message, bool, error) {
 	}
 	s, resp, err := c.Messages.Send(from, to, params)
 	if err != nil {
-		Error.Fatal(s, resp, err)
+		Error.Println(s, resp, err)
 		return nil, false, err
 	}
 

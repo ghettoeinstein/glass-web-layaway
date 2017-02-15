@@ -5,6 +5,8 @@ import (
 	"./controllers"
 	"os"
 	//	"flag"
+	"./data"
+	"strconv"
 
 	"github.com/gorilla/mux"
 
@@ -33,6 +35,7 @@ func init() {
 	if templates == nil {
 		templates = make(map[string]*template.Template)
 	}
+	go controllers.InitTemplates()
 
 	go setupTemplates()
 	go func() {
@@ -42,14 +45,23 @@ func init() {
 
 }
 
+func controllerChannel(out <-chan string, r *room) {
+	for {
+		select {
+		case uuid := <-out:
+			Trace.Println("Attempting to send UUID:", uuid)
+			r.forward <- []byte(uuid)
+		default:
+		}
+	}
+}
+
 func main() {
 	defer func() {
 		if err := recover(); err != nil {
 			log.Printf("Trapped panic: %s (%T) \n", err, err)
 		}
 	}()
-
-	go controllers.InitTemplates()
 
 	f, err := os.OpenFile("logs/glassLogs.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
@@ -119,8 +131,6 @@ func main() {
 		negroni.Wrap(userRouter),
 	))
 
-	//router.POST("/orders", controllers.CreateOrder).Methids("POST")
-
 	router.HandleFunc("/about", aboutUsHandler)
 
 	//
@@ -136,7 +146,7 @@ func main() {
 	adminRouter := mux.NewRouter()
 	adminRouter.HandleFunc("/admin/chat", chatHandler).Methods("GET")
 	adminRouter.HandleFunc("/admin/orders/{id}", controllers.AdminDisplayOrder).Methods("GET")
-	adminRouter.HandleFunc("/admin/orders/{id}/process", controllers.AdminProcessOrder).Methods("POST")
+	adminRouter.HandleFunc("/admin/orders/{id}/process", AdminProcessOrder).Methods("POST")
 	adminRouter.HandleFunc("/admin/orders/{id}/delete", controllers.AdminDeleteOrder).Methods("GET")
 	adminRouter.HandleFunc("/admin/orders/decision/approved", controllers.AdminGetApprovedOrders).Methods("GET")
 	adminRouter.HandleFunc("/admin/orders/decision/denied", controllers.AdminGetDeniedOrders).Methods("GET")
@@ -163,5 +173,56 @@ func main() {
 
 	Info.Println("API is Listening on: ", common.AppConfig.Server)
 	log.Fatal(server.ListenAndServe())
+
+}
+
+func AdminProcessOrder(w http.ResponseWriter, r *http.Request) {
+
+	id := controllers.IdFromRequest(r)
+
+	context := controllers.NewContext()
+	defer context.Close()
+
+	c := context.DbCollection("web_orders")
+	repo := &data.WebOrderRepository{c}
+
+	webOrder, err := repo.GetByUUID(id)
+	if err != nil {
+		common.DisplayAppError(w, err, err.Error(), 500)
+		return
+	}
+
+	price := template.HTMLEscapeString(r.PostFormValue("price"))
+	res, err := strconv.ParseFloat(price, 64)
+	if err != nil {
+
+		println("Error parsing price string into int:", err)
+	}
+
+	webOrder.Price = float64(res)
+
+	decision := r.PostFormValue("decision")
+	switch decision {
+	case "approve":
+		webOrder.Decision = "approved"
+
+	case "deny":
+		webOrder.Decision = "denied"
+	default:
+		webOrder.Decision = "denied"
+	}
+	webOrder.Acknowledged = true
+
+	err = repo.UpdateOrder(webOrder)
+	if err != nil {
+		common.DisplayAppError(w, err, err.Error(), 500)
+		return
+	}
+	globalRoom.forward <- []byte(id)
+
+	//renderTemplate(w, "admin", "base", webOrders)
+
+	w.Header()["Location"] = []string{"/admin"}
+	w.WriteHeader(http.StatusTemporaryRedirect)
 
 }
