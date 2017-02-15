@@ -33,7 +33,7 @@
       return false; 
     }); 
     if (!window["WebSocket"]) { 
-      alert("Error: Your browser does not support web  sockets.") 
+  
     } else { 
       var socket = new WebSocket("ws://localhost:9000/room"); 
 
@@ -41,17 +41,17 @@
 
       socket.onopen = function() {      messages.append($("<li>").text("Welcome to the ChatRoom")); };
       socket.onclose = function() { 
-        alert("Connection has been closed."); 
+
        /* setupSocket(); */
       } 
 
       socket.onerror = function(e) {
         console.log("WebSocket failure, error", e);
-        alert(e);
+
       };
       socket.onmessage = function(e) { 
         console.log(e.data);
-        alert(e.data);
+
 
         var url  = "http:///orders/";
 
