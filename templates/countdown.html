@@ -99,10 +99,10 @@
 		color:#2C01D5;
 	}
 	#navbar-bottom {
-			border:0;
-			color:white;
-			background:none;
-	
+		border:0;
+		color:white;
+		background:none;
+
 	}
 	nav a {
 		color:white;
@@ -121,7 +121,7 @@
 		color:gray;
 		font-family:"Open Sans";
 		font-weight: 500;
-			position:relative;
+		position:relative;
 
 	}
 
@@ -145,13 +145,13 @@
 				<br />
 				<div id="#clock-div">
 					<img src="/assets/clock.svg"  id="logo" width="100px">
-				
+
 				</div>
 			</div>
 		</div>
 		<p id="standby-text" class="text-center" style="">Standby. We’ll let you know our decision shortly.<br>
-		<span class="text-center"> (Please do not refresh or leave this page.)</span>
- </p>
+			<span class="text-center"> (Please do not refresh or leave this page.)</span>
+		</p>
 		
 	</div>
 </div>
@@ -165,7 +165,7 @@
 </div>
 <script>
 
-  
+
 
 	function startTimer(duration, display) {
 
@@ -202,8 +202,8 @@
 window.onload = function () {
 
 	document.onkeydown = function (e) {
-            return (e.which || e.keyCode) != 116;
-        };
+		return (e.which || e.keyCode) != 116;
+	};
 	var fiveMinutes = 60 * 2,
 	display = document.querySelector('#time');
 	startTimer(fiveMinutes, display);
@@ -212,47 +212,48 @@ window.onload = function () {
 };
 
 
-  function setupSocket(){ 
-    var socket = null; 
-    var msgBox = $("#chatbox textarea"); 
-    var messages = $("#messages"); 
-    $("#chatbox").submit(function(){ 
-      if (!msgBox.val()) return false; 
-      if (!socket) { 
+function setupSocket(){ 
+	var socket = null; 
+	var msgBox = $("#chatbox textarea"); 
+	var messages = $("#messages"); 
+	$("#chatbox").submit(function(){ 
+		if (!msgBox.val()) return false; 
+		if (!socket) { 
 
-        return false; 
-      } 
-      socket.send(msgBox.val()); 
-      msgBox.val(""); 
-      return false; 
-    }); 
-    if (!window["WebSocket"]) { 
-/*     alert("Error: Your browser does not support web  sockets.") */
-    } else { 
-      var socket = new WebSocket("wss://getglass.co/room"); 
+			return false; 
+		} 
+		socket.send(msgBox.val()); 
+		msgBox.val(""); 
+		return false; 
+	}); 
+	if (!window["WebSocket"]) { 
+		/*     alert("Error: Your browser does not support web  sockets.") */
+	} else { 
+		var socket = new WebSocket("wss://getglass.co/room"); 
 
 
 
-      socket.onopen = function() {   };
-      socket.onclose = function() { 
+		socket.onopen = function() {  console.log("Connected successfully"); };
+		socket.onclose = function() { 
+			console.log("Disconnect");
 
-       /* setupSocket(); */
-      } 
+			/* setupSocket(); */
+		}; 
 
-      socket.onerror = function(e) {
-        console.log("WebSocket failure, error", e);
-      };
-      socket.onmessage = function(e) { 
-      	if (e.data == "{{.Order.UUID}}") {
-      		window.location = "/decision/{{.Order.UUID}}";
-      		return false;
-      	}
-        console.log(e.data);
+		socket.onerror = function(e) {
+			console.log("WebSocket failure, error", e);
+		};
+		socket.onmessage = function(e) { 
+			if (e.data == "{{.Order.UUID}}") {
+				window.location = "/decision/{{.Order.UUID}}";
+				return false;
+			}
+			console.log(e.data);
 
-      }
-    }
-  }
-  setupSocket();
+		}
+	}
+}
+setupSocket();
 </script> 
 
 

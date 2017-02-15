@@ -172,7 +172,7 @@ func main() {
 	}
 
 	Info.Println("API is Listening on: ", common.AppConfig.Server)
-	log.Fatal(server.ListenAndServe())
+	log.Fatal(server.ListenAndServeTLS())
 
 }
 
