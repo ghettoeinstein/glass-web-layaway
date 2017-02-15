@@ -108,7 +108,7 @@ var upgrader = &websocket.Upgrader{ReadBufferSize: socketBufferSize,
 func (r *room) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	socket, err := upgrader.Upgrade(w, req, nil)
 	if err != nil {
-		Error.Fatal("ServeHTTP:", err)
+		Error.Println("ServeHTTP:", err)
 		return
 	}
 	client := &client{
