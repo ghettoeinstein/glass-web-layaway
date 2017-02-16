@@ -23,9 +23,10 @@ import (
 func NewUserFromWebOrder(o *models.WebOrder) (*models.User, error) {
 
 	user := &models.User{
-		Email:     o.Email,
-		FirstName: o.FirstName,
-		LastName:  o.LastName,
+		Email:       o.Email,
+		FirstName:   o.FirstName,
+		LastName:    o.LastName,
+		PhoneNumber: o.PhoneNumber,
 	}
 
 	context := NewContext()
@@ -51,18 +52,16 @@ func CreateStripeCustomerWithToken(u *models.User, token string) (*stripe.Custom
 		Email: u.Email,
 		Desc:  "Customer for " + u.Email,
 	}
-	log.Println("token is", "token")
+	Stripe.Println("token is", token)
 	err := params.SetSource(token)
 	if err != nil {
-		log.Println("Could not add source to customer")
+		Stripe.Println("Could not add source to customer")
 		return nil, err
 	}
-	stripe.Key = os.Getenv("STRIPE_KEY")
 
 	cust, err := customer.New(params)
 	if err != nil {
-		log.Println(err)
-		return cust, err
+		return nil, err
 
 	}
 	//Set the user's Stripe `CustomerId` Field
@@ -70,7 +69,7 @@ func CreateStripeCustomerWithToken(u *models.User, token string) (*stripe.Custom
 
 	// send the customer id back from stripe on the send-only channel `sc`. The calling invoker of this function blocks
 
-	log.Println("Created customer with id ", cust.ID)
+	Stripe.Println("Created customer with id ", cust.ID)
 	return cust, nil
 }
 
@@ -136,7 +135,7 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 	token := r.PostFormValue("stripeToken")
 
 	if token == "" {
-		log.Fatalln("No token")
+		Stripe.Fatalln("No token")
 		return
 	}
 
@@ -164,7 +163,50 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 	//Create a stripe customer from the user
 	stripeCustomer, err := CreateStripeCustomerWithToken(user, token)
 	if err != nil {
-		log.Println("Error creating User", err)
+
+		// Try to safely cast a generic error to a stripe.Error so that we can get at
+		// some additional Stripe-specific information about what went wrong.
+		if stripeErr, ok := err.(*stripe.Error); ok {
+			// The Code field will contain a basic identifier for the failure.
+			switch stripeErr.Code {
+			case stripe.IncorrectNum:
+				Stripe.Println("Incorrect Num")
+			case stripe.InvalidNum:
+				Stripe.Println("Incorrect Num")
+			case stripe.InvalidExpM:
+				Stripe.Println("Invald Expiration Month")
+			case stripe.InvalidExpY:
+				Stripe.Println("Invald Expiration Year")
+			case stripe.InvalidCvc:
+				Stripe.Println("Invald CVC")
+			case stripe.ExpiredCard:
+				Stripe.Println("Card declined")
+			case stripe.IncorrectCvc:
+				Stripe.Println("Incorrect CVC/Security code.")
+			case stripe.IncorrectZip:
+				Stripe.Println("Incorrect ZIP code.")
+			case stripe.CardDeclined:
+				Stripe.Println("Card declined.")
+				return
+			case stripe.Missing:
+			case stripe.ProcessingErr:
+
+				http.Redirect(w, r, "/terms/"+id+"?flash=Error+processing+card+,+please+later+.", 307)
+				Stripe.Println("Processing error")
+				return
+			}
+
+			// The Err field can be coerced to a more specific error type with a type
+			// assertion. This technique can be used to get more specialized
+			// information for certain errors.
+			if cardErr, ok := stripeErr.Err.(*stripe.CardError); ok {
+				Stripe.Printf("Card was declined with code: %v\n", cardErr.DeclineCode)
+			} else {
+				Stripe.Printf("Other Stripe error occurred: %v\n", stripeErr.Error())
+			}
+		} else {
+			Stripe.Printf("Other error occurred: %v\n", err.Error())
+		}
 		return
 	}
 	// set the user's stripe customerid to the returned customer object's
@@ -222,7 +264,7 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 		Desc:     "One-time taxes(8.75%) for plan: " + id,
 	})
 	if err != nil {
-		log.Println("Error creating invoice item")
+		Stripe.Println("Error creating invoice item")
 		http.Error(w, err.Error(), 500)
 		return
 	}
@@ -237,10 +279,10 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 		ID:       id,
 	})
 	if err != nil {
-		log.Println("Error creating plan")
+		Stripe.Println("Error creating plan")
 		return
 	}
-	log.Println(p)
+	Stripe.Println(p)
 
 	order.PlanID = p.ID
 
@@ -249,8 +291,9 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 		Customer: user.StripeCustomer.CustomerId,
 		Plan:     p.ID,
 	})
+
 	if err != nil {
-		log.Println("Error creating subscription:", s)
+		Stripe.Println("Error creating subscription:", s)
 
 		w.Header()["Location"] = []string{"/terms/" + id}
 		w.WriteHeader(http.StatusSeeOther)
@@ -264,17 +307,17 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println("Error saving order:", order)
 	}
-	log.Println("Saved order successfully: ", order.UUID)
+	Stripe.Println("Saved order successfully: ", order.UUID)
 
 	err = sendConf(order)
 	if err != nil {
-		log.Println("Error sending confirmation email")
+		Stripe.Println("Error sending confirmation email")
 	}
 
 	// If all goes well create a cookie for the user to be able to login. Set to expire in one day.
 	authToken, err := common.GenerateJWT(user.Email, "Customer")
 	if err != nil {
-		log.Println("Error creating token")
+		Stripe.Println("Error creating token")
 	}
 
 	http.SetCookie(w, &http.Cookie{
@@ -417,7 +460,7 @@ func ChargeCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 
 	err = sendConf(order)
 	if err != nil {
-		log.Println("Error sending confirmation email")
+		log.Println("Error sending confirmation email:", err)
 	}
 
 	http.Redirect(w, r, "/user/history", 303)

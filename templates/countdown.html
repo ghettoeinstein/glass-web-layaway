@@ -229,7 +229,7 @@ function setupSocket(){
 	if (!window["WebSocket"]) { 
 		/*     alert("Error: Your browser does not support web  sockets.") */
 	} else { 
-		var socket = new WebSocket("wss://getglass.co/room"); 
+		var socket = new WebSocket("ws://localhost:9000/room"); 
 
 
 
@@ -254,6 +254,19 @@ function setupSocket(){
 	}
 }
 setupSocket();
+
+function doPoll(){
+    $.get('/status/{{.Order.UUID}}', function(data) {
+        if (data === "go") {
+        	window.location = "/decision/{{.Order.UUID}}";
+        }
+         // process results here
+        setTimeout(doPoll,3000);
+    });
+}
+
+doPoll()
+
 </script> 
 
 

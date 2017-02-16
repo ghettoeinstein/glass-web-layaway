@@ -9,8 +9,6 @@ import (
 
 var globalRoom *room
 
-var roomStore map[string]*room
-
 type room struct {
 	//the name of the channel
 	name string
@@ -53,13 +51,7 @@ func (r *room) run() {
 		select {
 		case client := <-r.join:
 			// joining
-
 			r.clients[client] = true
-
-		case order := <-r.orders:
-			for client := range r.clients {
-				client.send <- []byte(order.UUID)
-			}
 		case client := <-r.leave:
 			// leaving
 			delete(r.clients, client)
@@ -116,9 +108,9 @@ func (r *room) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		send:   make(chan []byte, messageBufferSize),
 		room:   r,
 	}
-	ip := req.RemoteAddr
+
 	r.join <- client
-	r.forward <- []byte(ip + " joined the room")
+
 	defer func() { r.leave <- client }()
 	go client.write()
 	client.read()

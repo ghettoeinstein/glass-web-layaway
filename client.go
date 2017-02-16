@@ -25,6 +25,7 @@ func (c *client) read() {
 	for {
 		_, msg, err := c.socket.ReadMessage()
 		if err != nil {
+
 			return
 		}
 		c.room.forward <- msg
@@ -37,6 +38,7 @@ func (c *client) write() {
 	for msg := range c.send {
 		err := c.socket.WriteMessage(websocket.TextMessage, msg)
 		if err != nil {
+
 			return
 		}
 	}

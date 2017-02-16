@@ -348,6 +348,13 @@
 		<!-- CSS is included via this JavaScript file -->
 
 
+        {{if .Flash}}
+
+			 <div class="alert alert-danger" >
+                {{.Flash}}
+            </div>
+	
+		{{end}}
 
 
 		<div class="row">
@@ -359,7 +366,7 @@
 
 						<div class="form-group">
 							<div class="col-md-12 ">
-								<input id="number"  data-stripe="number" type="text" maxlength="19" placeholder="Card Number" class="form-control input-md" required="">
+								<input id="number"  data-stripe="number" type="text" placeholder="Card Number" class="form-control input-md" required="">
 							</div>
 						</div>
 
@@ -381,7 +388,7 @@
 
 
 							<div class="col-md-3   ">
-								<input id="cvc" type="text"  data-stripe="cvc"  maxlength="3" placeholder="CVC" class="form-control input-md" required="">
+								<input id="cvc" type="text"  data-stripe="cvc"  maxlength="4" placeholder="CVC" class="form-control input-md" required="">
 							</div>
 							<div class="col-md-3   ">
 								<input id="zip" type="text" name="zip" placeholder="Zip" class="form-control input-md" required="">
@@ -390,7 +397,7 @@
 						<noscript><p>JavaScript is required for the registration form.</p></noscript>
 						<div class="row">
 							<div class="col-md-12 text-center "><button type="submit" id="offer-btn" class="btn btn-lg btn-success" style="font-weight:300;text-transform: none;border:0;border-radius: 35px">Accept Offer</button>
-								<small class="lower-box-text" style="font-size:12px; max-width: 100%">By accepting the offer and creating an account, I agree to Glass’s <a href="/terms">Terms and Conditions. </a></small>						</div>
+								<small class="lower-box-text" style="font-size:12px; max-width: 100%">By accepting the offer and creating an account, I agree to Glass’s <a href="/tos">Terms and Conditions. </a></small>						</div>
 							</div>
 						</fieldset>
 					</form>	

@@ -62,6 +62,7 @@ type (
 		UpdatedAt      time.Time     `json:"updated_at" bson:"updated_at"`
 		Acknowledged   bool          `json:"acknowledged" bson:"acknowledged"`
 		Price          float64       `json:"price" bson:"price"`
+		Notes          string        `json:"notes" bson:"notes"`
 	}
 	User struct {
 		Id             bson.ObjectId   `bson:"_id,omitempty" json:"id"`
@@ -86,7 +87,6 @@ type (
 	Admin struct {
 		User
 	}
-
 	Item struct {
 		ProductId   string `json:"product_id"`
 		URL         string `json:"url" bson:"url"`
@@ -94,12 +94,10 @@ type (
 		Quantity    string `json:"quantity"  bson:"quantity"`
 		ProductName string `json:"product_name" bson:"product_name`
 	}
-
 	Payment struct {
 		ChargeID    string    `json:"-"`
 		DateCharged time.Time `json:"date_charged"`
 	}
-
 	StripeCustomer struct {
 		CustomerId string `json:"customer_id" bson:"customer_id"`
 	}

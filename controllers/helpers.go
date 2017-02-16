@@ -5,10 +5,30 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/joiggama/money"
 	m "github.com/keighl/mandrill"
-
+	"github.com/stripe/stripe-go"
+	"log"
 	"net/http"
+	"os"
 	"time"
 )
+
+var (
+	Stripe *log.Logger
+)
+
+func init() {
+	stripe.Key = os.Getenv("STRIPE_KEY")
+	logfile, err := os.OpenFile("logs/glassLogs.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	if err != nil {
+		log.Fatalf("error  opening up logfile %v", err)
+	}
+
+	log.SetOutput(logfile)
+	Stripe = log.New(logfile,
+		"[STRIPE] ",
+		log.Ldate|log.Ltime|log.Lshortfile)
+
+}
 
 func IdFromRequest(r *http.Request) string {
 	vars := mux.Vars(r)
@@ -37,7 +57,7 @@ func sendConf(order *models.Order) error {
 		"BALANCE_POST_SECOND":   money.Format(order.BalancePostSecond),
 		"BALANCE_POST_CREATION": money.Format(order.BalancePostCreation),
 		"ORDERNO":               order.UUID,
-		"FULLNAME":              order.User.FullName,
+		"FULLNAME":              order.User.FirstName + " " + order.User.LastName,
 		"FIRST_PAYMENT":         order.CreatedAt.Add(time.Duration(time.Hour * 24 * 30)).Format("01/02/06"),
 		"SECOND_PAYMENT":        order.SecondPaymentDue,
 		"THIRD_PAYMENT":         order.ThirdPaymentDue,

@@ -8,7 +8,7 @@ import (
 	"./random"
 	"encoding/json"
 	"errors"
-	"fmt"
+
 	"github.com/gorilla/mux"
 	"github.com/joiggama/money"
 	"github.com/stripe/stripe-go"
@@ -111,7 +111,6 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 
 	firstname := r.Form.Get("first-name")
 	//firstname = template.HTMLEscapeString(firstname)
-
 	lastname := r.Form.Get("last-name")
 	lastname = template.HTMLEscapeString(lastname)
 
@@ -124,6 +123,9 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 	url := r.Form.Get("url")
 	url = template.HTMLEscapeString(url)
 
+	notes := r.Form.Get("notes")
+	notes = template.HTMLEscapeString(notes)
+
 	uuid := random.GenerateUUID()
 
 	order := &models.WebOrder{
@@ -133,6 +135,7 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 		UUID:        uuid,
 		Email:       email,
 		URL:         url,
+		Notes:       notes,
 		Decision:    "undecided",
 	}
 
@@ -141,14 +144,6 @@ func postGlassHandler(w http.ResponseWriter, r *http.Request) {
 		Error.Println(err)
 		renderTemplate(w, "glass", "base", err.Error())
 		return
-	}
-
-	orderRoom := newRoom(order.UUID)
-
-	if orderRoom != nil {
-		Trace.Println(orderRoom.name)
-		roomStore[uuid] = orderRoom
-		globalRoom.forward <- []byte(fmt.Sprintf("Chat room created for order %s", roomStore[uuid].name))
 	}
 
 	go postOrderToSlack(order)
@@ -403,6 +398,7 @@ func termsHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	flash := r.URL.Query().Get("flash")
 	taxes := webOrder.Price * 0.0875
 	serviceFee := webOrder.Price * 0.1
 
@@ -412,12 +408,14 @@ func termsHandler(w http.ResponseWriter, r *http.Request) {
 		FirstPayment   interface{}
 		UUID           interface{}
 		PublishableKey string
+		Flash          string
 	}{
 		money.Format(webOrder.Price / 4),
 		money.Format(webOrder.Price),
 		money.Format(webOrder.Price/4 + serviceFee + taxes),
 		uuid["id"],
 		os.Getenv("STRIPE_PUB_KEY"),
+		flash,
 	}
 
 	renderTemplate(w, "terms", "base", termsPayload)
