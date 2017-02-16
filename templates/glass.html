@@ -189,20 +189,23 @@
 								</div>
 							</div>
 							<!-- URL input-->
-							<div class="form-group">
+							<div class="form-group has-feedback">
 								<div class="col-md-12   ">
 									<div class="alert alert-danger " role="alert" id="url-alert" style="display:none">
 										<strong>Please enter a valid URL / link.</strong>
 									</div>
-									<input id="url" name="url" type="text" placeholder="Paste product URL or wishlist here" class="form-control input-md" >
-
+									<input id="url" name="url" type="text" placeholder="Paste product URL or wishlist here" class="form-control input-md" />
+									
 								</div>
 							</div>
 
-									<!-- URL input-->
+
+
+
+							<!-- URL input-->
 							<div class="form-group">
 								<div class="col-md-12   ">
-								
+
 									<textarea id="notes" name="notes"   rows="4" cols="50" placeholder="Please add any additional notes  about your order(e.g. shoe size, purse color, date of event, etc.)." class="form-control input-md" ></textarea>
 
 								</div>
@@ -326,7 +329,7 @@
 		return re.test(email);
 	}
 
-
+	$("a.url-tool-tip").tooltip();
 </script>
 
 {{end}}

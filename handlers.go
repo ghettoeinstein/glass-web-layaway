@@ -244,6 +244,20 @@ func UserFromRequest(r *http.Request) (user *models.User, err error) {
 	return
 }
 
+func OrdersForUser(user *models.User) (orders []*models.Order, err error) {
+
+	context := controllers.NewContext()
+	defer context.Close()
+
+	c := context.DbCollection("orders")
+	repo := &data.OrderRepository{c}
+	orders = repo.GetForUser(user)
+	if len(orders) == 0 {
+		err = errors.New("No orders found for user.")
+	}
+	return
+}
+
 func profileHandler(w http.ResponseWriter, r *http.Request) {
 	stripe.Key = os.Getenv("STRIPE_KEY")
 	//set  page to  expiration time in past, so that the page is never cached.
@@ -327,35 +341,19 @@ func historyHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Pragma", "no-cache")
 	w.Header().Set("Expires", " Sat, 26 Jul 1997 05:00:00 GMT")
 
-	ctx := r.Context()
-	email := ctx.Value(common.EmailKey).(string)
+	user, err := UserFromRequest(r)
 
-	context := controllers.NewContext()
-	defer context.Close()
-	c := context.DbCollection("users")
-	repo := &data.UserRepository{c}
-	user, err := repo.GetByUsername(email)
 	if err != nil {
 		log.Println("No user found for email")
+		http.RedirectHandler("/login", 307)
 	}
 
-	cust, err := customer.Get(user.StripeCustomer.CustomerId, nil)
+	orders, err := OrdersForUser(user)
 	if err != nil {
-		Error.Println("Error fetching customer data")
+		return
 	}
-	log.Println(cust)
-	log.Println(user.FullName)
+	renderTemplate(w, "history", "base", orders)
 
-	// Use an inline struct to pass an ad-hoc data structure for any data that the page might need.
-	if (cust.Subs.ListMeta.Count) > 0 {
-		historyPayload := struct{ PlanCount uint32 }{cust.Subs.ListMeta.Count}
-
-		renderTemplate(w, "history", "base", historyPayload)
-
-	} else {
-		historyPayload := struct{ PlanCount uint32 }{0}
-		renderTemplate(w, "history", "base", historyPayload)
-	}
 }
 
 func ordersHandler(w http.ResponseWriter, r *http.Request) {
@@ -398,7 +396,35 @@ func termsHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	flash := r.URL.Query().Get("flash")
+	flash := r.URL.Query().Get("err")
+	var flashMessage string
+	switch flash {
+	case "1":
+		flashMessage = "Incorrect card number. Please enter the correct number, or enter a different card"
+	case "2":
+		flashMessage = "Invalid card"
+	case "3":
+		flashMessage = "Invalid Expiration Month."
+	case "4":
+		flashMessage = "Invalid expiration month"
+	case "5":
+		flashMessage = "Invalid CVC"
+	case "6":
+		flashMessage = "Expired Card"
+	case "7":
+		flashMessage = "Incorrect CVC"
+	case "8":
+		flashMessage = "Incorrect ZIP"
+	case "9":
+		flashMessage = "Card declined, please try a different card."
+	case "10":
+		flashMessage = "There was an error please try again."
+	case "11":
+		flashMessage = "Process error, please try again later."
+	default:
+		flashMessage = ""
+	}
+
 	taxes := webOrder.Price * 0.0875
 	serviceFee := webOrder.Price * 0.1
 
@@ -415,7 +441,7 @@ func termsHandler(w http.ResponseWriter, r *http.Request) {
 		money.Format(webOrder.Price/4 + serviceFee + taxes),
 		uuid["id"],
 		os.Getenv("STRIPE_PUB_KEY"),
-		flash,
+		flashMessage,
 	}
 
 	renderTemplate(w, "terms", "base", termsPayload)

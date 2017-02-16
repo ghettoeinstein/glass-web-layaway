@@ -120,10 +120,10 @@ func (r *OrderRepository) GetNewOrders() ([]models.Order, error) {
 	return orders, nil
 }
 
-func (r *OrderRepository) GetForUser(user *models.User) []models.Order {
-	var orders []models.Order
+func (r *OrderRepository) GetForUser(user *models.User) []*models.Order {
+	var orders []*models.Order
 	iter := r.C.Find(bson.M{"email": user.Email}).Iter()
-	result := models.Order{}
+	result := &models.Order{}
 	for iter.Next(&result) {
 		orders = append(orders, result)
 	}

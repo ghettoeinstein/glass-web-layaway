@@ -2,7 +2,8 @@
 <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Nunito:100,200,300,400" rel="stylesheet">
-
+<script src="/assets/js/moment.js"></script>
+<script src="/assets/js/livestamp.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <style>
 	.form-horizontal {	
@@ -434,52 +435,55 @@
 		/* Or whatever */">
 
 
-			<ul class="nav nav-sidebar">
-				<li><a href="/user/home">Home</a></li>
-				<li><a href="/user/profile">Profile</a></li>
-				<li><a href="/user/history">History</a></li>
-				<li><a href="/logout">Logout</a></li>
+		<ul class="nav nav-sidebar">
+			<li><a href="/user/home">Home</a></li>
+			<li><a href="/user/profile">Profile</a></li>
+			<li><a href="/user/history">History</a></li>
+			<li><a href="/logout">Logout</a></li>
 
-			</ul>
+		</ul>
 
 		
 	</div>
 
 	<div class="col-lg-8 col-md-10 col-sm-12 main " style="display: flex">
+		<div class="table-responsive table-reflow">
+			<table class="table table-striped" id="myTable">
+				<thead>
+					<tr>
+			
+						<th>Item(s)</th>
+						<th>Monthly Payment</th>
+						<th>Order Created</th>
+							<th>Service Fee</th>
+						<th>Status</th>
 
+					</tr>
+				</thead>
+				<tbody>
+					{{range .}}
+					<tr>
+			
+						<td><a href="{{.URL}}">{{.URL}}</a></td>
+						<td>${{.MonthlyPayment}}</td>
+						<td>${{.ServiceFee}}</td>
+						<td> <span data-livestamp="{{.CreatedAt}}"></span>
+						</td>
 
-		<div class="container-fluid svg-container" style="margin:auto;">
-
-			<svg width="450px" height="auto" viewBox="495 234 450 554" style="max-height:80%;%;"version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-				<!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
-				<desc>Created with Sketch.</desc>
-				<defs>
-					<rect id="path-1" x="0" y="3" width="450" height="551" rx="30"></rect>
-					<mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="450" height="551" fill="white">
-						<use xlink:href="#path-1"></use>
-					</mask>
-					<rect id="path-3" x="0" y="0" width="450" height="554" rx="100"></rect>
-					<mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="450" height="554" fill="white">
-						<use xlink:href="#path-3"></use>
-					</mask>
-				</defs>
-				<g id="active-plans" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(495.000000, 234.000000)">
-					<g id="background-aqua" stroke="#979797" stroke-width="2">
-						<use id="Rectangle-21" mask="url(#mask-2)" fill="#50E3C2" xlink:href="#path-1"></use>
-						<use id="Rectangle-25" mask="url(#mask-4)" fill="#FFFFFF" xlink:href="#path-3"></use>
-					</g>
-					<text id="Active-Plans" font-family="Nunito" font-size="44" font-weight="normal" letter-spacing="-0.428571463" fill="#9B9B9B">
-						<tspan x="107" y="70">Active Plans</tspan>
-					</text>
-					<text id="2" font-family="AvenirNext-Bold, Avenir Next" font-size="120" font-weight="bold" letter-spacing="-0.428571463" fill="#9012FE">
-					{{ if .PlanCount}}
-						<tspan x="196" y="301">{{.PlanCount}}</tspan>
-			{{end}}
-					
-					</text>
-				</g>
-			</svg>
-
+						<td><a id="settle" href="/user/orders/{{.UUID}}/settle">Pay Off </a></td>
+					</tr>
+					{{ else }}
+					<tr>  
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					{{end}}
+				</tbody>
+			</table>
 		</div>
 
 	</div>

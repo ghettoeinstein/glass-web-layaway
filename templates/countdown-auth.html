@@ -184,6 +184,16 @@ window.onload = function () {
 };
 
 
+function doPoll(){
+    $.get('/status/{{.Order.UUID}}', function(data) {
+        if (data === "go") {
+        	window.location = "/user/decision/{{.Order.UUID}}";
+        }
+         // process results here
+        setTimeout(doPoll,3000);
+    });
+}
 
+doPoll()
 </script>
 {{end}}

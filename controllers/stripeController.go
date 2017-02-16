@@ -20,27 +20,39 @@ import (
 	"os"
 )
 
-func NewUserFromWebOrder(o *models.WebOrder) (*models.User, error) {
+func NewUserFromWebOrder(o *models.WebOrder) *models.User {
 
-	user := &models.User{
+	return &models.User{
 		Email:       o.Email,
 		FirstName:   o.FirstName,
 		LastName:    o.LastName,
 		PhoneNumber: o.PhoneNumber,
 	}
-
-	context := NewContext()
-	defer context.Close()
-	c := context.DbCollection("users")
-	repo := &data.UserRepository{c}
-
-	err := repo.CreateUser(user)
-	if err != nil {
-		return nil, err
-	}
-	return user, nil
 }
 
+func NewOrder(webOrder *models.WebOrder, user *models.User) *models.Order {
+
+	order := &models.Order{
+		Total:               webOrder.Price,
+		BalancePostCreation: webOrder.Price * 0.75,
+		BalancePostFirst:    (webOrder.Price / 2),
+		BalancePostSecond:   (webOrder.Price / 4),
+		User:                user,
+		Email:               webOrder.Email,
+		URL:                 webOrder.URL,
+		UUID:                webOrder.UUID,
+		CustomerId:          user.StripeCustomer.CustomerId,
+		SalesTax:            webOrder.Price * 0.0875,
+		MonthlyPayment:      webOrder.Price / 4,
+		MonthlyPaymentFmt:   money.Format(webOrder.Price / 4),
+		FirstPaymentDue:     time.Now().Add(time.Hour * 24 * 30).Format("01/02/06"),
+		SecondPaymentDue:    time.Now().Add(time.Hour * 24 * 60).Format("01/02/06"),
+		ThirdPaymentDue:     time.Now().Add(time.Hour * 24 * 90).Format("01/02/06"),
+	}
+
+	return order
+
+}
 func GetCustomerForUser(w http.ResponseWriter, r *http.Request) {
 
 	return
@@ -154,11 +166,7 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 	}
 
 	//Create and save a user to the database from the web order
-	user, err := NewUserFromWebOrder(webOrder)
-	if err != nil {
-		log.Println("error creating user", err)
-		return
-	}
+	user := NewUserFromWebOrder(webOrder)
 
 	//Create a stripe customer from the user
 	stripeCustomer, err := CreateStripeCustomerWithToken(user, token)
@@ -170,29 +178,38 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 			// The Code field will contain a basic identifier for the failure.
 			switch stripeErr.Code {
 			case stripe.IncorrectNum:
-				Stripe.Println("Incorrect Num")
+				http.Redirect(w, r, "/terms/"+id+"?err=1", http.StatusSeeOther)
+				return
 			case stripe.InvalidNum:
-				Stripe.Println("Incorrect Num")
+				http.Redirect(w, r, "/terms/"+id+"?err=2", http.StatusSeeOther)
+				return
 			case stripe.InvalidExpM:
-				Stripe.Println("Invald Expiration Month")
+				http.Redirect(w, r, "/terms/"+id+"?err=3", http.StatusSeeOther)
+				return
 			case stripe.InvalidExpY:
-				Stripe.Println("Invald Expiration Year")
+				http.Redirect(w, r, "/terms/"+id+"?err=4", http.StatusSeeOther)
+				return
 			case stripe.InvalidCvc:
-				Stripe.Println("Invald CVC")
+				http.Redirect(w, r, "/terms/"+id+"?err=5", http.StatusSeeOther)
+				return
 			case stripe.ExpiredCard:
-				Stripe.Println("Card declined")
+				http.Redirect(w, r, "/terms/"+id+"?err=6", http.StatusSeeOther)
+				return
 			case stripe.IncorrectCvc:
-				Stripe.Println("Incorrect CVC/Security code.")
+
+				http.Redirect(w, r, "/terms/"+id+"?err=7", http.StatusSeeOther)
+				return
 			case stripe.IncorrectZip:
-				Stripe.Println("Incorrect ZIP code.")
+				http.Redirect(w, r, "/terms/"+id+"?err=8", http.StatusSeeOther)
+				return
 			case stripe.CardDeclined:
-				Stripe.Println("Card declined.")
+				http.Redirect(w, r, "/terms/"+id+"?err=9", http.StatusSeeOther)
 				return
 			case stripe.Missing:
+				http.Redirect(w, r, "/terms/"+id+"?err=10", http.StatusSeeOther)
+				return
 			case stripe.ProcessingErr:
-
-				http.Redirect(w, r, "/terms/"+id+"?flash=Error+processing+card+,+please+later+.", 307)
-				Stripe.Println("Processing error")
+				http.Redirect(w, r, "/terms/"+id+"?err=11", http.StatusSeeOther)
 				return
 			}
 
@@ -218,28 +235,12 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 		log.Println("Error persisting users")
 	}
 
-	order := &models.Order{
-		Total:               webOrder.Price,
-		BalancePostCreation: webOrder.Price * 0.75,
-		BalancePostFirst:    (webOrder.Price / 2),
-		BalancePostSecond:   (webOrder.Price / 4),
-		User:                user,
-		Email:               webOrder.Email,
-		URL:                 webOrder.URL,
-		UUID:                webOrder.UUID,
-		CustomerId:          stripeCustomer.ID,
-		SalesTax:            webOrder.Price * 0.0875,
-		MonthlyPayment:      webOrder.Price / 4,
-		MonthlyPaymentFmt:   money.Format(webOrder.Price / 4),
-		FirstPaymentDue:     time.Now().Add(time.Hour * 24 * 30).Format("01/02/06"),
-		SecondPaymentDue:    time.Now().Add(time.Hour * 24 * 60).Format("01/02/06"),
-		ThirdPaymentDue:     time.Now().Add(time.Hour * 24 * 90).Format("01/02/06"),
-	}
+	order := NewOrder(webOrder, user)
+
 	c = context.DbCollection("orders")
 	orderRepo := &data.OrderRepository{c}
 
 	serviceFee := order.Total * 0.10
-	log.Println("Service Fee is:", serviceFee)
 	order.ServiceFee = serviceFee
 
 	order.CombinedTotal = order.Total + order.SalesTax + order.ServiceFee
@@ -295,8 +296,8 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		Stripe.Println("Error creating subscription:", s)
 
-		w.Header()["Location"] = []string{"/terms/" + id}
-		w.WriteHeader(http.StatusSeeOther)
+		w.Header()["Location"] = []string{}
+		http.Redirect(w, r, "/terms/"+id+"/flash=1", http.StatusSeeOther)
 
 		return
 	}
