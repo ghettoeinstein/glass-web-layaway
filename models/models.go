@@ -44,7 +44,8 @@ type (
 		URL                 string                `json:"url" bson:"url"`
 		InvoiceItems        []*stripe.InvoiceItem `json:"invoice_items" bson="invoiceitems"`
 		ServiceFee          float64               `json:"service_fee" bson="servicefee"`
-		CombinedTotal       float64               `json:"combined_total" bson="combined_total"`
+		CombinedTotal       float64               `json:"combined_total" bson:"combined_total"`
+		Notes               string                `json:"notes" bson:"notes"`
 	}
 	WebOrder struct {
 		Id             bson.ObjectId `bson:"_id",omitempty" json:"id`

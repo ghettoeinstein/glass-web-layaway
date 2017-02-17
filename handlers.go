@@ -265,16 +265,10 @@ func profileHandler(w http.ResponseWriter, r *http.Request) {
 
 	user, err := UserFromRequest(r)
 	if err != nil {
-		Error.Println("No user found for email")
-		profilePayload := struct {
-			User           *models.User
-			PaymentMethods []*stripe.PaymentSource
-		}{
-			user,
-			nil,
-		}
+		Error.Println("No user found for email, redirecting to login")
 
-		renderTemplate(w, "profile", "base", profilePayload)
+		http.Redirect(w, r, "/login", 307)
+
 		return
 	}
 
@@ -346,6 +340,7 @@ func historyHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println("No user found for email")
 		http.RedirectHandler("/login", 307)
+		return
 	}
 
 	orders, err := OrdersForUser(user)
@@ -472,16 +467,19 @@ func userTermsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	taxes := webOrder.Price * 0.0875
-	serviceFee := webOrder.Price * 0.1
+	serviceFee := webOrder.Price * 0.10
 
 	ctx := r.Context()
 	email := ctx.Value(common.EmailKey).(string)
+	if email == "" {
+		http.Redirect(w, r, "/login", 307)
+	}
 
 	c = context.DbCollection("users")
 	userRepo := &data.UserRepository{c}
 	user, err := userRepo.GetByUsername(email)
 	if err != nil {
-		Error.Println("No user found for email")
+		Error.Println("No user found for email:", email)
 		http.Error(w, err.Error(), 500)
 	}
 

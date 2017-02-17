@@ -11,18 +11,19 @@ import (
 	//"github.com/stripe/stripe-go/charge"
 	"github.com/stripe/stripe-go/customer"
 	"github.com/stripe/stripe-go/invoiceitem"
-	"github.com/stripe/stripe-go/sub"
-	"time"
-
 	"github.com/stripe/stripe-go/plan"
+	"github.com/stripe/stripe-go/sub"
+	"gopkg.in/mgo.v2/bson"
 	"log"
 	"net/http"
 	"os"
+	"time"
 )
 
 func NewUserFromWebOrder(o *models.WebOrder) *models.User {
 
 	return &models.User{
+		Id:          bson.NewObjectId(),
 		Email:       o.Email,
 		FirstName:   o.FirstName,
 		LastName:    o.LastName,
@@ -167,6 +168,7 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 
 	//Create and save a user to the database from the web order
 	user := NewUserFromWebOrder(webOrder)
+	user.Id = bson.NewObjectId()
 
 	//Create a stripe customer from the user
 	stripeCustomer, err := CreateStripeCustomerWithToken(user, token)
@@ -230,9 +232,10 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 	user.StripeCustomer.CustomerId = stripeCustomer.ID
 	c = context.DbCollection("users")
 	userRepo := &data.UserRepository{c}
-	err = userRepo.Update(user)
+
+	err = userRepo.CreateUser(user)
 	if err != nil {
-		log.Println("Error persisting users")
+		log.Println("Error persisting user:", err)
 	}
 
 	order := NewOrder(webOrder, user)

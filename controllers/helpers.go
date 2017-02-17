@@ -14,6 +14,7 @@ import (
 
 var (
 	Stripe *log.Logger
+	Order  *log.Logger
 )
 
 func init() {
@@ -26,6 +27,9 @@ func init() {
 	log.SetOutput(logfile)
 	Stripe = log.New(logfile,
 		"[STRIPE] ",
+		log.Ldate|log.Ltime|log.Lshortfile)
+	Order = log.New(logfile,
+		"[ORDER] ",
 		log.Ldate|log.Ltime|log.Lshortfile)
 
 }

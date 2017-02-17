@@ -62,7 +62,7 @@ func AdminProcessOrder(w http.ResponseWriter, r *http.Request) {
 
 	price := template.HTMLEscapeString(r.PostFormValue("price"))
 	notes := template.HTMLEscapeString(r.PostFormValue("notes"))
-	log.Println(notes)
+	Order.Println(notes)
 	res, err := strconv.ParseFloat(price, 64)
 	if err != nil {
 
@@ -94,6 +94,8 @@ func AdminProcessOrder(w http.ResponseWriter, r *http.Request) {
 
 	w.Header()["Location"] = []string{"/admin"}
 	w.WriteHeader(http.StatusTemporaryRedirect)
+
+	http.Redirect(w, r, "/admin", 307)
 
 }
 

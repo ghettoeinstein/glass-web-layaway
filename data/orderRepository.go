@@ -80,6 +80,7 @@ func (r *OrderRepository) Update(order *models.Order) (err error) {
 
 	err = r.C.Update(bson.M{"_id": order.Id},
 		bson.M{"$set": bson.M{
+			"notes":                 order.Notes,
 			"missed_deadline":       order.MissedDeadline,
 			"items":                 order.Items,
 			"shipped":               order.Shipped,
