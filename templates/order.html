@@ -2,6 +2,8 @@
 <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="/assets/js/moment.js"></script>
+<script src="/assets/js/livestamp.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <style>
 	.form-horizontal {	
@@ -115,7 +117,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3 text-center">
-				<p class="lead"> Order: {{.UUID}}</p>
+				<p class="lead"> Order: {{.UUID}} - Created :  <span data-livestamp="{{.CreatedAt}}"></span> </p>
 				</div>
 				<div class="col-md-12 col-md-offset-1">
 
@@ -136,7 +138,7 @@
 						
 						<!-- FullName input-->
 						<div class="form-group">
-							<label class="col-md-4 control-label" for="full-name">FirstName</label>  
+							<label class="col-md-4 control-label" for="full-name">First Name</label>  
 							<div class="col-md-4">
 
 							{{.FirstName}}
@@ -147,14 +149,14 @@
 
 						<!-- Phone input-->
 						<div class="form-group">
-							<label class="col-md-4 control-label" for="phone">LastName</label>  
+							<label class="col-md-4 control-label" for="phone">Last Name</label>  
 							<div class="col-md-4">
 								<input id="phone" name="phone" type="text" value="{{.LastName}}" class="form-control input-md" required="">
 								<span class="help-block">The submitted phone number.</span>  
 							</div>
 						</div>
 
-						<!-- Emaul input-->
+						<!-- Email input-->
 						<div class="form-group">
 							<label class="col-md-4 control-label" for="textinput">Email</label>  
 							<div class="col-md-4">
@@ -164,6 +166,16 @@
 						</div>
 
 						
+
+						<div class="form-group">
+						<label class="col-md-4 control-label" for="textinput">Notes</label>
+								<div class="col-md-4   ">
+
+									<textarea id="notes" name="notes"  class="form-control"  rows="4" cols="25" >{{.Notes}}</textarea>
+
+								</div>
+							</div>
+
 
 						<!-- Price input-->
 						<div class="form-group">

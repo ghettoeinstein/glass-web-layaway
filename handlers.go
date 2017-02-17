@@ -225,7 +225,7 @@ func saveOrder(order *models.WebOrder) (err error) {
 
 	Trace.Printf("About to save web order %s to database", order.UUID)
 	if err = repo.NewWebOrder(order); err != nil {
-		Error.Fatalf(err.Error())
+		Error.Println(err.Error())
 	}
 
 	return nil
