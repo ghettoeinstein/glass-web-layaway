@@ -42,6 +42,9 @@ body > .container {
 code {
   font-size: 80%;
 }
+#delete {
+  color:red;
+}
 </style>
 {{end}}
 {{define "body"}}
@@ -90,7 +93,7 @@ code {
         <td><a href="/admin/orders/{{.UUID}}">{{.FirstName}}</a></td>
         <td><a href="{{.URL}}">{{.URL}}</a></td>
         <td>{{.CreatedAt}}</td>
-        <td><a href="/admin"
+        <td><a  id="delete" href="/admin/orders/{{.UUID}}/delete">Delete</a></td>
       </tr>
       {{ else }}
       <tr>  

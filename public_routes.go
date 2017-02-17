@@ -22,6 +22,7 @@ func SetPublicRoutes(router *mux.Router) *mux.Router {
 	router.HandleFunc("/", rootHandler)
 	router.HandleFunc("/logout", userLogout).Methods("GET")
 	router.HandleFunc("/submit-email", emailHandler).Methods("POST")
+	router.HandleFunc("/user/register", controllers.Register).Methods("POST")
 
 	router.HandleFunc("/about", aboutUsHandler)
 
