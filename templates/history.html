@@ -456,7 +456,7 @@
 						<th>Monthly Payment</th>
 						<th>Order Created</th>
 							<th>Service Fee</th>
-						<th>Status</th>
+			
 
 					</tr>
 				</thead>
@@ -466,11 +466,12 @@
 			
 						<td><a href="{{.URL}}">{{.URL}}</a></td>
 						<td>${{.MonthlyPayment}}</td>
-						<td>${{.ServiceFee |}}</td>
-						<td> <span data-livestamp="{{.CreatedAt}}"></span>
-						</td>
 
-						<td><a id="settle" href="/user/orders/{{.UUID}}/settle">Pay Off </a></td>
+						<td> <span data-livestamp="{{.CreatedAt}}"></span></td>
+							<td>${{.ServiceFee |}}</td>
+					
+
+				
 					</tr>
 					{{ else }}
 					<tr>  
