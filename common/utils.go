@@ -16,11 +16,15 @@ var AppConfig configuration
 
 // Initialize AppConfig
 func initConfig() {
+	log.Println("Loading app config")
 	loadAppConfig()
+	log.Println("Loaded app config")
 }
 
 // Reads config.json and decode into AppConfig
 func loadAppConfig() {
+	dir, err := os.Getwd()
+	log.Println(dir)
 	file, err := os.Open("common/config.json")
 	defer file.Close()
 	if err != nil {

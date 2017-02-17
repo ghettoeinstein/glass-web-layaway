@@ -310,7 +310,7 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 	}
 	Stripe.Println("Saved order successfully: ", order.UUID)
 
-	err = sendConf(order)
+	err = SendConf(order)
 	if err != nil {
 		Stripe.Println("Error sending confirmation email")
 	}
@@ -459,7 +459,7 @@ func ChargeCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 	}
 	log.Println("Saved order successfully: ", order.UUID)
 
-	err = sendConf(order)
+	err = SendConf(order)
 	if err != nil {
 		log.Println("Error sending confirmation email:", err)
 	}

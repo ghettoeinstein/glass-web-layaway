@@ -39,9 +39,9 @@ func IdFromRequest(r *http.Request) string {
 // Mandrill Transactional methods
 // Sends a one off email with Mandrill
 
-func sendConf(order *models.Order) error {
+func SendConf(order *models.Order) error {
 
-	client := m.ClientWithKey("_ZMKw0PeBC3p8jFsROTb7g")
+	client := m.ClientWithKey(os.Getenv("MANDRILL_KEY"))
 
 	message := &m.Message{}
 	message.AddRecipient(order.Email, "", "to")
@@ -50,6 +50,7 @@ func sendConf(order *models.Order) error {
 	message.Subject = "Order Confirmation from Glass"
 
 	message.GlobalMergeVars = m.MapToVars(map[string]interface{}{
+		"PAID_TODAY":            money.Format(order.MonthlyPayment + order.ServiceFee + order.SalesTax),
 		"TODAYS_DATE":           time.Now().Format("01/02/06"),
 		"PHONE_NUMBER":          order.User.PhoneNumber,
 		"MONTHLY_FMT":           money.Format(order.MonthlyPayment),
