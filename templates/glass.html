@@ -7,7 +7,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <style>
 
- body { cursor: pointer; } 
+	body { cursor: pointer; } 
 	#info-btn {
 		border-radius: 5px;
 	}
@@ -180,7 +180,7 @@
 									<div class="alert alert-danger " role="alert" id="phone-alert" style="display:none">
 										<strong>Please enter a valid  phone number in 10-digit format eg: 6505551234</strong>
 									</div>
-									<input id="phone-number" name="phone-number" type="text" placeholder="6505551234" class="form-control input-md" >
+									<input id="phone-number" name="phone-number" type="text" placeholder="Phone Number" class="form-control input-md" >
 								</div>
 							</div>
 							
@@ -195,17 +195,19 @@
 							</div>
 							<!-- URL input-->
 							<div class="form-group   add-on ">
-								<div class="col-md-10  ">
+								<div class="col-md-12 ">
+
 									<div class="alert alert-danger " role="alert" id="url-alert" style="display:none">
 										<strong>Please enter a valid URL / link.</strong>
 									</div>
-									<input id="url" name="url" type="text"  data-placement="top"  data-placement="top" placeholder="Paste product or wishlist URL/link here." class="form-control input-md" />
-								</div>
-								<div class="col-md-2">
-									<div class="input-group-btn">
-										<span class="btn btn-default" id="info-btn" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="You can paste a link to any single product offered by merchants online. Or, share with us your public Amazon Wishlist. Be mindful that we have some constraints, as we cannot accept direct links to shopping carts created on the merchant site."><i class="glyphicon glyphicon-info-sign"></i></span>
+									<div class="input-group">
+										<input id="url" name="url" type="text"  data-placement="top"  data-placement="top" style="border-right: 0px;" placeholder="Paste product or wishlist URL/link here." class="form-control input-md" />
+										<div class="input-group-addon" style="background-color:white; border-left:0px">
+										<span  style="padding-top:0px;border-color:none; padding-bottom:0px" class="btn btn-default" id="info-btn" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="You can paste a link to any single product offered by merchants online. Or, share with us your public Amazon Wishlist. Be mindful that we have some constraints, as we cannot accept direct links to shopping carts created on the merchant site."><i style="padding-top:2px;padding-bottom:2px; border:0px" class="glyphicon glyphicon-info-sign"></i></span>
+										</div>
 									</div>
 								</div>
+
 							</div>
 
 

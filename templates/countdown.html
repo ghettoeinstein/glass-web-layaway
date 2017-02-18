@@ -4,6 +4,7 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Nunito:100,200,300,400,500,600" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="https://github.com/michaelvillar/dynamics.js/releases/download/1.1.5/dynamics.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <style>
 	body {
@@ -118,7 +119,8 @@
 		}
 	}
 	#standby-text {
-		color:gray;
+		color:#720AAE;
+		font-size:1.6em;
 		font-family:"Open Sans";
 		font-weight: 500;
 		position:relative;
@@ -129,6 +131,23 @@
 		color:white;
 		background: none;
 	}
+
+	.loader {
+		padding-top:100px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  margin-left: -60px;
+  margin-top: -12px;
+}
+.dot {
+  float: left;
+  margin: 0 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  background: black;
+}
 </style>
 {{end}}
 {{define "body"}}
@@ -141,16 +160,23 @@
 		<div class="row" style="position: relative;top:-50px">
 			<div class="col-md-10 col-md-offset-1 text-center" >
 				
-				<div><h3><span id="time"></span> </h3></div>
+				<div><h3><span id="tim"></span> </h3></div>
 				<br />
 				<div id="#clock-div">
-					<img src="/assets/clock.svg"  id="logo" width="100px">
 
+
+					<section id="example">
+						<div class="loader">
+							<div class="dot"></div>
+							<div class="dot"></div>
+							<div class="dot"></div>
+						</div>
+					</section>
 				</div>
 			</div>
 		</div>
 		<p id="standby-text" class="text-center" style="">Standby. We’ll let you know our decision shortly.<br>
-			<span class="text-center"> (Please do not refresh or leave this page.)</span>
+			<span class="text-center"> </span>
 		</p>
 		
 	</div>
@@ -213,19 +239,46 @@ window.onload = function () {
 
 
 function doPoll(){
-    $.get('/status/{{.Order.UUID}}', function(data) {
-        if (data === "go") {
-        	window.location = "/decision/{{.Order.UUID}}";
-        }
+	$.get('/status/{{.Order.UUID}}', function(data) {
+		if (data === "go") {
+			window.location = "/decision/{{.Order.UUID}}";
+		}
          // process results here
-        setTimeout(doPoll,3000);
-    });
+         setTimeout(doPoll,3000);
+     });
 }
 
 doPoll()
 
+
+
+
+var dots = document.querySelectorAll('.dot');
+var colors = ['#2800D7', '#720AAE', '#D91976'];
+
+// Start the 3 dot animations with different delays
+function animateDots() {
+	for(var i=0; i<dots.length; i++) {
+		dynamics.animate(dots[i], {
+			translateY: -70,
+			backgroundColor: colors[i]
+		
+		}, {
+			type: dynamics.forceWithGravity,
+			bounciness: 800,
+			elasticity: 200,
+			duration: 2000,
+			delay: i * 350
+		})
+	}
+
+	dynamics.setTimeout(animateDots, 2500);
+}
+
+animateDots();
+
+
 </script> 
 
 
-</script>
 {{end}}

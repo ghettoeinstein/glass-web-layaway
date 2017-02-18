@@ -21,6 +21,13 @@ import (
 	"time"
 )
 
+func GetPaymentConfirmation(w http.ResponseWriter, r *http.Request) {
+    w.Write([]byte("render a template"))
+
+}
+
+
+
 func SMSLogin(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "sms-login", "base", nil)
 
