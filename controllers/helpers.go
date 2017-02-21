@@ -14,7 +14,8 @@ import (
 
 var (
 	Stripe *log.Logger
-	Order  *log.Logger
+
+	Order *log.Logger
 )
 
 func init() {
@@ -55,7 +56,7 @@ func SendConf(order *models.Order) error {
 
 	message.GlobalMergeVars = m.MapToVars(map[string]interface{}{
 		"PAID_TODAY":            money.Format(order.MonthlyPayment + order.ServiceFee + order.SalesTax),
-		"TODAYS_DATE":           time.Now().Format("01/02/06"),
+		"TODAYS_DATE":           order.CreatedAt.Format("01/02/06"),
 		"PHONE_NUMBER":          order.User.PhoneNumber,
 		"MONTHLY_FMT":           money.Format(order.MonthlyPayment),
 		"BALANCE_POST_FIRST":    money.Format(order.BalancePostFirst),

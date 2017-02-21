@@ -16,6 +16,8 @@ func setupTemplates() {
 	templates["congratulations"] = template.Must(template.ParseFiles("templates/congratulations.html", "templates/base.html"))
 	templates["congratulations-auth"] = template.Must(template.ParseFiles("templates/congratulations-auth.html", "templates/base.html"))
 	templates["countdown"] = template.Must(template.ParseFiles("templates/countdown.html", "templates/base.html"))
+	templates["confirmation"] = template.Must(template.ParseFiles("templates/confirmation.html", "templates/base.html"))
+
 	templates["countdown-auth"] = template.Must(template.ParseFiles("templates/countdown.html", "templates/base.html"))
 	templates["privacy-policy"] = template.Must(template.ParseFiles("templates/privacy-policy.html", "templates/base.html"))
 	templates["sorry"] = template.Must(template.ParseFiles("templates/sorry.html", "templates/base.html"))

@@ -39,7 +39,7 @@ func postOrderToSlack(o *models.WebOrder) {
 	p := &Payload{msg}
 	jsonStr := p.Print()
 
-	req, err := http.NewRequest("POST", TestWebHookURL, bytes.NewBuffer([]byte(jsonStr)))
+	req, err := http.NewRequest("POST", ProdWebHookURL, bytes.NewBuffer([]byte(jsonStr)))
 	if err != nil {
 		Error.Println(err)
 	}

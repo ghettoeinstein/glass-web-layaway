@@ -22,11 +22,9 @@ import (
 )
 
 func GetPaymentConfirmation(w http.ResponseWriter, r *http.Request) {
-    w.Write([]byte("render a template"))
+	renderTemplate(w, "confirmation", "base", nil)
 
 }
-
-
 
 func SMSLogin(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "sms-login", "base", nil)
@@ -394,7 +392,8 @@ func termsHandler(w http.ResponseWriter, r *http.Request) {
 	webOrder, err := repo.GetByUUID(uuid["id"])
 	if err != nil {
 		log.Println("Error fetching order for UUID:", err)
-		common.DisplayAppError(w, err, "Error fetching order for UUID", 500)
+
+		http.Redirect(w, r, "/start", 307)
 		return
 	}
 
@@ -423,6 +422,8 @@ func termsHandler(w http.ResponseWriter, r *http.Request) {
 		flashMessage = "There was an error please try again."
 	case "11":
 		flashMessage = "Process error, please try again later."
+	case "12":
+		flashMessage = "There was an error proccessing your card. Please re-enter card details"
 	default:
 		flashMessage = ""
 	}

@@ -18,6 +18,39 @@ func GetLogin(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "admin-login", "base", nil)
 }
 
+func SendConfirmationForOrder(w http.ResponseWriter, r *http.Request) {
+
+	id := IdFromRequest(r)
+	if id == "" {
+
+		http.Redirect(w, r, r.Referer(), 307)
+	}
+
+	context := NewContext()
+	defer context.Close()
+
+	c := context.DbCollection("orders")
+	repo := &data.OrderRepository{c}
+
+	order, err := repo.GetByUUID(id)
+
+	if err != nil {
+
+		common.DisplayAppError(w, err, "Order not found for ID", 404)
+		return
+	}
+
+	err = SendConf(order)
+	if err != nil {
+		Order.Println("Could not send confirmation email", err)
+		common.DisplayAppError(w, err, "Error sending emil for order", 500)
+		return
+	}
+	Order.Println("Order confirrmation sent successfully")
+	w.Write([]byte("Order confirmation sent successfully"))
+
+}
+
 func AdminGetNewOrders(w http.ResponseWriter, r *http.Request) {
 
 	context := NewContext()

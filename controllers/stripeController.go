@@ -142,17 +142,18 @@ func CreateStripeCustomerWithToken(u *models.User, token string) (*stripe.Custom
 //}
 //
 func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
-	stripe.Key = os.Getenv("STRIPE_KEY")
 	log.Println("Stripe key is:", stripe.Key)
 	r.ParseMultipartForm(32 << 20)
 	token := r.PostFormValue("stripeToken")
 
+    	id := IdFromRequest(r)
+
 	if token == "" {
-		Stripe.Fatalln("No token")
+		Stripe.Println("No token in request, exiting handler.")
+		http.Redirect(w, r, "/terms/"+id+"?err=12", http.StatusSeeOther)
 		return
 	}
 
-	id := IdFromRequest(r)
 
 	context := NewContext()
 	defer context.Close()
@@ -315,7 +316,7 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 
 	err = SendConf(order)
 	if err != nil {
-		Stripe.Println("Error sending confirmation email")
+		Stripe.Println("Error sending confirmation email: ", err)
 	}
 
 	// If all goes well create a cookie for the user to be able to login. Set to expire in one day.

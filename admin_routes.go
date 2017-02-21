@@ -13,6 +13,7 @@ func SetAdminRoutes(router *mux.Router) *mux.Router {
 	adminRouter.HandleFunc("/admin/chat", chatHandler).Methods("GET")
 	adminRouter.HandleFunc("/admin/orders/{id}", controllers.AdminDisplayOrder).Methods("GET")
 	adminRouter.HandleFunc("/admin/orders/{id}/process", AdminProcessOrder).Methods("POST")
+	adminRouter.HandleFunc("/admin/orders/{id}/confirmation", controllers.SendConfirmationForOrder).Methods("GET")
 	adminRouter.HandleFunc("/admin/orders/{id}/delete", controllers.AdminDeleteOrder).Methods("GET")
 	adminRouter.HandleFunc("/admin/orders/decision/approved", controllers.AdminGetApprovedOrders).Methods("GET")
 	adminRouter.HandleFunc("/admin/orders/decision/denied", controllers.AdminGetDeniedOrders).Methods("GET")
