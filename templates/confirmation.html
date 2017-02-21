@@ -1,0 +1,178 @@
+{{define "head"}}
+<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/assets/js/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/sweetalert.css">
+<style>
+
+ body { cursor: pointer; } 
+	#info-btn {
+		border-radius: 5px;
+	}
+	.form-horizontal {	
+		margin:30px ;
+	}
+	input {
+		background-color:red;
+		padding:50px auto;
+	}
+	.inputForm{
+		-moz-border-radius:5px;
+		-webkit-border-radius:5px;
+		line-height:1.4em;
+		font-size:20px;
+		min-width:80%;
+		display:block;
+		margin:20px auto;
+	}
+	#submitButton{
+		background-color:300px;
+	}
+	.title,small {
+		text-transform: uppercase;
+		font-family: "Roboto", san-serif;
+		color: #2C01D5;
+	}
+	button {
+		background-color: #2BB673;
+		color: white;	
+		font-family: "Open Sans", san-serif;
+		font-weight: 300;
+
+	}
+	#logo {
+		display:block;
+		margin-left:auto;
+		margin-right:auto;
+		top:0;
+		z-index: 100;
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.logo-circle {
+	}
+	input {
+		margin-bottom:15px;
+	}
+	fieldset {
+
+		padding:0;
+		min-width:100%;
+	}
+	#form_div {
+
+		background-color:#fff;
+		padding-bottom: 0px;
+		min-height:41%;
+		position:relative;
+		max-width:41%;
+		margin-top:5em;
+		margin-bottom: 100px;
+		border-radius:8px; 
+		border:solid #E3E3E3 1.5px;
+		margin-left:auto;
+		margin-right:auto;
+		left:0;
+		right:0
+	}
+	span.seperator {
+		color:black;
+	}
+	a:hover {
+		color:black;
+	}
+
+	
+	.navbar-fixed-bottom {
+		border:0;
+		background-color: white;
+		position:relative;
+	}
+
+
+
+
+
+	@media only screen and (max-width: 800px){
+		#form_div {
+			max-width: 90%;
+			min-height: 90%;
+			margin-bottom: 105px;
+
+		}
+	}
+
+	.form-control {
+		border-radius: 10px;
+	}
+	
+
+	body {
+
+		background-repeat: no-repeat !important;
+		background-position: 50% 50% !important;
+		background-attachment: fixed !important;
+		background-color: transparent !important;
+		background-size: cover !important;
+
+		background-size:  cover;
+		background: url('../assets/terms-bg.svg');
+	}
+
+
+	#footer-nav {
+		color:white;
+		background: none;
+	}
+
+	nav a {
+		color:white;
+	}
+
+
+	.error {
+		color:red;
+	}
+</style>
+{{end}}
+{{define "body"}}
+<div class="container-fluid">
+	<div id="form_div" >
+		<div class="logo-circle" style="position:relative;top:-50;">
+			<img src="/assets/glogo-circle.svg"  id="logo" width="100px">
+		</div>
+		<!-- Header Row -->
+		<div class="row" style="position: relative;top:-50px">
+			<div class="col-md-10 col-md-offset-1 text-center" >
+
+				<h2 class="lead">Payment Confirmation</h2>
+			</div>
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+				
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<nav class="navbar navbar-default  navbar-fixed-bottom" role="navigation" id="footer-nav">
+		<div class="container text-center" style="">
+			<p class="navbar-text col-md-12 col-sm-12 col-xs-12" style=" margin:0px;"> <a href="/tos">Terms of Service </a><span class="seperator">|</span>  <a href="/privacy-policy">Privacy Policy </a> <span class="seperator">|</span> <a class="" href="mailto:support@getglass.co"> Customer Service </a></p>
+			<p class="navbar-text col-md-12 col-sm-12 col-xs-12" style="color:#fff">&copy; Glass Financial, Inc. 2017 </p>
+
+		</div>
+	</nav>
+</div>
+
+<script>
+
+  window.onload = swal("Payment Successful", "Thank you for making your first payment.", "success")
+</script>
+
+{{end}}
