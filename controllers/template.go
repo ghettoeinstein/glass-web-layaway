@@ -18,7 +18,7 @@ func InitTemplates() {
 	templates["admin-login"] = template.Must(template.ParseFiles("templates/admin-login.html", "templates/base.html"))
 
 	templates["order"] = template.Must(template.ParseFiles("templates/order.html", "templates/base.html"))
-
+	templates["confirmation"] = template.Must(template.ParseFiles("templates/confirmation.html", "templates/base.html"))
 	templates["approved"] = template.Must(template.ParseFiles("templates/approved.html", "templates/base.html"))
 
 	templates["denied"] = template.Must(template.ParseFiles("templates/denied.html", "templates/base.html"))

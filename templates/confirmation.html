@@ -3,13 +3,16 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+
+<link href="/assets/css/responsive-tables.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="/assets/js/sweetalert.min.js"></script>
+<script src="/assets/js/responsive-tables.js"></script>
 <link rel="stylesheet" type="text/css" href="/assets/css/sweetalert.css">
 <style>
 
- body { cursor: pointer; } 
+	body { cursor: pointer; } 
 	#info-btn {
 		border-radius: 5px;
 	}
@@ -56,6 +59,19 @@
 	}
 	.logo-circle {
 	}
+	#offer-btn {
+		background-color: #06BC40;
+		width: 50%;
+		border-radius: 0;
+		font-size:4vh;
+		margin-top:70px;
+
+		margin-left:auto;
+		padding-bottom: 20px;
+		margin-right:auto;
+		display: inline-block;
+	}
+
 	input {
 		margin-bottom:15px;
 	}
@@ -70,7 +86,7 @@
 		padding-bottom: 0px;
 		min-height:41%;
 		position:relative;
-		max-width:41%;
+		max-width:51%;
 		margin-top:5em;
 		margin-bottom: 100px;
 		border-radius:8px; 
@@ -100,7 +116,7 @@
 
 	@media only screen and (max-width: 800px){
 		#form_div {
-			max-width: 90%;
+			min-width:100%;
 			min-height: 90%;
 			margin-bottom: 105px;
 
@@ -121,7 +137,7 @@
 		background-size: cover !important;
 
 		background-size:  cover;
-		background: url('../assets/terms-bg.svg');
+		background: url('/assets/terms-bg.svg');
 	}
 
 
@@ -138,6 +154,10 @@
 	.error {
 		color:red;
 	}
+
+	
+
+}
 </style>
 {{end}}
 {{define "body"}}
@@ -147,17 +167,48 @@
 			<img src="/assets/glogo-circle.svg"  id="logo" width="100px">
 		</div>
 		<!-- Header Row -->
-		<div class="row" style="position: relative;top:-50px">
-			<div class="col-md-10 col-md-offset-1 text-center" >
 
-				<h2 class="lead">Payment Confirmation</h2>
-			</div>
-			<div class="row">
-				<div class="col-md-10 col-md-offset-1">
-				
+		<div class="col-md-10 col-md-offset-1 text-center" >
+
+			<h2 class="lead">Payment Confirmation</h2>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+
+				<div>
+					<table class="table-bordered table-reflow table-responsive">
+						<thead>
+							<tr>
+								<th>Item(s)</th>
+								<th>Total</th>
+								<th>First Payment</th>
+								<th>Svc Fee</th>
+								<th>Sales Tax</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td data-label="Item(s)"><a href="{{.URL}}">Link</a></td>
+								<td data-label="Total">${{.Total}}</td>
+								<td data-label="First Payment"></td>
+								<td data-label="ServiceFee">${{.ServiceFee}}</td>
+								<td data-label="SalesTax"> ${{.SalesTax}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<br/ >
+					<div class="col-md-12  text-center" >
+						<p class="lead"> A complete receipt for your installment plan was sent to: <br/> {{.Email}}</p>
+						
+					</div>
+
+					<a href="/user/profile"><button type="submit" id="offer-btn" class="btn btn-lg btn-success">Continue</button></a>
 				</div>
+
 			</div>
 		</div>
+
 	</div>
 
 
@@ -172,7 +223,7 @@
 
 <script>
 
-  window.onload = swal("Payment Successful", "Thank you for making your first payment.", "success")
+	window.onload = swal("Payment Successful", "Thank you for making your first payment.", "success")
 </script>
 
 {{end}}

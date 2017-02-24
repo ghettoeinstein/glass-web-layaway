@@ -6,6 +6,7 @@
 <link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet">
 <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 <script src="/assets/js/moment.js"></script>
+<script src="/assets/js/livestamp.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <style>
 	/* Sticky footer styles
@@ -89,7 +90,7 @@ code {
        <tr>
         <td><a href="/admin/orders/{{.UUID}}">{{.FirstName}}</a></td>
         <td><a href="{{.URL}}">{{.URL}}</a></td>
-        <td>{{.CreatedAt}}</td>
+ <td><span data-livestamp="{{.CreatedAt}}"></span></td>
         <td><a id="delete" href="/admin/orders/{{.UUID}}/delete">Delete Order</a></td>
       </tr>
       {{ else }}

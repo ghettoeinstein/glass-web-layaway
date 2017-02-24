@@ -2,6 +2,7 @@ package models
 
 import (
 	"fmt"
+	"github.com/shopspring/decimal"
 	"github.com/stripe/stripe-go"
 	"gopkg.in/mgo.v2/bson"
 	"time"
@@ -10,23 +11,23 @@ import (
 type (
 	Order struct {
 		Id                  bson.ObjectId         `json:"order_id" bson:"_id,omitempty"`
-		BalancePostCreation float64               `json:"balance_balance_post_creation" bson:"balance_post_creation"`
-		BalancePostFirst    float64               `json:"balance_post_first" bson:"balance_post_first"`
-		BalancePostSecond   float64               `json:"balance_post_second" bson:"balance_post_second"`
+		BalancePostCreation string                `json:"balance_balance_post_creation" bson:"balance_post_creation"`
+		BalancePostFirst    string                `json:"balance_post_first" bson:"balance_post_first"`
+		BalancePostSecond   string                `json:"balance_post_second" bson:"balance_post_second"`
 		User                *User                 `json:"user" bson:"user"`
 		Shipped             bool                  `json:"shipped" bson:"shipped"`
 		ShippingAddress     string                `json:"shipping_address" bson:"shipping_address"`
 		TrackingNumber      string                `json:"tracking_number" bson:"tracking_number"`
 		Items               []Item                `json:"items" bson:"items"`
-		Total               float64               `json:"total" bson:"total"`
+		Total               string                `json:"total" bson:"total"`
 		TotalFmt            string                `json:"total_fmt" bson:"total_fmt"`
-		TaxRate             float64               `json:"tax_rate" bson:"tax_rate"`
+		TaxRate             string                `json:"tax_rate" bson:"tax_rate"`
 		OrderDate           string                `json:"order_date" bson:"order_date"`
 		PlanID              string                `json:"stripe_plan_id" bson:"stripe_plan_id"`
 		SubscriptionID      string                `json:"subscrption_id" bson:"subscription_id"`
 		CreatedAt           time.Time             `json:"created_at" bson:"created_at"`
 		UpdatedAt           time.Time             `json:"updated_at" bson:"updated_at"`
-		SalesTax            float64               `json:"sales_tax" bson:"sales_tax"`
+		SalesTax            string                `json:"sales_tax" bson:"sales_tax"`
 		SalesTaxFmt         string                `json:"sales_tax_fmt" bson:"sales_tax_fmt"`
 		Email               string                `json:"email" bson:"email"`
 		UUID                string                `json:"uuid" bson:"uuid"`
@@ -36,15 +37,15 @@ type (
 		SecondPaymentDue    string                `json:"second_payment" bson:"second_payment_due"`
 		ThirdPaymentPaid    bool                  `json:"third_payment" bson:"third_payment"`
 		ThirdPaymentDue     string                `json:"third_payment" bson:"third_payment_due"`
-		MonthlyPayment      float64               `json:"monthly_payment" bson:"monthly_payment"`
+		MonthlyPayment      string                `json:"monthly_payment" bson:"monthly_payment"`
 		MonthlyPaymentFmt   string                `json:"monthly_payment_fmt" bson:"monthly_payment_fmt"`
 		Payments            []Payment             `json:"payments" bson:"payments"`
 		CustomerId          string                `json:"customer_id" bson:"customer_id"`
 		MissedDeadline      bool                  `json:"missed_deadline" bson:"missed_deadline"`
 		URL                 string                `json:"url" bson:"url"`
 		InvoiceItems        []*stripe.InvoiceItem `json:"invoice_items" bson="invoiceitems"`
-		ServiceFee          float64               `json:"service_fee" bson="servicefee"`
-		CombinedTotal       float64               `json:"combined_total" bson:"combined_total"`
+		ServiceFee          string                `json:"service_fee" bson="servicefee"`
+		CombinedTotal       string                `json:"combined_total" bson:"combined_total"`
 		Notes               string                `json:"notes" bson:"notes"`
 	}
 	WebOrder struct {
@@ -62,7 +63,7 @@ type (
 		CreatedAt      time.Time     `json:"created_at" bson:"created_at"`
 		UpdatedAt      time.Time     `json:"updated_at" bson:"updated_at"`
 		Acknowledged   bool          `json:"acknowledged" bson:"acknowledged"`
-		Price          float64       `json:"price" bson:"price"`
+		PriceStr       string        `json:"price" bson:"price"`
 		Notes          string        `json:"notes" bson:"notes"`
 	}
 	User struct {
@@ -112,7 +113,34 @@ type (
 		ExpMonth int64
 		ExpYear  int64
 	}
+	Price struct {
+		Amount decimal.Decimal
+	}
 )
+
+// SetBSON implements bson.Setter.
+func (p *Price) SetBSON(raw bson.Raw) error {
+
+	decoded := new(struct {
+		Amount float64 `json:"value" bson:"value"`
+	})
+
+	bsonErr := raw.Unmarshal(decoded)
+
+	if bsonErr == nil {
+		p.Amount = decimal.NewFromFloat(decoded.Amount)
+
+		return nil
+	} else {
+		return bsonErr
+	}
+}
+
+func (w WebOrder) Price() decimal.Decimal {
+
+	price, _ := decimal.NewFromString(w.PriceStr)
+	return price
+}
 
 func (u User) CustomerId() string { return u.StripeCustomer.CustomerId }
 

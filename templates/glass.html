@@ -137,6 +137,9 @@
 	.error {
 		color:red;
 	}
+	#id {
+	border-right-width:0px;
+}
 </style>
 {{end}}
 {{define "body"}}
@@ -195,16 +198,16 @@
 								</div>
 							</div>
 							<!-- URL input-->
-							<div class="form-group   add-on ">
+							<div class="form-group   ">
 								<div class="col-md-12 ">
 
 									<div class="alert alert-danger " role="alert" id="url-alert" style="display:none">
 										<strong>Please enter a valid URL / link.</strong>
 									</div>
-									<div class="input-group">
-										<input id="url" name="url" type="text"  data-placement="top"  data-placement="top" style="border-right: 0px;" placeholder="Paste product or wishlist URL/link here." class="form-control input-md" />
-										<div class="input-group-addon" style="background-color:white; border-left:0px">
-										<span  style="padding-top:0px;border-color:none; padding-bottom:0px" class="btn btn-default" id="info-btn" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="You can paste a link to any single product offered by merchants online. Or, share with us your public Amazon Wishlist. Be mindful that we have some constraints, as we cannot accept direct links to shopping carts created on the merchant site."><i style="padding-top:2px;padding-bottom:2px; border:0px" class="glyphicon glyphicon-info-sign"></i></span>
+										<div class="input-group">
+										<input id="url" name="url" type="text"  data-placement="top"  data-placement="top" style="border-right-width:0px;" placeholder="Paste product or wishlist URL/link here." class="form-control input-md" />
+										<div class="input-group-addon" style="padding-left:0px;padding-right:0px;background-color:white; border-left:0px;border-top-right-radius: 8px;border-bottom-right-radius: 8px">
+										<span  style="padding-top:0px;border:none; border-radius:8px;padding-bottom:0px" class="btn btn-default" id="info-btn" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="You can paste a link to any single product offered by merchants online. Or, share with us your public Amazon Wishlist. Be mindful that we have some constraints, as we cannot accept direct links to shopping carts created on the merchant site."><i style="padding-top:2px;padding-bottom:2px; border:0px" class="glyphicon glyphicon-info-sign"></i></span>
 										</div>
 									</div>
 								</div>

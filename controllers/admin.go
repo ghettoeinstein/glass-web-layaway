@@ -4,9 +4,11 @@ import (
 	"../common"
 	"../data"
 	"../models"
+	"fmt"
+	"github.com/shopspring/decimal"
 	"html/template"
 	"log"
-	"strconv"
+	_ "strconv"
 	"time"
 	//"github.com/gorilla/mux"
 	//	"gopkg.in/mgo.v2/bson"
@@ -93,17 +95,24 @@ func AdminProcessOrder(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	price := template.HTMLEscapeString(r.PostFormValue("price"))
+	formPrice := template.HTMLEscapeString(r.PostFormValue("price"))
+	price, _ := decimal.NewFromString(formPrice)
+
+	fmt.Fprintf(w, price.String())
+	return
+	Order.Println("Price is: ", price)
+
 	notes := template.HTMLEscapeString(r.PostFormValue("notes"))
 	Order.Println(notes)
-	res, err := strconv.ParseFloat(price, 64)
-	if err != nil {
 
-		println("Error parsing price string into int:", err)
-	}
+	//res, err := strconv.ParseFloat(price, 64)
+	//if err != nil {
+
+	//	println("Error parsing price string into int:", err)
+	///}
 
 	webOrder.Notes = notes
-	webOrder.Price = float64(res)
+	//	webOrder.Price = float64(res)
 
 	decision := r.PostFormValue("decision")
 	switch decision {
@@ -124,9 +133,6 @@ func AdminProcessOrder(w http.ResponseWriter, r *http.Request) {
 	}
 
 	//renderTemplate(w, "admin", "base", webOrders)
-
-	w.Header()["Location"] = []string{"/admin"}
-	w.WriteHeader(http.StatusTemporaryRedirect)
 
 	http.Redirect(w, r, "/admin", 307)
 
@@ -284,7 +290,6 @@ func AdminLogin(w http.ResponseWriter, r *http.Request) {
 	repo := &data.UserRepository{C: col}
 	// Authenticate the login user
 
-	log.Println(loginUser)
 	user, err := repo.Login(loginUser)
 	if err != nil {
 		log.Println("Error logging in: ", err)

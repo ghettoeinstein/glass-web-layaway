@@ -1,16 +1,17 @@
 package main
 
 import (
+	"./accounting"
 	"./common"
 	"./controllers"
 	"./data"
 	"./models"
 	"./random"
+	"bytes"
+	"encoding/csv"
 	"encoding/json"
 	"errors"
-
 	"github.com/gorilla/mux"
-	"github.com/joiggama/money"
 	"github.com/stripe/stripe-go"
 	"github.com/stripe/stripe-go/customer"
 	_ "github.com/stripe/stripe-go/source"
@@ -21,9 +22,33 @@ import (
 	"time"
 )
 
+func GetCSVWebOrders(w http.ResponseWriter, r *http.Request) {
+	context := controllers.NewContext()
+	defer context.Close()
+
+	orders, err := AllWebOrders()
+	if err != nil {
+		panic(err)
+	}
+
+	b := &bytes.Buffer{} // creates IO Writer
+
+	w.Header().Set("Content-Type", "text/csv") // setting the content type header to text/csv
+
+	w.Header().Set("Content-Disposition", "attachment;filename=CurrentWebOrders.csv")
+
+	writer := csv.NewWriter(b)
+	writer.Write([]string{"URL", "Decision", "Price", "Notes", "Category"})
+	for _, order := range orders {
+		writer.Write([]string{order.URL, order.Decision, order.PriceStr, order.Notes})
+	}
+	writer.Flush()
+
+	w.Write(b.Bytes())
+}
+
 func GetPaymentConfirmation(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "confirmation", "base", nil)
-
 }
 
 func SMSLogin(w http.ResponseWriter, r *http.Request) {
@@ -221,48 +246,6 @@ func userPostGlassHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "countdown-auth", "base", payload)
 }
 
-func saveOrder(order *models.WebOrder) (err error) {
-	context := controllers.NewContext()
-	defer context.Close()
-
-	c := context.DbCollection("web_orders")
-	repo := &data.WebOrderRepository{c}
-
-	Trace.Printf("About to save web order %s to database", order.UUID)
-	if err = repo.NewWebOrder(order); err != nil {
-		Error.Println(err.Error())
-	}
-
-	return nil
-}
-
-func UserFromRequest(r *http.Request) (user *models.User, err error) {
-	ctx := r.Context()
-
-	email := ctx.Value(common.EmailKey).(string)
-
-	context := controllers.NewContext()
-	defer context.Close()
-	c := context.DbCollection("users")
-	repo := &data.UserRepository{c}
-	user, err = repo.GetByUsername(email)
-	return
-}
-
-func OrdersForUser(user *models.User) (orders []*models.Order, err error) {
-
-	context := controllers.NewContext()
-	defer context.Close()
-
-	c := context.DbCollection("orders")
-	repo := &data.OrderRepository{c}
-	orders = repo.GetForUser(user)
-	if len(orders) == 0 {
-		err = errors.New("No orders found for user.")
-	}
-	return
-}
-
 func profileHandler(w http.ResponseWriter, r *http.Request) {
 	stripe.Key = os.Getenv("STRIPE_KEY")
 	//set  page to  expiration time in past, so that the page is never cached.
@@ -279,7 +262,7 @@ func profileHandler(w http.ResponseWriter, r *http.Request) {
 
 	cust, err := customer.Get(user.StripeCustomer.CustomerId, nil)
 	if err != nil {
-		panic(err)
+		Trace.Println(err)
 		return
 	}
 	Trace.Println(cust)
@@ -309,6 +292,7 @@ func privacyPolicyHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "privacy-policy", "base", "")
 }
 
+// GET - /TOS
 func tosHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "tos", "base", "")
 }
@@ -357,9 +341,6 @@ func historyHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ordersHandler(w http.ResponseWriter, r *http.Request) {
-	ctx := controllers.NewContext()
-	defer ctx.Close()
-
 	renderTemplate(w, "orders", "base", nil)
 }
 
@@ -374,79 +355,34 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "home", "base", "")
 }
 
+// GET  - /terms/{id}
 func termsHandler(w http.ResponseWriter, r *http.Request) {
+	// Add to middleware later.
 	w.Header().Set("Cache-Control", "no-cache,no-store, must-revalidate")
 	w.Header().Set("Pragma", "no-cache")
 	w.Header().Set("Expires", " Sat, 26 Jul 1997 05:00:00 GMT")
 
-	uuid := mux.Vars(r)
-	if uuid["id"] == "" {
+	uuid := IdFromRequest(r)
+	if uuid == "" {
+		w.Write([]byte("Go away."))
 		return
 	}
 
-	context := controllers.NewContext()
-	defer context.Close()
-	c := context.DbCollection("web_orders")
-	repo := &data.WebOrderRepository{c}
-
-	webOrder, err := repo.GetByUUID(uuid["id"])
+	webOrder, err := WebOrderForUUID(uuid)
 	if err != nil {
-		log.Println("Error fetching order for UUID:", err)
-
+		Error.Println("Error fetching order for UUID:", err)
 		http.Redirect(w, r, "/start", 307)
 		return
 	}
 
-	flash := r.URL.Query().Get("err")
-	var flashMessage string
-	switch flash {
-	case "1":
-		flashMessage = "Incorrect card number. Please enter the correct number, or enter a different card"
-	case "2":
-		flashMessage = "Invalid card"
-	case "3":
-		flashMessage = "Invalid Expiration Month."
-	case "4":
-		flashMessage = "Invalid expiration month"
-	case "5":
-		flashMessage = "Invalid CVC"
-	case "6":
-		flashMessage = "Expired Card"
-	case "7":
-		flashMessage = "Incorrect CVC"
-	case "8":
-		flashMessage = "Incorrect ZIP"
-	case "9":
-		flashMessage = "Card declined, please try a different card."
-	case "10":
-		flashMessage = "There was an error please try again."
-	case "11":
-		flashMessage = "Process error, please try again later."
-	case "12":
-		flashMessage = "There was an error proccessing your card. Please re-enter card details"
-	default:
-		flashMessage = ""
-	}
+	// Create a flash  message if the request has one. If there is no flash message, nothing will display.
+	flashMessage := ParseFlash(r)
 
-	taxes := webOrder.Price * 0.0875
-	serviceFee := webOrder.Price * 0.1
+	// Put the correct pricing information for the order into a neat little struct from the accounting package.
+	ov := accounting.OrderValuesFromPrice(webOrder.PriceStr)
+	termsPayload := NewTermsPayload(ov, uuid, flashMessage)
 
-	termsPayload := struct {
-		MonthlyPayment interface{}
-		Total          interface{}
-		FirstPayment   interface{}
-		UUID           interface{}
-		PublishableKey string
-		Flash          string
-	}{
-		money.Format(webOrder.Price / 4),
-		money.Format(webOrder.Price),
-		money.Format(webOrder.Price/4 + serviceFee + taxes),
-		uuid["id"],
-		os.Getenv("STRIPE_PUB_KEY"),
-		flashMessage,
-	}
-
+	// Send the template for the page and send the inline struct for values needed.
 	renderTemplate(w, "terms", "base", termsPayload)
 
 }
@@ -456,6 +392,12 @@ func userTermsHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Cache-Control", "no-cache,no-store, must-revalidate")
 	w.Header().Set("Pragma", "no-cache")
 	w.Header().Set("Expires", " Sat, 26 Jul 1997 05:00:00 GMT")
+
+	ctx := r.Context()
+	email := ctx.Value(common.EmailKey).(string)
+	if email == "" {
+		http.Redirect(w, r, "/login", 307)
+	}
 
 	uuid := mux.Vars(r)
 	if uuid["id"] == "" {
@@ -474,14 +416,7 @@ func userTermsHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	taxes := webOrder.Price * 0.0875
-	serviceFee := webOrder.Price * 0.10
-
-	ctx := r.Context()
-	email := ctx.Value(common.EmailKey).(string)
-	if email == "" {
-		http.Redirect(w, r, "/login", 307)
-	}
+	flashMessage := ParseFlash(r)
 
 	c = context.DbCollection("users")
 	userRepo := &data.UserRepository{c}
@@ -489,6 +424,7 @@ func userTermsHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		Error.Println("No user found for email:", email)
 		http.Error(w, err.Error(), 500)
+		return
 	}
 
 	cust, err := customer.Get(user.StripeCustomer.CustomerId, nil)
@@ -498,6 +434,8 @@ func userTermsHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	ov := accounting.OrderValuesFromPrice(webOrder.PriceStr)
+
 	termsAuthPayload := struct {
 		MonthlyPayment interface{}
 		Total          interface{}
@@ -505,19 +443,22 @@ func userTermsHandler(w http.ResponseWriter, r *http.Request) {
 		UUID           interface{}
 		PaymentMethods []*stripe.PaymentSource
 		PublishableKey string
+		FlashMessage   string
 	}{
-		money.Format(webOrder.Price / 4),
-		money.Format(webOrder.Price),
-		money.Format(webOrder.Price/4 + serviceFee + taxes),
+		ov.MonthlyPaymentFmt,
+		ov.PriceFmt,
+		ov.InitialPaymentFmt,
 		uuid["id"],
 		cust.Sources.Values,
 		os.Getenv("STRIPE_PUB_KEY"),
+		flashMessage,
 	}
 
 	renderTemplate(w, "terms-auth", "base", termsAuthPayload)
 
 }
 
+// GET /about-us
 func aboutUsHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "about-us", "base", nil)
 }
@@ -569,6 +510,7 @@ func loggingHandler(w http.ResponseWriter, r *http.Request, next http.Handler) h
 	})
 }
 
+// GET /logout
 func logout(w http.ResponseWriter, r *http.Request) {
 	http.SetCookie(w, &http.Cookie{
 		Name:   "Auth",
@@ -581,6 +523,7 @@ func logout(w http.ResponseWriter, r *http.Request) {
 
 }
 
+// GET  /decision/{id}
 func decisionHandler(w http.ResponseWriter, r *http.Request) {
 	uuid := mux.Vars(r)
 
@@ -633,13 +576,6 @@ func userDecisionHandler(w http.ResponseWriter, r *http.Request) {
 		renderTemplate(w, "sorry-auth", "base", uuid["id"])
 	}
 	return
-}
-
-func IdFromRequest(r *http.Request) string {
-	vars := mux.Vars(r)
-	id := vars["id"]
-
-	return id
 }
 
 func userLogout(w http.ResponseWriter, r *http.Request) {

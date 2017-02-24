@@ -2,8 +2,8 @@ package data
 
 import (
 	"../models"
+	"errors"
 	"time"
-	//  "errors"
 
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
@@ -46,12 +46,27 @@ func (r *WebOrderRepository) UpdateOrder(wo *models.WebOrder) (err error) {
 			"phone_number": wo.PhoneNumber,
 			"url":          wo.URL,
 			"notes":        wo.Notes,
-			"price":        wo.Price,
+			"price":        wo.PriceStr,
 			"decision":     wo.Decision,
 			"acknowledged": wo.Acknowledged,
 		}})
 
 	return err
+}
+
+func (r *WebOrderRepository) GetAll() ([]models.WebOrder, error) {
+	var webOrders []models.WebOrder
+
+	iter := r.C.Find(bson.M{"acknowledged": true}).Iter()
+	result := models.WebOrder{}
+	for iter.Next(&result) {
+		webOrders = append(webOrders, result)
+	}
+	// If length of the struct is greater than 0, we are guaranteed to have found acknowledged web orders.
+	if len(webOrders) > 0 {
+		return webOrders, nil
+	}
+	return nil, errors.New("No web orders found")
 }
 
 func (r *WebOrderRepository) GetApprovedOrders() ([]models.WebOrder, error) {

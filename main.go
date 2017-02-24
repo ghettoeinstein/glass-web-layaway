@@ -6,12 +6,13 @@ import (
 	"os"
 	//	"flag"
 	"./data"
+	"github.com/shopspring/decimal"
 	"github.com/urfave/negroni"
 	"html/template"
 	"log"
 	"math/rand"
 	"net/http"
-	"strconv"
+	_ "strconv"
 	"time"
 )
 
@@ -20,7 +21,7 @@ var (
 	Trace   *log.Logger // Just about Anything
 	Info    *log.Logger // Important information
 	Warning *log.Logger // Be concerned
-	Error   *log.Logger
+	Error   *log.Logger // General Errors
 )
 
 func init() {
@@ -86,12 +87,18 @@ func AdminProcessOrder(w http.ResponseWriter, r *http.Request) {
 		common.DisplayAppError(w, err, err.Error(), 500)
 		return
 	}
-	price := template.HTMLEscapeString(r.PostFormValue("price"))
-	res, err := strconv.ParseFloat(price, 64)
-	if err != nil {
-		println("Error parsing price string into int:", err)
-	}
-	webOrder.Price = float64(res)
+	formPrice := template.HTMLEscapeString(r.PostFormValue("price"))
+	price, _ := decimal.NewFromString(formPrice)
+
+	webOrder.PriceStr = price.String()
+
+	Trace.Println("Price is :", webOrder.Price)
+
+	//res, err := strconv.ParseFloat(price, 64)
+	//if err != nil {
+	println("Error parsing price string into int:", err)
+	//}
+	//webOrder.Price = float64(res)
 	decision := r.PostFormValue("decision")
 	switch decision {
 	case "approve":
@@ -104,11 +111,10 @@ func AdminProcessOrder(w http.ResponseWriter, r *http.Request) {
 	webOrder.Acknowledged = true
 	err = repo.UpdateOrder(webOrder)
 	if err != nil {
+		Trace.Println(err)
 		common.DisplayAppError(w, err, err.Error(), 500)
 		return
 	}
-	Trace.Println("no errors, about to send UUID to chat room")
-	globalRoom.forward <- []byte(id)
 	//renderTemplate(w, "admin", "base", webOrders)
 	w.Header()["Location"] = []string{"/admin"}
 	w.WriteHeader(http.StatusTemporaryRedirect)
@@ -124,6 +130,7 @@ func UUIDStatus(w http.ResponseWriter, r *http.Request) {
 	webOrder, err := repo.GetByUUID(id)
 	if err != nil {
 		common.DisplayAppError(w, err, err.Error(), 404)
+		return
 	}
 
 	if !webOrder.Acknowledged {

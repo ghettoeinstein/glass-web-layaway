@@ -4,11 +4,12 @@ import (
 	"../common"
 	"../data"
 	"../models"
+	//	"github.com/shopspring/decimal"
 
-	"github.com/joiggama/money"
+	_ "github.com/joiggama/money"
 	"github.com/stripe/stripe-go"
-	//"github.com/stripe/stripe-go/card"
-	//"github.com/stripe/stripe-go/charge"
+	"github.com/stripe/stripe-go/card"
+	"github.com/stripe/stripe-go/charge"
 	"github.com/stripe/stripe-go/customer"
 	"github.com/stripe/stripe-go/invoiceitem"
 	"github.com/stripe/stripe-go/plan"
@@ -16,44 +17,10 @@ import (
 	"gopkg.in/mgo.v2/bson"
 	"log"
 	"net/http"
-	"os"
-	"time"
+	//	"os"
+	//"time"
 )
 
-func NewUserFromWebOrder(o *models.WebOrder) *models.User {
-
-	return &models.User{
-		Id:          bson.NewObjectId(),
-		Email:       o.Email,
-		FirstName:   o.FirstName,
-		LastName:    o.LastName,
-		PhoneNumber: o.PhoneNumber,
-	}
-}
-
-func NewOrder(webOrder *models.WebOrder, user *models.User) *models.Order {
-
-	order := &models.Order{
-		Total:               webOrder.Price,
-		BalancePostCreation: webOrder.Price * 0.75,
-		BalancePostFirst:    (webOrder.Price / 2),
-		BalancePostSecond:   (webOrder.Price / 4),
-		User:                user,
-		Email:               webOrder.Email,
-		URL:                 webOrder.URL,
-		UUID:                webOrder.UUID,
-		CustomerId:          user.StripeCustomer.CustomerId,
-		SalesTax:            webOrder.Price * 0.0875,
-		MonthlyPayment:      webOrder.Price / 4,
-		MonthlyPaymentFmt:   money.Format(webOrder.Price / 4),
-		FirstPaymentDue:     time.Now().Add(time.Hour * 24 * 30).Format("01/02/06"),
-		SecondPaymentDue:    time.Now().Add(time.Hour * 24 * 60).Format("01/02/06"),
-		ThirdPaymentDue:     time.Now().Add(time.Hour * 24 * 90).Format("01/02/06"),
-	}
-
-	return order
-
-}
 func GetCustomerForUser(w http.ResponseWriter, r *http.Request) {
 
 	return
@@ -140,30 +107,25 @@ func CreateStripeCustomerWithToken(u *models.User, token string) (*stripe.Custom
 //	return
 //
 //}
+
 //
+
 func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 	log.Println("Stripe key is:", stripe.Key)
 	r.ParseMultipartForm(32 << 20)
 	token := r.PostFormValue("stripeToken")
 
-    	id := IdFromRequest(r)
-
+	id := IdFromRequest(r)
 	if token == "" {
 		Stripe.Println("No token in request, exiting handler.")
 		http.Redirect(w, r, "/terms/"+id+"?err=12", http.StatusSeeOther)
 		return
 	}
 
-
-	context := NewContext()
-	defer context.Close()
-	c := context.DbCollection("web_orders")
-	repo := &data.WebOrderRepository{c}
-
-	// get the web Order from the database
-	webOrder, err := repo.GetByUUID(id)
+	//Get the web Order from the database
+	webOrder, err := WebOrderForUUID
 	if err != nil {
-		log.Println(err)
+		Trace.Println(err)
 		return
 	}
 
@@ -174,64 +136,13 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 	//Create a stripe customer from the user
 	stripeCustomer, err := CreateStripeCustomerWithToken(user, token)
 	if err != nil {
-
-		// Try to safely cast a generic error to a stripe.Error so that we can get at
-		// some additional Stripe-specific information about what went wrong.
-		if stripeErr, ok := err.(*stripe.Error); ok {
-			// The Code field will contain a basic identifier for the failure.
-			switch stripeErr.Code {
-			case stripe.IncorrectNum:
-				http.Redirect(w, r, "/terms/"+id+"?err=1", http.StatusSeeOther)
-				return
-			case stripe.InvalidNum:
-				http.Redirect(w, r, "/terms/"+id+"?err=2", http.StatusSeeOther)
-				return
-			case stripe.InvalidExpM:
-				http.Redirect(w, r, "/terms/"+id+"?err=3", http.StatusSeeOther)
-				return
-			case stripe.InvalidExpY:
-				http.Redirect(w, r, "/terms/"+id+"?err=4", http.StatusSeeOther)
-				return
-			case stripe.InvalidCvc:
-				http.Redirect(w, r, "/terms/"+id+"?err=5", http.StatusSeeOther)
-				return
-			case stripe.ExpiredCard:
-				http.Redirect(w, r, "/terms/"+id+"?err=6", http.StatusSeeOther)
-				return
-			case stripe.IncorrectCvc:
-
-				http.Redirect(w, r, "/terms/"+id+"?err=7", http.StatusSeeOther)
-				return
-			case stripe.IncorrectZip:
-				http.Redirect(w, r, "/terms/"+id+"?err=8", http.StatusSeeOther)
-				return
-			case stripe.CardDeclined:
-				http.Redirect(w, r, "/terms/"+id+"?err=9", http.StatusSeeOther)
-				return
-			case stripe.Missing:
-				http.Redirect(w, r, "/terms/"+id+"?err=10", http.StatusSeeOther)
-				return
-			case stripe.ProcessingErr:
-				http.Redirect(w, r, "/terms/"+id+"?err=11", http.StatusSeeOther)
-				return
-			}
-
-			// The Err field can be coerced to a more specific error type with a type
-			// assertion. This technique can be used to get more specialized
-			// information for certain errors.
-			if cardErr, ok := stripeErr.Err.(*stripe.CardError); ok {
-				Stripe.Printf("Card was declined with code: %v\n", cardErr.DeclineCode)
-			} else {
-				Stripe.Printf("Other Stripe error occurred: %v\n", stripeErr.Error())
-			}
-		} else {
-			Stripe.Printf("Other error occurred: %v\n", err.Error())
-		}
+		HandleStripeError(w, r, id, err)
 		return
 	}
+
 	// set the user's stripe customerid to the returned customer object's
 	user.StripeCustomer.CustomerId = stripeCustomer.ID
-	c = context.DbCollection("users")
+	c := context.DbCollection("users")
 	userRepo := &data.UserRepository{c}
 
 	err = userRepo.CreateUser(user)
@@ -244,15 +155,15 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 	c = context.DbCollection("orders")
 	orderRepo := &data.OrderRepository{c}
 
-	serviceFee := order.Total * 0.10
-	order.ServiceFee = serviceFee
+	serviceFee, _ := decimal.NewFromString(order.Total).Mul(decimal.NewFromFloat(0.10))
+	order.ServiceFee = serviceFee.String()
 
-	order.CombinedTotal = order.Total + order.SalesTax + order.ServiceFee
-	// Create an invoice for the Glas Service Fee(10%) of the total cost of goods  for the user.
+	order.CombinedTotal, _ = decimal.NewFromString(order.Total).Add(order.SalesTax.Add(order.ServiceFee))
+	// Create an invoice for the Glass Service Fee(10%) of the total cost of goods  for the user.
 
 	invoiceItem1, err := invoiceitem.New(&stripe.InvoiceItemParams{
 		Customer: user.StripeCustomer.CustomerId,
-		Amount:   int64(int(order.ServiceFee * 100)),
+		Amount:   order.ServiceFee.IntPart(),
 		Currency: "usd",
 		Desc:     "One-time service fee for plan: " + id,
 	})
@@ -264,7 +175,7 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 
 	invoiceItem2, err := invoiceitem.New(&stripe.InvoiceItemParams{
 		Customer: user.StripeCustomer.CustomerId,
-		Amount:   int64(int(order.SalesTax * 100)),
+		Amount:   order.SalesTax.IntPart(),
 		Currency: "usd",
 		Desc:     "One-time taxes(8.75%) for plan: " + id,
 	})
@@ -277,7 +188,7 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 	order.InvoiceItems = append(order.InvoiceItems, invoiceItem1, invoiceItem2)
 
 	p, err := plan.New(&stripe.PlanParams{
-		Amount:   uint64(int(order.MonthlyPayment * 100)),
+		Amount:   uint64(order.MonthlyPayment.IntPart()),
 		Interval: "month",
 		Name:     id + " Installment Plan",
 		Currency: "usd",
@@ -333,141 +244,124 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 		HttpOnly: true,
 	})
 
-	w.Header()["Location"] = []string{"/user/history"}
-	w.WriteHeader(http.StatusSeeOther)
+	w.Header()["Location"] = []string{"/confirmation"}
+	renderTemplate(w, "confirmation", "base", order)
 
 }
 
 func ChargeCustomerForOffer(w http.ResponseWriter, r *http.Request) {
-	stripe.Key = os.Getenv("STRIPE_KEY")
-	log.Println("Stripe key is:", stripe.Key)
-	r.ParseMultipartForm(32 << 20)
-
-	id := IdFromRequest(r)
-
-	context := NewContext()
-	defer context.Close()
-	c := context.DbCollection("web_orders")
-	repo := &data.WebOrderRepository{c}
-
-	// get the web Order from the database
-	webOrder, err := repo.GetByUUID(id)
-	if err != nil {
-		log.Println(err)
-		return
-	}
-
-	ctx := r.Context()
-	email := ctx.Value(common.EmailKey).(string)
-
-	c = context.DbCollection("users")
-	userRepo := &data.UserRepository{c}
-	user, err := userRepo.GetByUsername(email)
-	if err != nil {
-		log.Println("No user found for email")
-	}
-
-	cust, err := customer.Get(user.StripeCustomer.CustomerId, nil)
-	if err != nil {
-		log.Println("Error fetching customer data")
-	}
-
-	order := &models.Order{
-		Total:               webOrder.Price,
-		BalancePostCreation: webOrder.Price * 0.75,
-		BalancePostFirst:    (webOrder.Price / 2),
-
-		BalancePostSecond: (webOrder.Price / 4),
-		User:              user,
-		Email:             webOrder.Email,
-		URL:               webOrder.URL,
-		UUID:              webOrder.UUID,
-		CustomerId:        cust.ID,
-		SalesTax:          webOrder.Price * 0.0875,
-		MonthlyPayment:    webOrder.Price / 4,
-		MonthlyPaymentFmt: money.Format(webOrder.Price / 4),
-		FirstPaymentDue:   time.Now().Add(time.Hour * 24 * 30).Format("01/02/06"),
-		SecondPaymentDue:  time.Now().Add(time.Hour * 24 * 60).Format("01/02/06"),
-		ThirdPaymentDue:   time.Now().Add(time.Hour * 24 * 90).Format("01/02/06"),
-	}
-
-	c = context.DbCollection("orders")
-	orderRepo := &data.OrderRepository{c}
-
-	serviceFee := order.Total * 0.10
-	log.Println("Service Fee is:", serviceFee)
-	order.ServiceFee = serviceFee
-
-	// Create an invoice for the Glas Service Fee(10%) of the total cost of goods  for the user.
-
-	invoiceItem1, err := invoiceitem.New(&stripe.InvoiceItemParams{
-		Customer: user.StripeCustomer.CustomerId,
-		Amount:   int64(int(order.ServiceFee * 100)),
-		Currency: "usd",
-		Desc:     "One-time service fee for plan: " + id,
-	})
-	if err != nil {
-		log.Println("Error creating invoice item")
-		http.Error(w, err.Error(), 500)
-		return
-	}
-
-	invoiceItem2, err := invoiceitem.New(&stripe.InvoiceItemParams{
-		Customer: user.StripeCustomer.CustomerId,
-		Amount:   int64(int(order.SalesTax * 100)),
-		Currency: "usd",
-		Desc:     "One-time taxes(8.75%) for plan: " + id,
-	})
-	if err != nil {
-		log.Println("Error creating invoice item")
-		http.Error(w, err.Error(), 500)
-		return
-	}
-
-	order.InvoiceItems = append(order.InvoiceItems, invoiceItem1, invoiceItem2)
-
-	p, err := plan.New(&stripe.PlanParams{
-		Amount:   uint64(int(order.MonthlyPayment * 100)),
-		Interval: "month",
-		Name:     id + " Installment Plan",
-		Currency: "usd",
-		ID:       id,
-	})
-	if err != nil {
-		log.Println("Error creating plan")
-		return
-	}
-	log.Println(p)
-
-	order.PlanID = p.ID
-
-	// Create a subscription and attach the plan for the order to the sub.
-	s, err := sub.New(&stripe.SubParams{
-		Customer: user.StripeCustomer.CustomerId,
-		Plan:     p.ID,
-	})
-	if err != nil {
-		log.Println("Error creating subscription:", s)
-
-		w.Header()["Location"] = []string{"/terms/" + id}
-		w.WriteHeader(http.StatusSeeOther)
-
-		return
-	}
-
-	order.SubscriptionID = s.ID
-
-	err = orderRepo.SaveOrder(order)
-	if err != nil {
-		log.Println("Error saving order:", order)
-	}
-	log.Println("Saved order successfully: ", order.UUID)
-
-	err = SendConf(order)
-	if err != nil {
-		log.Println("Error sending confirmation email:", err)
-	}
-
-	http.Redirect(w, r, "/user/history", 303)
+	//	stripe.Key = os.Getenv("STRIPE_KEY")
+	//	log.Println("Stripe key is:", stripe.Key)
+	//	r.ParseMultipartForm(32 << 20)
+	//
+	//	id := IdFromRequest(r)
+	//
+	//	context := NewContext()
+	//	defer context.Close()
+	//	c := context.DbCollection("web_orders")
+	//	repo := &data.WebOrderRepository{c}
+	//
+	//	// get the web Order from the database
+	//	webOrder, err := repo.GetByUUID(id)
+	//	if err != nil {
+	//		log.Println(err)
+	//		return
+	//	}
+	//
+	//	ctx := r.Context()
+	//	email := ctx.Value(common.EmailKey).(string)
+	//
+	//	c = context.DbCollection("users")
+	//	userRepo := &data.UserRepository{c}
+	//	user, err := userRepo.GetByUsername(email)
+	//	if err != nil {
+	//		log.Println("No user found for email")
+	//	}
+	//
+	//	cust, err := customer.Get(user.StripeCustomer.CustomerId, nil)
+	//	if err != nil {
+	//		log.Println("Error fetching customer data")
+	//	}
+	//
+	//	order := NewOrderForUser(webOrder, user, cust)
+	//
+	//	c = context.DbCollection("orders")
+	//	orderRepo := &data.OrderRepository{c}
+	//
+	//	serviceFee := order.Total.Mul(decimal.NewFromFloat(0.10))
+	//	log.Println("Service Fee is:", serviceFee)
+	//	order.ServiceFee = serviceFee
+	//
+	//	// Create an invoice for the Glas Service Fee(10%) of the total cost of goods  for the user.
+	//
+	//	invoiceItem1, err := invoiceitem.New(&stripe.InvoiceItemParams{
+	//		Customer: user.StripeCustomer.CustomerId,
+	//		Amount:   order.ServiceFee.IntPart(),
+	//		Currency: "usd",
+	//		Desc:     "One-time service fee for plan: " + id,
+	//	})
+	//	if err != nil {
+	//		log.Println("Error creating invoice item")
+	//		http.Error(w, err.Error(), 500)
+	//		return
+	//	}
+	//
+	//	invoiceItem2, err := invoiceitem.New(&stripe.InvoiceItemParams{
+	//		Customer: user.StripeCustomer.CustomerId,
+	//		Amount:   order.SalesTax.IntPart(),
+	//		Currency: "usd",
+	//		Desc:     "One-time taxes(8.75%) for plan: " + id,
+	//	})
+	//	if err != nil {
+	//		Stripe.Println("Error creating invoice item")
+	//		http.Error(w, err.Error(), 500)
+	//		return
+	//	}
+	//
+	//	order.InvoiceItems = append(order.InvoiceItems, invoiceItem1, invoiceItem2)
+	//
+	//	p, err := plan.New(&stripe.PlanParams{
+	//		Amount:   uint64(order.MonthlyPayment.IntPart()),
+	//		Interval: "month",
+	//		Name:     id + " Installment Plan",
+	//		Currency: "usd",
+	//		ID:       id,
+	//	})
+	//	if err != nil {
+	//		log.Println("Error creating plan")
+	//		return
+	//	}
+	//	log.Println(p)
+	//
+	//	order.PlanID = p.ID
+	//
+	//	// Create a subscription and attach the plan for the order to the sub.
+	//	s, err := sub.New(&stripe.SubParams{
+	//		Customer: user.StripeCustomer.CustomerId,
+	//		Plan:     p.ID,
+	//	})
+	//	if err != nil {
+	//		log.Println("Error creating subscription:", s)
+	//
+	//		w.Header()["Location"] = []string{"/terms/" + id}
+	//		w.WriteHeader(http.StatusSeeOther)
+	//
+	//		return
+	//	}
+	//
+	//	order.SubscriptionID = s.ID
+	//
+	//	err = orderRepo.SaveOrder(order)
+	//	if err != nil {
+	//		log.Println("Error saving order:", order)
+	//	}
+	//	log.Println("Saved order successfully: ", order.UUID)
+	//
+	//	err = SendConf(order)
+	//	if err != nil {
+	//		log.Println("Error sending confirmation email:", err)
+	//	}
+	//
+	//	http.Redirect(w, r, "/user/history", 303)
 
 }
