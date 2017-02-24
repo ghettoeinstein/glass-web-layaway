@@ -40,7 +40,7 @@ func GetCSVWebOrders(w http.ResponseWriter, r *http.Request) {
 	writer := csv.NewWriter(b)
 	writer.Write([]string{"URL", "Decision", "Price", "Notes", "Category"})
 	for _, order := range orders {
-		writer.Write([]string{order.URL, order.Decision, order.PriceStr, order.Notes})
+		writer.Write([]string{order.URL, order.Decision, string(order.PriceStr), order.Notes})
 	}
 	writer.Flush()
 
