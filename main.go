@@ -6,7 +6,7 @@ import (
 	"os"
 	//	"flag"
 	"./data"
-	"github.com/shopspring/decimal"
+
 	"github.com/urfave/negroni"
 	"html/template"
 	"log"
@@ -89,7 +89,7 @@ func AdminProcessOrder(w http.ResponseWriter, r *http.Request) {
 	}
 	formPrice := template.HTMLEscapeString(r.PostFormValue("price"))
 
-	webOrder.PriceStr = price
+	webOrder.PriceStr = formPrice
 
 	Trace.Println("Price is :", webOrder.Price)
 
