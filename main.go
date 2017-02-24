@@ -88,15 +88,14 @@ func AdminProcessOrder(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	formPrice := template.HTMLEscapeString(r.PostFormValue("price"))
-	price, _ := decimal.NewFromString(formPrice)
 
-	webOrder.PriceStr = price.String()
+	webOrder.PriceStr = price
 
 	Trace.Println("Price is :", webOrder.Price)
 
 	//res, err := strconv.ParseFloat(price, 64)
 	//if err != nil {
-	println("Error parsing price string into int:", err)
+
 	//}
 	//webOrder.Price = float64(res)
 	decision := r.PostFormValue("decision")

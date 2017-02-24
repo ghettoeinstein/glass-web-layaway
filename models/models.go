@@ -119,30 +119,6 @@ type (
 	}
 )
 
-// SetBSON implements bson.Setter.
-func (p *Price) SetBSON(raw bson.Raw) error {
-
-	decoded := new(struct {
-		Amount float64 `json:"value" bson:"value"`
-	})
-
-	bsonErr := raw.Unmarshal(decoded)
-
-	if bsonErr == nil {
-		p.Amount = decimal.NewFromFloat(decoded.Amount)
-
-		return nil
-	} else {
-		return bsonErr
-	}
-}
-
-func (w WebOrder) Price() decimal.Decimal {
-
-	price, _ := decimal.NewFromString(w.PriceStr)
-	return price
-}
-
 func (u User) CustomerId() string { return u.StripeCustomer.CustomerId }
 
 func (u User) isAdmin() bool  { return false }
