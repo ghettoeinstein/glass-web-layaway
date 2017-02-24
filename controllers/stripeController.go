@@ -1,15 +1,15 @@
 package controllers
 
 import (
+	"../accounting"
 	"../common"
 	"../data"
 	"../models"
-	//	"github.com/shopspring/decimal"
-
 	_ "github.com/joiggama/money"
+
 	"github.com/stripe/stripe-go"
-	"github.com/stripe/stripe-go/card"
-	"github.com/stripe/stripe-go/charge"
+	//	"github.com/stripe/stripe-go/card"
+	//	"github.com/stripe/stripe-go/charge"
 	"github.com/stripe/stripe-go/customer"
 	"github.com/stripe/stripe-go/invoiceitem"
 	"github.com/stripe/stripe-go/plan"
@@ -18,7 +18,7 @@ import (
 	"log"
 	"net/http"
 	//	"os"
-	//"time"
+	"time"
 )
 
 func GetCustomerForUser(w http.ResponseWriter, r *http.Request) {
@@ -123,9 +123,9 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 	}
 
 	//Get the web Order from the database
-	webOrder, err := WebOrderForUUID
+	webOrder, err := WebOrderForUUID(id)
 	if err != nil {
-		Trace.Println(err)
+		Stripe.Println(err)
 		return
 	}
 
@@ -140,6 +140,8 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	context := NewContext()
+	defer context.Close()
 	// set the user's stripe customerid to the returned customer object's
 	user.StripeCustomer.CustomerId = stripeCustomer.ID
 	c := context.DbCollection("users")
@@ -155,15 +157,18 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 	c = context.DbCollection("orders")
 	orderRepo := &data.OrderRepository{c}
 
-	serviceFee, _ := decimal.NewFromString(order.Total).Mul(decimal.NewFromFloat(0.10))
-	order.ServiceFee = serviceFee.String()
+	ov := accounting.OrderValuesFromPrice(webOrder.PriceStr)
 
-	order.CombinedTotal, _ = decimal.NewFromString(order.Total).Add(order.SalesTax.Add(order.ServiceFee))
+	order.ServiceFee = ov.ServiceFee
+	order.SalesTax = ov.Taxes
+	order.Total = ov.Total
+	order.MonthlyPayment = ov.MonthlyPayment
+
 	// Create an invoice for the Glass Service Fee(10%) of the total cost of goods  for the user.
 
 	invoiceItem1, err := invoiceitem.New(&stripe.InvoiceItemParams{
 		Customer: user.StripeCustomer.CustomerId,
-		Amount:   order.ServiceFee.IntPart(),
+		Amount:   order.ServiceFee,
 		Currency: "usd",
 		Desc:     "One-time service fee for plan: " + id,
 	})
@@ -175,7 +180,7 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 
 	invoiceItem2, err := invoiceitem.New(&stripe.InvoiceItemParams{
 		Customer: user.StripeCustomer.CustomerId,
-		Amount:   order.SalesTax.IntPart(),
+		Amount:   order.SalesTax,
 		Currency: "usd",
 		Desc:     "One-time taxes(8.75%) for plan: " + id,
 	})
@@ -188,7 +193,7 @@ func ChargeNewCustomerForOffer(w http.ResponseWriter, r *http.Request) {
 	order.InvoiceItems = append(order.InvoiceItems, invoiceItem1, invoiceItem2)
 
 	p, err := plan.New(&stripe.PlanParams{
-		Amount:   uint64(order.MonthlyPayment.IntPart()),
+		Amount:   uint64(order.MonthlyPayment),
 		Interval: "month",
 		Name:     id + " Installment Plan",
 		Currency: "usd",

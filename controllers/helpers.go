@@ -6,7 +6,7 @@ import (
 	"github.com/gorilla/mux"
 	_ "github.com/joiggama/money"
 	m "github.com/keighl/mandrill"
-	"github.com/shopspring/decimal"
+
 	"github.com/stripe/stripe-go"
 	"gopkg.in/mgo.v2/bson"
 	"log"
@@ -158,21 +158,16 @@ func HandleStripeError(w http.ResponseWriter, r *http.Request, id string, err er
 func NewOrder(webOrder *models.WebOrder, user *models.User) *models.Order {
 
 	order := &models.Order{
-		Total:               webOrder.Price().String(),
-		BalancePostCreation: webOrder.Price().Mul(decimal.NewFromFloat(0.75)).String(),
-		BalancePostFirst:    webOrder.Price().Div(decimal.NewFromFloat(2)).String(),
-		BalancePostSecond:   webOrder.Price().Div(decimal.NewFromFloat(4)).String(),
-		User:                user,
-		Email:               webOrder.Email,
-		URL:                 webOrder.URL,
-		UUID:                webOrder.UUID,
-		CustomerId:          user.StripeCustomer.CustomerId,
-		SalesTax:            webOrder.Price().Mul(decimal.NewFromFloat(0.0875)).String(),
-		MonthlyPayment:      webOrder.Price().Div(decimal.NewFromFloat(4)).String(),
-		MonthlyPaymentFmt:   webOrder.Price().Div(decimal.NewFromFloat(4)).String(),
-		FirstPaymentDue:     time.Now().Add(time.Hour * 24 * 30).Format("01/02/06"),
-		SecondPaymentDue:    time.Now().Add(time.Hour * 24 * 60).Format("01/02/06"),
-		ThirdPaymentDue:     time.Now().Add(time.Hour * 24 * 90).Format("01/02/06"),
+
+		User:       user,
+		Email:      webOrder.Email,
+		URL:        webOrder.URL,
+		UUID:       webOrder.UUID,
+		CustomerId: user.StripeCustomer.CustomerId,
+
+		FirstPaymentDue:  time.Now().Add(time.Hour * 24 * 30).Format("01/02/06"),
+		SecondPaymentDue: time.Now().Add(time.Hour * 24 * 60).Format("01/02/06"),
+		ThirdPaymentDue:  time.Now().Add(time.Hour * 24 * 90).Format("01/02/06"),
 	}
 
 	return order
@@ -183,21 +178,16 @@ func NewOrder(webOrder *models.WebOrder, user *models.User) *models.Order {
 func NewOrderForUser(webOrder *models.WebOrder, user *models.User, cust *stripe.Customer) *models.Order {
 
 	order := &models.Order{
-		Total:               webOrder.Price().String(),
-		BalancePostCreation: webOrder.Price().Mul(decimal.NewFromFloat(0.75)).String(),
-		BalancePostFirst:    webOrder.Price().Div(decimal.NewFromFloat(2)).String(),
-		BalancePostSecond:   webOrder.Price().Div(decimal.NewFromFloat(4)).String(),
-		User:                user,
-		Email:               webOrder.Email,
-		URL:                 webOrder.URL,
-		UUID:                webOrder.UUID,
-		CustomerId:          cust.ID,
-		SalesTax:            webOrder.Price().Mul(decimal.NewFromFloat(0.0875)).String(),
-		MonthlyPayment:      webOrder.Price().Div(decimal.NewFromFloat(4)).String(),
-		MonthlyPaymentFmt:   webOrder.Price().Div(decimal.NewFromFloat(4)).String(),
-		FirstPaymentDue:     time.Now().Add(time.Hour * 24 * 30).Format("01/02/06"),
-		SecondPaymentDue:    time.Now().Add(time.Hour * 24 * 60).Format("01/02/06"),
-		ThirdPaymentDue:     time.Now().Add(time.Hour * 24 * 90).Format("01/02/06"),
+
+		User:       user,
+		Email:      webOrder.Email,
+		URL:        webOrder.URL,
+		UUID:       webOrder.UUID,
+		CustomerId: cust.ID,
+
+		FirstPaymentDue:  time.Now().Add(time.Hour * 24 * 30).Format("01/02/06"),
+		SecondPaymentDue: time.Now().Add(time.Hour * 24 * 60).Format("01/02/06"),
+		ThirdPaymentDue:  time.Now().Add(time.Hour * 24 * 90).Format("01/02/06"),
 	}
 
 	return order

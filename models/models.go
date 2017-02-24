@@ -19,7 +19,7 @@ type (
 		ShippingAddress     string                `json:"shipping_address" bson:"shipping_address"`
 		TrackingNumber      string                `json:"tracking_number" bson:"tracking_number"`
 		Items               []Item                `json:"items" bson:"items"`
-		Total               string                `json:"total" bson:"total"`
+		Total               int64                 `json:"total" bson:"total"`
 		TotalFmt            string                `json:"total_fmt" bson:"total_fmt"`
 		TaxRate             string                `json:"tax_rate" bson:"tax_rate"`
 		OrderDate           string                `json:"order_date" bson:"order_date"`
@@ -27,7 +27,7 @@ type (
 		SubscriptionID      string                `json:"subscrption_id" bson:"subscription_id"`
 		CreatedAt           time.Time             `json:"created_at" bson:"created_at"`
 		UpdatedAt           time.Time             `json:"updated_at" bson:"updated_at"`
-		SalesTax            string                `json:"sales_tax" bson:"sales_tax"`
+		SalesTax            int64                 `json:"sales_tax" bson:"sales_tax"`
 		SalesTaxFmt         string                `json:"sales_tax_fmt" bson:"sales_tax_fmt"`
 		Email               string                `json:"email" bson:"email"`
 		UUID                string                `json:"uuid" bson:"uuid"`
@@ -37,14 +37,14 @@ type (
 		SecondPaymentDue    string                `json:"second_payment" bson:"second_payment_due"`
 		ThirdPaymentPaid    bool                  `json:"third_payment" bson:"third_payment"`
 		ThirdPaymentDue     string                `json:"third_payment" bson:"third_payment_due"`
-		MonthlyPayment      string                `json:"monthly_payment" bson:"monthly_payment"`
+		MonthlyPayment      int64                 `json:"monthly_payment" bson:"monthly_payment"`
 		MonthlyPaymentFmt   string                `json:"monthly_payment_fmt" bson:"monthly_payment_fmt"`
 		Payments            []Payment             `json:"payments" bson:"payments"`
 		CustomerId          string                `json:"customer_id" bson:"customer_id"`
 		MissedDeadline      bool                  `json:"missed_deadline" bson:"missed_deadline"`
 		URL                 string                `json:"url" bson:"url"`
 		InvoiceItems        []*stripe.InvoiceItem `json:"invoice_items" bson="invoiceitems"`
-		ServiceFee          string                `json:"service_fee" bson="servicefee"`
+		ServiceFee          int64                 `json:"service_fee" bson="servicefee"`
 		CombinedTotal       string                `json:"combined_total" bson:"combined_total"`
 		Notes               string                `json:"notes" bson:"notes"`
 	}
