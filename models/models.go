@@ -64,7 +64,7 @@ type (
 		UpdatedAt      time.Time     `json:"updated_at" bson:"updated_at"`
 		Acknowledged   bool          `json:"acknowledged" bson:"acknowledged"`
 		PriceStr       string        `json:"pricestr" bson:"priceStr"`
-		Price          string        `json:"price" bson:"price"`
+		Price          int           `json:"price" bson:"price"`
 		Notes          string        `json:"notes" bson:"notes"`
 	}
 	User struct {

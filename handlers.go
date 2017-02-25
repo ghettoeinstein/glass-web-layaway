@@ -19,6 +19,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 	"time"
 )
 
@@ -41,7 +42,7 @@ func GetCSVWebOrders(w http.ResponseWriter, r *http.Request) {
 	writer.Write([]string{"URL", "Decision", "Price", "Notes", "Category"})
 	for _, order := range orders {
 		log.Println("Price is:", order)
-		writer.Write([]string{order.URL, order.Decision, string(order.Price), order.Notes})
+		writer.Write([]string{order.URL, order.Decision, strconv.Itoa(order.Price), order.Notes})
 	}
 	writer.Flush()
 
@@ -380,7 +381,7 @@ func termsHandler(w http.ResponseWriter, r *http.Request) {
 	flashMessage := ParseFlash(r)
 
 	// Put the correct pricing information for the order into a neat little struct from the accounting package.
-	ov := accounting.OrderValuesFromPrice(webOrder.Price)
+	ov := accounting.OrderValuesFromPrice(webOrder.PriceStr)
 	termsPayload := NewTermsPayload(ov, uuid, flashMessage)
 
 	// Send the template for the page and send the inline struct for values needed.
