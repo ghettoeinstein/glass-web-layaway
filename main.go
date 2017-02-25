@@ -91,7 +91,7 @@ func AdminProcessOrder(w http.ResponseWriter, r *http.Request) {
 
 	webOrder.PriceStr = formPrice
 
-	Trace.Println("Price is :", webOrder.Price)
+	Trace.Println("Price is :", webOrder.PriceStr)
 
 	//res, err := strconv.ParseFloat(price, 64)
 	//if err != nil {
