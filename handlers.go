@@ -19,7 +19,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"strconv"
+
 	"time"
 )
 
@@ -42,7 +42,7 @@ func GetCSVWebOrders(w http.ResponseWriter, r *http.Request) {
 	writer.Write([]string{"URL", "Decision", "Price", "Notes", "Category"})
 	for _, order := range orders {
 		log.Println("Price is:", order)
-		writer.Write([]string{order.URL, order.Decision, strconv.Itoa(order.Price), order.Notes})
+		writer.Write([]string{order.URL, order.Decision, order.PriceStr, order.Notes})
 	}
 	writer.Flush()
 
