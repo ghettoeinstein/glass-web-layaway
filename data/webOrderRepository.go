@@ -46,7 +46,8 @@ func (r *WebOrderRepository) UpdateOrder(wo *models.WebOrder) (err error) {
 			"phone_number": wo.PhoneNumber,
 			"url":          wo.URL,
 			"notes":        wo.Notes,
-			"price":        wo.PriceStr,
+			"priceStr":     wo.PriceStr,
+			"price":        wo.Price,
 			"decision":     wo.Decision,
 			"acknowledged": wo.Acknowledged,
 		}})
